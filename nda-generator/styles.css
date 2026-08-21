@@ -715,6 +715,188 @@ body {
   border-left-color: rgb(217 119 6);
 }
 
+/* ===== Benefits section ===== */
+.benefit-card {
+  padding: 1.5rem 1.25rem;
+  border-radius: 1rem;
+  border: 1.5px solid rgb(226 232 240);
+  background: white;
+  text-align: center;
+  transition: all 0.15s ease;
+}
+.dark .benefit-card {
+  background: rgb(15 23 42);
+  border-color: rgb(30 41 59);
+}
+.benefit-card:hover {
+  border-color: rgb(147 197 253);
+  box-shadow: 0 8px 20px -8px rgb(37 99 235 / 0.25);
+  transform: translateY(-2px);
+}
+.dark .benefit-card:hover {
+  border-color: rgb(59 130 246);
+}
+.benefit-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  height: 3rem;
+  width: 3rem;
+  border-radius: 9999px;
+  background: rgb(239 246 255);
+  margin-bottom: 0.75rem;
+}
+.dark .benefit-icon {
+  background: rgb(30 58 138 / 0.25);
+}
+.benefit-card h3 {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: rgb(15 23 42);
+  margin-bottom: 0.4rem;
+}
+.dark .benefit-card h3 { color: white; }
+.benefit-card p {
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: rgb(100 116 139);
+}
+.dark .benefit-card p { color: rgb(148 163 184); }
+
+/* ===== Donation button & modal ===== */
+.donate-btn-nav {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.85rem;
+  border-radius: 9999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: rgb(120 53 15);
+  background: rgb(254 240 138);
+  border: 1.5px solid rgb(250 204 21 / 0.6);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+.donate-btn-nav:hover {
+  background: rgb(253 224 71);
+  transform: translateY(-1px);
+}
+.dark .donate-btn-nav {
+  color: rgb(254 240 138);
+  background: rgb(120 53 15 / 0.35);
+  border-color: rgb(202 138 4 / 0.6);
+}
+.dark .donate-btn-nav:hover {
+  background: rgb(120 53 15 / 0.55);
+}
+.donate-btn-footer {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 9999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: rgb(120 53 15);
+  background: rgb(254 240 138);
+  border: 1.5px solid rgb(250 204 21 / 0.6);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.donate-btn-footer:hover {
+  background: rgb(253 224 71);
+}
+.dark .donate-btn-footer {
+  color: rgb(254 240 138);
+  background: rgb(120 53 15 / 0.35);
+  border-color: rgb(202 138 4 / 0.6);
+}
+.dark .donate-btn-footer:hover {
+  background: rgb(120 53 15 / 0.55);
+}
+.donate-icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+.donate-modal-desc {
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: rgb(71 85 105);
+}
+.dark .donate-modal-desc { color: rgb(148 163 184); }
+.donate-amounts {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+.donate-amount-btn {
+  padding: 0.55rem 1.1rem;
+  border-radius: 0.6rem;
+  border: 1.5px solid rgb(226 232 240);
+  background: white;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: rgb(51 65 85);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.dark .donate-amount-btn {
+  background: rgb(15 23 42);
+  border-color: rgb(30 41 59);
+  color: rgb(226 232 240);
+}
+.donate-amount-btn:hover {
+  border-color: rgb(147 197 253);
+}
+.donate-amount-btn.active {
+  background: rgb(37 99 235);
+  border-color: rgb(37 99 235);
+  color: white;
+}
+.donate-amount-custom {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0 0.7rem;
+  border-radius: 0.6rem;
+  border: 1.5px solid rgb(226 232 240);
+  color: rgb(51 65 85);
+  font-weight: 600;
+}
+.dark .donate-amount-custom {
+  border-color: rgb(30 41 59);
+  color: rgb(226 232 240);
+}
+.donate-amount-custom input {
+  width: 4.5rem;
+  padding: 0.55rem 0;
+  border: none;
+  background: transparent;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: inherit;
+  outline: none;
+}
+.donate-thanks {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.6rem;
+  background: rgb(220 252 231);
+  color: rgb(22 101 52);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+.dark .donate-thanks {
+  background: rgb(20 83 45 / 0.35);
+  color: rgb(134 239 172);
+}
+.donate-thanks.hidden { display: none; }
+
 /* ===== Small ghost button variant ===== */
 .btn-sm {
   padding: 0.35rem 0.7rem;
