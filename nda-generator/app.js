@@ -105,6 +105,43 @@ const I18N = {
     copy_error: "No se pudo copiar el texto.",
     clear_confirm: "¿Seguro que deseas limpiar todo el formulario?",
     pdf_generating: "Generando PDF...",
+    btn_docx: "Descargar en Word (.docx)",
+    docx_generating: "Generando Word...",
+    docx_error: "No se pudo generar el archivo Word. Inténtalo de nuevo.",
+    docx_lib_error: "No se pudo cargar el motor de Word. Verifica tu conexión a internet.",
+
+    /* --- Logo --- */
+    logo_upload_btn: "Subir logotipo de la empresa (opcional)",
+    logo_remove_btn: "Quitar logo",
+    logo_error_type: "Formato de imagen no soportado. Usa PNG, JPG o SVG.",
+
+    /* --- Digital signature --- */
+    sig_modal_title: "Firma digital",
+    sig_tab_draw: "Dibujar",
+    sig_tab_upload: "Subir imagen",
+    sig_draw_hint: "Dibuja tu firma arriba con el ratón o el dedo.",
+    sig_upload_btn: "Elegir imagen (PNG/JPG)",
+    sig_upload_hint: "La imagen se ajustará automáticamente al recuadro de firma.",
+    sig_btn_clear: "Limpiar firma",
+    sig_btn_confirm: "Confirmar firma",
+    btn_cancel: "Cancelar",
+    sig_add_btn: "Añadir firma",
+    sig_edit_btn: "Editar",
+    sig_remove_btn: "Quitar",
+    sig_slot_prefix: "Firma:",
+    sig_error_empty: "Dibuja o sube una imagen antes de confirmar la firma.",
+
+    /* --- Persistence --- */
+    btn_save_template: "Guardar mis datos como plantilla",
+    btn_load_template: "Cargar mis datos",
+    autosave_note: "Tus datos se guardan automáticamente en este navegador.",
+    template_saved: "Datos de la Parte Emisora guardados como plantilla.",
+    template_loaded: "Plantilla cargada correctamente.",
+    template_empty: "Todavía no has guardado ninguna plantilla.",
+
+    /* --- Completion & validation --- */
+    completion_label: "Progreso del documento",
+    validation_missing: "Completa los campos obligatorios resaltados antes de descargar el documento.",
 
     /* --- Legal document strings --- */
     doc_title_nda_unilateral: "ACUERDO DE CONFIDENCIALIDAD UNILATERAL",
@@ -271,6 +308,43 @@ const I18N = {
     copy_error: "Could not copy the text.",
     clear_confirm: "Are you sure you want to clear the entire form?",
     pdf_generating: "Generating PDF...",
+    btn_docx: "Download Word (.docx)",
+    docx_generating: "Generating Word...",
+    docx_error: "Could not generate the Word file. Please try again.",
+    docx_lib_error: "Could not load the Word export engine. Check your internet connection.",
+
+    /* --- Logo --- */
+    logo_upload_btn: "Upload company logo (optional)",
+    logo_remove_btn: "Remove logo",
+    logo_error_type: "Unsupported image format. Use PNG, JPG, or SVG.",
+
+    /* --- Digital signature --- */
+    sig_modal_title: "Digital signature",
+    sig_tab_draw: "Draw",
+    sig_tab_upload: "Upload image",
+    sig_draw_hint: "Draw your signature above with your mouse or finger.",
+    sig_upload_btn: "Choose image (PNG/JPG)",
+    sig_upload_hint: "The image will be automatically fitted to the signature box.",
+    sig_btn_clear: "Clear signature",
+    sig_btn_confirm: "Confirm signature",
+    btn_cancel: "Cancel",
+    sig_add_btn: "Add signature",
+    sig_edit_btn: "Edit",
+    sig_remove_btn: "Remove",
+    sig_slot_prefix: "Signature:",
+    sig_error_empty: "Draw or upload an image before confirming the signature.",
+
+    /* --- Persistence --- */
+    btn_save_template: "Save my info as a template",
+    btn_load_template: "Load my info",
+    autosave_note: "Your data is saved automatically in this browser.",
+    template_saved: "Disclosing Party info saved as a template.",
+    template_loaded: "Template loaded successfully.",
+    template_empty: "You haven't saved a template yet.",
+
+    /* --- Completion & validation --- */
+    completion_label: "Document progress",
+    validation_missing: "Fill in the highlighted required fields before downloading the document.",
 
     doc_title_nda_unilateral: "UNILATERAL NON-DISCLOSURE AGREEMENT",
     doc_title_nda_mutual: "MUTUAL (BILATERAL) NON-DISCLOSURE AGREEMENT",
@@ -347,7 +421,23 @@ const state = {
   docType: 'nda_unilateral',
   step: 1,
   totalSteps: 4,
+  logo: null,
+  signatures: { A: null, B: null },
 };
+
+const AUTOSAVE_KEY = 'ndagen_autosave_v1';
+const TEMPLATE_KEY = 'ndagen_partyA_template_v1';
+
+const REQUIRED_FIELDS = [
+  { id: 'partyA_name', step: 1 },
+  { id: 'partyA_id', step: 1 },
+  { id: 'partyA_address', step: 1 },
+  { id: 'partyB_name', step: 1 },
+  { id: 'partyB_id', step: 1 },
+  { id: 'partyB_address', step: 1 },
+  { id: 'purpose', step: 2 },
+  { id: 'jurisdiction', step: 3 },
+];
 
 const $ = (sel, ctx = document) => ctx.querySelector(sel);
 const $all = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
@@ -388,6 +478,7 @@ function applyI18n() {
   updatePartyLegends();
   updateObjectLabel();
   updateDurationLabel();
+  updateSignatureLabels();
 }
 
 function updatePartyLegends() {
@@ -417,6 +508,25 @@ function updateDurationLabel() {
       l.textContent = state.docType === 'b2b_services' ? t('label_duration_b2b') : t('label_duration');
     }
   });
+}
+
+function updateSignatureLabels() {
+  const labelA = $('#sig-slot-label-A');
+  const labelB = $('#sig-slot-label-B');
+  if (!labelA || !labelB) return;
+  let legendA, legendB;
+  if (state.docType === 'nda_mutual') {
+    legendA = t('party_a_legend_mutual');
+    legendB = t('party_b_legend_mutual');
+  } else if (state.docType === 'b2b_services') {
+    legendA = t('party_a_legend_b2b');
+    legendB = t('party_b_legend_b2b');
+  } else {
+    legendA = t('party_a_legend');
+    legendB = t('party_b_legend');
+  }
+  labelA.textContent = `${t('sig_slot_prefix')} ${legendA}`;
+  labelB.textContent = `${t('sig_slot_prefix')} ${legendB}`;
 }
 
 /* ---------------------------------------------------------------------
@@ -462,21 +572,7 @@ function getFormData() {
   };
 }
 
-function buildDocumentHtml() {
-  const data = getFormData();
-  const lang = state.lang;
-  const docType = state.docType;
-
-  const nameA = fieldOrPlaceholder(data.nameA, 'ph_nameA');
-  const nameB = fieldOrPlaceholder(data.nameB, 'ph_nameB');
-  const idA = fieldOrPlaceholder(data.idA, 'ph_id');
-  const idB = fieldOrPlaceholder(data.idB, 'ph_id');
-  const addrA = fieldOrPlaceholder(data.addrA, 'ph_addr');
-  const addrB = fieldOrPlaceholder(data.addrB, 'ph_addr');
-  const purpose = fieldOrPlaceholder(data.purpose, 'ph_purpose');
-  const jurisdiction = fieldOrPlaceholder(data.jurisdiction, 'ph_jur');
-  const duration = durationText(data.duration);
-
+function resolveTemplateParts(docType) {
   let roleA, roleB, title, intro, c1title, c1body, c2title, c2body;
 
   if (docType === 'nda_unilateral') {
@@ -508,20 +604,14 @@ function buildDocumentHtml() {
     c2body = t('c2_body_b2b');
   }
 
-  const fill = (str) => str
-    .replace(/\{nameA\}/g, nameA).replace(/\{nameB\}/g, nameB)
-    .replace(/\{idA\}/g, idA).replace(/\{idB\}/g, idB)
-    .replace(/\{addrA\}/g, addrA).replace(/\{addrB\}/g, addrB)
-    .replace(/\{roleA\}/g, `<strong>${roleA}</strong>`).replace(/\{roleB\}/g, `<strong>${roleB}</strong>`)
-    .replace(/\{purpose\}/g, purpose)
-    .replace(/\{duration\}/g, `<strong>${duration}</strong>`)
-    .replace(/\{jurisdiction\}/g, `<strong>${jurisdiction}</strong>`);
+  return { roleA, roleB, title, intro, c1title, c1body, c2title, c2body };
+}
 
+function resolveClauses(docType, parts) {
   const isB2b = docType === 'b2b_services';
-
   const clauses = [];
-  clauses.push({ title: c1title, body: c1body });
-  clauses.push({ title: c2title, body: c2body });
+  clauses.push({ title: parts.c1title, body: parts.c1body });
+  clauses.push({ title: parts.c2title, body: parts.c2body });
   if (!isB2b) clauses.push({ title: t('c3_title'), body: t('c3_body') });
   clauses.push({
     title: isB2b ? t('c4_title_b2b') : t('c4_title_nda'),
@@ -534,6 +624,37 @@ function buildDocumentHtml() {
   });
   clauses.push({ title: isB2b ? t('c7_title_b2b') : t('c7_title'), body: t('c7_body') });
   clauses.push({ title: isB2b ? t('c8_title_b2b') : t('c8_title'), body: t('c8_body') });
+  return clauses;
+}
+
+function buildDocumentHtml() {
+  const data = getFormData();
+  const lang = state.lang;
+  const docType = state.docType;
+
+  const nameA = fieldOrPlaceholder(data.nameA, 'ph_nameA');
+  const nameB = fieldOrPlaceholder(data.nameB, 'ph_nameB');
+  const idA = fieldOrPlaceholder(data.idA, 'ph_id');
+  const idB = fieldOrPlaceholder(data.idB, 'ph_id');
+  const addrA = fieldOrPlaceholder(data.addrA, 'ph_addr');
+  const addrB = fieldOrPlaceholder(data.addrB, 'ph_addr');
+  const purpose = fieldOrPlaceholder(data.purpose, 'ph_purpose');
+  const jurisdiction = fieldOrPlaceholder(data.jurisdiction, 'ph_jur');
+  const duration = durationText(data.duration);
+
+  const parts = resolveTemplateParts(docType);
+  const { roleA, roleB, title, intro } = parts;
+
+  const fill = (str) => str
+    .replace(/\{nameA\}/g, nameA).replace(/\{nameB\}/g, nameB)
+    .replace(/\{idA\}/g, idA).replace(/\{idB\}/g, idB)
+    .replace(/\{addrA\}/g, addrA).replace(/\{addrB\}/g, addrB)
+    .replace(/\{roleA\}/g, `<strong>${roleA}</strong>`).replace(/\{roleB\}/g, `<strong>${roleB}</strong>`)
+    .replace(/\{purpose\}/g, purpose)
+    .replace(/\{duration\}/g, `<strong>${duration}</strong>`)
+    .replace(/\{jurisdiction\}/g, `<strong>${jurisdiction}</strong>`);
+
+  const clauses = resolveClauses(docType, parts);
 
   const clausesHtml = clauses.map(c => `
     <h2 class="clause-title">${escapeHtml(c.title)}</h2>
@@ -542,7 +663,16 @@ function buildDocumentHtml() {
 
   const signPlace = fill(escapeHtml(t('sign_place_date')));
 
+  const logoHtml = state.logo ? `<img class="doc-logo" src="${state.logo}" alt="logo">` : '';
+  const sigAHtml = state.signatures.A
+    ? `<img class="sign-img" src="${state.signatures.A}" alt="signature">`
+    : `<div class="sign-blank"></div>`;
+  const sigBHtml = state.signatures.B
+    ? `<img class="sign-img" src="${state.signatures.B}" alt="signature">`
+    : `<div class="sign-blank"></div>`;
+
   return `
+    ${logoHtml}
     <h1>${escapeHtml(title)}</h1>
     <div class="doc-subtitle">${escapeHtml(t('doc_subtitle').replace('{date}', formatDate(lang)))}</div>
     <p>${fill(escapeHtml(intro))}</p>
@@ -550,10 +680,12 @@ function buildDocumentHtml() {
     <p style="margin-top:1.5rem;">${signPlace}</p>
     <div class="sign-block">
       <div class="sign-col">
+        ${sigAHtml}
         <div class="sign-line">${nameA}</div>
         <div>${escapeHtml(t('sign_name_label'))}: ${roleA}</div>
       </div>
       <div class="sign-col">
+        ${sigBHtml}
         <div class="sign-line">${nameB}</div>
         <div>${escapeHtml(t('sign_name_label'))}: ${roleB}</div>
       </div>
@@ -561,8 +693,56 @@ function buildDocumentHtml() {
   `;
 }
 
+function getDocumentModel() {
+  const data = getFormData();
+  const docType = state.docType;
+
+  const nameA = (data.nameA || '').trim() || t('ph_nameA');
+  const nameB = (data.nameB || '').trim() || t('ph_nameB');
+  const idA = (data.idA || '').trim() || t('ph_id');
+  const idB = (data.idB || '').trim() || t('ph_id');
+  const addrA = (data.addrA || '').trim() || t('ph_addr');
+  const addrB = (data.addrB || '').trim() || t('ph_addr');
+  const purpose = (data.purpose || '').trim() || t('ph_purpose');
+  const jurisdiction = (data.jurisdiction || '').trim() || t('ph_jur');
+  const duration = durationText(data.duration);
+
+  const parts = resolveTemplateParts(docType);
+  const clauses = resolveClauses(docType, parts);
+
+  const subs = {
+    '{nameA}': { text: nameA, bold: false }, '{nameB}': { text: nameB, bold: false },
+    '{idA}': { text: idA, bold: false }, '{idB}': { text: idB, bold: false },
+    '{addrA}': { text: addrA, bold: false }, '{addrB}': { text: addrB, bold: false },
+    '{roleA}': { text: parts.roleA, bold: true }, '{roleB}': { text: parts.roleB, bold: true },
+    '{purpose}': { text: purpose, bold: false },
+    '{duration}': { text: duration, bold: true },
+    '{jurisdiction}': { text: jurisdiction, bold: true },
+  };
+
+  const toRuns = (str) => str
+    .split(/(\{nameA\}|\{nameB\}|\{idA\}|\{idB\}|\{addrA\}|\{addrB\}|\{roleA\}|\{roleB\}|\{purpose\}|\{duration\}|\{jurisdiction\})/g)
+    .filter(part => part !== '')
+    .map(part => subs[part] || { text: part, bold: false });
+
+  return {
+    title: parts.title,
+    dateLine: t('doc_subtitle').replace('{date}', formatDate(state.lang)),
+    introRuns: toRuns(parts.intro),
+    clauses: clauses.map(c => ({ title: c.title, bodyRuns: toRuns(c.body) })),
+    signPlaceRuns: toRuns(t('sign_place_date')),
+    nameA, nameB,
+    roleA: parts.roleA, roleB: parts.roleB,
+    signNameLabel: t('sign_name_label'),
+    logo: state.logo,
+    sigA: state.signatures.A,
+    sigB: state.signatures.B,
+  };
+}
+
 function updatePreview() {
   $('#pdf-content').innerHTML = buildDocumentHtml();
+  updateCompletion();
 }
 
 /* ---------------------------------------------------------------------
@@ -602,6 +782,7 @@ function selectTemplate(type) {
   updatePartyLegends();
   updateObjectLabel();
   updateDurationLabel();
+  updateSignatureLabels();
   updatePreview();
 }
 
@@ -609,6 +790,7 @@ function selectTemplate(type) {
    7) ACTIONS: PDF / COPY / CLEAR
    --------------------------------------------------------------------- */
 function downloadPdf() {
+  if (!validateBeforeDownload()) return;
   const el = $('#pdf-content');
   const opt = {
     margin: [15, 15, 18, 15],
@@ -628,6 +810,136 @@ function downloadPdf() {
   });
 }
 
+function dataUrlToUint8Array(dataUrl) {
+  const base64 = dataUrl.split(',')[1];
+  const binary = atob(base64);
+  const bytes = new Uint8Array(binary.length);
+  for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+  return bytes;
+}
+
+async function downloadDocx() {
+  if (!validateBeforeDownload()) return;
+  if (!window.docx) {
+    toast(t('docx_lib_error'));
+    return;
+  }
+
+  const { Document, Packer, Paragraph, TextRun, AlignmentType, Table, TableRow, TableCell, ImageRun, WidthType, BorderStyle } = window.docx;
+  const model = getDocumentModel();
+  const btn = $('#btn-docx');
+  const originalHtml = btn.innerHTML;
+  btn.disabled = true;
+  btn.innerHTML = `<span>${escapeHtml(t('docx_generating'))}</span>`;
+
+  try {
+    const children = [];
+
+    if (model.logo) {
+      children.push(new Paragraph({
+        alignment: AlignmentType.CENTER,
+        spacing: { after: 200 },
+        children: [new ImageRun({ type: 'png', data: dataUrlToUint8Array(model.logo), transformation: { width: 140, height: 70 } })],
+      }));
+    }
+
+    children.push(new Paragraph({
+      alignment: AlignmentType.CENTER,
+      spacing: { after: 80 },
+      children: [new TextRun({ text: model.title, bold: true, size: 24 })],
+    }));
+    children.push(new Paragraph({
+      alignment: AlignmentType.CENTER,
+      spacing: { after: 300 },
+      children: [new TextRun({ text: model.dateLine, italics: true, size: 18, color: '555555' })],
+    }));
+    children.push(new Paragraph({
+      alignment: AlignmentType.JUSTIFIED,
+      spacing: { after: 200, line: 300 },
+      children: model.introRuns.map(r => new TextRun({ text: r.text, bold: r.bold })),
+    }));
+
+    model.clauses.forEach(c => {
+      children.push(new Paragraph({
+        spacing: { before: 200, after: 100 },
+        children: [new TextRun({ text: c.title, bold: true, size: 20 })],
+      }));
+      children.push(new Paragraph({
+        alignment: AlignmentType.JUSTIFIED,
+        spacing: { after: 150, line: 300 },
+        children: c.bodyRuns.map(r => new TextRun({ text: r.text, bold: r.bold })),
+      }));
+    });
+
+    children.push(new Paragraph({
+      spacing: { before: 300, after: 300 },
+      children: model.signPlaceRuns.map(r => new TextRun({ text: r.text, bold: r.bold })),
+    }));
+
+    function signatureCell(name, role, sigDataUrl) {
+      const cellChildren = [];
+      if (sigDataUrl) {
+        cellChildren.push(new Paragraph({
+          alignment: AlignmentType.CENTER,
+          children: [new ImageRun({ type: 'png', data: dataUrlToUint8Array(sigDataUrl), transformation: { width: 130, height: 55 } })],
+        }));
+      } else {
+        cellChildren.push(new Paragraph({ text: ' ', spacing: { before: 300 } }));
+      }
+      cellChildren.push(new Paragraph({
+        alignment: AlignmentType.CENTER,
+        border: { top: { style: BorderStyle.SINGLE, size: 6, color: '333333' } },
+        spacing: { before: 100 },
+        children: [new TextRun({ text: name, bold: true, size: 18 })],
+      }));
+      cellChildren.push(new Paragraph({
+        alignment: AlignmentType.CENTER,
+        children: [new TextRun({ text: `${model.signNameLabel}: ${role}`, size: 16 })],
+      }));
+      return new TableCell({
+        width: { size: 50, type: WidthType.PERCENTAGE },
+        borders: {
+          top: { style: BorderStyle.NONE }, bottom: { style: BorderStyle.NONE },
+          left: { style: BorderStyle.NONE }, right: { style: BorderStyle.NONE }
+        },
+        margins: { left: 200, right: 200 },
+        children: cellChildren,
+      });
+    }
+
+    children.push(new Table({
+      width: { size: 100, type: WidthType.PERCENTAGE },
+      rows: [new TableRow({ children: [
+        signatureCell(model.nameA, model.roleA, model.sigA),
+        signatureCell(model.nameB, model.roleB, model.sigB),
+      ] })],
+    }));
+
+    const doc = new Document({
+      sections: [{
+        properties: { page: { margin: { top: 1000, bottom: 1000, left: 1200, right: 1200 } } },
+        children,
+      }],
+    });
+
+    const blob = await Packer.toBlob(doc);
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${state.docType}_${Date.now()}.docx`;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+  } catch (err) {
+    console.error(err);
+    toast(t('docx_error'));
+  } finally {
+    btn.disabled = false;
+    btn.innerHTML = originalHtml;
+  }
+}
+
 async function copyText() {
   const el = $('#pdf-content');
   const text = el.innerText;
@@ -642,8 +954,44 @@ async function copyText() {
 function clearForm() {
   if (!confirm(t('clear_confirm'))) return;
   $('#nda-form').reset();
+  state.logo = null;
+  state.signatures = { A: null, B: null };
+  $all('.field-input').forEach(el => el.classList.remove('field-error'));
+  renderLogo();
+  renderSignatureSlots();
   goToStep(1);
   updatePreview();
+  try { localStorage.removeItem(AUTOSAVE_KEY); } catch (e) {}
+}
+
+/* ---------------------------------------------------------------------
+   COMPLETION BAR & VALIDATION
+   --------------------------------------------------------------------- */
+function updateCompletion() {
+  const filled = REQUIRED_FIELDS.filter(f => (($(`#${f.id}`) || {}).value || '').trim().length > 0).length;
+  const pct = Math.round((filled / REQUIRED_FIELDS.length) * 100);
+  const fillEl = $('#completion-fill');
+  const pctEl = $('#completion-percent');
+  if (fillEl) fillEl.style.width = pct + '%';
+  if (pctEl) pctEl.textContent = pct + '%';
+  return pct;
+}
+
+function getMissingFields() {
+  return REQUIRED_FIELDS.filter(f => !(($(`#${f.id}`) || {}).value || '').trim());
+}
+
+function validateBeforeDownload() {
+  const missing = getMissingFields();
+  $all('.field-input').forEach(el => el.classList.remove('field-error'));
+  if (missing.length === 0) return true;
+  missing.forEach(f => {
+    const el = $(`#${f.id}`);
+    if (el) el.classList.add('field-error');
+  });
+  goToStep(missing[0].step);
+  toast(t('validation_missing'));
+  return false;
 }
 
 /* ---------------------------------------------------------------------
@@ -684,7 +1032,285 @@ function initTheme() {
 }
 
 /* ---------------------------------------------------------------------
-   10) FAQ ACCORDION
+   10) COMPANY LOGO UPLOAD
+   --------------------------------------------------------------------- */
+function renderLogo() {
+  const previewWrap = $('#logo-preview-wrap');
+  const emptyWrap = $('#logo-empty-wrap');
+  const img = $('#logo-preview-img');
+  if (state.logo) {
+    img.src = state.logo;
+    previewWrap.classList.remove('hidden');
+    emptyWrap.classList.add('hidden');
+  } else {
+    previewWrap.classList.add('hidden');
+    emptyWrap.classList.remove('hidden');
+  }
+}
+
+function handleLogoFile(file) {
+  if (!file) return;
+  if (!/^image\/(png|jpeg|jpg|svg\+xml)$/.test(file.type)) {
+    toast(t('logo_error_type'));
+    return;
+  }
+  const reader = new FileReader();
+  reader.onload = () => {
+    const img = new Image();
+    img.onload = () => {
+      const maxW = 320, maxH = 160;
+      let w = img.naturalWidth || maxW, h = img.naturalHeight || maxH;
+      const ratio = Math.min(maxW / w, maxH / h, 1);
+      w = Math.round(w * ratio);
+      h = Math.round(h * ratio);
+      const canvas = document.createElement('canvas');
+      canvas.width = w;
+      canvas.height = h;
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0, w, h);
+      state.logo = canvas.toDataURL('image/png');
+      renderLogo();
+      updatePreview();
+      autosave();
+    };
+    img.onerror = () => toast(t('logo_error_type'));
+    img.src = reader.result;
+  };
+  reader.readAsDataURL(file);
+}
+
+function removeLogo() {
+  state.logo = null;
+  renderLogo();
+  updatePreview();
+  autosave();
+}
+
+/* ---------------------------------------------------------------------
+   11) DIGITAL SIGNATURE PAD
+   --------------------------------------------------------------------- */
+let sigCanvas, sigCtx, sigDrawing = false, sigHasContent = false, sigTarget = null;
+
+function initSignaturePad() {
+  sigCanvas = $('#signature-canvas');
+  sigCtx = sigCanvas.getContext('2d');
+
+  function pos(e) {
+    const rect = sigCanvas.getBoundingClientRect();
+    return { x: e.clientX - rect.left, y: e.clientY - rect.top };
+  }
+
+  sigCanvas.addEventListener('pointerdown', (e) => {
+    sigDrawing = true;
+    sigHasContent = true;
+    const p = pos(e);
+    sigCtx.beginPath();
+    sigCtx.moveTo(p.x, p.y);
+    sigCanvas.setPointerCapture(e.pointerId);
+  });
+  sigCanvas.addEventListener('pointermove', (e) => {
+    if (!sigDrawing) return;
+    const p = pos(e);
+    sigCtx.lineTo(p.x, p.y);
+    sigCtx.stroke();
+  });
+  ['pointerup', 'pointerleave', 'pointercancel'].forEach(evt => {
+    sigCanvas.addEventListener(evt, () => { sigDrawing = false; });
+  });
+}
+
+function sizeSignatureCanvas() {
+  // Must run only while the modal is visible: a hidden ancestor (display:none)
+  // reports a 0x0 bounding rect, which would leave the canvas unusable.
+  const rect = sigCanvas.getBoundingClientRect();
+  sigCanvas.width = rect.width;
+  sigCanvas.height = rect.height;
+  sigCtx.lineWidth = 2.5;
+  sigCtx.lineCap = 'round';
+  sigCtx.lineJoin = 'round';
+  sigCtx.strokeStyle = '#1a1a1a';
+}
+
+function openSignatureModal(target) {
+  sigTarget = target;
+  sigHasContent = false;
+  setSigTab('draw');
+  $('#signature-modal').classList.remove('hidden');
+  setTimeout(sizeSignatureCanvas, 0);
+}
+
+function closeSignatureModal() {
+  $('#signature-modal').classList.add('hidden');
+  sigTarget = null;
+}
+
+function setSigTab(tab) {
+  $all('.sig-tab').forEach(b => b.classList.toggle('active', b.dataset.sigtab === tab));
+  $('#sig-draw-hint').classList.toggle('hidden', tab !== 'draw');
+  $('#sig-upload-panel').classList.toggle('hidden', tab !== 'upload');
+}
+
+function clearSignaturePad() {
+  sigCtx.clearRect(0, 0, sigCanvas.width, sigCanvas.height);
+  sigHasContent = false;
+}
+
+function handleSignatureFile(file) {
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = () => {
+    const img = new Image();
+    img.onload = () => {
+      sigCtx.clearRect(0, 0, sigCanvas.width, sigCanvas.height);
+      const maxW = sigCanvas.width * 0.9, maxH = sigCanvas.height * 0.9;
+      const ratio = Math.min(maxW / img.naturalWidth, maxH / img.naturalHeight, 1);
+      const w = img.naturalWidth * ratio, h = img.naturalHeight * ratio;
+      const x = (sigCanvas.width - w) / 2, y = (sigCanvas.height - h) / 2;
+      sigCtx.drawImage(img, x, y, w, h);
+      sigHasContent = true;
+    };
+    img.src = reader.result;
+  };
+  reader.readAsDataURL(file);
+}
+
+function confirmSignature() {
+  if (!sigHasContent) {
+    toast(t('sig_error_empty'));
+    return;
+  }
+  const dataUrl = sigCanvas.toDataURL('image/png');
+  state.signatures[sigTarget] = dataUrl;
+  closeSignatureModal();
+  renderSignatureSlots();
+  updatePreview();
+  autosave();
+}
+
+function removeSignature(target) {
+  state.signatures[target] = null;
+  renderSignatureSlots();
+  updatePreview();
+  autosave();
+}
+
+function renderSignatureSlots() {
+  ['A', 'B'].forEach(target => {
+    const body = $(`#sig-slot-body-${target}`);
+    if (!body) return;
+    const sig = state.signatures[target];
+    if (sig) {
+      body.innerHTML = `
+        <div class="sig-thumb-box">
+          <img src="${sig}" alt="signature">
+          <div class="sig-thumb-actions">
+            <button type="button" class="btn-ghost btn-sm" data-sig-edit="${target}">${escapeHtml(t('sig_edit_btn'))}</button>
+            <button type="button" class="btn-ghost btn-sm" data-sig-remove="${target}">${escapeHtml(t('sig_remove_btn'))}</button>
+          </div>
+        </div>`;
+    } else {
+      body.innerHTML = `
+        <button type="button" class="sig-add-btn" data-sig-add="${target}">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.12 2.12 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          ${escapeHtml(t('sig_add_btn'))}
+        </button>`;
+    }
+  });
+
+  $all('[data-sig-add]').forEach(b => b.addEventListener('click', () => openSignatureModal(b.dataset.sigAdd)));
+  $all('[data-sig-edit]').forEach(b => b.addEventListener('click', () => openSignatureModal(b.dataset.sigEdit)));
+  $all('[data-sig-remove]').forEach(b => b.addEventListener('click', () => removeSignature(b.dataset.sigRemove)));
+}
+
+/* ---------------------------------------------------------------------
+   12) PERSISTENCE: AUTOSAVE & TEMPLATE
+   --------------------------------------------------------------------- */
+function getSerializableFields() {
+  return {
+    partyA_name: $('#partyA_name').value,
+    partyA_id: $('#partyA_id').value,
+    partyA_address: $('#partyA_address').value,
+    partyB_name: $('#partyB_name').value,
+    partyB_id: $('#partyB_id').value,
+    partyB_address: $('#partyB_address').value,
+    purpose: $('#purpose').value,
+    duration: $('#duration').value,
+    jurisdiction: $('#jurisdiction').value,
+  };
+}
+
+function applyFieldsToForm(fields) {
+  if (!fields) return;
+  Object.keys(fields).forEach(id => {
+    const el = document.getElementById(id);
+    if (el && fields[id] != null) el.value = fields[id];
+  });
+}
+
+let autosaveTimeout;
+function autosave() {
+  clearTimeout(autosaveTimeout);
+  autosaveTimeout = setTimeout(() => {
+    try {
+      localStorage.setItem(AUTOSAVE_KEY, JSON.stringify({
+        docType: state.docType,
+        fields: getSerializableFields(),
+        logo: state.logo,
+        signatures: state.signatures,
+      }));
+    } catch (e) { /* storage full or unavailable */ }
+  }, 400);
+}
+
+function loadAutosave() {
+  try {
+    const raw = localStorage.getItem(AUTOSAVE_KEY);
+    if (!raw) return;
+    const data = JSON.parse(raw);
+    if (data.docType) state.docType = data.docType;
+    applyFieldsToForm(data.fields);
+    state.logo = data.logo || null;
+    state.signatures = data.signatures || { A: null, B: null };
+  } catch (e) { /* ignore corrupt data */ }
+}
+
+function saveAsTemplate() {
+  try {
+    localStorage.setItem(TEMPLATE_KEY, JSON.stringify({
+      partyA_name: $('#partyA_name').value,
+      partyA_id: $('#partyA_id').value,
+      partyA_address: $('#partyA_address').value,
+      logo: state.logo,
+    }));
+    toast(t('template_saved'));
+  } catch (e) {
+    toast(t('template_empty'));
+  }
+}
+
+function loadTemplate() {
+  const raw = localStorage.getItem(TEMPLATE_KEY);
+  if (!raw) {
+    toast(t('template_empty'));
+    return;
+  }
+  try {
+    const data = JSON.parse(raw);
+    applyFieldsToForm(data);
+    if (data.logo) {
+      state.logo = data.logo;
+      renderLogo();
+    }
+    updatePreview();
+    autosave();
+    toast(t('template_loaded'));
+  } catch (e) {
+    toast(t('template_empty'));
+  }
+}
+
+/* ---------------------------------------------------------------------
+   13) FAQ ACCORDION
    --------------------------------------------------------------------- */
 function initFaqAccordion() {
   $all('.faq-question').forEach(btn => {
@@ -698,12 +1324,16 @@ function initFaqAccordion() {
 }
 
 /* ---------------------------------------------------------------------
-   11) INIT & EVENT BINDING
+   14) INIT & EVENT BINDING
    --------------------------------------------------------------------- */
 function init() {
   initTheme();
+  loadAutosave();
   applyI18n();
   selectTemplate(state.docType);
+  renderLogo();
+  initSignaturePad();
+  renderSignatureSlots();
   goToStep(1);
   updatePreview();
 
@@ -717,8 +1347,8 @@ function init() {
   });
 
   // Language switch
-  $('#lang-es').addEventListener('click', () => { state.lang = 'es'; localStorage.setItem('ndagen_lang', 'es'); applyI18n(); updatePreview(); });
-  $('#lang-en').addEventListener('click', () => { state.lang = 'en'; localStorage.setItem('ndagen_lang', 'en'); applyI18n(); updatePreview(); });
+  $('#lang-es').addEventListener('click', () => { state.lang = 'es'; localStorage.setItem('ndagen_lang', 'es'); applyI18n(); renderSignatureSlots(); updatePreview(); });
+  $('#lang-en').addEventListener('click', () => { state.lang = 'en'; localStorage.setItem('ndagen_lang', 'en'); applyI18n(); renderSignatureSlots(); updatePreview(); });
 
   // Theme toggle
   $('#theme-toggle').addEventListener('click', () => {
@@ -736,17 +1366,41 @@ function init() {
     dot.style.cursor = 'pointer';
   });
 
-  // Live preview updates
-  $('#nda-form').addEventListener('input', updatePreview);
-  $('#nda-form').addEventListener('change', updatePreview);
+  // Live preview updates + autosave + clear field errors as the user types
+  $('#nda-form').addEventListener('input', (e) => {
+    e.target.classList.remove('field-error');
+    updatePreview();
+    autosave();
+  });
+  $('#nda-form').addEventListener('change', () => { updatePreview(); autosave(); });
 
   // Actions
   $('#btn-pdf').addEventListener('click', downloadPdf);
+  $('#btn-docx').addEventListener('click', downloadDocx);
   $('#btn-copy').addEventListener('click', copyText);
   $('#btn-clear').addEventListener('click', clearForm);
 
   // Prevent implicit form submit on Enter
   $('#nda-form').addEventListener('submit', (e) => e.preventDefault());
+
+  // Logo upload
+  $('#logo-file-input').addEventListener('change', (e) => handleLogoFile(e.target.files[0]));
+  $('#btn-logo-remove').addEventListener('click', removeLogo);
+
+  // Save / load template
+  $('#btn-save-template').addEventListener('click', saveAsTemplate);
+  $('#btn-load-template').addEventListener('click', loadTemplate);
+
+  // Signature modal
+  $all('.sig-tab').forEach(b => b.addEventListener('click', () => setSigTab(b.dataset.sigtab)));
+  $('#signature-file-input').addEventListener('change', (e) => handleSignatureFile(e.target.files[0]));
+  $('#btn-sig-clear').addEventListener('click', clearSignaturePad);
+  $('#btn-sig-cancel').addEventListener('click', closeSignatureModal);
+  $('#sig-modal-close').addEventListener('click', closeSignatureModal);
+  $('#btn-sig-confirm').addEventListener('click', confirmSignature);
+  $('#signature-modal').addEventListener('click', (e) => {
+    if (e.target.id === 'signature-modal') closeSignatureModal();
+  });
 }
 
 document.addEventListener('DOMContentLoaded', init);

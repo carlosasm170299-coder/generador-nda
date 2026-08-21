@@ -367,6 +367,296 @@ body {
   border-left-color: rgb(217 119 6);
 }
 
+/* ===== Small ghost button variant ===== */
+.btn-sm {
+  padding: 0.35rem 0.7rem;
+  font-size: 0.75rem;
+}
+
+/* ===== Autosave toolbar ===== */
+.autosave-indicator {
+  font-size: 0.72rem;
+  color: rgb(148 163 184);
+  font-style: italic;
+}
+
+/* ===== Completion progress bar ===== */
+.completion-bar-wrap {
+  padding: 1rem 1.25rem 0;
+}
+.completion-bar-track {
+  height: 6px;
+  border-radius: 9999px;
+  background: rgb(226 232 240);
+  overflow: hidden;
+}
+.dark .completion-bar-track {
+  background: rgb(30 41 59);
+}
+.completion-bar-fill {
+  height: 100%;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, rgb(37 99 235), rgb(16 185 129));
+  transition: width 0.35s ease;
+}
+.completion-bar-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: rgb(100 116 139);
+  margin-top: 0.4rem;
+}
+.dark .completion-bar-label {
+  color: rgb(148 163 184);
+}
+
+/* ===== Field validation error ===== */
+.field-input.field-error {
+  border-color: rgb(220 38 38);
+  box-shadow: 0 0 0 3px rgb(220 38 38 / 0.12);
+}
+
+/* ===== Logo upload ===== */
+.logo-upload-box {
+  margin-bottom: 1.25rem;
+}
+.logo-upload-btn, .sig-upload-wrap .logo-upload-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1rem;
+  border: 1.5px dashed rgb(148 163 184);
+  border-radius: 0.6rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: rgb(71 85 105);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.logo-upload-btn:hover {
+  border-color: rgb(59 130 246);
+  color: rgb(37 99 235);
+}
+.dark .logo-upload-btn {
+  border-color: rgb(51 65 85);
+  color: rgb(148 163 184);
+}
+.dark .logo-upload-btn:hover {
+  border-color: rgb(59 130 246);
+  color: rgb(96 165 250);
+}
+.logo-preview-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 0.9rem;
+  border: 1.5px solid rgb(226 232 240);
+  border-radius: 0.6rem;
+  background: rgb(248 250 252);
+}
+.dark .logo-preview-wrap {
+  border-color: rgb(30 41 59);
+  background: rgb(2 6 23 / 0.3);
+}
+.logo-preview-wrap img {
+  max-height: 44px;
+  max-width: 140px;
+  object-fit: contain;
+}
+
+/* ===== Signature slots ===== */
+.sig-slots {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+@media (min-width: 640px) {
+  .sig-slots { grid-template-columns: 1fr 1fr; }
+}
+.sig-slot {
+  border: 1.5px solid rgb(226 232 240);
+  border-radius: 0.75rem;
+  padding: 0.75rem;
+}
+.dark .sig-slot {
+  border-color: rgb(30 41 59);
+}
+.sig-slot-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: rgb(71 85 105);
+  margin-bottom: 0.5rem;
+}
+.dark .sig-slot-label { color: rgb(148 163 184); }
+.sig-add-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.9rem;
+  border: 1.5px dashed rgb(148 163 184);
+  border-radius: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: rgb(37 99 235);
+  background: rgb(239 246 255);
+  cursor: pointer;
+}
+.dark .sig-add-btn {
+  background: rgb(30 58 138 / 0.2);
+  border-color: rgb(51 65 85);
+  color: rgb(96 165 250);
+}
+.sig-thumb-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+.sig-thumb-box img {
+  max-height: 70px;
+  max-width: 100%;
+  object-fit: contain;
+  background: white;
+  border: 1px solid rgb(226 232 240);
+  border-radius: 0.4rem;
+  padding: 0.25rem;
+}
+.sig-thumb-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* ===== Modal ===== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgb(15 23 42 / 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  z-index: 200;
+}
+.modal-overlay.hidden { display: none; }
+.modal-box {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.25rem;
+  width: 100%;
+  max-width: 32rem;
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.4);
+}
+.dark .modal-box {
+  background: rgb(15 23 42);
+  border: 1px solid rgb(30 41 59);
+}
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+.modal-header h3 {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: rgb(15 23 42);
+}
+.dark .modal-header h3 { color: white; }
+.modal-close {
+  font-size: 1.5rem;
+  line-height: 1;
+  color: rgb(100 116 139);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.15rem 0.4rem;
+}
+.modal-close:hover { color: rgb(15 23 42); }
+.dark .modal-close:hover { color: white; }
+
+.sig-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+.sig-tab {
+  padding: 0.4rem 0.9rem;
+  border-radius: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: rgb(100 116 139);
+  background: rgb(241 245 249);
+  border: none;
+  cursor: pointer;
+}
+.dark .sig-tab {
+  background: rgb(30 41 59);
+  color: rgb(148 163 184);
+}
+.sig-tab.active {
+  background: rgb(37 99 235);
+  color: white;
+}
+
+.sig-pad-wrap {
+  border: 1.5px dashed rgb(148 163 184);
+  border-radius: 0.6rem;
+  overflow: hidden;
+  background: white;
+}
+#signature-canvas {
+  display: block;
+  width: 100%;
+  height: 200px;
+  touch-action: none;
+  cursor: crosshair;
+}
+.sig-hint {
+  font-size: 0.75rem;
+  color: rgb(100 116 139);
+  margin-top: 0.5rem;
+}
+.dark .sig-hint { color: rgb(148 163 184); }
+.sig-upload-wrap {
+  margin-top: 0.5rem;
+}
+
+.modal-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgb(226 232 240);
+  flex-wrap: wrap;
+}
+.dark .modal-actions { border-color: rgb(30 41 59); }
+
+/* ===== Document logo / signature images (preview + PDF) ===== */
+.doc-page .doc-logo {
+  display: block;
+  max-height: 60px;
+  max-width: 220px;
+  margin: 0 auto 0.75rem;
+  object-fit: contain;
+}
+.doc-page .sign-img {
+  display: block;
+  max-height: 55px;
+  max-width: 90%;
+  margin: 0 auto;
+  object-fit: contain;
+}
+.doc-page .sign-blank {
+  height: 55px;
+}
+
 /* ===== Scrollbar for preview ===== */
 #preview-scroll::-webkit-scrollbar { width: 8px; }
 #preview-scroll::-webkit-scrollbar-thumb {
