@@ -3034,6 +3034,42 @@ function initFaqAccordion() {
 }
 
 /* ---------------------------------------------------------------------
+   13a2) LEGAL GUIDE ACCORDION
+   --------------------------------------------------------------------- */
+function expandGuideItem(item) {
+  const panel = item.querySelector('.guide-panel');
+  item.classList.add('open');
+  item.querySelector('.guide-question').setAttribute('aria-expanded', 'true');
+  panel.style.maxHeight = panel.scrollHeight + 'px';
+}
+
+function collapseGuideItem(item) {
+  const panel = item.querySelector('.guide-panel');
+  item.classList.remove('open');
+  item.querySelector('.guide-question').setAttribute('aria-expanded', 'false');
+  panel.style.maxHeight = '0px';
+}
+
+function refreshOpenGuidePanels() {
+  $all('.guide-item.open').forEach(item => {
+    item.querySelector('.guide-panel').style.maxHeight = item.querySelector('.guide-panel').scrollHeight + 'px';
+  });
+}
+
+function initGuideAccordion() {
+  $all('.guide-item').forEach(item => {
+    const btn = item.querySelector('.guide-question');
+    btn.addEventListener('click', () => {
+      item.classList.contains('open') ? collapseGuideItem(item) : expandGuideItem(item);
+    });
+    if (item.classList.contains('open')) {
+      expandGuideItem(item);
+    }
+  });
+  window.addEventListener('resize', () => refreshOpenGuidePanels());
+}
+
+/* ---------------------------------------------------------------------
    13b) DONATION MODAL
    --------------------------------------------------------------------- */
 const DONATE_CONFIG = {
@@ -3121,6 +3157,7 @@ function init() {
   $('#year').textContent = new Date().getFullYear();
 
   initFaqAccordion();
+  initGuideAccordion();
   initDonationModal();
 
   // Template cards
@@ -3135,6 +3172,7 @@ function init() {
     applyI18n();
     renderSignatureSlots();
     updatePreview();
+    refreshOpenGuidePanels();
     autosave();
   });
 

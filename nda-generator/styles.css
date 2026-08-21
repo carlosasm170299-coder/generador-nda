@@ -709,6 +709,102 @@ body {
   font-size: 0.85rem;
   color: rgb(120 53 15);
 }
+/* ===== Legal Guide accordion ===== */
+.guide-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 1.5rem 0 2.5rem;
+}
+.guide-item {
+  border-radius: 0.85rem;
+  overflow: hidden;
+  border: 1px solid rgb(30 41 59 / 0.15);
+  box-shadow: 0 1px 2px rgb(15 23 42 / 0.06);
+}
+.dark .guide-item {
+  border-color: rgb(51 65 85 / 0.6);
+  box-shadow: none;
+}
+.guide-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  text-align: left;
+  padding: 1rem 1.25rem;
+  font-weight: 700;
+  font-size: 0.98rem;
+  color: rgb(241 245 249);
+  background: #1e293b;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s ease;
+}
+.guide-question:hover {
+  background: #263449;
+}
+.dark .guide-question {
+  background: #2b3b52;
+}
+.dark .guide-question:hover {
+  background: #33455f;
+}
+.guide-icon {
+  flex-shrink: 0;
+  width: 1.15rem;
+  height: 1.15rem;
+  color: rgb(96 165 250);
+  transition: transform 0.25s ease;
+}
+.guide-item.open .guide-icon {
+  transform: rotate(180deg);
+}
+.guide-panel {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  background: rgb(248 250 252);
+  transition: max-height 0.3s ease, opacity 0.25s ease;
+}
+.dark .guide-panel {
+  background: rgb(2 6 23 / 0.3);
+}
+.guide-item.open .guide-panel {
+  opacity: 1;
+}
+.guide-panel-inner {
+  padding: 1.1rem 1.25rem 1.25rem;
+}
+.guide-panel-inner p {
+  margin: 0 0 0.9rem;
+  color: rgb(71 85 105);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+.guide-panel-inner p:last-child { margin-bottom: 0; }
+.dark .guide-panel-inner p { color: rgb(148 163 184); }
+.guide-panel-inner ul {
+  margin: 0 0 0.9rem;
+  padding-left: 1.2rem;
+  color: rgb(71 85 105);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  list-style: disc;
+}
+.dark .guide-panel-inner ul { color: rgb(148 163 184); }
+.guide-panel-inner ul:last-child { margin-bottom: 0; }
+.guide-panel-inner ul li { margin-bottom: 0.35rem; }
+.guide-subheading {
+  font-weight: 800;
+  font-size: 0.92rem;
+  color: rgb(15 23 42);
+  margin: 0 0 0.5rem;
+}
+.dark .guide-subheading { color: white; }
+
 .dark .disclaimer-box {
   background: rgb(69 26 3 / 0.25);
   color: rgb(253 230 138);
