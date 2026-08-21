@@ -6,6 +6,17 @@
 /* ---------------------------------------------------------------------
    1) i18n DICTIONARY
    --------------------------------------------------------------------- */
+const LANGS = {
+  es: { code: 'es', label: 'Español', short: 'ES' },
+  en: { code: 'en', label: 'English', short: 'EN' },
+  pt: { code: 'pt', label: 'Português', short: 'PT' },
+  fr: { code: 'fr', label: 'Français', short: 'FR' },
+  ru: { code: 'ru', label: 'Русский', short: 'RU' },
+  zh: { code: 'zh', label: '中文', short: 'ZH' },
+  ja: { code: 'ja', label: '日本語', short: 'JA' },
+  hi: { code: 'hi', label: 'हिन्दी', short: 'HI' },
+};
+
 const I18N = {
   es: {
     meta_title: "Generador de NDA y Contratos B2B Gratis Online | Plantillas PDF",
@@ -142,6 +153,13 @@ const I18N = {
     /* --- Completion & validation --- */
     completion_label: "Progreso del documento",
     validation_missing: "Completa los campos obligatorios resaltados antes de descargar el documento.",
+
+    /* --- Bilingual mode & custom filename --- */
+    bilingual_mode_label: "Modo Bilingüe (Dual Language)",
+    bilingual_primary_label: "Idioma Principal",
+    bilingual_secondary_label: "Idioma Secundario",
+    custom_filename_label: "Nombre personalizado del archivo (opcional)",
+    custom_filename_placeholder: "Ej. NDA_AcmeCorp_2026",
 
     /* --- Legal document strings --- */
     doc_title_nda_unilateral: "ACUERDO DE CONFIDENCIALIDAD UNILATERAL",
@@ -358,6 +376,13 @@ const I18N = {
     completion_label: "Document progress",
     validation_missing: "Fill in the highlighted required fields before downloading the document.",
 
+    /* --- Bilingual mode & custom filename --- */
+    bilingual_mode_label: "Bilingual Mode (Dual Language)",
+    bilingual_primary_label: "Primary Language",
+    bilingual_secondary_label: "Secondary Language",
+    custom_filename_label: "Custom file name (optional)",
+    custom_filename_placeholder: "E.g. NDA_AcmeCorp_2026",
+
     doc_title_nda_unilateral: "UNILATERAL NON-DISCLOSURE AGREEMENT",
     doc_title_nda_mutual: "MUTUAL (BILATERAL) NON-DISCLOSURE AGREEMENT",
     doc_title_b2b_services: "B2B SERVICES AGREEMENT",
@@ -434,7 +459,1021 @@ const I18N = {
     doc_verified_badge: "Electronically generated and verified document",
     pdf_footer_confidential: "Confidential document · For exclusive use of the signing parties",
     pdf_footer_page_of: "Page {current} of {total}",
-  }
+  },
+
+  pt: {
+    meta_title: "Gerador Gratuito de NDA e Contratos B2B Online | Modelos em PDF",
+    meta_description: "Gere e baixe seu Acordo de Confidencialidade (NDA) — unilateral, mútuo ou Contrato de Prestação de Serviços B2B — em PDF em minutos. Grátis, sem cadastro.",
+    brand_name: "NDAgen",
+    nav_tool: "Gerador",
+    nav_guide: "Guia Legal",
+    nav_faq: "FAQ",
+    ad_label: "Publicidade",
+    ad_native: "Bloco nativo",
+    hero_badge: "100% Grátis · Sem cadastro · Download instantâneo",
+    hero_title: "Gerador de Acordos de Confidencialidade (NDA) e Contratos B2B",
+    hero_subtitle: "Crie, visualize e baixe em PDF seu NDA ou contrato de serviços profissional em menos de 3 minutos.",
+    tpl_unilateral_title: "NDA Unilateral",
+    tpl_unilateral_desc: "Uma parte revela informações, a outra as protege.",
+    tpl_mutual_title: "NDA Bilateral (Mútuo)",
+    tpl_mutual_desc: "Ambas as partes compartilham e protegem informações.",
+    tpl_b2b_title: "Contrato B2B de Serviços",
+    tpl_b2b_desc: "Prestação de serviços entre empresas.",
+    step1_label: "Partes",
+    step2_label: "Objeto",
+    step3_label: "Duração",
+    step4_label: "Revisar",
+    party_a_legend: "Parte Divulgadora",
+    party_a_legend_mutual: "Primeira Parte",
+    party_a_legend_b2b: "Prestador do Serviço",
+    party_b_legend: "Parte Receptora",
+    party_b_legend_mutual: "Segunda Parte",
+    party_b_legend_b2b: "Cliente / Contratante",
+    label_name: "Nome / Empresa",
+    label_taxid: "Identificação fiscal / ID",
+    label_address: "Endereço",
+    ph_name: "Ex.: Acme Corp Ltda.",
+    ph_taxid: "Ex.: CNPJ 12.345.678/0001-99",
+    ph_address: "Ex.: Rua Principal 10, Lisboa, Portugal",
+    label_object: "Objeto e finalidade da informação confidencial",
+    label_object_b2b: "Objeto e escopo do serviço prestado",
+    ph_object: "Ex.: Avaliação de uma possível parceria comercial para o desenvolvimento conjunto de uma plataforma de software...",
+    object_hint: "Descreva brevemente o motivo do compartilhamento da informação (negociação, colaboração, prestação de serviços, etc.).",
+    label_duration: "Duração da obrigação",
+    label_duration_b2b: "Duração / vigência do contrato",
+    opt_indefinite: "Indefinida",
+    label_jurisdiction: "Jurisdição e legislação aplicável",
+    ph_jurisdiction: "Ex.: Lisboa, Portugal",
+    review_hint: "Revise a pré-visualização à direita. Quando tudo estiver correto, baixe o documento em PDF ou copie-o para a área de transferência.",
+    btn_pdf: "Baixar em PDF",
+    btn_copy: "Copiar texto",
+    btn_clear: "Limpar formulário",
+    btn_prev: "← Anterior",
+    btn_next: "Próximo →",
+    btn_finish: "Concluir",
+    preview_title: "Pré-visualização em tempo real",
+    preview_live: "Ao vivo",
+    footer_rights: "Todos os direitos reservados.",
+    footer_note: "Ferramenta gratuita · Não substitui aconselhamento jurídico profissional.",
+    copy_success: "Texto copiado para a área de transferência!",
+    copy_error: "Não foi possível copiar o texto.",
+    clear_confirm: "Tem certeza de que deseja limpar todo o formulário?",
+    pdf_generating: "Gerando PDF...",
+    btn_docx: "Baixar em Word (.docx)",
+    docx_generating: "Gerando Word...",
+    docx_error: "Não foi possível gerar o arquivo Word. Tente novamente.",
+    docx_lib_error: "Não foi possível carregar o mecanismo do Word. Verifique sua conexão com a internet.",
+    logo_upload_btn: "Enviar logotipo da empresa (opcional)",
+    logo_remove_btn: "Remover logotipo",
+    logo_error_type: "Formato de imagem não suportado. Use PNG, JPG ou SVG.",
+    sig_modal_title: "Assinatura digital",
+    sig_tab_draw: "Desenhar",
+    sig_tab_upload: "Enviar imagem",
+    sig_draw_hint: "Desenhe sua assinatura acima com o mouse ou o dedo.",
+    sig_upload_btn: "Escolher imagem (PNG/JPG)",
+    sig_upload_hint: "A imagem será ajustada automaticamente à caixa de assinatura.",
+    sig_btn_clear: "Limpar assinatura",
+    sig_btn_confirm: "Confirmar assinatura",
+    btn_cancel: "Cancelar",
+    sig_add_btn: "Adicionar assinatura",
+    sig_edit_btn: "Editar",
+    sig_remove_btn: "Remover",
+    sig_slot_prefix: "Assinatura:",
+    sig_error_empty: "Desenhe ou envie uma imagem antes de confirmar a assinatura.",
+    btn_save_template: "Salvar meus dados como modelo",
+    btn_load_template: "Carregar meus dados",
+    autosave_note: "Seus dados são salvos automaticamente neste navegador.",
+    template_saved: "Dados da Parte Divulgadora salvos como modelo.",
+    template_loaded: "Modelo carregado com sucesso.",
+    template_empty: "Você ainda não salvou nenhum modelo.",
+    completion_label: "Progresso do documento",
+    validation_missing: "Preencha os campos obrigatórios destacados antes de baixar o documento.",
+    bilingual_mode_label: "Modo Bilíngue (Idioma Duplo)",
+    bilingual_primary_label: "Idioma Principal",
+    bilingual_secondary_label: "Idioma Secundário",
+    custom_filename_label: "Nome de arquivo personalizado (opcional)",
+    custom_filename_placeholder: "Ex.: NDA_AcmeCorp_2026",
+    doc_ref_label: "REF",
+    doc_issue_date_label: "Data de emissão",
+    doc_parties_heading: "Partes envolvidas",
+    sign_field_name: "Nome completo",
+    sign_field_role: "Cargo / Função",
+    sign_field_id: "Documento de identidade",
+    sign_field_date: "Data",
+    doc_verified_badge: "Documento eletrônico gerado e verificado",
+    pdf_footer_confidential: "Documento confidencial · Uso exclusivo das partes signatárias",
+    pdf_footer_page_of: "Página {current} de {total}",
+
+    doc_title_nda_unilateral: "ACORDO DE CONFIDENCIALIDADE UNILATERAL",
+    doc_title_nda_mutual: "ACORDO DE CONFIDENCIALIDADE BILATERAL (MÚTUO)",
+    doc_title_b2b_services: "CONTRATO DE PRESTAÇÃO DE SERVIÇOS B2B",
+    doc_subtitle: "Documento gerado em {date}",
+    ph_nameA: "[Nome da Parte Divulgadora]",
+    ph_nameB: "[Nome da Parte Receptora]",
+    ph_id: "[identificação fiscal não especificada]",
+    ph_addr: "[endereço não especificado]",
+    ph_purpose: "[finalidade não especificada]",
+    ph_jur: "[jurisdição não especificada]",
+    role_discloser: "A PARTE DIVULGADORA",
+    role_receiver: "A PARTE RECEPTORA",
+    role_first: "A PRIMEIRA PARTE",
+    role_second: "A SEGUNDA PARTE",
+    role_provider: "O PRESTADOR",
+    role_client: "O CLIENTE",
+    intro_nda: "Pelo presente instrumento, as partes celebram este Acordo de Confidencialidade (doravante, o \"Acordo\"), de um lado, {nameA}, identificado(a) com {idA} e domicílio em {addrA} (doravante, \"{roleA}\"); e, de outro lado, {nameB}, identificado(a) com {idB} e domicílio em {addrB} (doravante, \"{roleB}\"), doravante denominadas em conjunto \"as Partes\", nos seguintes termos:",
+    intro_b2b: "Pelo presente instrumento, as partes celebram este Contrato de Prestação de Serviços (doravante, o \"Contrato\"), de um lado, {nameA}, identificado(a) com {idA} e domicílio em {addrA} (doravante, \"{roleA}\"); e, de outro lado, {nameB}, identificado(a) com {idB} e domicílio em {addrB} (doravante, \"{roleB}\"), doravante denominadas em conjunto \"as Partes\", nos seguintes termos:",
+
+    c1_title_nda: "PRIMEIRA. OBJETO",
+    c1_body_nda_uni: "O presente Acordo tem por objeto estabelecer os termos e condições sob os quais {roleA} revelará a {roleB} determinadas informações confidenciais relacionadas ao seguinte: {purpose}. {roleB} compromete-se a utilizar tais informações exclusivamente para essa finalidade.",
+    c1_body_nda_mutual: "O presente Acordo tem por objeto estabelecer os termos e condições sob os quais {roleA} e {roleB} poderão revelar mutuamente informações confidenciais relacionadas ao seguinte: {purpose}. Cada Parte compromete-se a utilizar as informações recebidas exclusivamente para essa finalidade.",
+    c1_title_b2b: "PRIMEIRA. OBJETO DO CONTRATO",
+    c1_body_b2b: "{roleA} obriga-se a prestar em favor de {roleB} os serviços descritos a seguir: {purpose}. Os serviços serão executados de acordo com os padrões profissionais aplicáveis ao setor e com a devida diligência.",
+
+    c2_title_nda_uni: "SEGUNDA. OBRIGAÇÕES DA PARTE RECEPTORA",
+    c2_body_nda_uni: "{roleB} obriga-se a: (i) manter a informação confidencial em sigilo estrito; (ii) não divulgá-la a terceiros sem autorização prévia e por escrito de {roleA}; (iii) não utilizá-la para fins distintos dos estabelecidos na Cláusula Primeira; e (iv) adotar medidas de segurança razoáveis para evitar sua divulgação acidental ou não autorizada.",
+    c2_title_nda_mutual: "SEGUNDA. OBRIGAÇÕES DE CONFIDENCIALIDADE",
+    c2_body_nda_mutual: "Cada Parte, na qualidade de receptora de informações, obriga-se a: (i) manter a informação confidencial recebida em sigilo estrito; (ii) não divulgá-la a terceiros sem autorização prévia e por escrito da Parte divulgadora; (iii) não utilizá-la para fins distintos dos estabelecidos na Cláusula Primeira; e (iv) adotar medidas de segurança razoáveis para evitar sua divulgação acidental ou não autorizada.",
+    c2_title_b2b: "SEGUNDA. CONFIDENCIALIDADE",
+    c2_body_b2b: "As Partes obrigam-se a manter em sigilo estrito todas as informações técnicas, comerciais ou financeiras trocadas em decorrência da execução do presente Contrato, não podendo divulgá-las a terceiros sem autorização prévia e por escrito da outra Parte, salvo exigência legal ou de autoridade competente.",
+
+    c3_title: "TERCEIRA. EXCLUSÕES",
+    c3_body: "As obrigações de confidencialidade não se aplicam às informações que: (a) sejam ou se tornem de domínio público sem culpa da parte receptora; (b) tenham sido licitamente conhecidas pela parte receptora antes da divulgação; (c) sejam recebidas licitamente de terceiro sem restrição de confidencialidade; ou (d) devam ser divulgadas por determinação legal, judicial ou de autoridade competente, mediante prévia notificação à outra Parte sempre que possível.",
+
+    c4_title_nda: "QUARTA. PRAZO E DURAÇÃO",
+    c4_body_nda: "As obrigações de confidencialidade estabelecidas neste Acordo permanecerão vigentes por {duration} a partir da data de assinatura deste documento, independentemente do término de qualquer relação comercial entre as Partes.",
+    c4_title_b2b: "QUARTA. VIGÊNCIA E CONFIDENCIALIDADE",
+    c4_body_b2b: "O presente Contrato terá vigência de {duration} a partir de sua assinatura. As obrigações de confidencialidade estabelecidas na Cláusula Segunda permanecerão vigentes durante esse período e após o término do Contrato por qualquer motivo.",
+
+    c5_title: "QUINTA. DEVOLUÇÃO OU DESTRUIÇÃO DA INFORMAÇÃO",
+    c5_body: "Mediante solicitação da parte divulgadora, ou ao término deste Acordo, a parte receptora deverá devolver ou destruir, conforme instruído, todos os documentos, suportes e cópias que contenham informação confidencial, fornecendo confirmação por escrito de tal devolução ou destruição.",
+
+    c6_title_nda: "SEXTA. AUSÊNCIA DE LICENÇA E RELAÇÃO TRABALHISTA",
+    c6_body_nda: "Nenhuma disposição deste Acordo será interpretada como concessão de licença, direito de propriedade intelectual ou industrial, nem como criação de relação trabalhista, societária ou de representação entre as Partes.",
+    c6_title_b2b: "QUINTA. NATUREZA DA RELAÇÃO",
+    c6_body_b2b: "O presente Contrato não gera relação trabalhista, societária, de agência nem de representação entre as Partes. {roleA} atuará como contratado(a) independente, mantendo plena autonomia técnica e administrativa na execução dos serviços.",
+
+    c7_title: "SÉTIMA. LEI APLICÁVEL E JURISDIÇÃO",
+    c7_title_b2b: "SEXTA. LEI APLICÁVEL E JURISDIÇÃO",
+    c7_body: "Este documento será regido e interpretado de acordo com as leis vigentes em {jurisdiction}. Para a resolução de qualquer controvérsia decorrente de sua interpretação ou cumprimento, as Partes submetem-se aos tribunais competentes dessa jurisdição, com expressa renúncia a qualquer outro foro que possa lhes caber.",
+
+    c8_title: "OITAVA. DISPOSIÇÕES GERAIS",
+    c8_title_b2b: "SÉTIMA. DISPOSIÇÕES GERAIS",
+    c8_body: "Este documento constitui o acordo integral entre as Partes quanto ao seu objeto, deixando sem efeito qualquer entendimento anterior, verbal ou escrito. Qualquer alteração deverá constar por escrito e ser assinada por ambas as Partes. Caso alguma cláusula seja declarada nula ou inaplicável, isso não afetará a validade das demais disposições.",
+
+    sign_place_date: "Em {jurisdiction}, na data de assinatura indicada a seguir.",
+    sign_label: "Assinatura",
+    sign_name_label: "Nome e cargo",
+
+    duration_1: "um (1) ano",
+    duration_3: "três (3) anos",
+    duration_5: "cinco (5) anos",
+    duration_indefinite: "prazo indeterminado, enquanto a informação mantiver seu caráter confidencial",
+  },
+
+  fr: {
+    meta_title: "Générateur Gratuit d'Accords de Confidentialité et Contrats B2B | Modèles PDF",
+    meta_description: "Générez et téléchargez votre Accord de Confidentialité (NDA) — unilatéral, mutuel ou Contrat de Prestation de Services B2B — au format PDF en quelques minutes. Gratuit, sans inscription.",
+    brand_name: "NDAgen",
+    nav_tool: "Générateur",
+    nav_guide: "Guide Juridique",
+    nav_faq: "FAQ",
+    ad_label: "Publicité",
+    ad_native: "Bloc natif",
+    hero_badge: "100 % Gratuit · Sans inscription · Téléchargement instantané",
+    hero_title: "Générateur d'Accords de Confidentialité (NDA) et de Contrats B2B",
+    hero_subtitle: "Créez, prévisualisez et téléchargez votre NDA ou contrat de services professionnel au format PDF en moins de 3 minutes.",
+    tpl_unilateral_title: "NDA Unilatéral",
+    tpl_unilateral_desc: "Une partie divulgue des informations, l'autre les protège.",
+    tpl_mutual_title: "NDA Bilatéral (Mutuel)",
+    tpl_mutual_desc: "Les deux parties partagent et protègent des informations.",
+    tpl_b2b_title: "Contrat B2B de Services",
+    tpl_b2b_desc: "Prestation de services entre entreprises.",
+    step1_label: "Parties",
+    step2_label: "Objet",
+    step3_label: "Durée",
+    step4_label: "Vérifier",
+    party_a_legend: "Partie Divulgatrice",
+    party_a_legend_mutual: "Première Partie",
+    party_a_legend_b2b: "Prestataire de Services",
+    party_b_legend: "Partie Réceptrice",
+    party_b_legend_mutual: "Deuxième Partie",
+    party_b_legend_b2b: "Client",
+    label_name: "Nom / Société",
+    label_taxid: "Identifiant fiscal / SIRET",
+    label_address: "Adresse",
+    ph_name: "Ex. : Acme Corp SARL",
+    ph_taxid: "Ex. : SIRET 123 456 789 00012",
+    ph_address: "Ex. : 10 rue Principale, Paris, France",
+    label_object: "Objet et finalité de l'information confidentielle",
+    label_object_b2b: "Objet et périmètre du service fourni",
+    ph_object: "Ex. : Évaluation d'un partenariat commercial potentiel pour le développement conjoint d'une plateforme logicielle...",
+    object_hint: "Décrivez brièvement la raison du partage de l'information (négociation, collaboration, prestation de services, etc.).",
+    label_duration: "Durée de l'obligation",
+    label_duration_b2b: "Durée / validité du contrat",
+    opt_indefinite: "Indéterminée",
+    label_jurisdiction: "Juridiction et droit applicable",
+    ph_jurisdiction: "Ex. : Paris, France",
+    review_hint: "Vérifiez l'aperçu à droite. Une fois tout correct, téléchargez le document en PDF ou copiez-le dans le presse-papiers.",
+    btn_pdf: "Télécharger en PDF",
+    btn_copy: "Copier le texte",
+    btn_clear: "Effacer le formulaire",
+    btn_prev: "← Précédent",
+    btn_next: "Suivant →",
+    btn_finish: "Terminer",
+    preview_title: "Aperçu en temps réel",
+    preview_live: "En direct",
+    footer_rights: "Tous droits réservés.",
+    footer_note: "Outil gratuit · Ne remplace pas un conseil juridique professionnel.",
+    copy_success: "Texte copié dans le presse-papiers !",
+    copy_error: "Impossible de copier le texte.",
+    clear_confirm: "Voulez-vous vraiment effacer tout le formulaire ?",
+    pdf_generating: "Génération du PDF...",
+    btn_docx: "Télécharger en Word (.docx)",
+    docx_generating: "Génération du Word...",
+    docx_error: "Impossible de générer le fichier Word. Veuillez réessayer.",
+    docx_lib_error: "Impossible de charger le moteur Word. Vérifiez votre connexion internet.",
+    logo_upload_btn: "Importer le logo de l'entreprise (facultatif)",
+    logo_remove_btn: "Supprimer le logo",
+    logo_error_type: "Format d'image non pris en charge. Utilisez PNG, JPG ou SVG.",
+    sig_modal_title: "Signature numérique",
+    sig_tab_draw: "Dessiner",
+    sig_tab_upload: "Importer une image",
+    sig_draw_hint: "Dessinez votre signature ci-dessus avec la souris ou le doigt.",
+    sig_upload_btn: "Choisir une image (PNG/JPG)",
+    sig_upload_hint: "L'image sera automatiquement ajustée au cadre de signature.",
+    sig_btn_clear: "Effacer la signature",
+    sig_btn_confirm: "Confirmer la signature",
+    btn_cancel: "Annuler",
+    sig_add_btn: "Ajouter une signature",
+    sig_edit_btn: "Modifier",
+    sig_remove_btn: "Supprimer",
+    sig_slot_prefix: "Signature :",
+    sig_error_empty: "Dessinez ou importez une image avant de confirmer la signature.",
+    btn_save_template: "Enregistrer mes données comme modèle",
+    btn_load_template: "Charger mes données",
+    autosave_note: "Vos données sont enregistrées automatiquement dans ce navigateur.",
+    template_saved: "Données de la Partie Divulgatrice enregistrées comme modèle.",
+    template_loaded: "Modèle chargé avec succès.",
+    template_empty: "Vous n'avez pas encore enregistré de modèle.",
+    completion_label: "Progression du document",
+    validation_missing: "Complétez les champs obligatoires surlignés avant de télécharger le document.",
+    bilingual_mode_label: "Mode Bilingue (Double Langue)",
+    bilingual_primary_label: "Langue Principale",
+    bilingual_secondary_label: "Langue Secondaire",
+    custom_filename_label: "Nom de fichier personnalisé (facultatif)",
+    custom_filename_placeholder: "Ex. : NDA_AcmeCorp_2026",
+    doc_ref_label: "RÉF",
+    doc_issue_date_label: "Date d'émission",
+    doc_parties_heading: "Parties concernées",
+    sign_field_name: "Nom complet",
+    sign_field_role: "Fonction / Rôle",
+    sign_field_id: "Pièce d'identité",
+    sign_field_date: "Date",
+    doc_verified_badge: "Document électronique généré et vérifié",
+    pdf_footer_confidential: "Document confidentiel · Usage exclusif des parties signataires",
+    pdf_footer_page_of: "Page {current} sur {total}",
+
+    doc_title_nda_unilateral: "ACCORD DE CONFIDENTIALITÉ UNILATÉRAL",
+    doc_title_nda_mutual: "ACCORD DE CONFIDENTIALITÉ BILATÉRAL (MUTUEL)",
+    doc_title_b2b_services: "CONTRAT DE PRESTATION DE SERVICES B2B",
+    doc_subtitle: "Document généré le {date}",
+    ph_nameA: "[Nom de la Partie Divulgatrice]",
+    ph_nameB: "[Nom de la Partie Réceptrice]",
+    ph_id: "[identifiant fiscal non précisé]",
+    ph_addr: "[adresse non précisée]",
+    ph_purpose: "[objet non précisé]",
+    ph_jur: "[juridiction non précisée]",
+    role_discloser: "LA PARTIE DIVULGATRICE",
+    role_receiver: "LA PARTIE RÉCEPTRICE",
+    role_first: "LA PREMIÈRE PARTIE",
+    role_second: "LA DEUXIÈME PARTIE",
+    role_provider: "LE PRESTATAIRE",
+    role_client: "LE CLIENT",
+    intro_nda: "Il est convenu par les présentes le présent Accord de Confidentialité (ci-après, l'« Accord ») entre, d'une part, {nameA}, identifié(e) par {idA} et domicilié(e) à {addrA} (ci-après, « {roleA} ») ; et, d'autre part, {nameB}, identifié(e) par {idB} et domicilié(e) à {addrB} (ci-après, « {roleB} »), ci-après dénommées ensemble « les Parties », dans les conditions suivantes :",
+    intro_b2b: "Il est convenu par les présentes le présent Contrat de Prestation de Services (ci-après, le « Contrat ») entre, d'une part, {nameA}, identifié(e) par {idA} et domicilié(e) à {addrA} (ci-après, « {roleA} ») ; et, d'autre part, {nameB}, identifié(e) par {idB} et domicilié(e) à {addrB} (ci-après, « {roleB} »), ci-après dénommées ensemble « les Parties », dans les conditions suivantes :",
+
+    c1_title_nda: "PREMIER. OBJET",
+    c1_body_nda_uni: "Le présent Accord a pour objet d'établir les conditions selon lesquelles {roleA} divulguera à {roleB} certaines informations confidentielles relatives à ce qui suit : {purpose}. {roleB} s'engage à utiliser ces informations exclusivement à cette fin.",
+    c1_body_nda_mutual: "Le présent Accord a pour objet d'établir les conditions selon lesquelles {roleA} et {roleB} pourront se divulguer mutuellement des informations confidentielles relatives à ce qui suit : {purpose}. Chaque Partie s'engage à utiliser les informations reçues exclusivement à cette fin.",
+    c1_title_b2b: "PREMIER. OBJET DU CONTRAT",
+    c1_body_b2b: "{roleA} s'engage à fournir à {roleB} les services décrits ci-après : {purpose}. Les services seront exécutés conformément aux normes professionnelles applicables au secteur et avec la diligence requise.",
+
+    c2_title_nda_uni: "DEUXIÈME. OBLIGATIONS DE LA PARTIE RÉCEPTRICE",
+    c2_body_nda_uni: "{roleB} s'engage à : (i) conserver l'information confidentielle en toute confidentialité ; (ii) ne pas la divulguer à des tiers sans l'autorisation préalable et écrite de {roleA} ; (iii) ne pas l'utiliser à des fins autres que celles établies à la Clause Première ; et (iv) mettre en œuvre des mesures de sécurité raisonnables pour éviter toute divulgation accidentelle ou non autorisée.",
+    c2_title_nda_mutual: "DEUXIÈME. OBLIGATIONS DE CONFIDENTIALITÉ",
+    c2_body_nda_mutual: "Chaque Partie, en sa qualité de partie réceptrice, s'engage à : (i) conserver toute information confidentielle reçue en toute confidentialité ; (ii) ne pas la divulguer à des tiers sans l'autorisation préalable et écrite de la Partie divulgatrice ; (iii) ne pas l'utiliser à des fins autres que celles établies à la Clause Première ; et (iv) mettre en œuvre des mesures de sécurité raisonnables pour éviter toute divulgation accidentelle ou non autorisée.",
+    c2_title_b2b: "DEUXIÈME. CONFIDENTIALITÉ",
+    c2_body_b2b: "Les Parties s'engagent à garder strictement confidentielle toute information technique, commerciale ou financière échangée dans le cadre de l'exécution du présent Contrat, et à ne pas la divulguer à des tiers sans l'autorisation préalable et écrite de l'autre Partie, sauf obligation légale ou requête d'une autorité compétente.",
+
+    c3_title: "TROISIÈME. EXCLUSIONS",
+    c3_body: "Les obligations de confidentialité ne s'appliquent pas aux informations qui : (a) sont ou deviennent publiques sans faute de la partie réceptrice ; (b) étaient licitement connues de la partie réceptrice avant leur divulgation ; (c) sont licitement reçues d'un tiers sans restriction de confidentialité ; ou (d) doivent être divulguées en vertu d'une obligation légale, judiciaire ou d'une autorité compétente, moyennant notification préalable à l'autre Partie lorsque cela est possible.",
+
+    c4_title_nda: "QUATRIÈME. DURÉE",
+    c4_body_nda: "Les obligations de confidentialité établies dans le présent Accord resteront en vigueur pendant {duration} à compter de la date de signature du présent document, indépendamment de la fin de toute relation commerciale entre les Parties.",
+    c4_title_b2b: "QUATRIÈME. DURÉE ET CONFIDENTIALITÉ",
+    c4_body_b2b: "Le présent Contrat aura une durée de {duration} à compter de sa signature. Les obligations de confidentialité établies à la Clause Deuxième resteront en vigueur pendant cette période et après la fin du Contrat, quelle qu'en soit la cause.",
+
+    c5_title: "CINQUIÈME. RESTITUTION OU DESTRUCTION DE L'INFORMATION",
+    c5_body: "Sur demande de la partie divulgatrice, ou à la fin du présent Accord, la partie réceptrice devra restituer ou détruire, selon les instructions reçues, tous les documents, supports et copies contenant des informations confidentielles, et fournir une confirmation écrite de cette restitution ou destruction.",
+
+    c6_title_nda: "SIXIÈME. ABSENCE DE LICENCE ET DE RELATION DE TRAVAIL",
+    c6_body_nda: "Aucune disposition du présent Accord ne sera interprétée comme accordant une licence, un droit de propriété intellectuelle ou industrielle, ni comme créant une relation de travail, sociétaire ou de représentation entre les Parties.",
+    c6_title_b2b: "CINQUIÈME. NATURE DE LA RELATION",
+    c6_body_b2b: "Le présent Contrat ne crée aucune relation de travail, sociétaire, d'agence ni de représentation entre les Parties. {roleA} agira en tant que prestataire indépendant, conservant une pleine autonomie technique et administrative dans l'exécution des services.",
+
+    c7_title: "SEPTIÈME. DROIT APPLICABLE ET JURIDICTION",
+    c7_title_b2b: "SIXIÈME. DROIT APPLICABLE ET JURIDICTION",
+    c7_body: "Le présent document sera régi et interprété conformément aux lois en vigueur à {jurisdiction}. Pour la résolution de tout litige découlant de son interprétation ou de son exécution, les Parties se soumettent aux tribunaux compétents de cette juridiction, renonçant expressément à tout autre for qui pourrait leur être applicable.",
+
+    c8_title: "HUITIÈME. DISPOSITIONS GÉNÉRALES",
+    c8_title_b2b: "SEPTIÈME. DISPOSITIONS GÉNÉRALES",
+    c8_body: "Le présent document constitue l'accord intégral entre les Parties concernant son objet, annulant tout accord antérieur, verbal ou écrit. Toute modification devra être faite par écrit et signée par les deux Parties. Si une clause est déclarée nulle ou inapplicable, cela n'affectera pas la validité des autres dispositions.",
+
+    sign_place_date: "À {jurisdiction}, à la date de signature indiquée ci-dessous.",
+    sign_label: "Signature",
+    sign_name_label: "Nom et fonction",
+
+    duration_1: "un (1) an",
+    duration_3: "trois (3) ans",
+    duration_5: "cinq (5) ans",
+    duration_indefinite: "une durée indéterminée, tant que l'information conserve son caractère confidentiel",
+  },
+
+  ru: {
+    meta_title: "Бесплатный онлайн-генератор NDA и B2B-договоров | PDF-шаблоны",
+    meta_description: "Создайте и скачайте соглашение о неразглашении (NDA) — одностороннее, взаимное или договор оказания услуг B2B — в формате PDF за несколько минут. Бесплатно, без регистрации.",
+    brand_name: "NDAgen",
+    nav_tool: "Генератор",
+    nav_guide: "Юридический гид",
+    nav_faq: "Вопросы",
+    ad_label: "Реклама",
+    ad_native: "Нативный блок",
+    hero_badge: "100% бесплатно · Без регистрации · Мгновенное скачивание",
+    hero_title: "Генератор соглашений о неразглашении (NDA) и B2B-договоров",
+    hero_subtitle: "Создайте, просмотрите и скачайте профессиональное NDA или договор оказания услуг в формате PDF менее чем за 3 минуты.",
+    tpl_unilateral_title: "Одностороннее NDA",
+    tpl_unilateral_desc: "Одна сторона раскрывает информацию, другая её защищает.",
+    tpl_mutual_title: "Взаимное (двустороннее) NDA",
+    tpl_mutual_desc: "Обе стороны обмениваются информацией и защищают её.",
+    tpl_b2b_title: "B2B-договор оказания услуг",
+    tpl_b2b_desc: "Оказание услуг между компаниями.",
+    step1_label: "Стороны",
+    step2_label: "Предмет",
+    step3_label: "Срок",
+    step4_label: "Проверка",
+    party_a_legend: "Раскрывающая сторона",
+    party_a_legend_mutual: "Первая сторона",
+    party_a_legend_b2b: "Исполнитель услуг",
+    party_b_legend: "Принимающая сторона",
+    party_b_legend_mutual: "Вторая сторона",
+    party_b_legend_b2b: "Заказчик",
+    label_name: "Имя / Компания",
+    label_taxid: "ИНН / Идентификационный номер",
+    label_address: "Адрес",
+    ph_name: "Напр.: ООО «Акме Корп»",
+    ph_taxid: "Напр.: ИНН 1234567890",
+    ph_address: "Напр.: ул. Главная 10, Москва, Россия",
+    label_object: "Предмет и цель конфиденциальной информации",
+    label_object_b2b: "Предмет и объём оказываемой услуги",
+    ph_object: "Напр.: Оценка возможного делового партнёрства для совместной разработки программной платформы...",
+    object_hint: "Кратко опишите причину передачи информации (переговоры, сотрудничество, оказание услуг и т.д.).",
+    label_duration: "Срок действия обязательства",
+    label_duration_b2b: "Срок действия договора",
+    opt_indefinite: "Бессрочно",
+    label_jurisdiction: "Юрисдикция и применимое право",
+    ph_jurisdiction: "Напр.: Москва, Россия",
+    review_hint: "Проверьте предварительный просмотр справа. Когда всё будет верно, скачайте документ в PDF или скопируйте его в буфер обмена.",
+    btn_pdf: "Скачать в PDF",
+    btn_copy: "Скопировать текст",
+    btn_clear: "Очистить форму",
+    btn_prev: "← Назад",
+    btn_next: "Далее →",
+    btn_finish: "Готово",
+    preview_title: "Предпросмотр в реальном времени",
+    preview_live: "В реальном времени",
+    footer_rights: "Все права защищены.",
+    footer_note: "Бесплатный инструмент · Не заменяет профессиональную юридическую консультацию.",
+    copy_success: "Текст скопирован в буфер обмена!",
+    copy_error: "Не удалось скопировать текст.",
+    clear_confirm: "Вы уверены, что хотите очистить всю форму?",
+    pdf_generating: "Создание PDF...",
+    btn_docx: "Скачать в Word (.docx)",
+    docx_generating: "Создание Word...",
+    docx_error: "Не удалось создать файл Word. Попробуйте снова.",
+    docx_lib_error: "Не удалось загрузить модуль Word. Проверьте подключение к интернету.",
+    logo_upload_btn: "Загрузить логотип компании (необязательно)",
+    logo_remove_btn: "Удалить логотип",
+    logo_error_type: "Неподдерживаемый формат изображения. Используйте PNG, JPG или SVG.",
+    sig_modal_title: "Электронная подпись",
+    sig_tab_draw: "Нарисовать",
+    sig_tab_upload: "Загрузить изображение",
+    sig_draw_hint: "Нарисуйте свою подпись выше мышью или пальцем.",
+    sig_upload_btn: "Выбрать изображение (PNG/JPG)",
+    sig_upload_hint: "Изображение будет автоматически подогнано под область подписи.",
+    sig_btn_clear: "Очистить подпись",
+    sig_btn_confirm: "Подтвердить подпись",
+    btn_cancel: "Отмена",
+    sig_add_btn: "Добавить подпись",
+    sig_edit_btn: "Изменить",
+    sig_remove_btn: "Удалить",
+    sig_slot_prefix: "Подпись:",
+    sig_error_empty: "Нарисуйте или загрузите изображение перед подтверждением подписи.",
+    btn_save_template: "Сохранить мои данные как шаблон",
+    btn_load_template: "Загрузить мои данные",
+    autosave_note: "Ваши данные автоматически сохраняются в этом браузере.",
+    template_saved: "Данные раскрывающей стороны сохранены как шаблон.",
+    template_loaded: "Шаблон успешно загружен.",
+    template_empty: "Вы ещё не сохранили ни одного шаблона.",
+    completion_label: "Заполненность документа",
+    validation_missing: "Заполните выделенные обязательные поля перед скачиванием документа.",
+    bilingual_mode_label: "Двуязычный режим (два языка)",
+    bilingual_primary_label: "Основной язык",
+    bilingual_secondary_label: "Дополнительный язык",
+    custom_filename_label: "Пользовательское имя файла (необязательно)",
+    custom_filename_placeholder: "Напр.: NDA_AcmeCorp_2026",
+    doc_ref_label: "НОМЕР",
+    doc_issue_date_label: "Дата выдачи",
+    doc_parties_heading: "Стороны соглашения",
+    sign_field_name: "Полное имя",
+    sign_field_role: "Должность / Роль",
+    sign_field_id: "Документ, удостоверяющий личность",
+    sign_field_date: "Дата",
+    doc_verified_badge: "Электронный документ создан и проверен",
+    pdf_footer_confidential: "Конфиденциальный документ · Только для сторон, подписавших соглашение",
+    pdf_footer_page_of: "Страница {current} из {total}",
+
+    doc_title_nda_unilateral: "ОДНОСТОРОННЕЕ СОГЛАШЕНИЕ О НЕРАЗГЛАШЕНИИ",
+    doc_title_nda_mutual: "ДВУСТОРОННЕЕ (ВЗАИМНОЕ) СОГЛАШЕНИЕ О НЕРАЗГЛАШЕНИИ",
+    doc_title_b2b_services: "B2B-ДОГОВОР ОКАЗАНИЯ УСЛУГ",
+    doc_subtitle: "Документ создан {date}",
+    ph_nameA: "[Название раскрывающей стороны]",
+    ph_nameB: "[Название принимающей стороны]",
+    ph_id: "[ИНН не указан]",
+    ph_addr: "[адрес не указан]",
+    ph_purpose: "[цель не указана]",
+    ph_jur: "[юрисдикция не указана]",
+    role_discloser: "РАСКРЫВАЮЩАЯ СТОРОНА",
+    role_receiver: "ПРИНИМАЮЩАЯ СТОРОНА",
+    role_first: "ПЕРВАЯ СТОРОНА",
+    role_second: "ВТОРАЯ СТОРОНА",
+    role_provider: "ИСПОЛНИТЕЛЬ",
+    role_client: "ЗАКАЗЧИК",
+    intro_nda: "Настоящим заключается Соглашение о неразглашении (далее — «Соглашение») между, с одной стороны, {nameA}, идентифицированным(ой) как {idA}, с местонахождением {addrA} (далее — «{roleA}»); и, с другой стороны, {nameB}, идентифицированным(ой) как {idB}, с местонахождением {addrB} (далее — «{roleB}»), совместно именуемыми «Стороны», на следующих условиях:",
+    intro_b2b: "Настоящим заключается Договор оказания услуг (далее — «Договор») между, с одной стороны, {nameA}, идентифицированным(ой) как {idA}, с местонахождением {addrA} (далее — «{roleA}»); и, с другой стороны, {nameB}, идентифицированным(ой) как {idB}, с местонахождением {addrB} (далее — «{roleB}»), совместно именуемыми «Стороны», на следующих условиях:",
+
+    c1_title_nda: "ПЕРВОЕ. ПРЕДМЕТ",
+    c1_body_nda_uni: "Предметом настоящего Соглашения является установление условий, на которых {roleA} раскроет {roleB} определённую конфиденциальную информацию, связанную со следующим: {purpose}. {roleB} обязуется использовать такую информацию исключительно в этих целях.",
+    c1_body_nda_mutual: "Предметом настоящего Соглашения является установление условий, на которых {roleA} и {roleB} смогут взаимно раскрывать друг другу конфиденциальную информацию, связанную со следующим: {purpose}. Каждая Сторона обязуется использовать полученную информацию исключительно в этих целях.",
+    c1_title_b2b: "ПЕРВОЕ. ПРЕДМЕТ ДОГОВОРА",
+    c1_body_b2b: "{roleA} обязуется оказать {roleB} услуги, описанные ниже: {purpose}. Услуги будут выполняться в соответствии с применимыми профессиональными стандартами и с должной осмотрительностью.",
+
+    c2_title_nda_uni: "ВТОРОЕ. ОБЯЗАННОСТИ ПРИНИМАЮЩЕЙ СТОРОНЫ",
+    c2_body_nda_uni: "{roleB} обязуется: (i) хранить конфиденциальную информацию в строгой тайне; (ii) не раскрывать её третьим лицам без предварительного письменного согласия {roleA}; (iii) не использовать её для целей, отличных от указанных в Первом пункте; и (iv) принимать разумные меры безопасности для предотвращения случайного или несанкционированного раскрытия.",
+    c2_title_nda_mutual: "ВТОРОЕ. ОБЯЗАТЕЛЬСТВА О КОНФИДЕНЦИАЛЬНОСТИ",
+    c2_body_nda_mutual: "Каждая Сторона, выступая в роли принимающей стороны, обязуется: (i) хранить полученную конфиденциальную информацию в строгой тайне; (ii) не раскрывать её третьим лицам без предварительного письменного согласия раскрывающей Стороны; (iii) не использовать её для целей, отличных от указанных в Первом пункте; и (iv) принимать разумные меры безопасности для предотвращения случайного или несанкционированного раскрытия.",
+    c2_title_b2b: "ВТОРОЕ. КОНФИДЕНЦИАЛЬНОСТЬ",
+    c2_body_b2b: "Стороны обязуются сохранять в строгой тайне всю техническую, коммерческую или финансовую информацию, которой они обмениваются в связи с исполнением настоящего Договора, и не раскрывать её третьим лицам без предварительного письменного согласия другой Стороны, за исключением случаев, предусмотренных законом или требованием компетентного органа.",
+
+    c3_title: "ТРЕТЬЕ. ИСКЛЮЧЕНИЯ",
+    c3_body: "Обязательства о конфиденциальности не распространяются на информацию, которая: (a) является или становится общедоступной не по вине принимающей стороны; (b) была правомерно известна принимающей стороне до её раскрытия; (c) правомерно получена от третьего лица без ограничений конфиденциальности; или (d) должна быть раскрыта по требованию закона, суда или компетентного органа при условии предварительного уведомления другой Стороны, когда это возможно.",
+
+    c4_title_nda: "ЧЕТВЁРТОЕ. СРОК ДЕЙСТВИЯ",
+    c4_body_nda: "Обязательства о конфиденциальности, установленные настоящим Соглашением, остаются в силе в течение {duration} с даты подписания настоящего документа, независимо от прекращения любых деловых отношений между Сторонами.",
+    c4_title_b2b: "ЧЕТВЁРТОЕ. СРОК ДЕЙСТВИЯ И КОНФИДЕНЦИАЛЬНОСТЬ",
+    c4_body_b2b: "Настоящий Договор действует в течение {duration} с момента его подписания. Обязательства о конфиденциальности, установленные во Втором пункте, остаются в силе в течение этого периода и после прекращения Договора по любой причине.",
+
+    c5_title: "ПЯТОЕ. ВОЗВРАТ ИЛИ УНИЧТОЖЕНИЕ ИНФОРМАЦИИ",
+    c5_body: "По требованию раскрывающей стороны или по окончании настоящего Соглашения принимающая сторона обязана вернуть или уничтожить, в соответствии с полученными инструкциями, все документы, носители и копии, содержащие конфиденциальную информацию, и предоставить письменное подтверждение такого возврата или уничтожения.",
+
+    c6_title_nda: "ШЕСТОЕ. ОТСУТСТВИЕ ЛИЦЕНЗИИ И ТРУДОВЫХ ОТНОШЕНИЙ",
+    c6_body_nda: "Ничто в настоящем Соглашении не должно толковаться как предоставление лицензии, права интеллектуальной или промышленной собственности, а также как создание трудовых, корпоративных или представительских отношений между Сторонами.",
+    c6_title_b2b: "ПЯТОЕ. ХАРАКТЕР ОТНОШЕНИЙ",
+    c6_body_b2b: "Настоящий Договор не создаёт трудовых, корпоративных, агентских или представительских отношений между Сторонами. {roleA} действует как независимый подрядчик, сохраняя полную техническую и административную самостоятельность при оказании услуг.",
+
+    c7_title: "СЕДЬМОЕ. ПРИМЕНИМОЕ ПРАВО И ЮРИСДИКЦИЯ",
+    c7_title_b2b: "ШЕСТОЕ. ПРИМЕНИМОЕ ПРАВО И ЮРИСДИКЦИЯ",
+    c7_body: "Настоящий документ регулируется и толкуется в соответствии с законодательством, действующим в {jurisdiction}. Для разрешения любых споров, возникающих в связи с его толкованием или исполнением, Стороны подчиняются компетентным судам данной юрисдикции, прямо отказываясь от любой иной подсудности, которая могла бы им принадлежать.",
+
+    c8_title: "ВОСЬМОЕ. ОБЩИЕ ПОЛОЖЕНИЯ",
+    c8_title_b2b: "СЕДЬМОЕ. ОБЩИЕ ПОЛОЖЕНИЯ",
+    c8_body: "Настоящий документ представляет собой полное соглашение между Сторонами относительно его предмета, отменяя любые предыдущие договорённости, устные или письменные. Любые изменения должны быть оформлены в письменном виде и подписаны обеими Сторонами. Признание какого-либо пункта недействительным или неприменимым не влияет на действительность остальных положений.",
+
+    sign_place_date: "В {jurisdiction}, датой подписания, указанной ниже.",
+    sign_label: "Подпись",
+    sign_name_label: "Имя и должность",
+
+    duration_1: "один (1) год",
+    duration_3: "три (3) года",
+    duration_5: "пять (5) лет",
+    duration_indefinite: "неопределённый срок, пока информация сохраняет конфиденциальный характер",
+  },
+
+  zh: {
+    meta_title: "免费在线保密协议(NDA)与B2B合同生成器 | PDF模板",
+    meta_description: "几分钟内生成并下载您的保密协议(NDA)——单向、双向或B2B服务合同——PDF格式。免费，无需注册。",
+    brand_name: "NDAgen",
+    nav_tool: "生成器",
+    nav_guide: "法律指南",
+    nav_faq: "常见问题",
+    ad_label: "广告",
+    ad_native: "原生广告位",
+    hero_badge: "100% 免费 · 无需注册 · 即时下载",
+    hero_title: "保密协议(NDA)与B2B合同生成器",
+    hero_subtitle: "3分钟内创建、预览并下载专业的NDA或服务合同PDF文件。",
+    tpl_unilateral_title: "单向保密协议",
+    tpl_unilateral_desc: "一方披露信息，另一方负责保护。",
+    tpl_mutual_title: "双向（互惠）保密协议",
+    tpl_mutual_desc: "双方互相分享并保护信息。",
+    tpl_b2b_title: "B2B服务合同",
+    tpl_b2b_desc: "企业间的服务提供。",
+    step1_label: "各方信息",
+    step2_label: "目的",
+    step3_label: "期限",
+    step4_label: "审核",
+    party_a_legend: "披露方",
+    party_a_legend_mutual: "第一方",
+    party_a_legend_b2b: "服务提供方",
+    party_b_legend: "接收方",
+    party_b_legend_mutual: "第二方",
+    party_b_legend_b2b: "客户",
+    label_name: "姓名 / 公司名称",
+    label_taxid: "税务登记号 / 身份证明",
+    label_address: "地址",
+    ph_name: "例如：Acme Corp 有限公司",
+    ph_taxid: "例如：统一社会信用代码 91110000XXXXXXXXXX",
+    ph_address: "例如：北京市朝阳区主街10号",
+    label_object: "保密信息的目的与用途",
+    label_object_b2b: "所提供服务的目的与范围",
+    ph_object: "例如：评估双方在软件平台联合开发方面的潜在商业合作...",
+    object_hint: "简要说明分享该信息的原因（谈判、合作、服务提供等）。",
+    label_duration: "保密义务期限",
+    label_duration_b2b: "合同期限 / 有效期",
+    opt_indefinite: "无限期",
+    label_jurisdiction: "管辖权与适用法律",
+    ph_jurisdiction: "例如：中国上海",
+    review_hint: "请查看右侧预览。确认无误后，下载PDF文件或复制到剪贴板。",
+    btn_pdf: "下载PDF",
+    btn_copy: "复制文本",
+    btn_clear: "清空表单",
+    btn_prev: "← 上一步",
+    btn_next: "下一步 →",
+    btn_finish: "完成",
+    preview_title: "实时预览",
+    preview_live: "实时",
+    footer_rights: "版权所有。",
+    footer_note: "免费工具 · 不能替代专业法律咨询。",
+    copy_success: "文本已复制到剪贴板！",
+    copy_error: "无法复制文本。",
+    clear_confirm: "确定要清空整个表单吗？",
+    pdf_generating: "正在生成PDF...",
+    btn_docx: "下载Word文档（.docx）",
+    docx_generating: "正在生成Word文档...",
+    docx_error: "无法生成Word文件，请重试。",
+    docx_lib_error: "无法加载Word生成引擎，请检查您的网络连接。",
+    logo_upload_btn: "上传公司徽标（可选）",
+    logo_remove_btn: "移除徽标",
+    logo_error_type: "不支持的图片格式，请使用PNG、JPG或SVG。",
+    sig_modal_title: "电子签名",
+    sig_tab_draw: "手绘",
+    sig_tab_upload: "上传图片",
+    sig_draw_hint: "请在上方用鼠标或手指绘制您的签名。",
+    sig_upload_btn: "选择图片（PNG/JPG）",
+    sig_upload_hint: "图片将自动调整以适应签名框。",
+    sig_btn_clear: "清除签名",
+    sig_btn_confirm: "确认签名",
+    btn_cancel: "取消",
+    sig_add_btn: "添加签名",
+    sig_edit_btn: "编辑",
+    sig_remove_btn: "移除",
+    sig_slot_prefix: "签名：",
+    sig_error_empty: "请先绘制或上传图片，然后再确认签名。",
+    btn_save_template: "将我的信息保存为模板",
+    btn_load_template: "加载我的信息",
+    autosave_note: "您的数据会自动保存在此浏览器中。",
+    template_saved: "披露方信息已保存为模板。",
+    template_loaded: "模板加载成功。",
+    template_empty: "您尚未保存任何模板。",
+    completion_label: "文档完成度",
+    validation_missing: "请先填写高亮显示的必填字段，然后再下载文档。",
+    bilingual_mode_label: "双语模式（双语对照）",
+    bilingual_primary_label: "主要语言",
+    bilingual_secondary_label: "次要语言",
+    custom_filename_label: "自定义文件名（可选）",
+    custom_filename_placeholder: "例如：NDA_AcmeCorp_2026",
+    doc_ref_label: "编号",
+    doc_issue_date_label: "签发日期",
+    doc_parties_heading: "协议各方",
+    sign_field_name: "全名",
+    sign_field_role: "职位 / 角色",
+    sign_field_id: "身份证明文件",
+    sign_field_date: "日期",
+    doc_verified_badge: "已生成并验证的电子文档",
+    pdf_footer_confidential: "保密文件 · 仅供签署各方使用",
+    pdf_footer_page_of: "第 {current} 页，共 {total} 页",
+
+    doc_title_nda_unilateral: "单向保密协议",
+    doc_title_nda_mutual: "双向（互惠）保密协议",
+    doc_title_b2b_services: "B2B服务合同",
+    doc_subtitle: "文档生成日期：{date}",
+    ph_nameA: "[披露方名称]",
+    ph_nameB: "[接收方名称]",
+    ph_id: "[未填写税务登记号]",
+    ph_addr: "[未填写地址]",
+    ph_purpose: "[未填写目的]",
+    ph_jur: "[未填写管辖权]",
+    role_discloser: "披露方",
+    role_receiver: "接收方",
+    role_first: "第一方",
+    role_second: "第二方",
+    role_provider: "服务提供方",
+    role_client: "客户",
+    intro_nda: "本保密协议（以下简称\"协议\"）由以下双方签订：一方为{nameA}，识别号为{idA}，地址为{addrA}（以下简称\"{roleA}\"）；另一方为{nameB}，识别号为{idB}，地址为{addrB}（以下简称\"{roleB}\"），以下统称为\"双方\"，条款如下：",
+    intro_b2b: "本服务合同（以下简称\"合同\"）由以下双方签订：一方为{nameA}，识别号为{idA}，地址为{addrA}（以下简称\"{roleA}\"）；另一方为{nameB}，识别号为{idB}，地址为{addrB}（以下简称\"{roleB}\"），以下统称为\"双方\"，条款如下：",
+
+    c1_title_nda: "第一条 目的",
+    c1_body_nda_uni: "本协议旨在明确{roleA}向{roleB}披露与以下事项相关的特定保密信息的条款和条件：{purpose}。{roleB}承诺仅将该信息用于上述目的。",
+    c1_body_nda_mutual: "本协议旨在明确{roleA}与{roleB}之间就以下事项互相披露保密信息的条款和条件：{purpose}。各方承诺仅将所获得的信息用于上述目的。",
+    c1_title_b2b: "第一条 合同目的",
+    c1_body_b2b: "{roleA}承诺向{roleB}提供以下服务：{purpose}。服务将按照适用于该行业的专业标准并以应有的注意义务履行。",
+
+    c2_title_nda_uni: "第二条 接收方义务",
+    c2_body_nda_uni: "{roleB}承诺：(i) 对保密信息严格保密；(ii) 未经{roleA}事先书面同意不得向第三方披露；(iii) 不得将其用于第一条规定以外的目的；(iv) 采取合理的安全措施以防止意外或未经授权的披露。",
+    c2_title_nda_mutual: "第二条 保密义务",
+    c2_body_nda_mutual: "各方在作为接收方时承诺：(i) 对所接收的保密信息严格保密；(ii) 未经披露方事先书面同意不得向第三方披露；(iii) 不得将其用于第一条规定以外的目的；(iv) 采取合理的安全措施以防止意外或未经授权的披露。",
+    c2_title_b2b: "第二条 保密义务",
+    c2_body_b2b: "双方承诺对因履行本合同而交换的所有技术、商业或财务信息严格保密，未经对方事先书面同意不得向第三方披露，法律要求或主管机关要求的除外。",
+
+    c3_title: "第三条 除外情形",
+    c3_body: "保密义务不适用于以下信息：(a) 非因接收方过错而属于或成为公开信息的；(b) 接收方在披露前已合法获知的；(c) 从第三方合法获得且无保密限制的；或 (d) 根据法律、司法或主管机关要求必须披露的，在可能的情况下应事先通知对方。",
+
+    c4_title_nda: "第四条 期限",
+    c4_body_nda: "本协议规定的保密义务自本文件签署之日起持续{duration}，不受双方之间任何商业关系终止的影响。",
+    c4_title_b2b: "第四条 有效期与保密义务",
+    c4_body_b2b: "本合同自签署之日起有效期为{duration}。第二条规定的保密义务在此期间以及合同因任何原因终止后仍继续有效。",
+
+    c5_title: "第五条 信息的归还或销毁",
+    c5_body: "应披露方要求，或本协议终止时，接收方应按指示归还或销毁所有载有保密信息的文件、载体及副本，并提供归还或销毁的书面确认。",
+
+    c6_title_nda: "第六条 无许可及无雇佣关系",
+    c6_body_nda: "本协议任何条款均不得被解释为授予许可、知识产权或工业产权，亦不构成双方之间的雇佣、合伙或代理关系。",
+    c6_title_b2b: "第五条 关系性质",
+    c6_body_b2b: "本合同不构成双方之间的雇佣、合伙、代理或代表关系。{roleA}作为独立承包商行事，在履行服务过程中保有完全的技术和管理自主权。",
+
+    c7_title: "第七条 适用法律与管辖权",
+    c7_title_b2b: "第六条 适用法律与管辖权",
+    c7_body: "本文件受{jurisdiction}现行法律管辖并据此解释。因本文件解释或履行产生的任何争议，双方应提交该管辖区有管辖权的法院处理，并明确放弃可能适用的其他管辖权。",
+
+    c8_title: "第八条 一般规定",
+    c8_title_b2b: "第七条 一般规定",
+    c8_body: "本文件构成双方就本协议标的达成的完整协议，取代此前任何口头或书面的理解。任何修改均须以书面形式作出并经双方签署。若任何条款被宣告无效或不可执行，不影响其余条款的效力。",
+
+    sign_place_date: "于{jurisdiction}，签署日期如下所示。",
+    sign_label: "签名",
+    sign_name_label: "姓名及职位",
+
+    duration_1: "一（1）年",
+    duration_3: "三（3）年",
+    duration_5: "五（5）年",
+    duration_indefinite: "无限期，直至该信息不再具有保密性质为止",
+  },
+
+  ja: {
+    meta_title: "無料オンラインNDA・B2B契約書ジェネレーター | PDFテンプレート",
+    meta_description: "秘密保持契約（NDA）——片務型、双務型、またはB2Bサービス契約——を数分でPDF形式で作成・ダウンロードできます。無料、登録不要。",
+    brand_name: "NDAgen",
+    nav_tool: "ジェネレーター",
+    nav_guide: "法律ガイド",
+    nav_faq: "よくある質問",
+    ad_label: "広告",
+    ad_native: "ネイティブ広告枠",
+    hero_badge: "100%無料 · 登録不要 · 即時ダウンロード",
+    hero_title: "秘密保持契約（NDA）・B2B契約書ジェネレーター",
+    hero_subtitle: "3分以内にプロフェッショナルなNDAまたはサービス契約書を作成・プレビューし、PDFでダウンロードできます。",
+    tpl_unilateral_title: "片務型NDA",
+    tpl_unilateral_desc: "一方が情報を開示し、他方がそれを保護します。",
+    tpl_mutual_title: "双務型（相互）NDA",
+    tpl_mutual_desc: "両当事者が情報を共有し、保護します。",
+    tpl_b2b_title: "B2Bサービス契約",
+    tpl_b2b_desc: "企業間のサービス提供。",
+    step1_label: "当事者",
+    step2_label: "目的",
+    step3_label: "期間",
+    step4_label: "確認",
+    party_a_legend: "開示当事者",
+    party_a_legend_mutual: "第一当事者",
+    party_a_legend_b2b: "サービス提供者",
+    party_b_legend: "受領当事者",
+    party_b_legend_mutual: "第二当事者",
+    party_b_legend_b2b: "クライアント",
+    label_name: "氏名 / 会社名",
+    label_taxid: "納税者番号 / 識別番号",
+    label_address: "住所",
+    ph_name: "例：Acme Corp株式会社",
+    ph_taxid: "例：法人番号 1234567890123",
+    ph_address: "例：東京都千代田区メイン通り10番地",
+    label_object: "秘密情報の目的および用途",
+    label_object_b2b: "提供されるサービスの目的および範囲",
+    ph_object: "例：ソフトウェアプラットフォームの共同開発に関する事業提携の可能性を評価するため...",
+    object_hint: "情報を共有する理由（交渉、協業、サービス提供など）を簡潔に記載してください。",
+    label_duration: "義務の存続期間",
+    label_duration_b2b: "契約期間 / 有効期間",
+    opt_indefinite: "無期限",
+    label_jurisdiction: "管轄および準拠法",
+    ph_jurisdiction: "例：東京、日本",
+    review_hint: "右側のプレビューをご確認ください。内容に問題がなければ、PDFでダウンロードするかクリップボードにコピーしてください。",
+    btn_pdf: "PDFでダウンロード",
+    btn_copy: "テキストをコピー",
+    btn_clear: "フォームをクリア",
+    btn_prev: "← 前へ",
+    btn_next: "次へ →",
+    btn_finish: "完了",
+    preview_title: "リアルタイムプレビュー",
+    preview_live: "ライブ",
+    footer_rights: "All rights reserved.",
+    footer_note: "無料ツール · 専門家による法律相談の代わりにはなりません。",
+    copy_success: "テキストをクリップボードにコピーしました！",
+    copy_error: "テキストをコピーできませんでした。",
+    clear_confirm: "フォーム全体をクリアしてもよろしいですか？",
+    pdf_generating: "PDFを生成中...",
+    btn_docx: "Word（.docx）でダウンロード",
+    docx_generating: "Wordを生成中...",
+    docx_error: "Wordファイルを生成できませんでした。もう一度お試しください。",
+    docx_lib_error: "Word生成エンジンを読み込めませんでした。インターネット接続をご確認ください。",
+    logo_upload_btn: "会社のロゴをアップロード（任意）",
+    logo_remove_btn: "ロゴを削除",
+    logo_error_type: "サポートされていない画像形式です。PNG、JPG、またはSVGをご使用ください。",
+    sig_modal_title: "電子署名",
+    sig_tab_draw: "手書き",
+    sig_tab_upload: "画像をアップロード",
+    sig_draw_hint: "上のエリアにマウスまたは指で署名を描いてください。",
+    sig_upload_btn: "画像を選択（PNG/JPG）",
+    sig_upload_hint: "画像は署名欄に自動的に合わせて調整されます。",
+    sig_btn_clear: "署名をクリア",
+    sig_btn_confirm: "署名を確定",
+    btn_cancel: "キャンセル",
+    sig_add_btn: "署名を追加",
+    sig_edit_btn: "編集",
+    sig_remove_btn: "削除",
+    sig_slot_prefix: "署名：",
+    sig_error_empty: "署名を確定する前に、描画または画像のアップロードを行ってください。",
+    btn_save_template: "自分の情報をテンプレートとして保存",
+    btn_load_template: "自分の情報を読み込む",
+    autosave_note: "データはこのブラウザに自動的に保存されます。",
+    template_saved: "開示当事者の情報をテンプレートとして保存しました。",
+    template_loaded: "テンプレートを正常に読み込みました。",
+    template_empty: "まだテンプレートが保存されていません。",
+    completion_label: "文書の入力状況",
+    validation_missing: "ダウンロードする前に、ハイライトされた必須項目を入力してください。",
+    bilingual_mode_label: "バイリンガルモード（二言語対応）",
+    bilingual_primary_label: "第一言語",
+    bilingual_secondary_label: "第二言語",
+    custom_filename_label: "カスタムファイル名（任意）",
+    custom_filename_placeholder: "例：NDA_AcmeCorp_2026",
+    doc_ref_label: "参照番号",
+    doc_issue_date_label: "発行日",
+    doc_parties_heading: "契約当事者",
+    sign_field_name: "氏名",
+    sign_field_role: "役職 / 役割",
+    sign_field_id: "身分証明書",
+    sign_field_date: "日付",
+    doc_verified_badge: "電子生成・検証済み文書",
+    pdf_footer_confidential: "秘密文書 · 署名当事者限定使用",
+    pdf_footer_page_of: "{total}ページ中{current}ページ",
+
+    doc_title_nda_unilateral: "片務型秘密保持契約",
+    doc_title_nda_mutual: "双務型（相互）秘密保持契約",
+    doc_title_b2b_services: "B2Bサービス契約",
+    doc_subtitle: "文書作成日：{date}",
+    ph_nameA: "[開示当事者の名称]",
+    ph_nameB: "[受領当事者の名称]",
+    ph_id: "[識別番号未記入]",
+    ph_addr: "[住所未記入]",
+    ph_purpose: "[目的未記入]",
+    ph_jur: "[管轄未記入]",
+    role_discloser: "開示当事者",
+    role_receiver: "受領当事者",
+    role_first: "第一当事者",
+    role_second: "第二当事者",
+    role_provider: "サービス提供者",
+    role_client: "クライアント",
+    intro_nda: "本秘密保持契約（以下「本契約」）は、一方当事者である{nameA}（識別番号：{idA}、所在地：{addrA}。以下「{roleA}」）と、他方当事者である{nameB}（識別番号：{idB}、所在地：{addrB}。以下「{roleB}」）との間で、以下の条項に従い締結される。両当事者を以下「両当事者」と総称する。",
+    intro_b2b: "本サービス契約（以下「本契約」）は、一方当事者である{nameA}（識別番号：{idA}、所在地：{addrA}。以下「{roleA}」）と、他方当事者である{nameB}（識別番号：{idB}、所在地：{addrB}。以下「{roleB}」）との間で、以下の条項に従い締結される。両当事者を以下「両当事者」と総称する。",
+
+    c1_title_nda: "第一条（目的）",
+    c1_body_nda_uni: "本契約は、{roleA}が{roleB}に対し、以下の事項に関連する特定の秘密情報を開示するための条件を定めることを目的とする：{purpose}。{roleB}は、当該情報を専らその目的のためにのみ使用することを約束する。",
+    c1_body_nda_mutual: "本契約は、{roleA}と{roleB}が、以下の事項に関連する秘密情報を相互に開示し合うための条件を定めることを目的とする：{purpose}。各当事者は、受領した情報を専らその目的のためにのみ使用することを約束する。",
+    c1_title_b2b: "第一条（契約の目的）",
+    c1_body_b2b: "{roleA}は、{roleB}に対して以下に定めるサービスを提供することを約束する：{purpose}。当該サービスは、当該業界に適用される専門的基準に従い、相応の注意をもって遂行されるものとする。",
+
+    c2_title_nda_uni: "第二条（受領当事者の義務）",
+    c2_body_nda_uni: "{roleB}は次の事項を遵守することを約束する：(i) 秘密情報を厳格に秘密として保持すること、(ii) {roleA}の事前の書面による同意なく第三者に開示しないこと、(iii) 第一条に定める目的以外に使用しないこと、(iv) 偶発的または無許可の開示を防止するため合理的な安全対策を講じること。",
+    c2_title_nda_mutual: "第二条（秘密保持義務）",
+    c2_body_nda_mutual: "各当事者は、受領当事者としての立場において、次の事項を遵守することを約束する：(i) 受領した秘密情報を厳格に秘密として保持すること、(ii) 開示当事者の事前の書面による同意なく第三者に開示しないこと、(iii) 第一条に定める目的以外に使用しないこと、(iv) 偶発的または無許可の開示を防止するため合理的な安全対策を講じること。",
+    c2_title_b2b: "第二条（秘密保持）",
+    c2_body_b2b: "両当事者は、本契約の履行に関連して交換される技術上、商業上または財務上の情報を厳格に秘密として保持し、法令または権限ある当局の要求による場合を除き、相手方の事前の書面による同意なく第三者に開示しないことを約束する。",
+
+    c3_title: "第三条（除外事項）",
+    c3_body: "秘密保持義務は、次に該当する情報には適用されない：(a) 受領当事者の責によらず公知となった、または公知である情報、(b) 開示前に受領当事者が適法に了知していた情報、(c) 秘密保持制限なく第三者から適法に取得した情報、(d) 法令、司法または権限ある当局の要求により開示が義務付けられる情報（可能な限り相手方への事前通知を条件とする）。",
+
+    c4_title_nda: "第四条（存続期間）",
+    c4_body_nda: "本契約に定める秘密保持義務は、本文書の署名日から{duration}にわたり効力を有するものとし、両当事者間の取引関係の終了の有無にかかわらず存続する。",
+    c4_title_b2b: "第四条（有効期間および秘密保持）",
+    c4_body_b2b: "本契約は、署名日から{duration}にわたり有効とする。第二条に定める秘密保持義務は、当該期間中およびいかなる理由による本契約の終了後も存続する。",
+
+    c5_title: "第五条（情報の返還または廃棄）",
+    c5_body: "開示当事者からの要求があった場合、または本契約の終了時には、受領当事者は指示に従い、秘密情報を含むすべての文書、媒体および複製物を返還または廃棄し、その返還または廃棄について書面による確認を提供しなければならない。",
+
+    c6_title_nda: "第六条（ライセンスおよび雇用関係の不存在）",
+    c6_body_nda: "本契約のいかなる規定も、ライセンス、知的財産権もしくは工業所有権の付与、または両当事者間の雇用関係、組合関係もしくは代理関係の創設を意味するものと解釈されない。",
+    c6_title_b2b: "第五条（関係の性質）",
+    c6_body_b2b: "本契約は、両当事者間に雇用関係、組合関係、代理関係または代表関係を生じさせるものではない。{roleA}は独立した請負人として行動し、サービスの遂行において完全な技術上および管理上の独立性を保持する。",
+
+    c7_title: "第七条（準拠法および管轄）",
+    c7_title_b2b: "第六条（準拠法および管轄）",
+    c7_body: "本文書は、{jurisdiction}において施行されている法律に準拠し、これに従って解釈されるものとする。本文書の解釈または履行から生じるいかなる紛争についても、両当事者は当該管轄区域の権限ある裁判所に服するものとし、他に帰属し得るいかなる管轄も明示的に放棄する。",
+
+    c8_title: "第八条（一般条項）",
+    c8_title_b2b: "第七条（一般条項）",
+    c8_body: "本文書は、その目的に関して両当事者間で成立した完全な合意を構成し、口頭または書面によるこれまでの了解事項に優先する。いかなる変更も書面により行われ、両当事者による署名を要するものとする。いずれかの条項が無効または執行不能と宣言された場合であっても、他の規定の有効性には影響を及ぼさない。",
+
+    sign_place_date: "{jurisdiction}にて、下記の署名日をもって。",
+    sign_label: "署名",
+    sign_name_label: "氏名および役職",
+
+    duration_1: "一（1）年間",
+    duration_3: "三（3）年間",
+    duration_5: "五（5）年間",
+    duration_indefinite: "情報が秘密性を保持する限りにおいて無期限",
+  },
+
+  hi: {
+    meta_title: "मुफ़्त ऑनलाइन NDA और B2B अनुबंध जनरेटर | PDF टेम्पलेट",
+    meta_description: "मिनटों में अपना गोपनीयता समझौता (NDA) — एकतरफ़ा, पारस्परिक या B2B सेवा अनुबंध — PDF प्रारूप में बनाएं और डाउनलोड करें। मुफ़्त, बिना पंजीकरण के।",
+    brand_name: "NDAgen",
+    nav_tool: "जनरेटर",
+    nav_guide: "कानूनी गाइड",
+    nav_faq: "सामान्य प्रश्न",
+    ad_label: "विज्ञापन",
+    ad_native: "नेटिव विज्ञापन ब्लॉक",
+    hero_badge: "100% मुफ़्त · पंजीकरण की आवश्यकता नहीं · तुरंत डाउनलोड",
+    hero_title: "गोपनीयता समझौता (NDA) और B2B अनुबंध जनरेटर",
+    hero_subtitle: "3 मिनट से भी कम समय में अपना पेशेवर NDA या सेवा अनुबंध बनाएं, पूर्वावलोकन करें और PDF में डाउनलोड करें।",
+    tpl_unilateral_title: "एकतरफ़ा NDA",
+    tpl_unilateral_desc: "एक पक्ष जानकारी प्रकट करता है, दूसरा उसकी सुरक्षा करता है।",
+    tpl_mutual_title: "पारस्परिक (द्विपक्षीय) NDA",
+    tpl_mutual_desc: "दोनों पक्ष जानकारी साझा करते हैं और उसकी सुरक्षा करते हैं।",
+    tpl_b2b_title: "B2B सेवा अनुबंध",
+    tpl_b2b_desc: "कंपनियों के बीच सेवा प्रावधान।",
+    step1_label: "पक्ष",
+    step2_label: "उद्देश्य",
+    step3_label: "अवधि",
+    step4_label: "समीक्षा",
+    party_a_legend: "प्रकटकर्ता पक्ष",
+    party_a_legend_mutual: "प्रथम पक्ष",
+    party_a_legend_b2b: "सेवा प्रदाता",
+    party_b_legend: "प्राप्तकर्ता पक्ष",
+    party_b_legend_mutual: "द्वितीय पक्ष",
+    party_b_legend_b2b: "ग्राहक",
+    label_name: "नाम / कंपनी",
+    label_taxid: "कर पहचान / आईडी",
+    label_address: "पता",
+    ph_name: "उदा.: Acme Corp Pvt. Ltd.",
+    ph_taxid: "उदा.: GSTIN 12ABCDE3456F7Z8",
+    ph_address: "उदा.: मुख्य मार्ग 10, नई दिल्ली, भारत",
+    label_object: "गोपनीय जानकारी का उद्देश्य और प्रयोजन",
+    label_object_b2b: "प्रदान की जाने वाली सेवा का उद्देश्य और दायरा",
+    ph_object: "उदा.: एक सॉफ़्टवेयर प्लेटफ़ॉर्म के संयुक्त विकास हेतु संभावित व्यावसायिक साझेदारी का मूल्यांकन...",
+    object_hint: "जानकारी साझा करने का कारण संक्षेप में बताएं (बातचीत, सहयोग, सेवा प्रावधान, आदि)।",
+    label_duration: "दायित्व की अवधि",
+    label_duration_b2b: "अनुबंध की अवधि / वैधता",
+    opt_indefinite: "अनिश्चितकालीन",
+    label_jurisdiction: "क्षेत्राधिकार और लागू कानून",
+    ph_jurisdiction: "उदा.: नई दिल्ली, भारत",
+    review_hint: "दाईं ओर पूर्वावलोकन की जाँच करें। सब कुछ सही होने पर, दस्तावेज़ को PDF में डाउनलोड करें या क्लिपबोर्ड पर कॉपी करें।",
+    btn_pdf: "PDF में डाउनलोड करें",
+    btn_copy: "टेक्स्ट कॉपी करें",
+    btn_clear: "फ़ॉर्म साफ़ करें",
+    btn_prev: "← पिछला",
+    btn_next: "अगला →",
+    btn_finish: "समाप्त करें",
+    preview_title: "रीयल-टाइम पूर्वावलोकन",
+    preview_live: "लाइव",
+    footer_rights: "सर्वाधिकार सुरक्षित।",
+    footer_note: "मुफ़्त उपकरण · यह पेशेवर कानूनी सलाह का विकल्प नहीं है।",
+    copy_success: "टेक्स्ट क्लिपबोर्ड पर कॉपी हो गया!",
+    copy_error: "टेक्स्ट कॉपी नहीं किया जा सका।",
+    clear_confirm: "क्या आप वाकई पूरा फ़ॉर्म साफ़ करना चाहते हैं?",
+    pdf_generating: "PDF बनाया जा रहा है...",
+    btn_docx: "Word (.docx) में डाउनलोड करें",
+    docx_generating: "Word बनाया जा रहा है...",
+    docx_error: "Word फ़ाइल नहीं बनाई जा सकी। कृपया पुनः प्रयास करें।",
+    docx_lib_error: "Word इंजन लोड नहीं हो सका। कृपया अपना इंटरनेट कनेक्शन जाँचें।",
+    logo_upload_btn: "कंपनी का लोगो अपलोड करें (वैकल्पिक)",
+    logo_remove_btn: "लोगो हटाएं",
+    logo_error_type: "असमर्थित छवि प्रारूप। कृपया PNG, JPG या SVG का उपयोग करें।",
+    sig_modal_title: "डिजिटल हस्ताक्षर",
+    sig_tab_draw: "बनाएं",
+    sig_tab_upload: "छवि अपलोड करें",
+    sig_draw_hint: "ऊपर माउस या उंगली से अपना हस्ताक्षर बनाएं।",
+    sig_upload_btn: "छवि चुनें (PNG/JPG)",
+    sig_upload_hint: "छवि स्वतः हस्ताक्षर बॉक्स के अनुसार समायोजित हो जाएगी।",
+    sig_btn_clear: "हस्ताक्षर साफ़ करें",
+    sig_btn_confirm: "हस्ताक्षर की पुष्टि करें",
+    btn_cancel: "रद्द करें",
+    sig_add_btn: "हस्ताक्षर जोड़ें",
+    sig_edit_btn: "संपादित करें",
+    sig_remove_btn: "हटाएं",
+    sig_slot_prefix: "हस्ताक्षर:",
+    sig_error_empty: "हस्ताक्षर की पुष्टि करने से पहले कृपया चित्र बनाएं या अपलोड करें।",
+    btn_save_template: "मेरी जानकारी को टेम्पलेट के रूप में सहेजें",
+    btn_load_template: "मेरी जानकारी लोड करें",
+    autosave_note: "आपका डेटा इस ब्राउज़र में स्वचालित रूप से सहेजा जाता है।",
+    template_saved: "प्रकटकर्ता पक्ष की जानकारी टेम्पलेट के रूप में सहेजी गई।",
+    template_loaded: "टेम्पलेट सफलतापूर्वक लोड हुआ।",
+    template_empty: "आपने अभी तक कोई टेम्पलेट सहेजा नहीं है।",
+    completion_label: "दस्तावेज़ की प्रगति",
+    validation_missing: "दस्तावेज़ डाउनलोड करने से पहले हाइलाइट किए गए आवश्यक फ़ील्ड भरें।",
+    bilingual_mode_label: "द्विभाषी मोड (दोहरी भाषा)",
+    bilingual_primary_label: "प्राथमिक भाषा",
+    bilingual_secondary_label: "द्वितीयक भाषा",
+    custom_filename_label: "कस्टम फ़ाइल नाम (वैकल्पिक)",
+    custom_filename_placeholder: "उदा.: NDA_AcmeCorp_2026",
+    doc_ref_label: "संदर्भ",
+    doc_issue_date_label: "जारी करने की तिथि",
+    doc_parties_heading: "अनुबंध के पक्ष",
+    sign_field_name: "पूरा नाम",
+    sign_field_role: "पद / भूमिका",
+    sign_field_id: "पहचान दस्तावेज़",
+    sign_field_date: "तिथि",
+    doc_verified_badge: "इलेक्ट्रॉनिक रूप से उत्पन्न और सत्यापित दस्तावेज़",
+    pdf_footer_confidential: "गोपनीय दस्तावेज़ · केवल हस्ताक्षरकर्ता पक्षों के उपयोग हेतु",
+    pdf_footer_page_of: "पृष्ठ {current}, कुल {total} में से",
+
+    doc_title_nda_unilateral: "एकतरफ़ा गोपनीयता समझौता",
+    doc_title_nda_mutual: "पारस्परिक (द्विपक्षीय) गोपनीयता समझौता",
+    doc_title_b2b_services: "B2B सेवा अनुबंध",
+    doc_subtitle: "दस्तावेज़ {date} को बनाया गया",
+    ph_nameA: "[प्रकटकर्ता पक्ष का नाम]",
+    ph_nameB: "[प्राप्तकर्ता पक्ष का नाम]",
+    ph_id: "[कर पहचान निर्दिष्ट नहीं]",
+    ph_addr: "[पता निर्दिष्ट नहीं]",
+    ph_purpose: "[उद्देश्य निर्दिष्ट नहीं]",
+    ph_jur: "[क्षेत्राधिकार निर्दिष्ट नहीं]",
+    role_discloser: "प्रकटकर्ता पक्ष",
+    role_receiver: "प्राप्तकर्ता पक्ष",
+    role_first: "प्रथम पक्ष",
+    role_second: "द्वितीय पक्ष",
+    role_provider: "सेवा प्रदाता",
+    role_client: "ग्राहक",
+    intro_nda: "प्रस्तुत दस्तावेज़ द्वारा यह गोपनीयता समझौता (इसके बाद, \"समझौता\") एक ओर {nameA}, जिसकी पहचान {idA} से है तथा जिसका पता {addrA} है (इसके बाद, \"{roleA}\"), तथा दूसरी ओर {nameB}, जिसकी पहचान {idB} से है तथा जिसका पता {addrB} है (इसके बाद, \"{roleB}\") के बीच, जिन्हें संयुक्त रूप से \"पक्ष\" कहा जाएगा, निम्नलिखित शर्तों के अनुसार संपन्न किया जाता है:",
+    intro_b2b: "प्रस्तुत दस्तावेज़ द्वारा यह सेवा अनुबंध (इसके बाद, \"अनुबंध\") एक ओर {nameA}, जिसकी पहचान {idA} से है तथा जिसका पता {addrA} है (इसके बाद, \"{roleA}\"), तथा दूसरी ओर {nameB}, जिसकी पहचान {idB} से है तथा जिसका पता {addrB} है (इसके बाद, \"{roleB}\") के बीच, जिन्हें संयुक्त रूप से \"पक्ष\" कहा जाएगा, निम्नलिखित शर्तों के अनुसार संपन्न किया जाता है:",
+
+    c1_title_nda: "प्रथम। उद्देश्य",
+    c1_body_nda_uni: "इस समझौते का उद्देश्य उन शर्तों को स्थापित करना है जिनके अंतर्गत {roleA}, {roleB} को निम्नलिखित से संबंधित कुछ गोपनीय जानकारी प्रकट करेगा: {purpose}। {roleB} उस जानकारी का उपयोग केवल उसी उद्देश्य के लिए करने हेतु प्रतिबद्ध है।",
+    c1_body_nda_mutual: "इस समझौते का उद्देश्य उन शर्तों को स्थापित करना है जिनके अंतर्गत {roleA} और {roleB} निम्नलिखित से संबंधित गोपनीय जानकारी परस्पर एक-दूसरे को प्रकट कर सकते हैं: {purpose}। प्रत्येक पक्ष प्राप्त जानकारी का उपयोग केवल उसी उद्देश्य के लिए करने हेतु प्रतिबद्ध है।",
+    c1_title_b2b: "प्रथम। अनुबंध का उद्देश्य",
+    c1_body_b2b: "{roleA}, {roleB} को निम्नलिखित सेवाएं प्रदान करने हेतु बाध्य है: {purpose}। सेवाएं संबंधित क्षेत्र पर लागू पेशेवर मानकों के अनुसार तथा उचित सावधानी के साथ निष्पादित की जाएंगी।",
+
+    c2_title_nda_uni: "द्वितीय। प्राप्तकर्ता पक्ष के दायित्व",
+    c2_body_nda_uni: "{roleB} निम्नलिखित हेतु बाध्य है: (i) गोपनीय जानकारी को सख़्त गोपनीयता में रखना; (ii) {roleA} की पूर्व लिखित अनुमति के बिना इसे तीसरे पक्ष को प्रकट न करना; (iii) प्रथम खंड में निर्धारित उद्देश्यों के अतिरिक्त इसका उपयोग न करना; तथा (iv) आकस्मिक या अनधिकृत प्रकटीकरण को रोकने हेतु उचित सुरक्षा उपाय अपनाना।",
+    c2_title_nda_mutual: "द्वितीय। गोपनीयता दायित्व",
+    c2_body_nda_mutual: "प्रत्येक पक्ष, प्राप्तकर्ता की भूमिका में रहते हुए, निम्नलिखित हेतु बाध्य है: (i) प्राप्त गोपनीय जानकारी को सख़्त गोपनीयता में रखना; (ii) प्रकटकर्ता पक्ष की पूर्व लिखित अनुमति के बिना इसे तीसरे पक्ष को प्रकट न करना; (iii) प्रथम खंड में निर्धारित उद्देश्यों के अतिरिक्त इसका उपयोग न करना; तथा (iv) आकस्मिक या अनधिकृत प्रकटीकरण को रोकने हेतु उचित सुरक्षा उपाय अपनाना।",
+    c2_title_b2b: "द्वितीय। गोपनीयता",
+    c2_body_b2b: "पक्ष इस अनुबंध के निष्पादन के संबंध में विनिमय की गई समस्त तकनीकी, वाणिज्यिक या वित्तीय जानकारी को सख़्त गोपनीयता में रखने हेतु बाध्य हैं, तथा कानून या सक्षम प्राधिकरण की आवश्यकता के अतिरिक्त, दूसरे पक्ष की पूर्व लिखित अनुमति के बिना इसे तीसरे पक्ष को प्रकट नहीं करेंगे।",
+
+    c3_title: "तृतीय। अपवाद",
+    c3_body: "गोपनीयता दायित्व उस जानकारी पर लागू नहीं होंगे जो: (a) प्राप्तकर्ता पक्ष की गलती के बिना सार्वजनिक हो या सार्वजनिक हो जाए; (b) प्रकटीकरण से पूर्व प्राप्तकर्ता पक्ष को वैधानिक रूप से पहले से ज्ञात हो; (c) बिना किसी गोपनीयता प्रतिबंध के किसी तीसरे पक्ष से वैधानिक रूप से प्राप्त हो; या (d) कानूनी, न्यायिक या सक्षम प्राधिकरण की आवश्यकता के अनुसार प्रकट की जानी अनिवार्य हो, जहां संभव हो वहां दूसरे पक्ष को पूर्व सूचना के अधीन।",
+
+    c4_title_nda: "चतुर्थ। अवधि",
+    c4_body_nda: "इस समझौते में निर्धारित गोपनीयता दायित्व इस दस्तावेज़ पर हस्ताक्षर की तिथि से {duration} तक प्रभावी रहेंगे, चाहे पक्षों के बीच किसी भी व्यावसायिक संबंध की समाप्ति हो जाए।",
+    c4_title_b2b: "चतुर्थ। वैधता और गोपनीयता",
+    c4_body_b2b: "इस अनुबंध की वैधता इसके हस्ताक्षर से {duration} तक रहेगी। द्वितीय खंड में निर्धारित गोपनीयता दायित्व इस अवधि के दौरान तथा अनुबंध की किसी भी कारण से समाप्ति के पश्चात भी प्रभावी रहेंगे।",
+
+    c5_title: "पंचम। जानकारी की वापसी या नष्टीकरण",
+    c5_body: "प्रकटकर्ता पक्ष के अनुरोध पर, अथवा इस समझौते की समाप्ति पर, प्राप्तकर्ता पक्ष को निर्देशानुसार गोपनीय जानकारी वाले सभी दस्तावेज़, माध्यम एवं प्रतियां वापस करनी होंगी या नष्ट करनी होंगी, तथा ऐसी वापसी या नष्टीकरण की लिखित पुष्टि प्रदान करनी होगी।",
+
+    c6_title_nda: "षष्ठ। लाइसेंस तथा रोज़गार संबंध का अभाव",
+    c6_body_nda: "इस समझौते का कोई भी प्रावधान लाइसेंस, बौद्धिक अथवा औद्योगिक संपदा अधिकार प्रदान करने, अथवा पक्षों के बीच रोज़गार, साझेदारी अथवा प्रतिनिधित्व संबंध सृजित करने के रूप में नहीं समझा जाएगा।",
+    c6_title_b2b: "पंचम। संबंध की प्रकृति",
+    c6_body_b2b: "यह अनुबंध पक्षों के बीच किसी रोज़गार, साझेदारी, एजेंसी अथवा प्रतिनिधित्व संबंध को जन्म नहीं देता। {roleA} एक स्वतंत्र ठेकेदार के रूप में कार्य करेगा तथा सेवाओं के निष्पादन में पूर्ण तकनीकी एवं प्रशासनिक स्वायत्तता बनाए रखेगा।",
+
+    c7_title: "सप्तम। लागू कानून और क्षेत्राधिकार",
+    c7_title_b2b: "षष्ठ। लागू कानून और क्षेत्राधिकार",
+    c7_body: "यह दस्तावेज़ {jurisdiction} में प्रवर्तित कानूनों के अनुसार शासित एवं व्याख्यायित होगा। इसकी व्याख्या अथवा अनुपालन से उत्पन्न किसी भी विवाद के समाधान हेतु, पक्ष उस क्षेत्राधिकार के सक्षम न्यायालयों के अधीन होंगे, तथा उन्हें प्राप्त किसी भी अन्य क्षेत्राधिकार का स्पष्ट रूप से परित्याग करते हैं।",
+
+    c8_title: "अष्टम। सामान्य प्रावधान",
+    c8_title_b2b: "सप्तम। सामान्य प्रावधान",
+    c8_body: "यह दस्तावेज़ अपने विषय के संबंध में पक्षों के बीच संपूर्ण समझौता गठित करता है, तथा किसी भी पूर्व मौखिक अथवा लिखित समझ को निरस्त करता है। किसी भी संशोधन को लिखित रूप में किया जाना चाहिए तथा दोनों पक्षों द्वारा हस्ताक्षरित होना चाहिए। यदि कोई खंड अमान्य या अप्रवर्तनीय घोषित किया जाता है, तो इससे शेष प्रावधानों की वैधता प्रभावित नहीं होगी।",
+
+    sign_place_date: "{jurisdiction} में, नीचे दर्शाई गई हस्ताक्षर तिथि पर।",
+    sign_label: "हस्ताक्षर",
+    sign_name_label: "नाम और पद",
+
+    duration_1: "एक (1) वर्ष",
+    duration_3: "तीन (3) वर्ष",
+    duration_5: "पांच (5) वर्ष",
+    duration_indefinite: "अनिश्चितकालीन अवधि, जब तक जानकारी अपनी गोपनीय प्रकृति बनाए रखती है",
+  },
 };
 
 /* ---------------------------------------------------------------------
@@ -449,6 +1488,8 @@ const state = {
   signatures: { A: null, B: null },
   docCode: null,
   docYear: null,
+  bilingual: false,
+  langSecondary: 'en',
 };
 
 const AUTOSAVE_KEY = 'ndagen_autosave_v1';
@@ -468,8 +1509,12 @@ const REQUIRED_FIELDS = [
 const $ = (sel, ctx = document) => ctx.querySelector(sel);
 const $all = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
 
+function tFor(lang, key) {
+  return (I18N[lang] && I18N[lang][key]) || I18N.es[key] || key;
+}
+
 function t(key) {
-  return (I18N[state.lang] && I18N[state.lang][key]) || I18N.es[key] || key;
+  return tFor(state.lang, key);
 }
 
 /* ---------------------------------------------------------------------
@@ -498,13 +1543,34 @@ function applyI18n() {
   const metaDesc = document.querySelector('meta[name="description"]');
   if (metaDesc) metaDesc.setAttribute('content', t('meta_description'));
 
-  $('#lang-es').setAttribute('aria-pressed', String(state.lang === 'es'));
-  $('#lang-en').setAttribute('aria-pressed', String(state.lang === 'en'));
+  $('#lang-select').value = state.lang;
+  updateBilingualPicker();
 
   updatePartyLegends();
   updateObjectLabel();
   updateDurationLabel();
   updateSignatureLabels();
+}
+
+function populateLangSelect(selectEl, excludeLang) {
+  selectEl.innerHTML = Object.values(LANGS)
+    .filter(l => l.code !== excludeLang)
+    .map(l => `<option value="${l.code}">${l.short} · ${escapeHtml(l.label)}</option>`)
+    .join('');
+}
+
+function updateBilingualPicker() {
+  const readout = $('#bilingual-primary-readout');
+  if (readout) readout.textContent = LANGS[state.lang] ? `${LANGS[state.lang].short} · ${LANGS[state.lang].label}` : state.lang;
+
+  const secondarySelect = $('#bilingual-secondary-select');
+  if (secondarySelect) {
+    populateLangSelect(secondarySelect, state.lang);
+    if (state.langSecondary === state.lang || !LANGS[state.langSecondary]) {
+      state.langSecondary = Object.keys(LANGS).find(code => code !== state.lang) || 'en';
+    }
+    secondarySelect.value = state.langSecondary;
+  }
 }
 
 function updatePartyLegends() {
@@ -575,12 +1641,12 @@ function formatDate(lang) {
   return d.toLocaleDateString(lang === 'es' ? 'es-ES' : 'en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 }
 
-function durationText(value) {
+function durationText(value, lang = state.lang) {
   switch (value) {
-    case '1': return t('duration_1');
-    case '3': return t('duration_3');
-    case '5': return t('duration_5');
-    default: return t('duration_indefinite');
+    case '1': return tFor(lang, 'duration_1');
+    case '3': return tFor(lang, 'duration_3');
+    case '5': return tFor(lang, 'duration_5');
+    default: return tFor(lang, 'duration_indefinite');
   }
 }
 
@@ -591,6 +1657,25 @@ function getDocRef() {
   }
   const prefix = state.docType === 'b2b_services' ? 'B2B' : 'NDA';
   return `${prefix}-${state.docYear}-${state.docCode}`;
+}
+
+function sanitizeFilename(name) {
+  return name.trim().replace(/[^a-zA-Z0-9_\-]+/g, '_').replace(/^_+|_+$/g, '').slice(0, 80);
+}
+
+const DOC_TYPE_FILE_LABEL = {
+  nda_unilateral: 'NDA_Unilateral',
+  nda_mutual: 'NDA_Mutuo',
+  b2b_services: 'Contrato_B2B',
+};
+
+function getExportFilename(ext) {
+  const customInput = $('#custom-filename');
+  const custom = customInput ? sanitizeFilename(customInput.value || '') : '';
+  if (custom) return `${custom}.${ext}`;
+  const dateStr = new Date().toISOString().slice(0, 10);
+  const typeLabel = DOC_TYPE_FILE_LABEL[state.docType] || 'Documento';
+  return `${typeLabel}_${dateStr}_${getDocRef().split('-').pop()}.${ext}`;
 }
 
 function getFormData() {
@@ -607,58 +1692,60 @@ function getFormData() {
   };
 }
 
-function resolveTemplateParts(docType) {
+function resolveTemplateParts(docType, lang = state.lang) {
   let roleA, roleB, title, intro, c1title, c1body, c2title, c2body;
+  const tt = (key) => tFor(lang, key);
 
   if (docType === 'nda_unilateral') {
-    roleA = t('role_discloser');
-    roleB = t('role_receiver');
-    title = t('doc_title_nda_unilateral');
-    intro = t('intro_nda');
-    c1title = t('c1_title_nda');
-    c1body = t('c1_body_nda_uni');
-    c2title = t('c2_title_nda_uni');
-    c2body = t('c2_body_nda_uni');
+    roleA = tt('role_discloser');
+    roleB = tt('role_receiver');
+    title = tt('doc_title_nda_unilateral');
+    intro = tt('intro_nda');
+    c1title = tt('c1_title_nda');
+    c1body = tt('c1_body_nda_uni');
+    c2title = tt('c2_title_nda_uni');
+    c2body = tt('c2_body_nda_uni');
   } else if (docType === 'nda_mutual') {
-    roleA = t('role_first');
-    roleB = t('role_second');
-    title = t('doc_title_nda_mutual');
-    intro = t('intro_nda');
-    c1title = t('c1_title_nda');
-    c1body = t('c1_body_nda_mutual');
-    c2title = t('c2_title_nda_mutual');
-    c2body = t('c2_body_nda_mutual');
+    roleA = tt('role_first');
+    roleB = tt('role_second');
+    title = tt('doc_title_nda_mutual');
+    intro = tt('intro_nda');
+    c1title = tt('c1_title_nda');
+    c1body = tt('c1_body_nda_mutual');
+    c2title = tt('c2_title_nda_mutual');
+    c2body = tt('c2_body_nda_mutual');
   } else {
-    roleA = t('role_provider');
-    roleB = t('role_client');
-    title = t('doc_title_b2b_services');
-    intro = t('intro_b2b');
-    c1title = t('c1_title_b2b');
-    c1body = t('c1_body_b2b');
-    c2title = t('c2_title_b2b');
-    c2body = t('c2_body_b2b');
+    roleA = tt('role_provider');
+    roleB = tt('role_client');
+    title = tt('doc_title_b2b_services');
+    intro = tt('intro_b2b');
+    c1title = tt('c1_title_b2b');
+    c1body = tt('c1_body_b2b');
+    c2title = tt('c2_title_b2b');
+    c2body = tt('c2_body_b2b');
   }
 
   return { roleA, roleB, title, intro, c1title, c1body, c2title, c2body };
 }
 
-function resolveClauses(docType, parts) {
+function resolveClauses(docType, parts, lang = state.lang) {
+  const tt = (key) => tFor(lang, key);
   const isB2b = docType === 'b2b_services';
   const clauses = [];
   clauses.push({ title: parts.c1title, body: parts.c1body });
   clauses.push({ title: parts.c2title, body: parts.c2body });
-  if (!isB2b) clauses.push({ title: t('c3_title'), body: t('c3_body') });
+  if (!isB2b) clauses.push({ title: tt('c3_title'), body: tt('c3_body') });
   clauses.push({
-    title: isB2b ? t('c4_title_b2b') : t('c4_title_nda'),
-    body: isB2b ? t('c4_body_b2b') : t('c4_body_nda')
+    title: isB2b ? tt('c4_title_b2b') : tt('c4_title_nda'),
+    body: isB2b ? tt('c4_body_b2b') : tt('c4_body_nda')
   });
-  if (!isB2b) clauses.push({ title: t('c5_title'), body: t('c5_body') });
+  if (!isB2b) clauses.push({ title: tt('c5_title'), body: tt('c5_body') });
   clauses.push({
-    title: isB2b ? t('c6_title_b2b') : t('c6_title_nda'),
-    body: isB2b ? t('c6_body_b2b') : t('c6_body_nda')
+    title: isB2b ? tt('c6_title_b2b') : tt('c6_title_nda'),
+    body: isB2b ? tt('c6_body_b2b') : tt('c6_body_nda')
   });
-  clauses.push({ title: isB2b ? t('c7_title_b2b') : t('c7_title'), body: t('c7_body') });
-  clauses.push({ title: isB2b ? t('c8_title_b2b') : t('c8_title'), body: t('c8_body') });
+  clauses.push({ title: isB2b ? tt('c7_title_b2b') : tt('c7_title'), body: tt('c7_body') });
+  clauses.push({ title: isB2b ? tt('c8_title_b2b') : tt('c8_title'), body: tt('c8_body') });
   return clauses;
 }
 
@@ -677,31 +1764,67 @@ function buildDocumentHtml() {
   const jurisdiction = fieldOrPlaceholder(data.jurisdiction, 'ph_jur');
   const duration = durationText(data.duration);
 
-  const parts = resolveTemplateParts(docType);
+  const parts = resolveTemplateParts(docType, lang);
   const { roleA, roleB, title, intro } = parts;
 
-  const fill = (str) => str
+  const makeFill = (roleAL, roleBL, durationL) => (str) => str
     .replace(/\{nameA\}/g, nameA).replace(/\{nameB\}/g, nameB)
     .replace(/\{idA\}/g, idA).replace(/\{idB\}/g, idB)
     .replace(/\{addrA\}/g, addrA).replace(/\{addrB\}/g, addrB)
-    .replace(/\{roleA\}/g, `<strong>${roleA}</strong>`).replace(/\{roleB\}/g, `<strong>${roleB}</strong>`)
+    .replace(/\{roleA\}/g, `<strong>${roleAL}</strong>`).replace(/\{roleB\}/g, `<strong>${roleBL}</strong>`)
     .replace(/\{purpose\}/g, purpose)
-    .replace(/\{duration\}/g, `<strong>${duration}</strong>`)
+    .replace(/\{duration\}/g, `<strong>${durationL}</strong>`)
     .replace(/\{jurisdiction\}/g, `<strong>${jurisdiction}</strong>`);
 
-  const clauses = resolveClauses(docType, parts);
+  const fill = makeFill(roleA, roleB, duration);
+  const clauses = resolveClauses(docType, parts, lang);
 
-  const clausesHtml = clauses.map((c, idx) => `
-    <div class="clause-block">
+  const isBilingual = state.bilingual && state.langSecondary && state.langSecondary !== lang;
+
+  const renderClause = (c, idx, fillFn) => `
+    <div class="clause-block bilingual-cell">
       <div class="clause-header">
         <span class="clause-num">${String(idx + 1).padStart(2, '0')}</span>
         <h2 class="clause-title">${escapeHtml(c.title)}</h2>
       </div>
-      <p>${fill(escapeHtml(c.body))}</p>
+      <p>${fillFn(escapeHtml(c.body))}</p>
     </div>
-  `).join('');
+  `;
 
-  const signPlace = fill(escapeHtml(t('sign_place_date')));
+  let bodyHtml;
+  if (isBilingual) {
+    const langB = state.langSecondary;
+    const partsB = resolveTemplateParts(docType, langB);
+    const durationB = durationText(data.duration, langB);
+    const fillB = makeFill(partsB.roleA, partsB.roleB, durationB);
+    const clausesB = resolveClauses(docType, partsB, langB);
+
+    const pairedClausesHtml = clauses.map((c, idx) => (
+      renderClause(c, idx, fill) + renderClause(clausesB[idx], idx, fillB)
+    )).join('');
+
+    bodyHtml = `
+      <div class="bilingual-lang-headers">
+        <div>${escapeHtml(LANGS[lang] ? LANGS[lang].label : lang)}</div>
+        <div>${escapeHtml(LANGS[langB] ? LANGS[langB].label : langB)}</div>
+      </div>
+      <div class="bilingual-grid">
+        <p class="bilingual-cell">${fill(escapeHtml(intro))}</p>
+        <p class="bilingual-cell">${fillB(escapeHtml(partsB.intro))}</p>
+        ${pairedClausesHtml}
+        <p class="bilingual-cell" style="margin-top:1.5rem;">${fill(escapeHtml(t('sign_place_date')))}</p>
+        <p class="bilingual-cell" style="margin-top:1.5rem;">${fillB(escapeHtml(tFor(langB, 'sign_place_date')))}</p>
+      </div>
+    `;
+  } else {
+    const clausesHtml = clauses.map((c, idx) => renderClause(c, idx, fill)).join('');
+    bodyHtml = `
+      <p>${fill(escapeHtml(intro))}</p>
+      ${clausesHtml}
+      <p style="margin-top:1.5rem;">${fill(escapeHtml(t('sign_place_date')))}</p>
+    `;
+  }
+
   const issueDate = formatDate(lang);
   const docRef = getDocRef();
 
@@ -752,9 +1875,7 @@ function buildDocumentHtml() {
       ${partyCard(`<strong>${roleB}</strong>`, nameB, idB, addrB)}
     </div>
 
-    <p>${fill(escapeHtml(intro))}</p>
-    ${clausesHtml}
-    <p style="margin-top:1.5rem;">${signPlace}</p>
+    ${bodyHtml}
 
     <div class="sign-block">
       ${signCard(`<strong>${roleA}</strong>`, sigAHtml, nameA, `<strong>${roleA}</strong>`, idA)}
@@ -882,7 +2003,7 @@ function downloadPdf() {
   const el = $('#pdf-content');
   const opt = {
     margin: [15, 15, 15, 15],
-    filename: `${state.docType}_${Date.now()}.pdf`,
+    filename: getExportFilename('pdf'),
     image: { type: 'jpeg', quality: 0.98 },
     html2canvas: { scale: 2, useCORS: true },
     jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
@@ -899,12 +2020,23 @@ function downloadPdf() {
   btn.disabled = true;
   btn.innerHTML = `<span>${escapeHtml(t('pdf_generating'))}</span>`;
 
-  const footerLeft = t('pdf_footer_confidential');
+  // jsPDF's built-in standard fonts (Helvetica/Times/Courier) only support
+  // WinAnsiEncoding (Latin script + Western accents) — they cannot render
+  // Cyrillic, CJK, or Devanagari at all. The document body itself is fine
+  // (it's a rasterized image of the real DOM/CSS with proper Noto fonts),
+  // but this footer is added afterwards as real jsPDF vector text, so for
+  // non-Latin-script languages it falls back to the English footer copy
+  // rather than drawing corrupted/missing glyphs.
+  const NON_LATIN_FOOTER_LANGS = ['ru', 'zh', 'ja', 'hi'];
+  const footerLang = NON_LATIN_FOOTER_LANGS.includes(state.lang) ? 'en' : state.lang;
+  const footerLeft = tFor(footerLang, 'pdf_footer_confidential');
+  const footerPageOfTemplate = tFor(footerLang, 'pdf_footer_page_of');
   const marginBottom = opt.margin[2];
   const marginLeft = opt.margin[3];
   const marginRight = opt.margin[1];
 
-  html2pdf().set(opt).from(el).toPdf().get('pdf').then(function (pdf) {
+  const fontsReady = (document.fonts && document.fonts.ready) ? document.fonts.ready : Promise.resolve();
+  fontsReady.then(() => html2pdf().set(opt).from(el).toPdf().get('pdf').then(function (pdf) {
     // Add a vector (crisp, not rasterized) confidentiality note + page
     // number to every page, using jsPDF's own text API directly on the
     // already-rendered PDF, after html2canvas/pagination has run.
@@ -917,9 +2049,9 @@ function downloadPdf() {
       pdf.setFontSize(7.5);
       pdf.setTextColor(148, 163, 184);
       pdf.text(footerLeft, marginLeft, footerY);
-      pdf.text(t('pdf_footer_page_of').replace('{current}', i).replace('{total}', totalPages), pageWidth - marginRight, footerY, { align: 'right' });
+      pdf.text(footerPageOfTemplate.replace('{current}', i).replace('{total}', totalPages), pageWidth - marginRight, footerY, { align: 'right' });
     }
-  }).save().finally(() => {
+  }).save()).finally(() => {
     btn.disabled = false;
     btn.innerHTML = originalHtml;
   });
@@ -1041,7 +2173,7 @@ async function downloadDocx() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `${state.docType}_${Date.now()}.docx`;
+    a.download = getExportFilename('docx');
     document.body.appendChild(a);
     a.click();
     a.remove();
@@ -1353,6 +2485,7 @@ function getSerializableFields() {
     purpose: $('#purpose').value,
     duration: $('#duration').value,
     jurisdiction: $('#jurisdiction').value,
+    'custom-filename': $('#custom-filename').value,
   };
 }
 
@@ -1376,6 +2509,8 @@ function autosave() {
         signatures: state.signatures,
         docCode: state.docCode,
         docYear: state.docYear,
+        bilingual: state.bilingual,
+        langSecondary: state.langSecondary,
       }));
     } catch (e) { /* storage full or unavailable */ }
   }, 400);
@@ -1392,6 +2527,8 @@ function loadAutosave() {
     state.signatures = data.signatures || { A: null, B: null };
     state.docCode = data.docCode || null;
     state.docYear = data.docYear || null;
+    state.bilingual = !!data.bilingual;
+    state.langSecondary = data.langSecondary || 'en';
   } catch (e) { /* ignore corrupt data */ }
 }
 
@@ -1451,6 +2588,8 @@ function init() {
   initTheme();
   loadAutosave();
   applyI18n();
+  $('#bilingual-toggle').checked = state.bilingual;
+  $('#bilingual-lang-picker').classList.toggle('hidden', !state.bilingual);
   selectTemplate(state.docType);
   renderLogo();
   initSignaturePad();
@@ -1468,8 +2607,30 @@ function init() {
   });
 
   // Language switch
-  $('#lang-es').addEventListener('click', () => { state.lang = 'es'; localStorage.setItem('ndagen_lang', 'es'); applyI18n(); renderSignatureSlots(); updatePreview(); });
-  $('#lang-en').addEventListener('click', () => { state.lang = 'en'; localStorage.setItem('ndagen_lang', 'en'); applyI18n(); renderSignatureSlots(); updatePreview(); });
+  $('#lang-select').addEventListener('change', (e) => {
+    state.lang = e.target.value;
+    localStorage.setItem('ndagen_lang', state.lang);
+    applyI18n();
+    renderSignatureSlots();
+    updatePreview();
+    autosave();
+  });
+
+  // Bilingual (dual-language) mode
+  $('#bilingual-toggle').addEventListener('change', (e) => {
+    state.bilingual = e.target.checked;
+    $('#bilingual-lang-picker').classList.toggle('hidden', !state.bilingual);
+    updatePreview();
+    autosave();
+  });
+  $('#bilingual-secondary-select').addEventListener('change', (e) => {
+    state.langSecondary = e.target.value;
+    updatePreview();
+    autosave();
+  });
+
+  // Custom filename (persisted, no re-render needed)
+  $('#custom-filename').addEventListener('input', autosave);
 
   // Theme toggle
   $('#theme-toggle').addEventListener('click', () => {

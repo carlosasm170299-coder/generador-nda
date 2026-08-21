@@ -27,7 +27,7 @@
           }
         },
         fontFamily: {
-          sans: ['Inter','ui-sans-serif','system-ui','-apple-system','sans-serif'],
+          sans: ['Inter','Noto Sans SC','Noto Sans JP','Noto Sans Devanagari','ui-sans-serif','system-ui','-apple-system','sans-serif'],
         }
       }
     }
@@ -35,7 +35,7 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Merriweather:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Merriweather:ital,wght@0,400;0,700;0,900;1,400&family=Noto+Sans+SC:wght@400;700&family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+Devanagari:wght@400;700&display=swap" rel="stylesheet">
 
 <!-- PDF engine -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
@@ -143,10 +143,16 @@
 
     <div class="flex items-center gap-2">
       <!-- Language selector -->
-      <div class="flex items-center rounded-full bg-slate-100 dark:bg-slate-800 p-1 text-sm font-semibold">
-        <button id="lang-es" class="lang-btn px-3 py-1 rounded-full transition-colors" data-lang="es" aria-pressed="true">ES</button>
-        <button id="lang-en" class="lang-btn px-3 py-1 rounded-full transition-colors" data-lang="en" aria-pressed="false">EN</button>
-      </div>
+      <select id="lang-select" class="lang-select" aria-label="Language">
+        <option value="es">ES · Español</option>
+        <option value="en">EN · English</option>
+        <option value="pt">PT · Português</option>
+        <option value="fr">FR · Français</option>
+        <option value="ru">RU · Русский</option>
+        <option value="zh">ZH · 中文</option>
+        <option value="ja">JA · 日本語</option>
+        <option value="hi">HI · हिन्दी</option>
+      </select>
       <!-- Dark mode toggle -->
       <button id="theme-toggle" aria-label="Toggle dark mode" class="h-9 w-9 rounded-full flex items-center justify-center bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
         <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden dark:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
@@ -209,6 +215,21 @@
           </button>
         </div>
         <span class="autosave-indicator" data-i18n="autosave_note">Tus datos se guardan automáticamente en este navegador.</span>
+      </div>
+
+      <!-- Bilingual (dual-language) mode toolbar -->
+      <div class="bilingual-toolbar">
+        <label class="bilingual-switch-label">
+          <input type="checkbox" id="bilingual-toggle">
+          <span class="bilingual-switch"></span>
+          <span data-i18n="bilingual_mode_label">Modo Bilingüe (Dual Language)</span>
+        </label>
+        <div id="bilingual-lang-picker" class="bilingual-lang-picker hidden">
+          <span class="bilingual-lang-picker-label" data-i18n="bilingual_primary_label">Idioma Principal</span>
+          <span id="bilingual-primary-readout" class="bilingual-primary-readout"></span>
+          <span class="bilingual-lang-picker-label" data-i18n="bilingual_secondary_label">Idioma Secundario</span>
+          <select id="bilingual-secondary-select" class="lang-select lang-select-sm"></select>
+        </div>
       </div>
 
       <!-- Step wizard card -->
@@ -314,6 +335,11 @@
           <!-- STEP 4: Review -->
           <div class="form-step hidden" data-step="4">
             <p class="text-sm text-slate-600 dark:text-slate-400" data-i18n="review_hint">Revisa la vista previa a la derecha. Cuando esté todo correcto, descarga tu documento en PDF o cópialo al portapapeles.</p>
+
+            <div class="mt-4">
+              <label class="field-label" data-i18n="custom_filename_label">Nombre personalizado del archivo (opcional)</label>
+              <input type="text" id="custom-filename" class="field-input" data-i18n-placeholder="custom_filename_placeholder" placeholder="Ej. NDA_AcmeCorp_2026">
+            </div>
 
             <!-- Digital signatures -->
             <div class="sig-slots">
