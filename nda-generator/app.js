@@ -208,6 +208,18 @@ const I18N = {
     duration_3: "tres (3) años",
     duration_5: "cinco (5) años",
     duration_indefinite: "un plazo indefinido, mientras la información conserve su carácter confidencial",
+
+    /* --- Letterhead / signature cards / footer (editorial redesign) --- */
+    doc_ref_label: "REF",
+    doc_issue_date_label: "Fecha de emisión",
+    doc_parties_heading: "Partes intervinientes",
+    sign_field_name: "Nombre completo",
+    sign_field_role: "Cargo / Rol",
+    sign_field_id: "Documento de identidad",
+    sign_field_date: "Fecha",
+    doc_verified_badge: "Documento electrónico generado y verificado",
+    pdf_footer_confidential: "Documento confidencial · Uso exclusivo de las partes firmantes",
+    pdf_footer_page_of: "Página {current} de {total}",
   },
 
   en: {
@@ -410,6 +422,18 @@ const I18N = {
     duration_3: "three (3) years",
     duration_5: "five (5) years",
     duration_indefinite: "an indefinite period, for as long as the information retains its confidential nature",
+
+    /* --- Letterhead / signature cards / footer (editorial redesign) --- */
+    doc_ref_label: "REF",
+    doc_issue_date_label: "Issue date",
+    doc_parties_heading: "Parties",
+    sign_field_name: "Full name",
+    sign_field_role: "Title / Role",
+    sign_field_id: "Identification document",
+    sign_field_date: "Date",
+    doc_verified_badge: "Electronically generated and verified document",
+    pdf_footer_confidential: "Confidential document · For exclusive use of the signing parties",
+    pdf_footer_page_of: "Page {current} of {total}",
   }
 };
 
@@ -423,6 +447,8 @@ const state = {
   totalSteps: 4,
   logo: null,
   signatures: { A: null, B: null },
+  docCode: null,
+  docYear: null,
 };
 
 const AUTOSAVE_KEY = 'ndagen_autosave_v1';
@@ -558,6 +584,15 @@ function durationText(value) {
   }
 }
 
+function getDocRef() {
+  if (!state.docCode) {
+    state.docCode = Math.random().toString(36).slice(2, 8).toUpperCase();
+    state.docYear = new Date().getFullYear();
+  }
+  const prefix = state.docType === 'b2b_services' ? 'B2B' : 'NDA';
+  return `${prefix}-${state.docYear}-${state.docCode}`;
+}
+
 function getFormData() {
   return {
     nameA: $('#partyA_name').value,
@@ -656,41 +691,79 @@ function buildDocumentHtml() {
 
   const clauses = resolveClauses(docType, parts);
 
-  const clausesHtml = clauses.map(c => `
+  const clausesHtml = clauses.map((c, idx) => `
     <div class="clause-block">
-      <h2 class="clause-title">${escapeHtml(c.title)}</h2>
+      <div class="clause-header">
+        <span class="clause-num">${String(idx + 1).padStart(2, '0')}</span>
+        <h2 class="clause-title">${escapeHtml(c.title)}</h2>
+      </div>
       <p>${fill(escapeHtml(c.body))}</p>
     </div>
   `).join('');
 
   const signPlace = fill(escapeHtml(t('sign_place_date')));
+  const issueDate = formatDate(lang);
+  const docRef = getDocRef();
 
-  const logoHtml = state.logo ? `<img class="doc-logo" src="${state.logo}" alt="logo">` : '';
+  const logoHtml = state.logo
+    ? `<img class="doc-logo" src="${state.logo}" alt="logo">`
+    : `<div class="doc-logo-placeholder"></div>`;
   const sigAHtml = state.signatures.A
     ? `<img class="sign-img" src="${state.signatures.A}" alt="signature">`
-    : `<div class="sign-blank"></div>`;
+    : `<div class="sign-area-empty"></div>`;
   const sigBHtml = state.signatures.B
     ? `<img class="sign-img" src="${state.signatures.B}" alt="signature">`
-    : `<div class="sign-blank"></div>`;
+    : `<div class="sign-area-empty"></div>`;
+
+  const partyCard = (roleLabel, name, id, addr) => `
+    <div class="party-card">
+      <span class="party-card-label">${roleLabel}</span>
+      <div class="party-card-name">${name}</div>
+      <div class="party-card-row"><span>${escapeHtml(t('label_taxid'))}:</span> ${id}</div>
+      <div class="party-card-row"><span>${escapeHtml(t('label_address'))}:</span> ${addr}</div>
+    </div>
+  `;
+
+  const signCard = (roleLabel, sigHtml, name, role, id) => `
+    <div class="sign-card">
+      <span class="sign-card-label">${roleLabel}</span>
+      <div class="sign-area">${sigHtml}</div>
+      <div class="sign-line"></div>
+      <div class="sign-field"><strong>${escapeHtml(t('sign_field_name'))}:</strong> ${name}</div>
+      <div class="sign-field"><strong>${escapeHtml(t('sign_field_role'))}:</strong> ${role}</div>
+      <div class="sign-field"><strong>${escapeHtml(t('sign_field_id'))}:</strong> ${id}</div>
+      <div class="sign-field"><strong>${escapeHtml(t('sign_field_date'))}:</strong> ${issueDate}</div>
+    </div>
+  `;
 
   return `
-    ${logoHtml}
-    <h1>${escapeHtml(title)}</h1>
-    <div class="doc-subtitle">${escapeHtml(t('doc_subtitle').replace('{date}', formatDate(lang)))}</div>
+    <div class="doc-letterhead">
+      <div class="doc-letterhead-logo">${logoHtml}</div>
+      <div class="doc-letterhead-meta">
+        <div class="doc-letterhead-title">${escapeHtml(title)}</div>
+        <div class="doc-letterhead-ref">${escapeHtml(t('doc_ref_label'))}: ${escapeHtml(docRef)}</div>
+        <div class="doc-letterhead-date">${escapeHtml(t('doc_issue_date_label'))}: ${escapeHtml(issueDate)}</div>
+      </div>
+    </div>
+    <div class="doc-letterhead-divider"></div>
+
+    <div class="doc-parties-grid">
+      ${partyCard(`<strong>${roleA}</strong>`, nameA, idA, addrA)}
+      ${partyCard(`<strong>${roleB}</strong>`, nameB, idB, addrB)}
+    </div>
+
     <p>${fill(escapeHtml(intro))}</p>
     ${clausesHtml}
     <p style="margin-top:1.5rem;">${signPlace}</p>
+
     <div class="sign-block">
-      <div class="sign-col">
-        ${sigAHtml}
-        <div class="sign-line">${nameA}</div>
-        <div>${escapeHtml(t('sign_name_label'))}: ${roleA}</div>
-      </div>
-      <div class="sign-col">
-        ${sigBHtml}
-        <div class="sign-line">${nameB}</div>
-        <div>${escapeHtml(t('sign_name_label'))}: ${roleB}</div>
-      </div>
+      ${signCard(`<strong>${roleA}</strong>`, sigAHtml, nameA, `<strong>${roleA}</strong>`, idA)}
+      ${signCard(`<strong>${roleB}</strong>`, sigBHtml, nameB, `<strong>${roleB}</strong>`, idB)}
+    </div>
+
+    <div class="doc-verified-badge">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+      ${escapeHtml(t('doc_verified_badge'))}
     </div>
   `;
 }
@@ -813,13 +886,40 @@ function downloadPdf() {
     image: { type: 'jpeg', quality: 0.98 },
     html2canvas: { scale: 2, useCORS: true },
     jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-    pagebreak: { mode: ['avoid-all', 'css', 'legacy'], avoid: ['.clause-block', '.sign-block', 'tr', 'h2.clause-title'] }
+    // Deliberately NOT using 'avoid-all': that mode marks every single
+    // element in the tree (every <p>, <strong>, <div>, ...) as
+    // break-inside:avoid, which compounds tiny gap-filling padding
+    // throughout the document and reliably produces a near-blank
+    // trailing page. 'css' + the explicit avoid list below already
+    // covers everything that actually needs to stay together.
+    pagebreak: { mode: ['css', 'legacy'], avoid: ['.clause-block', '.sign-block', 'tr', 'h2.clause-title'] }
   };
   const btn = $('#btn-pdf');
   const originalHtml = btn.innerHTML;
   btn.disabled = true;
   btn.innerHTML = `<span>${escapeHtml(t('pdf_generating'))}</span>`;
-  html2pdf().set(opt).from(el).save().finally(() => {
+
+  const footerLeft = t('pdf_footer_confidential');
+  const marginBottom = opt.margin[2];
+  const marginLeft = opt.margin[3];
+  const marginRight = opt.margin[1];
+
+  html2pdf().set(opt).from(el).toPdf().get('pdf').then(function (pdf) {
+    // Add a vector (crisp, not rasterized) confidentiality note + page
+    // number to every page, using jsPDF's own text API directly on the
+    // already-rendered PDF, after html2canvas/pagination has run.
+    const totalPages = pdf.internal.getNumberOfPages();
+    const pageWidth = pdf.internal.pageSize.getWidth();
+    const pageHeight = pdf.internal.pageSize.getHeight();
+    const footerY = pageHeight - marginBottom / 2;
+    for (let i = 1; i <= totalPages; i++) {
+      pdf.setPage(i);
+      pdf.setFontSize(7.5);
+      pdf.setTextColor(148, 163, 184);
+      pdf.text(footerLeft, marginLeft, footerY);
+      pdf.text(t('pdf_footer_page_of').replace('{current}', i).replace('{total}', totalPages), pageWidth - marginRight, footerY, { align: 'right' });
+    }
+  }).save().finally(() => {
     btn.disabled = false;
     btn.innerHTML = originalHtml;
   });
@@ -971,6 +1071,8 @@ function clearForm() {
   $('#nda-form').reset();
   state.logo = null;
   state.signatures = { A: null, B: null };
+  state.docCode = null;
+  state.docYear = null;
   $all('.field-input').forEach(el => el.classList.remove('field-error'));
   renderLogo();
   renderSignatureSlots();
@@ -1272,6 +1374,8 @@ function autosave() {
         fields: getSerializableFields(),
         logo: state.logo,
         signatures: state.signatures,
+        docCode: state.docCode,
+        docYear: state.docYear,
       }));
     } catch (e) { /* storage full or unavailable */ }
   }, 400);
@@ -1286,6 +1390,8 @@ function loadAutosave() {
     applyFieldsToForm(data.fields);
     state.logo = data.logo || null;
     state.signatures = data.signatures || { A: null, B: null };
+    state.docCode = data.docCode || null;
+    state.docYear = data.docYear || null;
   } catch (e) { /* ignore corrupt data */ }
 }
 
