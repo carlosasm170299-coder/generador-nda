@@ -1791,6 +1791,25 @@ function buildDocumentHtml() {
     </div>
   `;
 
+  // Bilingual clause cell (table <td>, not the div used by the single-
+  // column layout above): a real HTML <table> is used for the bilingual
+  // pairing instead of a CSS grid, because html2canvas does not reliably
+  // lock a CSS grid row's height to its tallest cell — the shorter
+  // column's text would flow straight into the NEXT clause while the
+  // taller column was still finishing the current one, once captured
+  // and paginated. A <table> guarantees each <tr>'s cells share one row
+  // height in every rendering engine, and 'tr' is already in the
+  // pagebreak avoid list, so each clause row also stays on one page.
+  const renderClauseCell = (c, idx, fillFn) => `
+    <td class="bilingual-cell">
+      <div class="clause-header">
+        <span class="clause-num">${String(idx + 1).padStart(2, '0')}</span>
+        <h2 class="clause-title">${escapeHtml(c.title)}</h2>
+      </div>
+      <p>${fillFn(escapeHtml(c.body))}</p>
+    </td>
+  `;
+
   let bodyHtml;
   if (isBilingual) {
     const langB = state.langSecondary;
@@ -1799,22 +1818,26 @@ function buildDocumentHtml() {
     const fillB = makeFill(partsB.roleA, partsB.roleB, durationB);
     const clausesB = resolveClauses(docType, partsB, langB);
 
-    const pairedClausesHtml = clauses.map((c, idx) => (
-      renderClause(c, idx, fill) + renderClause(clausesB[idx], idx, fillB)
-    )).join('');
+    const pairedClauseRows = clauses.map((c, idx) => `
+      <tr>${renderClauseCell(c, idx, fill)}${renderClauseCell(clausesB[idx], idx, fillB)}</tr>
+    `).join('');
 
     bodyHtml = `
-      <div class="bilingual-lang-headers">
-        <div>${escapeHtml(LANGS[lang] ? LANGS[lang].label : lang)}</div>
-        <div>${escapeHtml(LANGS[langB] ? LANGS[langB].label : langB)}</div>
-      </div>
-      <div class="bilingual-grid">
-        <p class="bilingual-cell">${fill(escapeHtml(intro))}</p>
-        <p class="bilingual-cell">${fillB(escapeHtml(partsB.intro))}</p>
-        ${pairedClausesHtml}
-        <p class="bilingual-cell" style="margin-top:1.5rem;">${fill(escapeHtml(t('sign_place_date')))}</p>
-        <p class="bilingual-cell" style="margin-top:1.5rem;">${fillB(escapeHtml(tFor(langB, 'sign_place_date')))}</p>
-      </div>
+      <table class="bilingual-table">
+        <tr>
+          <td class="bilingual-cell bilingual-lang-header">${escapeHtml(LANGS[lang] ? LANGS[lang].label : lang)}</td>
+          <td class="bilingual-cell bilingual-lang-header">${escapeHtml(LANGS[langB] ? LANGS[langB].label : langB)}</td>
+        </tr>
+        <tr>
+          <td class="bilingual-cell"><p>${fill(escapeHtml(intro))}</p></td>
+          <td class="bilingual-cell"><p>${fillB(escapeHtml(partsB.intro))}</p></td>
+        </tr>
+        ${pairedClauseRows}
+        <tr>
+          <td class="bilingual-cell"><p>${fill(escapeHtml(t('sign_place_date')))}</p></td>
+          <td class="bilingual-cell"><p>${fillB(escapeHtml(tFor(langB, 'sign_place_date')))}</p></td>
+        </tr>
+      </table>
     `;
   } else {
     const clausesHtml = clauses.map((c, idx) => renderClause(c, idx, fill)).join('');
@@ -2134,7 +2157,7 @@ async function downloadDocx() {
         children: m.signPlaceRuns.map(r => new TextRun({ text: r.text, bold: r.bold })),
       });
       const clauseParagraphs = (c) => [
-        new Paragraph({ spacing: { before: 100, after: 100 }, children: [new TextRun({ text: c.title, bold: true, size: 20 })] }),
+        new Paragraph({ keepNext: true, spacing: { before: 100, after: 100 }, children: [new TextRun({ text: c.title, bold: true, size: 20 })] }),
         new Paragraph({
           alignment: AlignmentType.JUSTIFIED,
           spacing: { after: 150, line: 300 },
@@ -2143,18 +2166,18 @@ async function downloadDocx() {
       ];
 
       const rows = [];
-      rows.push(new TableRow({ children: [
+      rows.push(new TableRow({ cantSplit: true, children: [
         langHeaderCell((LANGS[model.lang] || {}).label || model.lang),
         langHeaderCell((LANGS[modelSecondary.lang] || {}).label || modelSecondary.lang),
       ] }));
-      rows.push(new TableRow({ children: [bilingualCell([introParagraph(model)]), bilingualCell([introParagraph(modelSecondary)])] }));
+      rows.push(new TableRow({ cantSplit: true, children: [bilingualCell([introParagraph(model)]), bilingualCell([introParagraph(modelSecondary)])] }));
       model.clauses.forEach((c, idx) => {
-        rows.push(new TableRow({ children: [
+        rows.push(new TableRow({ cantSplit: true, children: [
           bilingualCell(clauseParagraphs(c)),
           bilingualCell(clauseParagraphs(modelSecondary.clauses[idx])),
         ] }));
       });
-      rows.push(new TableRow({ children: [bilingualCell([signPlaceParagraph(model)]), bilingualCell([signPlaceParagraph(modelSecondary)])] }));
+      rows.push(new TableRow({ cantSplit: true, children: [bilingualCell([signPlaceParagraph(model)]), bilingualCell([signPlaceParagraph(modelSecondary)])] }));
 
       children.push(new Table({ width: { size: 100, type: WidthType.PERCENTAGE }, rows }));
       children.push(new Paragraph({ text: '', spacing: { after: 200 } }));
@@ -2167,6 +2190,7 @@ async function downloadDocx() {
 
       model.clauses.forEach(c => {
         children.push(new Paragraph({
+          keepNext: true,
           spacing: { before: 200, after: 100 },
           children: [new TextRun({ text: c.title, bold: true, size: 20 })],
         }));
@@ -2216,7 +2240,7 @@ async function downloadDocx() {
 
     children.push(new Table({
       width: { size: 100, type: WidthType.PERCENTAGE },
-      rows: [new TableRow({ children: [
+      rows: [new TableRow({ cantSplit: true, children: [
         signatureCell(model.nameA, model.roleA, model.sigA),
         signatureCell(model.nameB, model.roleB, model.sigB),
       ] })],

@@ -426,49 +426,56 @@ body {
   color: #64748b;
 }
 
-/* --- Bilingual (dual-language) side-by-side grid --- */
-.doc-page .bilingual-lang-headers {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-  margin-bottom: 0.75rem;
+/* --- Bilingual (dual-language) side-by-side table ---
+   A real <table> (not CSS grid) is used deliberately: html2canvas does
+   not reliably lock a CSS grid row's height to its tallest cell, so a
+   shorter-language column would visually flow into the next clause
+   while the taller column was still finishing the current one once
+   captured/paginated. A <table>'s <tr> guarantees both cells share one
+   row height in every rendering engine, and 'tr' is already in the
+   html2pdf pagebreak avoid list, so each row also stays on one page. */
+.doc-page .bilingual-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  margin-bottom: 0.5rem;
 }
-.doc-page .bilingual-lang-headers > div {
+.doc-page .bilingual-table td.bilingual-cell {
+  width: 50%;
+  vertical-align: top;
+  padding: 0.4rem 0 0.4rem 0.9rem;
+}
+.doc-page .bilingual-table td.bilingual-cell:first-child {
+  border-right: 1px solid #f1f5f9;
+  padding-left: 0;
+  padding-right: 0.9rem;
+}
+.doc-page .bilingual-table .bilingual-lang-header {
   font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
   font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: #2563eb;
-  padding-bottom: 0.4rem;
+  padding-bottom: 0.4rem !important;
   border-bottom: 2px solid #dbeafe;
 }
-.doc-page .bilingual-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 1.5rem;
-}
-.doc-page .bilingual-grid > .bilingual-cell:nth-child(odd) {
-  border-right: 1px solid #f1f5f9;
-  padding-right: 0.75rem;
-}
-.doc-page .bilingual-grid > .bilingual-cell:nth-child(even) {
-  padding-left: 0.75rem;
-}
 @media (max-width: 640px) {
-  .doc-page .bilingual-grid,
-  .doc-page .bilingual-lang-headers {
-    grid-template-columns: 1fr;
+  .doc-page .bilingual-table,
+  .doc-page .bilingual-table tbody,
+  .doc-page .bilingual-table tr,
+  .doc-page .bilingual-table td.bilingual-cell {
+    display: block;
+    width: 100%;
   }
-  .doc-page .bilingual-grid > .bilingual-cell:nth-child(odd) {
+  .doc-page .bilingual-table td.bilingual-cell:first-child {
     border-right: none;
-    padding-right: 0;
+    padding: 0.4rem 0;
     border-bottom: 1px solid #f1f5f9;
-    padding-bottom: 0.75rem;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.5rem;
   }
-  .doc-page .bilingual-grid > .bilingual-cell:nth-child(even) {
-    padding-left: 0;
+  .doc-page .bilingual-table td.bilingual-cell:last-child {
+    padding: 0.4rem 0;
   }
 }
 
