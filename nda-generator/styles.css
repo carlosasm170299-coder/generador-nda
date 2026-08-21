@@ -240,6 +240,12 @@ body {
   font-weight: 700;
   margin-top: 1.1rem;
   margin-bottom: 0.4rem;
+  page-break-after: avoid;
+  break-after: avoid;
+}
+.doc-page .clause-block {
+  page-break-inside: avoid;
+  break-inside: avoid;
 }
 .doc-page .sign-block {
   display: flex;
@@ -247,6 +253,7 @@ body {
   margin-top: 2.5rem;
   gap: 2rem;
   page-break-inside: avoid;
+  break-inside: avoid;
 }
 .doc-page .sign-col {
   flex: 1;

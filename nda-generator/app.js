@@ -657,8 +657,10 @@ function buildDocumentHtml() {
   const clauses = resolveClauses(docType, parts);
 
   const clausesHtml = clauses.map(c => `
-    <h2 class="clause-title">${escapeHtml(c.title)}</h2>
-    <p>${fill(escapeHtml(c.body))}</p>
+    <div class="clause-block">
+      <h2 class="clause-title">${escapeHtml(c.title)}</h2>
+      <p>${fill(escapeHtml(c.body))}</p>
+    </div>
   `).join('');
 
   const signPlace = fill(escapeHtml(t('sign_place_date')));
@@ -791,14 +793,27 @@ function selectTemplate(type) {
    --------------------------------------------------------------------- */
 function downloadPdf() {
   if (!validateBeforeDownload()) return;
+
+  // Pass #pdf-content straight to html2pdf. Its own toContainer() step
+  // already clones the source node and re-parents the clone into a
+  // detached, off-screen overlay it fully controls (position: fixed
+  // overlay + position: absolute, width: <page width>, height: auto
+  // container) — so the clone is never subject to #preview-scroll's
+  // max-height/overflow-y:auto ancestor, and its full natural height is
+  // captured regardless of that container's current scroll position.
+  // (An earlier version of this function pre-cloned the element itself
+  // and forced position:fixed on it before handing it to html2pdf; that
+  // inline "fixed" position survived html2pdf's own cloneNode() call and
+  // broke out of its container's layout flow, collapsing the container
+  // to 0x0 and producing a blank PDF — do not reintroduce that.)
   const el = $('#pdf-content');
   const opt = {
-    margin: [15, 15, 18, 15],
+    margin: [15, 15, 15, 15],
     filename: `${state.docType}_${Date.now()}.pdf`,
     image: { type: 'jpeg', quality: 0.98 },
     html2canvas: { scale: 2, useCORS: true },
     jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-    pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
+    pagebreak: { mode: ['avoid-all', 'css', 'legacy'], avoid: ['.clause-block', '.sign-block', 'tr', 'h2.clause-title'] }
   };
   const btn = $('#btn-pdf');
   const originalHtml = btn.innerHTML;
