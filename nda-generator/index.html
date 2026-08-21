@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-i18n="meta_title">Generador de NDA y Contratos B2B Gratis Online | Plantillas PDF</title>
+<meta name="description" data-i18n-attr="meta_description" content="Genera y descarga en PDF tu Acuerdo de Confidencialidad (NDA) unilateral, bilateral o Contrato de Prestación de Servicios B2B en minutos. Gratis, sin registro.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://ejemplo.com/">
+<meta property="og:title" content="Generador de NDA y Contratos B2B | Plantillas Legales Gratis">
+<meta property="og:description" content="Crea acuerdos de confidencialidad y contratos B2B profesionales en segundos. Previsualización en tiempo real y descarga en PDF.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0f172a">
+
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: {
+      extend: {
+        colors: {
+          brand: {
+            50: '#eff6ff', 100:'#dbeafe', 200:'#bfdbfe', 300:'#93c5fd',
+            400:'#60a5fa', 500:'#3b82f6', 600:'#2563eb', 700:'#1d4ed8',
+            800:'#1e40af', 900:'#1e3a8a'
+          }
+        },
+        fontFamily: {
+          sans: ['Inter','ui-sans-serif','system-ui','-apple-system','sans-serif'],
+        }
+      }
+    }
+  }
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- PDF engine -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+<link rel="stylesheet" href="styles.css">
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Generador de NDA y Contratos B2B",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "ratingCount": "312"
+  },
+  "description": "Herramienta online gratuita para generar Acuerdos de Confidencialidad (NDA) unilaterales, bilaterales y Contratos de Prestación de Servicios B2B, con previsualización en tiempo real y descarga en PDF."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qué es un Acuerdo de Confidencialidad (NDA)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Un NDA (Non-Disclosure Agreement) es un contrato mediante el cual una o ambas partes se comprometen a no divulgar información sensible o confidencial que se comparte durante una negociación, colaboración o relación comercial."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuál es la diferencia entre un NDA unilateral y uno bilateral?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "En un NDA unilateral solo una parte revela información confidencial y la otra se obliga a protegerla. En un NDA bilateral o mutuo, ambas partes comparten información confidencial entre sí y ambas asumen obligaciones de confidencialidad."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Es válido legalmente un NDA generado con esta herramienta?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Las plantillas generadas ofrecen una base orientativa redactada conforme a cláusulas estándar del mercado. Para garantizar su plena validez y adecuación a tu jurisdicción específica, recomendamos la revisión de un abogado antes de su firma."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuánto debería durar la obligación de confidencialidad?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Los plazos habituales oscilan entre 1 y 5 años, aunque en sectores sensibles (secretos industriales, código fuente) es común pactar una duración indefinida o vinculada a la vigencia del secreto."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Necesito un abogado para firmar un contrato B2B?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No es obligatorio, pero es muy recomendable en contratos de alto valor o larga duración. Esta herramienta te ayuda a generar un primer borrador sólido que luego puedes validar con asesoría legal."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedo editar el documento después de descargarlo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. El PDF generado es un punto de partida profesional. Puedes editarlo con cualquier editor de PDF o volver a la herramienta, modificar los datos y generar una nueva versión."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-200 font-sans antialiased transition-colors duration-300">
+
+<!-- Skip link -->
+<a href="#main-tool" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 bg-brand-600 text-white px-4 py-2 rounded">Saltar al contenido</a>
+
+<!-- ============ HEADER ============ -->
+<header class="sticky top-0 z-40 bg-white/80 dark:bg-slate-950/80 backdrop-blur border-b border-slate-200 dark:border-slate-800">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-4">
+    <div class="flex items-center gap-2">
+      <div class="h-9 w-9 rounded-lg bg-brand-600 flex items-center justify-center text-white font-bold text-lg shrink-0">§</div>
+      <span class="font-extrabold text-lg tracking-tight text-slate-900 dark:text-white" data-i18n="brand_name">NDAgen</span>
+    </div>
+
+    <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600 dark:text-slate-300">
+      <a href="#main-tool" class="hover:text-brand-600 dark:hover:text-brand-400" data-i18n="nav_tool">Generador</a>
+      <a href="#guide" class="hover:text-brand-600 dark:hover:text-brand-400" data-i18n="nav_guide">Guía Legal</a>
+      <a href="#faq" class="hover:text-brand-600 dark:hover:text-brand-400" data-i18n="nav_faq">FAQ</a>
+    </nav>
+
+    <div class="flex items-center gap-2">
+      <!-- Language selector -->
+      <div class="flex items-center rounded-full bg-slate-100 dark:bg-slate-800 p-1 text-sm font-semibold">
+        <button id="lang-es" class="lang-btn px-3 py-1 rounded-full transition-colors" data-lang="es" aria-pressed="true">ES</button>
+        <button id="lang-en" class="lang-btn px-3 py-1 rounded-full transition-colors" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <!-- Dark mode toggle -->
+      <button id="theme-toggle" aria-label="Toggle dark mode" class="h-9 w-9 rounded-full flex items-center justify-center bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+        <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden dark:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 block dark:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ AD: TOP BANNER 728x90 ============ -->
+<div class="w-full flex justify-center py-3 bg-slate-100/60 dark:bg-slate-900/40 border-b border-slate-200 dark:border-slate-800">
+  <div class="ad-placeholder" style="width:100%; max-width:728px; min-height:90px;">
+    <span data-i18n="ad_label">Publicidad</span> · 728×90
+  </div>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 pt-10 pb-6 text-center">
+  <span class="inline-block text-xs font-bold tracking-wide uppercase text-brand-700 dark:text-brand-400 bg-brand-50 dark:bg-brand-900/30 px-3 py-1 rounded-full mb-4" data-i18n="hero_badge">100% Gratis · Sin registro · Descarga instantánea</span>
+  <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight max-w-4xl mx-auto" data-i18n="hero_title">Generador de Acuerdos de Confidencialidad (NDA) y Contratos B2B</h1>
+  <p class="mt-4 text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto" data-i18n="hero_subtitle">Crea, previsualiza y descarga en PDF tu NDA o contrato de servicios profesional en menos de 3 minutos.</p>
+</section>
+
+<!-- ============ MAIN TOOL ============ -->
+<main id="main-tool" class="max-w-7xl mx-auto px-4 sm:px-6 pb-16">
+  <div class="flex flex-col lg:flex-row gap-6 items-start">
+
+    <!-- Core tool column -->
+    <div class="flex-1 w-full min-w-0">
+
+      <!-- Template selector -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
+        <button class="template-card" data-template="nda_unilateral">
+          <span class="text-2xl">📄</span>
+          <span class="font-bold block mt-2" data-i18n="tpl_unilateral_title">NDA Unilateral</span>
+          <span class="text-xs text-slate-500 dark:text-slate-400 block mt-1" data-i18n="tpl_unilateral_desc">Una parte revela información, la otra la protege.</span>
+        </button>
+        <button class="template-card" data-template="nda_mutual">
+          <span class="text-2xl">🤝</span>
+          <span class="font-bold block mt-2" data-i18n="tpl_mutual_title">NDA Bilateral (Mutuo)</span>
+          <span class="text-xs text-slate-500 dark:text-slate-400 block mt-1" data-i18n="tpl_mutual_desc">Ambas partes comparten y protegen información.</span>
+        </button>
+        <button class="template-card" data-template="b2b_services">
+          <span class="text-2xl">🧾</span>
+          <span class="font-bold block mt-2" data-i18n="tpl_b2b_title">Contrato B2B de Servicios</span>
+          <span class="text-xs text-slate-500 dark:text-slate-400 block mt-1" data-i18n="tpl_b2b_desc">Prestación de servicios entre empresas.</span>
+        </button>
+      </div>
+
+      <!-- Step wizard card -->
+      <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-sm">
+
+        <!-- Steps indicator -->
+        <div class="flex items-center gap-2 px-5 sm:px-6 pt-5 overflow-x-auto">
+          <div class="step-dot active" data-step="1">1</div>
+          <div class="step-line"></div>
+          <div class="step-dot" data-step="2">2</div>
+          <div class="step-line"></div>
+          <div class="step-dot" data-step="3">3</div>
+          <div class="step-line"></div>
+          <div class="step-dot" data-step="4">4</div>
+        </div>
+        <div class="px-5 sm:px-6 pt-2 pb-4 flex justify-between text-[11px] sm:text-xs font-medium text-slate-500 dark:text-slate-400">
+          <span data-i18n="step1_label">Partes</span>
+          <span data-i18n="step2_label">Objeto</span>
+          <span data-i18n="step3_label">Duración</span>
+          <span data-i18n="step4_label">Revisar</span>
+        </div>
+
+        <form id="nda-form" class="px-5 sm:px-6 pb-6 space-y-6">
+
+          <!-- STEP 1: Parties -->
+          <div class="form-step" data-step="1">
+            <div class="grid sm:grid-cols-2 gap-5">
+              <fieldset class="space-y-3">
+                <legend class="font-bold text-sm text-brand-700 dark:text-brand-400 mb-1" id="legend-partyA" data-i18n="party_a_legend">Parte Emisora / Divulgante</legend>
+                <label class="field-label" data-i18n="label_name">Nombre / Empresa</label>
+                <input type="text" id="partyA_name" class="field-input" data-i18n-placeholder="ph_name" placeholder="Ej. Acme Corp S.L.">
+                <label class="field-label" data-i18n="label_taxid">Identificación fiscal / ID</label>
+                <input type="text" id="partyA_id" class="field-input" data-i18n-placeholder="ph_taxid" placeholder="Ej. B-12345678">
+                <label class="field-label" data-i18n="label_address">Domicilio</label>
+                <input type="text" id="partyA_address" class="field-input" data-i18n-placeholder="ph_address" placeholder="Ej. Calle Mayor 10, Madrid, España">
+              </fieldset>
+              <fieldset class="space-y-3">
+                <legend class="font-bold text-sm text-brand-700 dark:text-brand-400 mb-1" id="legend-partyB" data-i18n="party_b_legend">Parte Receptora</legend>
+                <label class="field-label" data-i18n="label_name">Nombre / Empresa</label>
+                <input type="text" id="partyB_name" class="field-input" data-i18n-placeholder="ph_name" placeholder="Ej. Beta Solutions Inc.">
+                <label class="field-label" data-i18n="label_taxid">Identificación fiscal / ID</label>
+                <input type="text" id="partyB_id" class="field-input" data-i18n-placeholder="ph_taxid" placeholder="Ej. 30-987654321">
+                <label class="field-label" data-i18n="label_address">Domicilio</label>
+                <input type="text" id="partyB_address" class="field-input" data-i18n-placeholder="ph_address" placeholder="Ej. Av. Libertador 500, Buenos Aires, Argentina">
+              </fieldset>
+            </div>
+          </div>
+
+          <!-- STEP 2: Object / Purpose -->
+          <div class="form-step hidden" data-step="2">
+            <label class="field-label" id="label-object" data-i18n="label_object">Objeto y propósito de la información confidencial</label>
+            <textarea id="purpose" rows="5" class="field-input" data-i18n-placeholder="ph_object" placeholder="Ej. Evaluación de una posible alianza comercial para el desarrollo conjunto de una plataforma de software..."></textarea>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mt-2" data-i18n="object_hint">Describe brevemente el motivo por el que se comparte la información (negociación, colaboración, prestación de servicios, etc.).</p>
+          </div>
+
+          <!-- STEP 3: Duration & Jurisdiction -->
+          <div class="form-step hidden" data-step="3">
+            <div class="grid sm:grid-cols-2 gap-5">
+              <div>
+                <label class="field-label" data-i18n="label_duration">Duración de la obligación</label>
+                <select id="duration" class="field-input">
+                  <option value="1">1</option>
+                  <option value="3">3</option>
+                  <option value="5">5</option>
+                  <option value="indefinite" data-i18n="opt_indefinite">Indefinida</option>
+                </select>
+              </div>
+              <div>
+                <label class="field-label" data-i18n="label_jurisdiction">Jurisdicción y legislación aplicable</label>
+                <input type="text" id="jurisdiction" class="field-input" data-i18n-placeholder="ph_jurisdiction" placeholder="Ej. Ciudad de México, México">
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 4: Review -->
+          <div class="form-step hidden" data-step="4">
+            <p class="text-sm text-slate-600 dark:text-slate-400" data-i18n="review_hint">Revisa la vista previa a la derecha. Cuando esté todo correcto, descarga tu documento en PDF o cópialo al portapapeles.</p>
+            <div class="mt-4 flex flex-wrap gap-3">
+              <button type="button" id="btn-pdf" class="btn-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/></svg>
+                <span data-i18n="btn_pdf">Descargar en PDF</span>
+              </button>
+              <button type="button" id="btn-copy" class="btn-secondary">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15H4a1 1 0 01-1-1V4a1 1 0 011-1h10a1 1 0 011 1v1"/></svg>
+                <span data-i18n="btn_copy">Copiar texto</span>
+              </button>
+              <button type="button" id="btn-clear" class="btn-ghost">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6M9 7V4a1 1 0 011-1h4a1 1 0 011 1v3M4 7h16"/></svg>
+                <span data-i18n="btn_clear">Limpiar formulario</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Wizard nav -->
+          <div class="flex justify-between pt-4 border-t border-slate-100 dark:border-slate-800">
+            <button type="button" id="btn-prev" class="btn-ghost" disabled>
+              <span data-i18n="btn_prev">← Anterior</span>
+            </button>
+            <button type="button" id="btn-next" class="btn-primary">
+              <span data-i18n="btn_next">Siguiente →</span>
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Native ad block below preview (mobile order) -->
+      <div class="ad-placeholder ad-native mt-6 lg:hidden">
+        <span data-i18n="ad_label">Publicidad</span> · <span data-i18n="ad_native">Bloque nativo</span>
+      </div>
+    </div>
+
+    <!-- Live preview column -->
+    <div class="w-full lg:w-[46%] lg:sticky lg:top-20">
+      <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-sm overflow-hidden">
+        <div class="flex items-center justify-between px-5 py-3 border-b border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-950/50">
+          <span class="font-bold text-sm" data-i18n="preview_title">Vista previa en tiempo real</span>
+          <span class="text-[11px] font-semibold text-emerald-600 dark:text-emerald-400 flex items-center gap-1">
+            <span class="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span data-i18n="preview_live">En vivo</span>
+          </span>
+        </div>
+        <div id="preview-scroll" class="max-h-[560px] overflow-y-auto p-1 sm:p-2">
+          <div id="pdf-content" class="doc-page">
+            <!-- populated by JS -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Native ad block below preview (desktop) -->
+      <div class="ad-placeholder ad-native mt-4 hidden lg:flex">
+        <span data-i18n="ad_label">Publicidad</span> · <span data-i18n="ad_native">Bloque nativo</span>
+      </div>
+    </div>
+
+    <!-- ============ AD: STICKY SIDEBAR 300x600 ============ -->
+    <aside class="hidden xl:block w-[300px] shrink-0">
+      <div class="sticky top-20">
+        <div class="ad-placeholder" style="width:300px; height:600px;">
+          <span data-i18n="ad_label">Publicidad</span> · 300×600
+        </div>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<!-- ============ SEO CONTENT ============ -->
+<section id="guide" class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 py-14 prose-legal">
+    <h2 data-i18n="guide_h2_1">¿Qué es un Acuerdo de Confidencialidad (NDA)?</h2>
+    <p data-i18n="guide_p_1">Un Acuerdo de Confidencialidad, o NDA por sus siglas en inglés (Non-Disclosure Agreement), es un contrato legal mediante el cual una o varias partes se comprometen a no revelar, divulgar ni utilizar en beneficio propio la información confidencial compartida durante una negociación, colaboración o relación comercial. Es una herramienta esencial antes de compartir planes de negocio, código fuente, datos financieros, prototipos o cualquier información sensible con terceros.</p>
+
+    <h3 data-i18n="guide_h3_1">Tipos de NDA: Unilateral vs. Bilateral</h3>
+    <p data-i18n="guide_p_2">En un <strong data-i18n="guide_strong_1">NDA unilateral</strong>, solo una de las partes (la "Parte Divulgante") comparte información confidencial, mientras que la otra (la "Parte Receptora") asume la obligación de protegerla. Este modelo es habitual cuando una empresa comparte información con un proveedor, candidato o inversor potencial. En cambio, en un <strong data-i18n="guide_strong_2">NDA bilateral o mutuo</strong>, ambas partes se intercambian información confidencial y ambas asumen obligaciones de protección, algo frecuente en fusiones, joint ventures o alianzas estratégicas.</p>
+
+    <h3 data-i18n="guide_h3_2">Cláusulas clave que debe incluir un NDA</h3>
+    <ul data-i18n-list="guide_list_1">
+      <li>Definición precisa de qué se considera "información confidencial".</li>
+      <li>Obligaciones concretas de la parte receptora.</li>
+      <li>Excepciones (información pública, ya conocida o exigida por ley).</li>
+      <li>Duración de la obligación de confidencialidad.</li>
+      <li>Consecuencias del incumplimiento.</li>
+      <li>Legislación aplicable y jurisdicción competente.</li>
+    </ul>
+
+    <h3 data-i18n="guide_h3_3">Contratos de Prestación de Servicios B2B</h3>
+    <p data-i18n="guide_p_3">Un contrato B2B (business-to-business) formaliza la relación entre dos empresas donde una presta servicios a la otra. Además de definir el alcance del servicio y los plazos, suele incorporar cláusulas de confidencialidad para proteger la información que se intercambia durante la colaboración, así como la jurisdicción aplicable en caso de disputa.</p>
+
+    <h2 id="faq" data-i18n="faq_title">Preguntas Frecuentes</h2>
+    <div class="space-y-4 not-prose mt-6">
+      <details class="faq-item" open>
+        <summary data-i18n="faq_q1">¿Qué es un Acuerdo de Confidencialidad (NDA)?</summary>
+        <p data-i18n="faq_a1">Un NDA es un contrato mediante el cual una o ambas partes se comprometen a no divulgar información sensible o confidencial que se comparte durante una negociación, colaboración o relación comercial.</p>
+      </details>
+      <details class="faq-item">
+        <summary data-i18n="faq_q2">¿Cuál es la diferencia entre un NDA unilateral y uno bilateral?</summary>
+        <p data-i18n="faq_a2">En un NDA unilateral solo una parte revela información confidencial y la otra se obliga a protegerla. En un NDA bilateral o mutuo, ambas partes comparten información confidencial entre sí y ambas asumen obligaciones de confidencialidad.</p>
+      </details>
+      <details class="faq-item">
+        <summary data-i18n="faq_q3">¿Es válido legalmente un NDA generado con esta herramienta?</summary>
+        <p data-i18n="faq_a3">Las plantillas generadas ofrecen una base orientativa redactada conforme a cláusulas estándar del mercado. Para garantizar su plena validez y adecuación a tu jurisdicción específica, recomendamos la revisión de un abogado antes de su firma.</p>
+      </details>
+      <details class="faq-item">
+        <summary data-i18n="faq_q4">¿Cuánto debería durar la obligación de confidencialidad?</summary>
+        <p data-i18n="faq_a4">Los plazos habituales oscilan entre 1 y 5 años, aunque en sectores sensibles es común pactar una duración indefinida o vinculada a la vigencia del secreto.</p>
+      </details>
+      <details class="faq-item">
+        <summary data-i18n="faq_q5">¿Necesito un abogado para firmar un contrato B2B?</summary>
+        <p data-i18n="faq_a5">No es obligatorio, pero es muy recomendable en contratos de alto valor o larga duración. Esta herramienta te ayuda a generar un primer borrador sólido que luego puedes validar con asesoría legal.</p>
+      </details>
+      <details class="faq-item">
+        <summary data-i18n="faq_q6">¿Puedo editar el documento después de descargarlo?</summary>
+        <p data-i18n="faq_a6">Sí. El PDF generado es un punto de partida profesional. Puedes editarlo con cualquier editor de PDF o volver a la herramienta, modificar los datos y generar una nueva versión.</p>
+      </details>
+    </div>
+
+    <div class="disclaimer-box mt-10">
+      <strong data-i18n="disclaimer_title">Aviso legal:</strong>
+      <span data-i18n="disclaimer_text"> Esta herramienta genera plantillas orientativas con fines informativos y no constituye asesoramiento legal. El uso de los documentos generados es responsabilidad exclusiva del usuario. Recomendamos siempre la revisión de un profesional del derecho antes de firmar cualquier acuerdo o contrato.</span>
+    </div>
+  </div>
+</section>
+
+<footer class="border-t border-slate-200 dark:border-slate-800 py-8">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-slate-500 dark:text-slate-400">
+    <span>© <span id="year"></span> <span data-i18n="brand_name">NDAgen</span>. <span data-i18n="footer_rights">Todos los derechos reservados.</span></span>
+    <span data-i18n="footer_note">Herramienta gratuita · No sustituye asesoría legal profesional.</span>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
