@@ -70,6 +70,46 @@ body {
   border-color: rgb(59 130 246);
 }
 
+/* ===== Template selector: mobile compact tab bar ===== */
+.template-tabs {
+  display: flex;
+  gap: 0.5rem;
+}
+.template-tab {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  padding: 0.6rem 0.25rem;
+  border-radius: 0.75rem;
+  border: 1.5px solid rgb(226 232 240);
+  background: white;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: rgb(71 85 105);
+  transition: all 0.15s ease;
+}
+.dark .template-tab {
+  background: rgb(15 23 42);
+  border-color: rgb(30 41 59);
+  color: rgb(148 163 184);
+}
+.template-tab-icon {
+  font-size: 1.2rem;
+  line-height: 1;
+}
+.template-tab.active {
+  border-color: rgb(37 99 235);
+  background: rgb(239 246 255);
+  color: rgb(37 99 235);
+}
+.dark .template-tab.active {
+  background: rgb(30 58 138 / 0.25);
+  border-color: rgb(59 130 246);
+  color: rgb(96 165 250);
+}
+
 /* ===== Step wizard ===== */
 .step-dot {
   height: 1.75rem;
@@ -141,6 +181,18 @@ body {
   outline: none;
   border-color: rgb(59 130 246);
   box-shadow: 0 0 0 3px rgb(59 130 246 / 0.15);
+}
+
+/* Bigger thumb-friendly tap targets on mobile (also avoids iOS input auto-zoom) */
+@media (max-width: 640px) {
+  .field-input {
+    padding: 0.75rem 0.9rem;
+    font-size: 1rem;
+  }
+  .btn-primary, .btn-secondary, .btn-ghost {
+    padding: 0.7rem 1.1rem;
+    font-size: 0.9rem;
+  }
 }
 
 /* ===== Buttons ===== */
@@ -586,6 +638,8 @@ body {
   justify-content: center;
   gap: 0.4rem;
   width: max-content;
+  max-width: 100%;
+  box-sizing: border-box;
   margin: 1.1rem auto 0;
   padding: 0.4rem 0.9rem;
   border-radius: 9999px;
@@ -887,6 +941,18 @@ body {
 }
 .dark .donate-btn-nav:hover {
   background: rgb(120 53 15 / 0.55);
+}
+@media (max-width: 767px) {
+  .donate-btn-nav {
+    padding: 0;
+    height: 2rem;
+    width: 2rem;
+    justify-content: center;
+    gap: 0;
+  }
+  .donate-btn-nav .donate-icon {
+    font-size: 1rem;
+  }
 }
 .donate-btn-footer {
   display: inline-flex;
@@ -1292,3 +1358,66 @@ body {
 .dark #preview-scroll::-webkit-scrollbar-thumb {
   background: rgb(51 65 85);
 }
+
+/* ===== Mobile preview collapse + floating action button ===== */
+.preview-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.75rem 1.25rem;
+  border-bottom: 1px solid rgb(241 245 249);
+  background: rgb(248 250 252);
+  border: none;
+  text-align: left;
+  font-family: inherit;
+  cursor: pointer;
+}
+.dark .preview-header {
+  border-bottom-color: rgb(30 41 59);
+  background: rgb(2 6 23 / 0.5);
+}
+@media (min-width: 1024px) {
+  .preview-header {
+    cursor: default;
+  }
+}
+.preview-toggle-icon {
+  width: 1.1rem;
+  height: 1.1rem;
+  color: rgb(100 116 139);
+  transition: transform 0.25s ease;
+  flex-shrink: 0;
+}
+.dark .preview-toggle-icon { color: rgb(148 163 184); }
+#btn-preview-toggle[aria-expanded="true"] .preview-toggle-icon {
+  transform: rotate(180deg);
+}
+.preview-collapsible {
+  transition: max-height 0.3s ease, opacity 0.25s ease, padding 0.3s ease;
+}
+
+.preview-fab {
+  position: fixed;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  z-index: 150;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.75rem 1.15rem;
+  border-radius: 9999px;
+  background: rgb(37 99 235);
+  color: white;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border: none;
+  box-shadow: 0 10px 25px -8px rgb(37 99 235 / 0.5);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.preview-fab:hover {
+  background: rgb(29 78 216);
+  transform: translateY(-1px);
+}
+.preview-fab.hidden { display: none; }

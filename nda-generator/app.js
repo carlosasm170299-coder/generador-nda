@@ -36,6 +36,10 @@ const I18N = {
     tpl_mutual_desc: "Ambas partes comparten y protegen información.",
     tpl_b2b_title: "Contrato B2B de Servicios",
     tpl_b2b_desc: "Prestación de servicios entre empresas.",
+    tpl_unilateral_short: "Unilateral",
+    tpl_mutual_short: "Bilateral",
+    tpl_b2b_short: "B2B",
+    btn_view_document: "Ver Documento",
     step1_label: "Partes",
     step2_label: "Objeto",
     step3_label: "Duración",
@@ -274,6 +278,10 @@ const I18N = {
     tpl_mutual_desc: "Both parties share and protect information.",
     tpl_b2b_title: "B2B Services Contract",
     tpl_b2b_desc: "Service provision between companies.",
+    tpl_unilateral_short: "Unilateral",
+    tpl_mutual_short: "Mutual",
+    tpl_b2b_short: "B2B",
+    btn_view_document: "View Document",
     step1_label: "Parties",
     step2_label: "Purpose",
     step3_label: "Duration",
@@ -511,6 +519,10 @@ const I18N = {
     tpl_mutual_desc: "Ambas as partes compartilham e protegem informações.",
     tpl_b2b_title: "Contrato B2B de Serviços",
     tpl_b2b_desc: "Prestação de serviços entre empresas.",
+    tpl_unilateral_short: "Unilateral",
+    tpl_mutual_short: "Bilateral",
+    tpl_b2b_short: "B2B",
+    btn_view_document: "Ver Documento",
     step1_label: "Partes",
     step2_label: "Objeto",
     step3_label: "Duração",
@@ -736,6 +748,10 @@ const I18N = {
     tpl_mutual_desc: "Les deux parties partagent et protègent des informations.",
     tpl_b2b_title: "Contrat B2B de Services",
     tpl_b2b_desc: "Prestation de services entre entreprises.",
+    tpl_unilateral_short: "Unilatéral",
+    tpl_mutual_short: "Bilatéral",
+    tpl_b2b_short: "B2B",
+    btn_view_document: "Voir le document",
     step1_label: "Parties",
     step2_label: "Objet",
     step3_label: "Durée",
@@ -961,6 +977,10 @@ const I18N = {
     tpl_mutual_desc: "Обе стороны обмениваются информацией и защищают её.",
     tpl_b2b_title: "B2B-договор оказания услуг",
     tpl_b2b_desc: "Оказание услуг между компаниями.",
+    tpl_unilateral_short: "Односторонний",
+    tpl_mutual_short: "Взаимный",
+    tpl_b2b_short: "B2B",
+    btn_view_document: "Смотреть документ",
     step1_label: "Стороны",
     step2_label: "Предмет",
     step3_label: "Срок",
@@ -1186,6 +1206,10 @@ const I18N = {
     tpl_mutual_desc: "双方互相分享并保护信息。",
     tpl_b2b_title: "B2B服务合同",
     tpl_b2b_desc: "企业间的服务提供。",
+    tpl_unilateral_short: "单向",
+    tpl_mutual_short: "双向",
+    tpl_b2b_short: "B2B",
+    btn_view_document: "查看文档",
     step1_label: "各方信息",
     step2_label: "目的",
     step3_label: "期限",
@@ -1411,6 +1435,10 @@ const I18N = {
     tpl_mutual_desc: "両当事者が情報を共有し、保護します。",
     tpl_b2b_title: "B2Bサービス契約",
     tpl_b2b_desc: "企業間のサービス提供。",
+    tpl_unilateral_short: "片務型",
+    tpl_mutual_short: "双務型",
+    tpl_b2b_short: "B2B",
+    btn_view_document: "書類を見る",
     step1_label: "当事者",
     step2_label: "目的",
     step3_label: "期間",
@@ -1636,6 +1664,10 @@ const I18N = {
     tpl_mutual_desc: "दोनों पक्ष जानकारी साझा करते हैं और उसकी सुरक्षा करते हैं।",
     tpl_b2b_title: "B2B सेवा अनुबंध",
     tpl_b2b_desc: "कंपनियों के बीच सेवा प्रावधान।",
+    tpl_unilateral_short: "एकतरफ़ा",
+    tpl_mutual_short: "पारस्परिक",
+    tpl_b2b_short: "B2B",
+    btn_view_document: "दस्तावेज़ देखें",
     step1_label: "पक्ष",
     step2_label: "उद्देश्य",
     step3_label: "अवधि",
@@ -2368,6 +2400,9 @@ function selectTemplate(type) {
   $all('.template-card').forEach(card => {
     card.classList.toggle('active', card.dataset.template === type);
   });
+  $all('.template-tab').forEach(tab => {
+    tab.classList.toggle('active', tab.dataset.template === type);
+  });
   updatePartyLegends();
   updateObjectLabel();
   updateDurationLabel();
@@ -3070,6 +3105,53 @@ function initGuideAccordion() {
 }
 
 /* ---------------------------------------------------------------------
+   13a3) MOBILE PREVIEW COLLAPSE / FAB
+   --------------------------------------------------------------------- */
+function initMobilePreview() {
+  const toggleBtn = $('#btn-preview-toggle');
+  const scrollEl = $('#preview-scroll');
+  const fab = $('#btn-preview-fab');
+  const previewCard = $('#preview-card');
+  if (!toggleBtn || !scrollEl) return;
+
+  const isMobileLayout = () => window.innerWidth < 1024;
+
+  function collapsePreview() {
+    scrollEl.style.maxHeight = '0px';
+    scrollEl.style.opacity = '0';
+    scrollEl.style.paddingTop = '0px';
+    scrollEl.style.paddingBottom = '0px';
+    scrollEl.style.overflow = 'hidden';
+    toggleBtn.setAttribute('aria-expanded', 'false');
+  }
+  function expandPreview() {
+    scrollEl.style.maxHeight = '';
+    scrollEl.style.opacity = '';
+    scrollEl.style.paddingTop = '';
+    scrollEl.style.paddingBottom = '';
+    scrollEl.style.overflow = '';
+    toggleBtn.setAttribute('aria-expanded', 'true');
+  }
+
+  if (isMobileLayout()) collapsePreview(); else expandPreview();
+
+  toggleBtn.addEventListener('click', () => {
+    if (!isMobileLayout()) return;
+    const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+    isExpanded ? collapsePreview() : expandPreview();
+  });
+
+  fab?.addEventListener('click', () => {
+    expandPreview();
+    previewCard?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
+  window.addEventListener('resize', () => {
+    if (!isMobileLayout()) expandPreview();
+  });
+}
+
+/* ---------------------------------------------------------------------
    13b) DONATION MODAL
    --------------------------------------------------------------------- */
 const DONATE_CONFIG = {
@@ -3159,10 +3241,15 @@ function init() {
   initFaqAccordion();
   initGuideAccordion();
   initDonationModal();
+  initMobilePreview();
 
   // Template cards
   $all('.template-card').forEach(card => {
     card.addEventListener('click', () => selectTemplate(card.dataset.template));
+  });
+  // Template mobile tabs
+  $all('.template-tab').forEach(tab => {
+    tab.addEventListener('click', () => selectTemplate(tab.dataset.template));
   });
 
   // Language switch

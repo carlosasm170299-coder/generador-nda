@@ -129,10 +129,10 @@
 
 <!-- ============ HEADER ============ -->
 <header class="sticky top-0 z-40 bg-white/80 dark:bg-slate-950/80 backdrop-blur border-b border-slate-200 dark:border-slate-800">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-4">
-    <div class="flex items-center gap-2">
-      <div class="h-9 w-9 rounded-lg bg-brand-600 flex items-center justify-center text-white font-bold text-lg shrink-0">§</div>
-      <span class="font-extrabold text-lg tracking-tight text-slate-900 dark:text-white" data-i18n="brand_name">NDAgen</span>
+  <div class="max-w-7xl mx-auto px-3 sm:px-6 py-2 sm:py-3 flex items-center justify-between gap-2 sm:gap-4">
+    <div class="flex items-center gap-2 min-w-0">
+      <div class="h-8 w-8 sm:h-9 sm:w-9 rounded-lg bg-brand-600 flex items-center justify-center text-white font-bold text-lg shrink-0">§</div>
+      <span class="font-extrabold text-base sm:text-lg tracking-tight text-slate-900 dark:text-white truncate" data-i18n="brand_name">NDAgen</span>
     </div>
 
     <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600 dark:text-slate-300">
@@ -141,11 +141,11 @@
       <a href="#faq" class="hover:text-brand-600 dark:hover:text-brand-400" data-i18n="nav_faq">FAQ</a>
     </nav>
 
-    <div class="flex items-center gap-2">
-      <!-- Donate button -->
-      <button id="btn-donate-nav" type="button" class="donate-btn-nav">
+    <div class="flex items-center gap-1.5 sm:gap-2 shrink-0">
+      <!-- Donate button (icon-only on mobile, full label from md up) -->
+      <button id="btn-donate-nav" type="button" class="donate-btn-nav" aria-label="Apoya este Proyecto">
         <span class="donate-icon" aria-hidden="true">☕</span>
-        <span data-i18n="donate_btn_label">Apoya este Proyecto</span>
+        <span class="hidden md:inline" data-i18n="donate_btn_label">Apoya este Proyecto</span>
       </button>
       <!-- Language selector -->
       <select id="lang-select" class="lang-select" aria-label="Language">
@@ -159,26 +159,29 @@
         <option value="hi">HI · हिन्दी</option>
       </select>
       <!-- Dark mode toggle -->
-      <button id="theme-toggle" aria-label="Toggle dark mode" class="h-9 w-9 rounded-full flex items-center justify-center bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
-        <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden dark:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
-        <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 block dark:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+      <button id="theme-toggle" aria-label="Toggle dark mode" class="h-8 w-8 sm:h-9 sm:w-9 rounded-full flex items-center justify-center bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors shrink-0">
+        <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 hidden dark:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 block dark:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
       </button>
     </div>
   </div>
 </header>
 
-<!-- ============ AD: TOP BANNER 728x90 ============ -->
-<div class="w-full flex justify-center py-3 bg-slate-100/60 dark:bg-slate-900/40 border-b border-slate-200 dark:border-slate-800">
-  <div class="ad-placeholder" style="width:100%; max-width:728px; min-height:90px;">
+<!-- ============ AD: TOP BANNER (728x90 desktop / 320x50 mobile) ============ -->
+<div class="w-full flex justify-center py-2 sm:py-3 bg-slate-100/60 dark:bg-slate-900/40 border-b border-slate-200 dark:border-slate-800">
+  <div class="ad-placeholder hidden md:flex" style="width:100%; max-width:728px; min-height:90px;">
     <span data-i18n="ad_label">Publicidad</span> · 728×90
+  </div>
+  <div class="ad-placeholder flex md:hidden" style="width:100%; max-width:320px; min-height:50px;">
+    <span data-i18n="ad_label">Publicidad</span> · 320×50
   </div>
 </div>
 
 <!-- ============ HERO ============ -->
-<section class="max-w-7xl mx-auto px-4 sm:px-6 pt-10 pb-6 text-center">
-  <span class="inline-block text-xs font-bold tracking-wide uppercase text-brand-700 dark:text-brand-400 bg-brand-50 dark:bg-brand-900/30 px-3 py-1 rounded-full mb-4" data-i18n="hero_badge">100% Gratis · Sin registro · Descarga instantánea</span>
-  <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight max-w-4xl mx-auto" data-i18n="hero_title">Generador de Acuerdos de Confidencialidad (NDA) y Contratos B2B</h1>
-  <p class="mt-4 text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto" data-i18n="hero_subtitle">Crea, previsualiza y descarga en PDF tu NDA o contrato de servicios profesional en menos de 3 minutos.</p>
+<section class="max-w-7xl mx-auto px-4 sm:px-6 pt-6 pb-4 sm:pt-10 sm:pb-6 text-center">
+  <span class="inline-block text-xs font-bold tracking-wide uppercase text-brand-700 dark:text-brand-400 bg-brand-50 dark:bg-brand-900/30 px-3 py-1 rounded-full mb-3 sm:mb-4" data-i18n="hero_badge">100% Gratis · Sin registro · Descarga instantánea</span>
+  <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight max-w-4xl mx-auto" data-i18n="hero_title">Generador de Acuerdos de Confidencialidad (NDA) y Contratos B2B</h1>
+  <p class="mt-2 sm:mt-4 text-sm sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto" data-i18n="hero_subtitle">Crea, previsualiza y descarga en PDF tu NDA o contrato de servicios profesional en menos de 3 minutos.</p>
 </section>
 
 <!-- ============ MAIN TOOL ============ -->
@@ -188,8 +191,22 @@
     <!-- Core tool column -->
     <div class="flex-1 w-full min-w-0">
 
-      <!-- Template selector -->
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
+      <!-- Template selector: compact tab bar on mobile, full cards from sm up -->
+      <div class="template-tabs sm:hidden mb-6" role="tablist">
+        <button type="button" class="template-tab" data-template="nda_unilateral">
+          <span class="template-tab-icon" aria-hidden="true">📄</span>
+          <span data-i18n="tpl_unilateral_short">Unilateral</span>
+        </button>
+        <button type="button" class="template-tab" data-template="nda_mutual">
+          <span class="template-tab-icon" aria-hidden="true">🤝</span>
+          <span data-i18n="tpl_mutual_short">Bilateral</span>
+        </button>
+        <button type="button" class="template-tab" data-template="b2b_services">
+          <span class="template-tab-icon" aria-hidden="true">🧾</span>
+          <span data-i18n="tpl_b2b_short">B2B</span>
+        </button>
+      </div>
+      <div class="hidden sm:grid sm:grid-cols-3 gap-3 mb-6">
         <button class="template-card" data-template="nda_unilateral">
           <span class="text-2xl">📄</span>
           <span class="font-bold block mt-2" data-i18n="tpl_unilateral_title">NDA Unilateral</span>
@@ -358,20 +375,20 @@
               </div>
             </div>
 
-            <div class="mt-4 flex flex-wrap gap-3">
-              <button type="button" id="btn-pdf" class="btn-primary">
+            <div class="mt-4 flex flex-col sm:flex-row sm:flex-wrap gap-3">
+              <button type="button" id="btn-pdf" class="btn-primary w-full sm:w-auto justify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/></svg>
                 <span data-i18n="btn_pdf">Descargar en PDF</span>
               </button>
-              <button type="button" id="btn-docx" class="btn-secondary">
+              <button type="button" id="btn-docx" class="btn-secondary w-full sm:w-auto justify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h1.5l1 4 1-4H13l1 4 1-4h1.5"/></svg>
                 <span data-i18n="btn_docx">Descargar en Word (.docx)</span>
               </button>
-              <button type="button" id="btn-copy" class="btn-secondary">
+              <button type="button" id="btn-copy" class="btn-secondary w-full sm:w-auto justify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15H4a1 1 0 01-1-1V4a1 1 0 011-1h10a1 1 0 011 1v1"/></svg>
                 <span data-i18n="btn_copy">Copiar texto</span>
               </button>
-              <button type="button" id="btn-clear" class="btn-ghost">
+              <button type="button" id="btn-clear" class="btn-ghost w-full sm:w-auto justify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6M9 7V4a1 1 0 011-1h4a1 1 0 011 1v3M4 7h16"/></svg>
                 <span data-i18n="btn_clear">Limpiar formulario</span>
               </button>
@@ -379,11 +396,11 @@
           </div>
 
           <!-- Wizard nav -->
-          <div class="flex justify-between pt-4 border-t border-slate-100 dark:border-slate-800">
-            <button type="button" id="btn-prev" class="btn-ghost" disabled>
+          <div class="flex flex-col-reverse sm:flex-row sm:justify-between gap-3 pt-4 border-t border-slate-100 dark:border-slate-800">
+            <button type="button" id="btn-prev" class="btn-ghost w-full sm:w-auto justify-center" disabled>
               <span data-i18n="btn_prev">← Anterior</span>
             </button>
-            <button type="button" id="btn-next" class="btn-primary">
+            <button type="button" id="btn-next" class="btn-primary w-full sm:w-auto justify-center">
               <span data-i18n="btn_next">Siguiente →</span>
             </button>
           </div>
@@ -397,16 +414,19 @@
     </div>
 
     <!-- Live preview column -->
-    <div class="w-full lg:w-[46%] lg:sticky lg:top-20">
+    <div id="preview-card" class="w-full lg:w-[46%] lg:sticky lg:top-20">
       <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-sm overflow-hidden">
-        <div class="flex items-center justify-between px-5 py-3 border-b border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-950/50">
+        <button type="button" id="btn-preview-toggle" class="preview-header w-full lg:cursor-default" aria-expanded="true" aria-controls="preview-scroll">
           <span class="font-bold text-sm" data-i18n="preview_title">Vista previa en tiempo real</span>
-          <span class="text-[11px] font-semibold text-emerald-600 dark:text-emerald-400 flex items-center gap-1">
-            <span class="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span data-i18n="preview_live">En vivo</span>
+          <span class="flex items-center gap-3">
+            <span class="text-[11px] font-semibold text-emerald-600 dark:text-emerald-400 flex items-center gap-1">
+              <span class="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span data-i18n="preview_live">En vivo</span>
+            </span>
+            <svg class="preview-toggle-icon lg:hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
           </span>
-        </div>
-        <div id="preview-scroll" class="max-h-[560px] overflow-y-auto p-1 sm:p-2">
+        </button>
+        <div id="preview-scroll" class="preview-collapsible max-h-[560px] overflow-y-auto p-1 sm:p-2">
           <div id="pdf-content" class="doc-page">
             <!-- populated by JS -->
           </div>
@@ -429,6 +449,12 @@
     </aside>
   </div>
 </main>
+
+<!-- ============ MOBILE PREVIEW FAB ============ -->
+<button type="button" id="btn-preview-fab" class="preview-fab lg:hidden" aria-label="Ver Documento">
+  <span aria-hidden="true">👁️</span>
+  <span data-i18n="btn_view_document">Ver Documento</span>
+</button>
 
 <!-- ============ BENEFITS ============ -->
 <section id="benefits" class="max-w-7xl mx-auto px-4 sm:px-6 py-14">
