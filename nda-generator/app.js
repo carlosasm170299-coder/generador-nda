@@ -1889,22 +1889,23 @@ function buildDocumentHtml() {
   `;
 }
 
-function getDocumentModel() {
+function getDocumentModel(lang = state.lang) {
   const data = getFormData();
   const docType = state.docType;
+  const tt = (key) => tFor(lang, key);
 
-  const nameA = (data.nameA || '').trim() || t('ph_nameA');
-  const nameB = (data.nameB || '').trim() || t('ph_nameB');
-  const idA = (data.idA || '').trim() || t('ph_id');
-  const idB = (data.idB || '').trim() || t('ph_id');
-  const addrA = (data.addrA || '').trim() || t('ph_addr');
-  const addrB = (data.addrB || '').trim() || t('ph_addr');
-  const purpose = (data.purpose || '').trim() || t('ph_purpose');
-  const jurisdiction = (data.jurisdiction || '').trim() || t('ph_jur');
-  const duration = durationText(data.duration);
+  const nameA = (data.nameA || '').trim() || tt('ph_nameA');
+  const nameB = (data.nameB || '').trim() || tt('ph_nameB');
+  const idA = (data.idA || '').trim() || tt('ph_id');
+  const idB = (data.idB || '').trim() || tt('ph_id');
+  const addrA = (data.addrA || '').trim() || tt('ph_addr');
+  const addrB = (data.addrB || '').trim() || tt('ph_addr');
+  const purpose = (data.purpose || '').trim() || tt('ph_purpose');
+  const jurisdiction = (data.jurisdiction || '').trim() || tt('ph_jur');
+  const duration = durationText(data.duration, lang);
 
-  const parts = resolveTemplateParts(docType);
-  const clauses = resolveClauses(docType, parts);
+  const parts = resolveTemplateParts(docType, lang);
+  const clauses = resolveClauses(docType, parts, lang);
 
   const subs = {
     '{nameA}': { text: nameA, bold: false }, '{nameB}': { text: nameB, bold: false },
@@ -1922,14 +1923,15 @@ function getDocumentModel() {
     .map(part => subs[part] || { text: part, bold: false });
 
   return {
+    lang,
     title: parts.title,
-    dateLine: t('doc_subtitle').replace('{date}', formatDate(state.lang)),
+    dateLine: tt('doc_subtitle').replace('{date}', formatDate(lang)),
     introRuns: toRuns(parts.intro),
     clauses: clauses.map(c => ({ title: c.title, bodyRuns: toRuns(c.body) })),
-    signPlaceRuns: toRuns(t('sign_place_date')),
+    signPlaceRuns: toRuns(tt('sign_place_date')),
     nameA, nameB,
     roleA: parts.roleA, roleB: parts.roleB,
-    signNameLabel: t('sign_name_label'),
+    signNameLabel: tt('sign_name_label'),
     logo: state.logo,
     sigA: state.signatures.A,
     sigB: state.signatures.B,
@@ -2073,7 +2075,9 @@ async function downloadDocx() {
   }
 
   const { Document, Packer, Paragraph, TextRun, AlignmentType, Table, TableRow, TableCell, ImageRun, WidthType, BorderStyle } = window.docx;
-  const model = getDocumentModel();
+  const model = getDocumentModel(state.lang);
+  const isBilingual = state.bilingual && state.langSecondary && state.langSecondary !== state.lang;
+  const modelSecondary = isBilingual ? getDocumentModel(state.langSecondary) : null;
   const btn = $('#btn-docx');
   const originalHtml = btn.innerHTML;
   btn.disabled = true;
@@ -2100,28 +2104,84 @@ async function downloadDocx() {
       spacing: { after: 300 },
       children: [new TextRun({ text: model.dateLine, italics: true, size: 18, color: '555555' })],
     }));
-    children.push(new Paragraph({
-      alignment: AlignmentType.JUSTIFIED,
-      spacing: { after: 200, line: 300 },
-      children: model.introRuns.map(r => new TextRun({ text: r.text, bold: r.bold })),
-    }));
 
-    model.clauses.forEach(c => {
-      children.push(new Paragraph({
-        spacing: { before: 200, after: 100 },
-        children: [new TextRun({ text: c.title, bold: true, size: 20 })],
-      }));
-      children.push(new Paragraph({
+    // --- Body: single column, or a paired two-column table (one row per
+    // clause) mirroring the bilingual live-preview/PDF layout when the
+    // dual-language mode is on. Letterhead/title/date and the signature
+    // block above/below stay in the primary language either way.
+    if (isBilingual) {
+      const bilingualCell = (paragraphs) => new TableCell({
+        width: { size: 50, type: WidthType.PERCENTAGE },
+        borders: {
+          top: { style: BorderStyle.NONE }, bottom: { style: BorderStyle.NONE },
+          left: { style: BorderStyle.NONE }, right: { style: BorderStyle.NONE }
+        },
+        margins: { left: 150, right: 150 },
+        children: paragraphs,
+      });
+      const langHeaderCell = (label) => bilingualCell([new Paragraph({
+        spacing: { after: 100 },
+        border: { bottom: { style: BorderStyle.SINGLE, size: 6, color: '2563EB' } },
+        children: [new TextRun({ text: label.toUpperCase(), bold: true, size: 16, color: '2563EB' })],
+      })]);
+      const introParagraph = (m) => new Paragraph({
         alignment: AlignmentType.JUSTIFIED,
         spacing: { after: 150, line: 300 },
-        children: c.bodyRuns.map(r => new TextRun({ text: r.text, bold: r.bold })),
-      }));
-    });
+        children: m.introRuns.map(r => new TextRun({ text: r.text, bold: r.bold })),
+      });
+      const signPlaceParagraph = (m) => new Paragraph({
+        spacing: { before: 100, after: 100 },
+        children: m.signPlaceRuns.map(r => new TextRun({ text: r.text, bold: r.bold })),
+      });
+      const clauseParagraphs = (c) => [
+        new Paragraph({ spacing: { before: 100, after: 100 }, children: [new TextRun({ text: c.title, bold: true, size: 20 })] }),
+        new Paragraph({
+          alignment: AlignmentType.JUSTIFIED,
+          spacing: { after: 150, line: 300 },
+          children: c.bodyRuns.map(r => new TextRun({ text: r.text, bold: r.bold })),
+        }),
+      ];
 
-    children.push(new Paragraph({
-      spacing: { before: 300, after: 300 },
-      children: model.signPlaceRuns.map(r => new TextRun({ text: r.text, bold: r.bold })),
-    }));
+      const rows = [];
+      rows.push(new TableRow({ children: [
+        langHeaderCell((LANGS[model.lang] || {}).label || model.lang),
+        langHeaderCell((LANGS[modelSecondary.lang] || {}).label || modelSecondary.lang),
+      ] }));
+      rows.push(new TableRow({ children: [bilingualCell([introParagraph(model)]), bilingualCell([introParagraph(modelSecondary)])] }));
+      model.clauses.forEach((c, idx) => {
+        rows.push(new TableRow({ children: [
+          bilingualCell(clauseParagraphs(c)),
+          bilingualCell(clauseParagraphs(modelSecondary.clauses[idx])),
+        ] }));
+      });
+      rows.push(new TableRow({ children: [bilingualCell([signPlaceParagraph(model)]), bilingualCell([signPlaceParagraph(modelSecondary)])] }));
+
+      children.push(new Table({ width: { size: 100, type: WidthType.PERCENTAGE }, rows }));
+      children.push(new Paragraph({ text: '', spacing: { after: 200 } }));
+    } else {
+      children.push(new Paragraph({
+        alignment: AlignmentType.JUSTIFIED,
+        spacing: { after: 200, line: 300 },
+        children: model.introRuns.map(r => new TextRun({ text: r.text, bold: r.bold })),
+      }));
+
+      model.clauses.forEach(c => {
+        children.push(new Paragraph({
+          spacing: { before: 200, after: 100 },
+          children: [new TextRun({ text: c.title, bold: true, size: 20 })],
+        }));
+        children.push(new Paragraph({
+          alignment: AlignmentType.JUSTIFIED,
+          spacing: { after: 150, line: 300 },
+          children: c.bodyRuns.map(r => new TextRun({ text: r.text, bold: r.bold })),
+        }));
+      });
+
+      children.push(new Paragraph({
+        spacing: { before: 300, after: 300 },
+        children: model.signPlaceRuns.map(r => new TextRun({ text: r.text, bold: r.bold })),
+      }));
+    }
 
     function signatureCell(name, role, sigDataUrl) {
       const cellChildren = [];
