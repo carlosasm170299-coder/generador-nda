@@ -398,12 +398,6 @@ body {
 .doc-page .doc-letterhead-logo {
   flex-shrink: 0;
 }
-.doc-page .doc-logo {
-  display: block;
-  max-height: 50px;
-  max-width: 180px;
-  object-fit: contain;
-}
 .doc-page .doc-logo-placeholder {
   width: 1px;
   height: 1px;
@@ -440,7 +434,7 @@ body {
 /* --- Party identification cards --- */
 .doc-page .doc-parties-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 1rem;
   margin-bottom: 1.3rem;
 }
@@ -450,6 +444,14 @@ body {
   border-radius: 0.5rem;
   padding: 0.9rem 1rem;
   font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  /* A grid item's default min-width is auto (its content's min-content
+     size), not 0 — an unbroken long token (a very long ID/tax number, a
+     name with no spaces) would otherwise refuse to shrink to the 50%
+     track and push this whole card off the page in the PDF export.
+     min-width:0 here lets it shrink; overflow-wrap on the text below
+     makes it actually wrap instead of just clipping. */
+  min-width: 0;
+  overflow-wrap: break-word;
 }
 .doc-page .party-card-label {
   display: block;
@@ -754,6 +756,41 @@ body {
    whatever precedes it) never sits flush against the footer band. */
 .pdf-export-clone > *:last-child {
   margin-bottom: 20mm !important;
+}
+/* The mobile single-column overrides above key off the real browser
+   viewport (@media max-width:640px) — html2pdf's toContainer() wrapper
+   has its own fixed width, but a CSS media query always evaluates
+   against the actual browser window, not an ancestor's width. Without
+   this, exporting a PDF from a narrow browser window (or a phone) would
+   silently collapse the two-column party cards, signature cards, and
+   bilingual table into single-column/stacked layout in the OUTPUT FILE
+   — the opposite of the deterministic, viewport-independent export this
+   whole clone exists for. Force the desktop layout back, always. */
+.pdf-export-clone .doc-parties-grid,
+.pdf-export-clone .sign-block {
+  grid-template-columns: 1fr 1fr !important;
+}
+.pdf-export-clone .bilingual-table,
+.pdf-export-clone .bilingual-table tbody {
+  display: table !important;
+  width: 100% !important;
+}
+.pdf-export-clone .bilingual-table tr {
+  display: table-row !important;
+  width: auto !important;
+}
+.pdf-export-clone .bilingual-table td.bilingual-cell {
+  display: table-cell !important;
+  width: 50% !important;
+}
+.pdf-export-clone .bilingual-table td.bilingual-cell:first-child {
+  border-right: 1px solid #f1f5f9 !important;
+  border-bottom: none !important;
+  padding: 0.4rem 0.9rem 0.4rem 0 !important;
+  margin-bottom: 0 !important;
+}
+.pdf-export-clone .bilingual-table td.bilingual-cell:last-child {
+  padding: 0.4rem 0 0.4rem 0.9rem !important;
 }
 
 /* ===== Prose (guide/FAQ) ===== */

@@ -2704,7 +2704,11 @@ function buildDocumentHtml() {
     .replace(/\{roleA\}/g, `<strong>${roleAL}</strong>`).replace(/\{roleB\}/g, `<strong>${roleBL}</strong>`)
     .replace(/\{purpose\}/g, purpose)
     .replace(/\{duration\}/g, `<strong>${durationL}</strong>`)
-    .replace(/\{jurisdiction\}/g, `<strong>${jurisdiction}</strong>`);
+    .replace(/\{jurisdiction\}/g, `<strong>${jurisdiction}</strong>`)
+    // Only ever matters for free-form custom clause bodies (standard
+    // translated clauses are single-line) — a textarea's literal "\n"
+    // is otherwise silently collapsed to a space by white-space:normal.
+    .replace(/\n/g, '<br>');
 
   const fill = makeFill(roleA, roleB, duration);
   const clauses = resolveClauses(docType, parts, lang);
@@ -2886,7 +2890,16 @@ function getDocumentModel(lang = state.lang) {
   const toRuns = (str) => str
     .split(/(\{nameA\}|\{nameB\}|\{idA\}|\{idB\}|\{addrA\}|\{addrB\}|\{roleA\}|\{roleB\}|\{purpose\}|\{duration\}|\{jurisdiction\})/g)
     .filter(part => part !== '')
-    .map(part => subs[part] || { text: part, bold: false });
+    .flatMap(part => {
+      if (subs[part]) return [subs[part]];
+      // Free-form custom clause text may contain literal newlines from a
+      // textarea; expand each into its own run with a break marker so
+      // downloadDocx() can turn it into a real Word line break instead of
+      // silently losing it (standard translated clauses are single-line,
+      // so this is a no-op for them).
+      const lines = part.split('\n');
+      return lines.flatMap((line, i) => i === 0 ? [{ text: line, bold: false }] : [{ break: true }, { text: line, bold: false }]);
+    });
 
   return {
     lang,
@@ -3126,6 +3139,10 @@ async function downloadDocx() {
 
   try {
     const children = [];
+    // Custom clause bodies can carry a { break: true } marker in place of
+    // a run (see toRuns() in getDocumentModel()) for each textarea
+    // newline — render that as a real Word line break instead of text.
+    const runToTextRun = (r) => r.break ? new TextRun({ text: '', break: 1 }) : new TextRun({ text: r.text, bold: r.bold });
 
     if (model.logo) {
       children.push(new Paragraph({
@@ -3168,18 +3185,18 @@ async function downloadDocx() {
       const introParagraph = (m) => new Paragraph({
         alignment: AlignmentType.JUSTIFIED,
         spacing: { after: 150, line: 300 },
-        children: m.introRuns.map(r => new TextRun({ text: r.text, bold: r.bold })),
+        children: m.introRuns.map(runToTextRun),
       });
       const signPlaceParagraph = (m) => new Paragraph({
         spacing: { before: 100, after: 100 },
-        children: m.signPlaceRuns.map(r => new TextRun({ text: r.text, bold: r.bold })),
+        children: m.signPlaceRuns.map(runToTextRun),
       });
       const clauseParagraphs = (c) => [
         new Paragraph({ keepNext: true, spacing: { before: 100, after: 100 }, children: [new TextRun({ text: c.title, bold: true, size: 20 })] }),
         new Paragraph({
           alignment: AlignmentType.JUSTIFIED,
           spacing: { after: 150, line: 300 },
-          children: c.bodyRuns.map(r => new TextRun({ text: r.text, bold: r.bold })),
+          children: c.bodyRuns.map(runToTextRun),
         }),
       ];
 
@@ -3209,7 +3226,7 @@ async function downloadDocx() {
       children.push(new Paragraph({
         alignment: AlignmentType.JUSTIFIED,
         spacing: { after: 200, line: 300 },
-        children: model.introRuns.map(r => new TextRun({ text: r.text, bold: r.bold })),
+        children: model.introRuns.map(runToTextRun),
       }));
 
       model.clauses.forEach(c => {
@@ -3221,13 +3238,13 @@ async function downloadDocx() {
         children.push(new Paragraph({
           alignment: AlignmentType.JUSTIFIED,
           spacing: { after: 150, line: 300 },
-          children: c.bodyRuns.map(r => new TextRun({ text: r.text, bold: r.bold })),
+          children: c.bodyRuns.map(runToTextRun),
         }));
       });
 
       children.push(new Paragraph({
         spacing: { before: 300, after: 300 },
-        children: model.signPlaceRuns.map(r => new TextRun({ text: r.text, bold: r.bold })),
+        children: model.signPlaceRuns.map(runToTextRun),
       }));
     }
 
@@ -3542,6 +3559,10 @@ function clearSignaturePad() {
 
 function handleSignatureFile(file) {
   if (!file) return;
+  if (!/^image\/(png|jpeg|jpg)$/.test(file.type)) {
+    toast(t('logo_error_type'));
+    return;
+  }
   const reader = new FileReader();
   reader.onload = () => {
     const img = new Image();
@@ -3554,6 +3575,7 @@ function handleSignatureFile(file) {
       sigCtx.drawImage(img, x, y, w, h);
       sigHasContent = true;
     };
+    img.onerror = () => toast(t('logo_error_type'));
     img.src = reader.result;
   };
   reader.readAsDataURL(file);
