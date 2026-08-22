@@ -574,7 +574,7 @@ body {
 /* --- Signature cards --- */
 .doc-page .sign-block {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 1.25rem;
   margin-top: 1.6rem;
   page-break-inside: avoid;
@@ -588,6 +588,13 @@ body {
   font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
   page-break-inside: avoid;
   break-inside: avoid;
+  /* Same fix as .party-card: a grid item's default min-width is auto
+     (sized to its content), so a long unbroken value in a sign-field
+     (e.g. a long tax/ID number echoed from the form) would refuse to
+     shrink to the 50% track and get clipped by the preview's own
+     overflow:hidden, or push the card off the page in the PDF export. */
+  min-width: 0;
+  overflow-wrap: break-word;
 }
 .doc-page .sign-card-label {
   display: block;
@@ -768,7 +775,7 @@ body {
    whole clone exists for. Force the desktop layout back, always. */
 .pdf-export-clone .doc-parties-grid,
 .pdf-export-clone .sign-block {
-  grid-template-columns: 1fr 1fr !important;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
 }
 .pdf-export-clone .bilingual-table,
 .pdf-export-clone .bilingual-table tbody {
