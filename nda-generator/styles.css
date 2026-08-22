@@ -665,6 +665,78 @@ body {
   }
 }
 
+/* =====================================================================
+   PDF export clone: isolated, fixed-size A4 print layout
+   ---------------------------------------------------------------------
+   Applied only to the throwaway off-screen clone built by
+   buildPdfExportClone() in app.js, never to the live on-screen preview.
+   Fixed width + pt typography (rather than the live preview's flexible
+   %/rem-based sizing) means html2canvas always measures and paginates
+   an identical layout no matter the visitor's viewport, zoom, or browser
+   — this is what eliminates the blank first page and mid-line text cuts
+   between pages. Every rule here is !important so no cascade/specificity
+   quirk in a real browser can defeat it.
+   ===================================================================== */
+.pdf-export-clone {
+  width: 210mm !important;
+  max-width: 210mm !important;
+  min-width: 210mm !important;
+  min-height: 0 !important;
+  box-sizing: border-box !important;
+  margin: 0 !important;
+  /* Baked-in page margin: html2pdf's own `margin` option is 0, so this
+     padding is the export's only visual margin. Keep in sync with
+     PDF_PAGE_PADDING_MM in app.js (used to position the footer overlay). */
+  padding: 20mm 15mm !important;
+  font-size: 10pt !important;
+}
+
+/* Never split these across a page — forced page-break-inside:avoid so a
+   paragraph, clause, card, heading, or table row always moves whole to
+   the next page instead of being sliced mid-line. */
+.pdf-export-clone .doc-letterhead,
+.pdf-export-clone .doc-parties-grid,
+.pdf-export-clone .party-card,
+.pdf-export-clone .clause-block,
+.pdf-export-clone .clause-header,
+.pdf-export-clone p,
+.pdf-export-clone h2,
+.pdf-export-clone h3,
+.pdf-export-clone h4,
+.pdf-export-clone .sign-block,
+.pdf-export-clone .sign-card,
+.pdf-export-clone .bilingual-table tr,
+.pdf-export-clone .doc-verified-badge {
+  page-break-inside: avoid !important;
+  break-inside: avoid !important;
+}
+/* Only elements that are already naturally block-level get display:block
+   forced — flex/grid layout containers (.doc-letterhead, .doc-parties-grid,
+   .sign-block, .clause-header) and table rows/cells are deliberately
+   excluded, since forcing block display on those would corrupt their
+   side-by-side layout (letterhead logo+meta, the two party cards, the two
+   signature cards, the bilingual table columns). */
+.pdf-export-clone .clause-block,
+.pdf-export-clone .doc-verified-badge,
+.pdf-export-clone p,
+.pdf-export-clone h2,
+.pdf-export-clone h3,
+.pdf-export-clone h4 {
+  display: block !important;
+}
+/* Keep the clause number + title glued to the paragraph that follows it. */
+.pdf-export-clone .clause-header {
+  page-break-after: avoid !important;
+  break-after: avoid !important;
+}
+/* Nothing should ever force a break before the very first element (this
+   is what produces a blank leading page) — the clone's letterhead is
+   always the first child. */
+.pdf-export-clone > *:first-child {
+  page-break-before: avoid !important;
+  break-before: avoid !important;
+}
+
 /* ===== Prose (guide/FAQ) ===== */
 .prose-legal h2 {
   font-size: 1.5rem;

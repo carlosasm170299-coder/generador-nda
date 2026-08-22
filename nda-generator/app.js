@@ -2413,35 +2413,64 @@ function selectTemplate(type) {
 /* ---------------------------------------------------------------------
    7) ACTIONS: PDF / COPY / CLEAR
    --------------------------------------------------------------------- */
+// The physical page padding (mm) the .pdf-export-clone CSS class (in
+// styles.css) bakes directly into the clone's own box — since the
+// html2pdf `margin` option is 0 (see downloadPdf() below), this is the
+// only thing creating the page's visual margin, and it also defines
+// where the jsPDF footer overlay is drawn. Keep in sync with styles.css.
+const PDF_PAGE_PADDING_MM = { top: 20, right: 15, bottom: 20, left: 15 };
+
+// Builds a throwaway, fully isolated A4-width clone of the live preview
+// and appends it (off-screen) to <body>. Exporting FROM this clone
+// instead of the visible #pdf-content is the fix for the "blank first
+// page + text cut between pages in real browsers" bug: #pdf-content
+// normally lives inside #preview-scroll, itself inside a responsive
+// flex/grid layout (w-full lg:w-[46%]) — so its actual on-screen pixel
+// width (and therefore how text wraps, and therefore where html2canvas
+// slices pages) depends on the visitor's current viewport/zoom. The
+// .pdf-export-clone class (styles.css) forces a fixed 210mm width, fixed
+// pt typography, and !important page-break-inside:avoid on every
+// paragraph/clause/card/heading/table-row, so the exported PDF always
+// paginates identically regardless of the device it was generated from.
+function buildPdfExportClone() {
+  const source = $('#pdf-content');
+  const clone = source.cloneNode(true);
+  clone.classList.add('pdf-export-clone');
+  clone.style.removeProperty('page-break-before');
+
+  const host = document.createElement('div');
+  host.id = 'pdf-export-host';
+  Object.assign(host.style, {
+    position: 'fixed',
+    top: '0',
+    left: '-10000px',
+    zIndex: '-1',
+    background: '#ffffff'
+  });
+  host.appendChild(clone);
+  document.body.appendChild(host);
+  return host;
+}
+
 function downloadPdf() {
   if (!validateBeforeDownload()) return;
 
-  // Pass #pdf-content straight to html2pdf. Its own toContainer() step
-  // already clones the source node and re-parents the clone into a
-  // detached, off-screen overlay it fully controls (position: fixed
-  // overlay + position: absolute, width: <page width>, height: auto
-  // container) — so the clone is never subject to #preview-scroll's
-  // max-height/overflow-y:auto ancestor, and its full natural height is
-  // captured regardless of that container's current scroll position.
-  // (An earlier version of this function pre-cloned the element itself
-  // and forced position:fixed on it before handing it to html2pdf; that
-  // inline "fixed" position survived html2pdf's own cloneNode() call and
-  // broke out of its container's layout flow, collapsing the container
-  // to 0x0 and producing a blank PDF — do not reintroduce that.)
-  const el = $('#pdf-content');
+  const host = buildPdfExportClone();
+  const clone = host.firstElementChild;
+
   const opt = {
-    margin: [15, 15, 15, 15],
+    margin: 0,
     filename: getExportFilename('pdf'),
     image: { type: 'jpeg', quality: 0.98 },
-    html2canvas: { scale: 2, useCORS: true },
+    html2canvas: {
+      scale: 2,
+      useCORS: true,
+      logging: false,
+      scrollY: 0,
+      scrollX: 0
+    },
     jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-    // Deliberately NOT using 'avoid-all': that mode marks every single
-    // element in the tree (every <p>, <strong>, <div>, ...) as
-    // break-inside:avoid, which compounds tiny gap-filling padding
-    // throughout the document and reliably produces a near-blank
-    // trailing page. 'css' + the explicit avoid list below already
-    // covers everything that actually needs to stay together.
-    pagebreak: { mode: ['css', 'legacy'], avoid: ['.clause-block', '.sign-block', 'tr', 'h2.clause-title'] }
+    pagebreak: { mode: ['css', 'legacy'] }
   };
   const btn = $('#btn-pdf');
   const originalHtml = btn.innerHTML;
@@ -2459,12 +2488,12 @@ function downloadPdf() {
   const footerLang = NON_LATIN_FOOTER_LANGS.includes(state.lang) ? 'en' : state.lang;
   const footerLeft = tFor(footerLang, 'pdf_footer_confidential');
   const footerPageOfTemplate = tFor(footerLang, 'pdf_footer_page_of');
-  const marginBottom = opt.margin[2];
-  const marginLeft = opt.margin[3];
-  const marginRight = opt.margin[1];
+  const marginBottom = PDF_PAGE_PADDING_MM.bottom;
+  const marginLeft = PDF_PAGE_PADDING_MM.left;
+  const marginRight = PDF_PAGE_PADDING_MM.right;
 
   const fontsReady = (document.fonts && document.fonts.ready) ? document.fonts.ready : Promise.resolve();
-  fontsReady.then(() => html2pdf().set(opt).from(el).toPdf().get('pdf').then(function (pdf) {
+  fontsReady.then(() => html2pdf().set(opt).from(clone).toPdf().get('pdf').then(function (pdf) {
     // Add a vector (crisp, not rasterized) confidentiality note + page
     // number to every page, using jsPDF's own text API directly on the
     // already-rendered PDF, after html2canvas/pagination has run.
@@ -2482,6 +2511,7 @@ function downloadPdf() {
   }).save()).finally(() => {
     btn.disabled = false;
     btn.innerHTML = originalHtml;
+    host.remove();
   });
 }
 
