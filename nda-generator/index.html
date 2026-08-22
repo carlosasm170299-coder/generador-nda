@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title data-i18n="meta_title">Generador de NDA y Contratos B2B Gratis Online | Plantillas PDF</title>
-<meta name="description" data-i18n-attr="meta_description" content="Genera y descarga en PDF tu Acuerdo de Confidencialidad (NDA) unilateral, bilateral o Contrato de Prestación de Servicios B2B en minutos. Gratis, sin registro.">
+<title data-i18n="meta_title">DraftB2B — Generador Gratuito de Contratos B2B y Acuerdos de Confidencialidad (NDA)</title>
+<meta name="description" data-i18n-attr="meta_description" content="DraftB2B: genera y descarga en PDF tu Acuerdo de Confidencialidad (NDA) unilateral, bilateral, Contrato de Prestación de Servicios B2B o Política de Privacidad en minutos. Gratis, sin registro.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://draftb2b.com/">
 <link rel="alternate" hreflang="es" href="https://draftb2b.com/">
@@ -16,9 +16,14 @@
 <link rel="alternate" hreflang="ja" href="https://draftb2b.com/?lang=ja">
 <link rel="alternate" hreflang="hi" href="https://draftb2b.com/?lang=hi">
 <link rel="alternate" hreflang="x-default" href="https://draftb2b.com/">
-<meta property="og:title" content="Generador de NDA y Contratos B2B | Plantillas Legales Gratis">
-<meta property="og:description" content="Crea acuerdos de confidencialidad y contratos B2B profesionales en segundos. Previsualización en tiempo real y descarga en PDF.">
+<meta property="og:title" content="DraftB2B — Generador Gratuito de Contratos B2B y Acuerdos de Confidencialidad (NDA)">
+<meta property="og:description" content="Crea acuerdos de confidencialidad, contratos B2B y políticas de privacidad profesionales en segundos. Previsualización en tiempo real y descarga en PDF.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://draftb2b.com/">
+<meta property="og:site_name" content="DraftB2B">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="DraftB2B — Generador Gratuito de Contratos B2B y NDA">
+<meta name="twitter:description" content="Crea acuerdos de confidencialidad, contratos B2B y políticas de privacidad profesionales en segundos. Gratis y sin registro.">
 <meta name="theme-color" content="#0f172a">
 
 <!-- Tailwind CSS -->
@@ -60,7 +65,8 @@
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  "name": "Generador de NDA y Contratos B2B",
+  "name": "DraftB2B",
+  "url": "https://draftb2b.com/",
   "applicationCategory": "BusinessApplication",
   "operatingSystem": "Web",
   "offers": {
@@ -73,7 +79,15 @@
     "ratingValue": "4.8",
     "ratingCount": "312"
   },
-  "description": "Herramienta online gratuita para generar Acuerdos de Confidencialidad (NDA) unilaterales, bilaterales y Contratos de Prestación de Servicios B2B, con previsualización en tiempo real y descarga en PDF."
+  "description": "Herramienta online gratuita para generar Acuerdos de Confidencialidad (NDA) unilaterales, bilaterales, Contratos de Prestación de Servicios B2B y Políticas de Privacidad, con previsualización en tiempo real y descarga en PDF."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "DraftB2B",
+  "url": "https://draftb2b.com/"
 }
 </script>
 <script type="application/ld+json">
@@ -142,8 +156,10 @@
 <header class="sticky top-0 z-40 bg-white/80 dark:bg-slate-950/80 backdrop-blur border-b border-slate-200 dark:border-slate-800">
   <div class="max-w-7xl mx-auto px-3 sm:px-6 py-2 sm:py-3 flex items-center justify-between gap-2 sm:gap-4">
     <div class="flex items-center gap-2 min-w-0">
-      <div class="h-8 w-8 sm:h-9 sm:w-9 rounded-lg bg-brand-600 flex items-center justify-center text-white font-bold text-lg shrink-0">§</div>
-      <span class="font-extrabold text-base sm:text-lg tracking-tight text-slate-900 dark:text-white truncate" data-i18n="brand_name">NDAgen</span>
+      <div class="h-8 w-8 sm:h-9 sm:w-9 rounded-lg bg-brand-600 flex items-center justify-center text-white shrink-0">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 sm:h-5 sm:w-5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/><path d="m9 15 2 2 4-4"/></svg>
+      </div>
+      <span class="font-extrabold text-base sm:text-lg tracking-tight text-slate-900 dark:text-white truncate" data-i18n="brand_name">DraftB2B</span>
     </div>
 
     <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600 dark:text-slate-300">
@@ -197,52 +213,63 @@
 
 <!-- ============ MAIN TOOL ============ -->
 <main id="main-tool" class="max-w-7xl mx-auto px-4 sm:px-6 pb-16">
+
+  <!-- Template selector: full-width, above the two-column workspace so it
+       always gets the whole main-content width to breathe, regardless of
+       how the form/preview columns below it split. Compact tab bar on
+       mobile, a 2x2 -> 1x4 card grid from sm up. -->
+  <div class="mb-6">
+    <div class="template-tabs sm:hidden" role="tablist">
+      <button type="button" class="template-tab" data-template="nda_unilateral">
+        <span class="template-tab-icon" aria-hidden="true">📄</span>
+        <span data-i18n="tpl_unilateral_short">Unilateral</span>
+      </button>
+      <button type="button" class="template-tab" data-template="nda_mutual">
+        <span class="template-tab-icon" aria-hidden="true">🤝</span>
+        <span data-i18n="tpl_mutual_short">Bilateral</span>
+      </button>
+      <button type="button" class="template-tab" data-template="b2b_services">
+        <span class="template-tab-icon" aria-hidden="true">🧾</span>
+        <span data-i18n="tpl_b2b_short">B2B</span>
+      </button>
+      <button type="button" class="template-tab" data-template="privacy_policy">
+        <span class="template-tab-icon" aria-hidden="true">🔐</span>
+        <span data-i18n="tpl_privacy_short">Privacidad</span>
+      </button>
+    </div>
+    <div class="hidden sm:grid grid-cols-2 md:grid-cols-4 gap-3">
+      <button class="template-card" data-template="nda_unilateral">
+        <span class="template-card-check" aria-hidden="true">✓</span>
+        <span class="text-2xl">📄</span>
+        <span class="font-bold block mt-2 text-balance" data-i18n="tpl_unilateral_title">NDA Unilateral</span>
+        <span class="text-xs text-slate-500 dark:text-slate-400 block mt-1 break-words" data-i18n="tpl_unilateral_desc">Una parte revela información, la otra la protege.</span>
+      </button>
+      <button class="template-card" data-template="nda_mutual">
+        <span class="template-card-check" aria-hidden="true">✓</span>
+        <span class="text-2xl">🤝</span>
+        <span class="font-bold block mt-2 text-balance" data-i18n="tpl_mutual_title">NDA Bilateral (Mutuo)</span>
+        <span class="text-xs text-slate-500 dark:text-slate-400 block mt-1 break-words" data-i18n="tpl_mutual_desc">Ambas partes comparten y protegen información.</span>
+      </button>
+      <button class="template-card" data-template="b2b_services">
+        <span class="template-card-check" aria-hidden="true">✓</span>
+        <span class="text-2xl">🧾</span>
+        <span class="font-bold block mt-2 text-balance" data-i18n="tpl_b2b_title">Contrato B2B de Servicios</span>
+        <span class="text-xs text-slate-500 dark:text-slate-400 block mt-1 break-words" data-i18n="tpl_b2b_desc">Prestación de servicios entre empresas.</span>
+      </button>
+      <button class="template-card" data-template="privacy_policy">
+        <span class="template-card-check" aria-hidden="true">✓</span>
+        <span class="text-2xl">🔐</span>
+        <span class="font-bold block mt-2 text-balance" data-i18n="tpl_privacy_title">Política de Privacidad</span>
+        <span class="text-xs text-slate-500 dark:text-slate-400 block mt-1 break-words" data-i18n="tpl_privacy_desc">Documento de protección de datos personales.</span>
+      </button>
+    </div>
+  </div>
+
   <div class="flex flex-col lg:flex-row gap-6 items-start">
 
-    <!-- Core tool column -->
-    <div class="flex-1 w-full min-w-0">
-
-      <!-- Template selector: compact tab bar on mobile, full cards from sm up -->
-      <div class="template-tabs sm:hidden mb-6" role="tablist">
-        <button type="button" class="template-tab" data-template="nda_unilateral">
-          <span class="template-tab-icon" aria-hidden="true">📄</span>
-          <span data-i18n="tpl_unilateral_short">Unilateral</span>
-        </button>
-        <button type="button" class="template-tab" data-template="nda_mutual">
-          <span class="template-tab-icon" aria-hidden="true">🤝</span>
-          <span data-i18n="tpl_mutual_short">Bilateral</span>
-        </button>
-        <button type="button" class="template-tab" data-template="b2b_services">
-          <span class="template-tab-icon" aria-hidden="true">🧾</span>
-          <span data-i18n="tpl_b2b_short">B2B</span>
-        </button>
-        <button type="button" class="template-tab" data-template="privacy_policy">
-          <span class="template-tab-icon" aria-hidden="true">🔐</span>
-          <span data-i18n="tpl_privacy_short">Privacidad</span>
-        </button>
-      </div>
-      <div class="hidden sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
-        <button class="template-card" data-template="nda_unilateral">
-          <span class="text-2xl">📄</span>
-          <span class="font-bold block mt-2" data-i18n="tpl_unilateral_title">NDA Unilateral</span>
-          <span class="text-xs text-slate-500 dark:text-slate-400 block mt-1" data-i18n="tpl_unilateral_desc">Una parte revela información, la otra la protege.</span>
-        </button>
-        <button class="template-card" data-template="nda_mutual">
-          <span class="text-2xl">🤝</span>
-          <span class="font-bold block mt-2" data-i18n="tpl_mutual_title">NDA Bilateral (Mutuo)</span>
-          <span class="text-xs text-slate-500 dark:text-slate-400 block mt-1" data-i18n="tpl_mutual_desc">Ambas partes comparten y protegen información.</span>
-        </button>
-        <button class="template-card" data-template="b2b_services">
-          <span class="text-2xl">🧾</span>
-          <span class="font-bold block mt-2" data-i18n="tpl_b2b_title">Contrato B2B de Servicios</span>
-          <span class="text-xs text-slate-500 dark:text-slate-400 block mt-1" data-i18n="tpl_b2b_desc">Prestación de servicios entre empresas.</span>
-        </button>
-        <button class="template-card" data-template="privacy_policy">
-          <span class="text-2xl">🔐</span>
-          <span class="font-bold block mt-2" data-i18n="tpl_privacy_title">Política de Privacidad</span>
-          <span class="text-xs text-slate-500 dark:text-slate-400 block mt-1" data-i18n="tpl_privacy_desc">Documento de protección de datos personales.</span>
-        </button>
-      </div>
+    <!-- Core tool column: a comfortable, fixed ~42% share on desktop so
+         fields/toggles/buttons never fight the preview column for room. -->
+    <div class="w-full lg:w-[42%] min-w-0">
 
       <!-- Save/load template toolbar -->
       <div class="flex items-center justify-between gap-3 flex-wrap mb-3">
@@ -550,7 +577,7 @@
     </div>
 
     <!-- Live preview column -->
-    <div id="preview-card" class="w-full lg:w-[46%] lg:sticky lg:top-20">
+    <div id="preview-card" class="w-full lg:flex-1 min-w-0 lg:sticky lg:top-20">
       <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-sm overflow-hidden">
         <button type="button" id="btn-preview-toggle" class="preview-header w-full lg:cursor-default" aria-expanded="true" aria-controls="preview-scroll">
           <span class="font-bold text-sm" data-i18n="preview_title">Vista previa en tiempo real</span>
@@ -595,7 +622,7 @@
 <!-- ============ BENEFITS ============ -->
 <section id="benefits" class="max-w-7xl mx-auto px-4 sm:px-6 py-14">
   <div class="text-center max-w-2xl mx-auto mb-10">
-    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white" data-i18n="benefits_title">¿Por qué usar NDAgen?</h2>
+    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white" data-i18n="benefits_title">¿Por qué usar DraftB2B?</h2>
     <p class="mt-3 text-slate-600 dark:text-slate-400" data-i18n="benefits_subtitle">La forma más rápida, segura y profesional de proteger tu información confidencial.</p>
   </div>
   <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -746,7 +773,7 @@
 
 <footer class="border-t border-slate-200 dark:border-slate-800 py-8">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-slate-500 dark:text-slate-400">
-    <span>© <span id="year"></span> <span data-i18n="brand_name">NDAgen</span>. <span data-i18n="footer_rights">Todos los derechos reservados.</span></span>
+    <span>© <span id="year"></span> DraftB2B. All rights reserved.</span>
     <div class="flex items-center gap-4 flex-wrap justify-center">
       <span data-i18n="footer_note">Herramienta gratuita · No sustituye asesoría legal profesional.</span>
       <button id="btn-donate-footer" type="button" class="donate-btn-footer">
@@ -802,7 +829,7 @@
       <button type="button" id="donate-modal-close" class="modal-close" aria-label="Close">&times;</button>
     </div>
 
-    <p class="donate-modal-desc" data-i18n="donate_modal_desc">NDAgen es gratuito y no requiere registro. Si esta herramienta te ha sido útil, considera invitarnos un café para ayudarnos a mantenerla.</p>
+    <p class="donate-modal-desc" data-i18n="donate_modal_desc">DraftB2B es gratuito y no requiere registro. Si esta herramienta te ha sido útil, considera invitarnos un café para ayudarnos a mantenerla.</p>
 
     <div class="donate-amounts">
       <button type="button" class="donate-amount-btn" data-amount="3">$3</button>

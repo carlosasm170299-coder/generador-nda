@@ -51,8 +51,9 @@ body {
 
 /* ===== Template selector cards ===== */
 .template-card {
+  position: relative;
   text-align: left;
-  padding: 1rem 1.1rem;
+  padding: 1rem;
   border-radius: 1rem;
   border: 1.5px solid rgb(226 232 240);
   background: white;
@@ -67,13 +68,39 @@ body {
   transform: translateY(-1px);
 }
 .template-card.active {
-  border-color: rgb(37 99 235);
-  background: rgb(239 246 255);
+  border-color: rgb(59 130 246);
+  background: rgb(59 130 246 / 0.1);
   box-shadow: 0 0 0 3px rgb(59 130 246 / 0.15);
 }
 .dark .template-card.active {
-  background: rgb(30 58 138 / 0.25);
+  background: rgb(59 130 246 / 0.15);
   border-color: rgb(59 130 246);
+}
+/* Small "selected" badge, only visible on the active card — a second,
+   at-a-glance cue beyond the border/background so the active state
+   reads clearly even at a glance or in a screenshot. */
+.template-card-check {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  width: 1.15rem;
+  height: 1.15rem;
+  border-radius: 9999px;
+  background: rgb(59 130 246);
+  color: white;
+  font-size: 0.65rem;
+  font-weight: 700;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+.template-card.active .template-card-check {
+  opacity: 1;
+  transform: scale(1);
 }
 
 /* ===== Template selector: mobile compact tab bar ===== */
