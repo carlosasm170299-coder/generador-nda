@@ -2444,6 +2444,342 @@ const I18N = {
   },
 };
 
+// Privacy Policy document type: kept in a separate object (merged into
+// I18N right below) instead of inlined into each of the 8 language
+// blocks above, so this large content addition stays reviewable as its
+// own unit rather than a scattered diff across ~2400 lines.
+const PP_I18N = {
+  es: {
+    tpl_privacy_title: "Política de Privacidad",
+    tpl_privacy_desc: "Documento de protección de datos personales para tu web o app.",
+    tpl_privacy_short: "Privacidad",
+    role_data_controller: "Responsable del Tratamiento",
+    role_data_subject: "Titular de los Datos",
+    doc_title_privacy_policy: "Política de Privacidad",
+    intro_privacy: "La presente Política de Privacidad describe cómo {roleA}, identificado como {nameA}, recopila, utiliza, conserva y protege los datos personales de los usuarios y visitantes, de conformidad con la normativa de protección de datos aplicable.",
+    c1_title_pp: "Responsable del Tratamiento",
+    c1_body_pp: "El responsable del tratamiento de los datos personales es {roleA}, con identificación {idA} y domicilio en {addrA}. Cualquier consulta relacionada con esta política puede dirigirse a los datos de contacto indicados al final de este documento.",
+    c2_title_pp: "Datos Personales que Recopilamos",
+    c2_body_pp: "Podemos recopilar datos de identificación y contacto (como nombre, correo electrónico o teléfono), datos de navegación (dirección IP, tipo de dispositivo, páginas visitadas) y cualquier otro dato que el usuario proporcione voluntariamente a través de formularios, cuentas o comunicaciones.",
+    c3_title_pp: "Finalidad del Tratamiento",
+    c3_body_pp: "Los datos personales se tratan con la siguiente finalidad: {purpose} Además, podrán utilizarse para mejorar el servicio, atender consultas y cumplir obligaciones legales.",
+    c4_title_pp: "Base Legal / Legitimación",
+    c4_body_pp: "El tratamiento se fundamenta en el consentimiento del titular, la ejecución de una relación contractual o comercial, y el cumplimiento de obligaciones legales aplicables a {roleA}.",
+    c5_title_pp: "Plazo de Conservación",
+    c5_body_pp: "Los datos personales se conservarán durante {duration}, o durante el tiempo estrictamente necesario para cumplir con la finalidad para la que fueron recabados, salvo obligación legal de conservarlos por un plazo distinto.",
+    c6_title_pp: "Destinatarios y Encargados del Tratamiento",
+    c6_body_pp: "Los datos podrán ser comunicados a proveedores de servicios (alojamiento, análisis, pagos) que actúan como encargados del tratamiento bajo instrucciones de {roleA}, así como a autoridades competentes cuando exista una obligación legal de hacerlo.",
+    c7_title_pp: "Transferencias Internacionales de Datos",
+    c7_body_pp: "En caso de que los datos sean transferidos fuera del país o región de origen del {roleB}, {roleA} adoptará las garantías adecuadas exigidas por la normativa aplicable para asegurar un nivel de protección equivalente.",
+    c8_title_pp: "Derechos del Titular de los Datos",
+    c8_body_pp: "El {roleB} podrá ejercer, en los términos previstos por la ley, sus derechos de acceso, rectificación, cancelación u oposición, así como, cuando corresponda, portabilidad y limitación del tratamiento, dirigiéndose a {roleA} a través de los datos de contacto indicados.",
+    c9_title_pp: "Uso de Cookies y Tecnologías Similares",
+    c9_body_pp: "Este sitio o aplicación puede utilizar cookies u otras tecnologías similares para mejorar la experiencia del usuario, analizar el tráfico y personalizar contenido, pudiendo el {roleB} configurar sus preferencias desde su navegador.",
+    c10_title_pp: "Legislación Aplicable",
+    c10_body_pp: "La presente Política de Privacidad se rige por la legislación de protección de datos vigente en {jurisdiction}, sin perjuicio de otras normas de aplicación obligatoria.",
+    c11_title_pp: "Cambios a esta Política y Contacto",
+    c11_body_pp: "{roleA} podrá actualizar esta Política de Privacidad para reflejar cambios legales, técnicos u operativos, publicando la versión vigente en este mismo canal. Para consultas sobre el tratamiento de datos, el {roleB} puede contactar directamente con {roleA} a través de los datos indicados en este documento.",
+    sign_place_date_pp: "Esta Política de Privacidad entra en vigor en la fecha indicada a continuación:",
+    label_object_pp: "Descripción de los datos y finalidad del tratamiento",
+    label_duration_pp: "Plazo de conservación de los datos",
+    party_a_legend_pp: "Responsable del Tratamiento",
+    checklist_item1_pp: "He verificado la identidad y los datos del responsable del tratamiento",
+    checklist_item2_pp: "El alcance de los datos recopilados y su finalidad están claramente delimitados",
+    checklist_item3_pp: "La legislación de protección de datos aplicable es correcta",
+    verify_link_label: "Enlace público de verificación",
+    verify_copy_btn: "Copiar enlace",
+    verify_link_hint: "Cualquiera con este enlace (o el código QR del documento) puede comprobar que el contenido no ha sido alterado.",
+  },
+  en: {
+    tpl_privacy_title: "Privacy Policy",
+    tpl_privacy_desc: "Data protection document for your website or app.",
+    tpl_privacy_short: "Privacy",
+    role_data_controller: "Data Controller",
+    role_data_subject: "Data Subject",
+    doc_title_privacy_policy: "Privacy Policy",
+    intro_privacy: "This Privacy Policy describes how {roleA}, identified as {nameA}, collects, uses, retains and protects the personal data of users and visitors, in accordance with applicable data protection law.",
+    c1_title_pp: "Data Controller",
+    c1_body_pp: "The data controller responsible for processing personal data is {roleA}, with identification {idA} and address at {addrA}. Any questions regarding this policy may be directed to the contact details provided at the end of this document.",
+    c2_title_pp: "Personal Data We Collect",
+    c2_body_pp: "We may collect identification and contact data (such as name, email address or phone number), browsing data (IP address, device type, pages visited) and any other data voluntarily provided by the user through forms, accounts or communications.",
+    c3_title_pp: "Purpose of Processing",
+    c3_body_pp: "Personal data is processed for the following purpose: {purpose} It may also be used to improve the service, respond to inquiries and comply with legal obligations.",
+    c4_title_pp: "Legal Basis",
+    c4_body_pp: "Processing is based on the data subject's consent, the performance of a contractual or business relationship, and compliance with legal obligations applicable to {roleA}.",
+    c5_title_pp: "Retention Period",
+    c5_body_pp: "Personal data will be retained for {duration}, or for as long as strictly necessary to fulfill the purpose for which it was collected, unless a longer retention period is required by law.",
+    c6_title_pp: "Recipients and Data Processors",
+    c6_body_pp: "Data may be shared with service providers (hosting, analytics, payments) acting as data processors under the instructions of {roleA}, as well as with competent authorities where legally required.",
+    c7_title_pp: "International Data Transfers",
+    c7_body_pp: "Should data be transferred outside the country or region where the {roleB} is located, {roleA} will implement the appropriate safeguards required by applicable law to ensure an equivalent level of protection.",
+    c8_title_pp: "Rights of the Data Subject",
+    c8_body_pp: "The {roleB} may exercise, as provided by law, their rights of access, rectification, erasure or objection, as well as, where applicable, data portability and restriction of processing, by contacting {roleA} through the contact details provided.",
+    c9_title_pp: "Use of Cookies and Similar Technologies",
+    c9_body_pp: "This site or application may use cookies or similar technologies to improve user experience, analyze traffic and personalize content; the {roleB} may configure their preferences from their browser settings.",
+    c10_title_pp: "Governing Law",
+    c10_body_pp: "This Privacy Policy is governed by the data protection law in force in {jurisdiction}, without prejudice to other mandatory applicable rules.",
+    c11_title_pp: "Changes to This Policy and Contact",
+    c11_body_pp: "{roleA} may update this Privacy Policy to reflect legal, technical or operational changes, publishing the current version through this same channel. For inquiries about data processing, the {roleB} may contact {roleA} directly using the details provided in this document.",
+    sign_place_date_pp: "This Privacy Policy takes effect as of the date indicated below:",
+    label_object_pp: "Description of data and purpose of processing",
+    label_duration_pp: "Data retention period",
+    party_a_legend_pp: "Data Controller",
+    checklist_item1_pp: "I have verified the identity and details of the data controller",
+    checklist_item2_pp: "The scope of data collected and its purpose are clearly defined",
+    checklist_item3_pp: "The applicable data protection law is correct",
+    verify_link_label: "Public verification link",
+    verify_copy_btn: "Copy link",
+    verify_link_hint: "Anyone with this link (or the document's QR code) can check that its content hasn't been altered.",
+  },
+  pt: {
+    tpl_privacy_title: "Política de Privacidade",
+    tpl_privacy_desc: "Documento de proteção de dados pessoais para o seu site ou app.",
+    tpl_privacy_short: "Privacidade",
+    role_data_controller: "Responsável pelo Tratamento",
+    role_data_subject: "Titular dos Dados",
+    doc_title_privacy_policy: "Política de Privacidade",
+    intro_privacy: "Esta Política de Privacidade descreve como {roleA}, identificado como {nameA}, coleta, utiliza, conserva e protege os dados pessoais de usuários e visitantes, em conformidade com a legislação de proteção de dados aplicável.",
+    c1_title_pp: "Responsável pelo Tratamento",
+    c1_body_pp: "O responsável pelo tratamento dos dados pessoais é {roleA}, com identificação {idA} e domicílio em {addrA}. Qualquer dúvida sobre esta política pode ser direcionada aos dados de contato indicados ao final deste documento.",
+    c2_title_pp: "Dados Pessoais que Coletamos",
+    c2_body_pp: "Podemos coletar dados de identificação e contato (como nome, e-mail ou telefone), dados de navegação (endereço IP, tipo de dispositivo, páginas visitadas) e quaisquer outros dados fornecidos voluntariamente pelo usuário por meio de formulários, contas ou comunicações.",
+    c3_title_pp: "Finalidade do Tratamento",
+    c3_body_pp: "Os dados pessoais são tratados com a seguinte finalidade: {purpose} Além disso, poderão ser utilizados para melhorar o serviço, atender solicitações e cumprir obrigações legais.",
+    c4_title_pp: "Base Legal",
+    c4_body_pp: "O tratamento fundamenta-se no consentimento do titular, na execução de uma relação contratual ou comercial, e no cumprimento de obrigações legais aplicáveis a {roleA}.",
+    c5_title_pp: "Prazo de Conservação",
+    c5_body_pp: "Os dados pessoais serão conservados durante {duration}, ou pelo tempo estritamente necessário para cumprir a finalidade para a qual foram coletados, salvo obrigação legal de conservação por prazo distinto.",
+    c6_title_pp: "Destinatários e Operadores do Tratamento",
+    c6_body_pp: "Os dados poderão ser comunicados a prestadores de serviços (hospedagem, análise, pagamentos) que atuam como operadores sob as instruções de {roleA}, bem como a autoridades competentes quando houver obrigação legal.",
+    c7_title_pp: "Transferências Internacionais de Dados",
+    c7_body_pp: "Caso os dados sejam transferidos para fora do país ou região onde se encontra o {roleB}, {roleA} adotará as garantias adequadas exigidas pela legislação aplicável para assegurar um nível de proteção equivalente.",
+    c8_title_pp: "Direitos do Titular dos Dados",
+    c8_body_pp: "O {roleB} poderá exercer, nos termos da lei, seus direitos de acesso, retificação, eliminação ou oposição, bem como, quando aplicável, portabilidade e limitação do tratamento, entrando em contato com {roleA} pelos dados indicados.",
+    c9_title_pp: "Uso de Cookies e Tecnologias Semelhantes",
+    c9_body_pp: "Este site ou aplicativo pode utilizar cookies ou tecnologias semelhantes para melhorar a experiência do usuário, analisar o tráfego e personalizar conteúdo, podendo o {roleB} configurar suas preferências no navegador.",
+    c10_title_pp: "Legislação Aplicável",
+    c10_body_pp: "Esta Política de Privacidade rege-se pela legislação de proteção de dados vigente em {jurisdiction}, sem prejuízo de outras normas de aplicação obrigatória.",
+    c11_title_pp: "Alterações a esta Política e Contato",
+    c11_body_pp: "{roleA} poderá atualizar esta Política de Privacidade para refletir mudanças legais, técnicas ou operacionais, publicando a versão vigente neste mesmo canal. Para dúvidas sobre o tratamento de dados, o {roleB} pode contatar diretamente {roleA} pelos dados indicados neste documento.",
+    sign_place_date_pp: "Esta Política de Privacidade entra em vigor na data indicada a seguir:",
+    label_object_pp: "Descrição dos dados e finalidade do tratamento",
+    label_duration_pp: "Prazo de conservação dos dados",
+    party_a_legend_pp: "Responsável pelo Tratamento",
+    checklist_item1_pp: "Verifiquei a identidade e os dados do responsável pelo tratamento",
+    checklist_item2_pp: "O escopo dos dados coletados e sua finalidade estão claramente definidos",
+    checklist_item3_pp: "A legislação de proteção de dados aplicável está correta",
+    verify_link_label: "Link público de verificação",
+    verify_copy_btn: "Copiar link",
+    verify_link_hint: "Qualquer pessoa com este link (ou o código QR do documento) pode verificar que o conteúdo não foi alterado.",
+  },
+  fr: {
+    tpl_privacy_title: "Politique de Confidentialité",
+    tpl_privacy_desc: "Document de protection des données personnelles pour votre site ou application.",
+    tpl_privacy_short: "Confidentialité",
+    role_data_controller: "Responsable du Traitement",
+    role_data_subject: "Personne Concernée",
+    doc_title_privacy_policy: "Politique de Confidentialité",
+    intro_privacy: "La présente Politique de Confidentialité décrit comment {roleA}, identifié comme {nameA}, collecte, utilise, conserve et protège les données personnelles des utilisateurs et visiteurs, conformément à la réglementation applicable en matière de protection des données.",
+    c1_title_pp: "Responsable du Traitement",
+    c1_body_pp: "Le responsable du traitement des données personnelles est {roleA}, identifié sous {idA} et domicilié à {addrA}. Toute question relative à cette politique peut être adressée aux coordonnées indiquées à la fin de ce document.",
+    c2_title_pp: "Données Personnelles Collectées",
+    c2_body_pp: "Nous pouvons collecter des données d'identification et de contact (nom, e-mail, téléphone), des données de navigation (adresse IP, type d'appareil, pages consultées) ainsi que toute autre donnée fournie volontairement par l'utilisateur via des formulaires, comptes ou communications.",
+    c3_title_pp: "Finalité du Traitement",
+    c3_body_pp: "Les données personnelles sont traitées aux fins suivantes : {purpose} Elles peuvent également être utilisées pour améliorer le service, répondre aux demandes et respecter les obligations légales.",
+    c4_title_pp: "Base Légale",
+    c4_body_pp: "Le traitement repose sur le consentement de la personne concernée, l'exécution d'une relation contractuelle ou commerciale, et le respect des obligations légales applicables à {roleA}.",
+    c5_title_pp: "Durée de Conservation",
+    c5_body_pp: "Les données personnelles seront conservées pendant {duration}, ou pendant la durée strictement nécessaire à la finalité pour laquelle elles ont été collectées, sauf obligation légale de conservation pour une durée différente.",
+    c6_title_pp: "Destinataires et Sous-traitants",
+    c6_body_pp: "Les données peuvent être communiquées à des prestataires de services (hébergement, analyse, paiements) agissant en tant que sous-traitants sur instruction de {roleA}, ainsi qu'aux autorités compétentes lorsque la loi l'exige.",
+    c7_title_pp: "Transferts Internationaux de Données",
+    c7_body_pp: "Si les données sont transférées en dehors du pays ou de la région où se trouve la {roleB}, {roleA} mettra en place les garanties appropriées exigées par la réglementation applicable afin d'assurer un niveau de protection équivalent.",
+    c8_title_pp: "Droits de la Personne Concernée",
+    c8_body_pp: "La {roleB} peut exercer, dans les conditions prévues par la loi, ses droits d'accès, de rectification, d'effacement ou d'opposition, ainsi que, le cas échéant, de portabilité et de limitation du traitement, en contactant {roleA} aux coordonnées indiquées.",
+    c9_title_pp: "Utilisation de Cookies et Technologies Similaires",
+    c9_body_pp: "Ce site ou cette application peut utiliser des cookies ou technologies similaires afin d'améliorer l'expérience utilisateur, analyser le trafic et personnaliser le contenu ; la {roleB} peut configurer ses préférences depuis son navigateur.",
+    c10_title_pp: "Droit Applicable",
+    c10_body_pp: "La présente Politique de Confidentialité est régie par la législation de protection des données en vigueur à {jurisdiction}, sans préjudice d'autres normes d'application obligatoire.",
+    c11_title_pp: "Modifications de cette Politique et Contact",
+    c11_body_pp: "{roleA} peut mettre à jour cette Politique de Confidentialité afin de refléter des changements légaux, techniques ou opérationnels, en publiant la version en vigueur sur ce même canal. Pour toute question relative au traitement des données, la {roleB} peut contacter directement {roleA} aux coordonnées indiquées dans ce document.",
+    sign_place_date_pp: "Cette Politique de Confidentialité entre en vigueur à la date indiquée ci-dessous :",
+    label_object_pp: "Description des données et finalité du traitement",
+    label_duration_pp: "Durée de conservation des données",
+    party_a_legend_pp: "Responsable du Traitement",
+    checklist_item1_pp: "J'ai vérifié l'identité et les coordonnées du responsable du traitement",
+    checklist_item2_pp: "La portée des données collectées et leur finalité sont clairement définies",
+    checklist_item3_pp: "La législation de protection des données applicable est correcte",
+    verify_link_label: "Lien public de vérification",
+    verify_copy_btn: "Copier le lien",
+    verify_link_hint: "Toute personne disposant de ce lien (ou du code QR du document) peut vérifier que le contenu n'a pas été modifié.",
+  },
+  ru: {
+    tpl_privacy_title: "Политика конфиденциальности",
+    tpl_privacy_desc: "Документ о защите персональных данных для вашего сайта или приложения.",
+    tpl_privacy_short: "Конфиденциальность",
+    role_data_controller: "Оператор персональных данных",
+    role_data_subject: "Субъект персональных данных",
+    doc_title_privacy_policy: "Политика конфиденциальности",
+    intro_privacy: "Настоящая Политика конфиденциальности описывает, как {roleA}, именуемый {nameA}, собирает, использует, хранит и защищает персональные данные пользователей и посетителей в соответствии с применимым законодательством о защите данных.",
+    c1_title_pp: "Оператор персональных данных",
+    c1_body_pp: "Оператором обработки персональных данных является {roleA}, с идентификатором {idA} и адресом {addrA}. По любым вопросам, связанным с настоящей политикой, можно обращаться по контактным данным, указанным в конце документа.",
+    c2_title_pp: "Персональные данные, которые мы собираем",
+    c2_body_pp: "Мы можем собирать идентификационные и контактные данные (имя, электронная почта, телефон), данные о просмотре (IP-адрес, тип устройства, посещённые страницы), а также любые иные данные, добровольно предоставленные пользователем через формы, учётные записи или сообщения.",
+    c3_title_pp: "Цель обработки",
+    c3_body_pp: "Персональные данные обрабатываются со следующей целью: {purpose} Кроме того, они могут использоваться для улучшения сервиса, ответа на запросы и выполнения юридических обязательств.",
+    c4_title_pp: "Правовое основание",
+    c4_body_pp: "Обработка данных основывается на согласии субъекта данных, исполнении договорных или коммерческих отношений, а также на выполнении юридических обязательств, применимых к {roleA}.",
+    c5_title_pp: "Срок хранения",
+    c5_body_pp: "Персональные данные будут храниться в течение {duration} либо в течение времени, строго необходимого для достижения цели их сбора, если иное не предусмотрено законом.",
+    c6_title_pp: "Получатели данных и обработчики",
+    c6_body_pp: "Данные могут передаваться поставщикам услуг (хостинг, аналитика, платежи), действующим в качестве обработчиков по указанию {roleA}, а также компетентным органам в случаях, предусмотренных законом.",
+    c7_title_pp: "Международная передача данных",
+    c7_body_pp: "В случае передачи данных за пределы страны или региона, где находится {roleB}, {roleA} примет надлежащие меры защиты, требуемые применимым законодательством, для обеспечения эквивалентного уровня защиты.",
+    c8_title_pp: "Права субъекта данных",
+    c8_body_pp: "{roleB} вправе в порядке, предусмотренном законом, реализовать свои права на доступ, исправление, удаление или возражение, а также, если применимо, на переносимость и ограничение обработки данных, обратившись к {roleA} по указанным контактным данным.",
+    c9_title_pp: "Использование файлов cookie и аналогичных технологий",
+    c9_body_pp: "Данный сайт или приложение может использовать файлы cookie или аналогичные технологии для улучшения пользовательского опыта, анализа трафика и персонализации контента; {roleB} может настроить свои предпочтения в настройках браузера.",
+    c10_title_pp: "Применимое законодательство",
+    c10_body_pp: "Настоящая Политика конфиденциальности регулируется законодательством о защите данных, действующим в {jurisdiction}, без ущерба для иных обязательных норм.",
+    c11_title_pp: "Изменения настоящей Политики и контакты",
+    c11_body_pp: "{roleA} может обновлять настоящую Политику конфиденциальности с учётом правовых, технических или операционных изменений, публикуя действующую версию по тому же каналу. По вопросам обработки данных {roleB} может напрямую обратиться к {roleA} по контактным данным, указанным в этом документе.",
+    sign_place_date_pp: "Настоящая Политика конфиденциальности вступает в силу с даты, указанной ниже:",
+    label_object_pp: "Описание данных и цель обработки",
+    label_duration_pp: "Срок хранения данных",
+    party_a_legend_pp: "Оператор персональных данных",
+    checklist_item1_pp: "Я проверил(а) личность и данные оператора обработки данных",
+    checklist_item2_pp: "Объём собираемых данных и их цель чётко определены",
+    checklist_item3_pp: "Применимое законодательство о защите данных указано верно",
+    verify_link_label: "Публичная ссылка для проверки",
+    verify_copy_btn: "Скопировать ссылку",
+    verify_link_hint: "Любой, у кого есть эта ссылка (или QR-код документа), может проверить, что содержание не было изменено.",
+  },
+  zh: {
+    tpl_privacy_title: "隐私政策",
+    tpl_privacy_desc: "适用于您的网站或应用程序的个人数据保护文件。",
+    tpl_privacy_short: "隐私政策",
+    role_data_controller: "数据控制者",
+    role_data_subject: "数据主体",
+    doc_title_privacy_policy: "隐私政策",
+    intro_privacy: "本隐私政策说明 {roleA}（即 {nameA}）如何根据适用的数据保护法规收集、使用、保留和保护用户及访问者的个人数据。",
+    c1_title_pp: "数据控制者",
+    c1_body_pp: "负责处理个人数据的数据控制者为 {roleA}，标识号为 {idA}，地址为 {addrA}。与本政策相关的任何疑问，请通过本文件末尾提供的联系方式咨询。",
+    c2_title_pp: "我们收集的个人数据",
+    c2_body_pp: "我们可能收集身份和联系数据（如姓名、电子邮件或电话）、浏览数据（IP 地址、设备类型、访问的页面），以及用户通过表单、账户或通信自愿提供的其他任何数据。",
+    c3_title_pp: "处理目的",
+    c3_body_pp: "个人数据的处理目的如下：{purpose} 此外，数据还可能用于改进服务、回应咨询以及履行法律义务。",
+    c4_title_pp: "法律依据",
+    c4_body_pp: "数据处理的依据包括数据主体的同意、合同或商业关系的履行，以及 {roleA} 应遵守的法律义务。",
+    c5_title_pp: "保留期限",
+    c5_body_pp: "个人数据将保留 {duration}，或在实现收集目的所严格必需的时间内保留，法律另有规定的除外。",
+    c6_title_pp: "数据接收方与处理者",
+    c6_body_pp: "数据可能被共享给作为受 {roleA} 指示行事的处理者的服务提供商（托管、分析、支付），以及在法律要求的情况下共享给主管机关。",
+    c7_title_pp: "国际数据传输",
+    c7_body_pp: "如数据被传输至 {roleB} 所在国家或地区以外，{roleA} 将采取适用法律要求的适当保障措施，以确保同等水平的保护。",
+    c8_title_pp: "数据主体的权利",
+    c8_body_pp: "{roleB} 可依法行使访问、更正、删除或反对的权利，以及在适用情况下的可携带权和限制处理权，具体方式为通过所提供的联系方式联系 {roleA}。",
+    c9_title_pp: "Cookie 及类似技术的使用",
+    c9_body_pp: "本网站或应用程序可能使用 Cookie 或类似技术以改善用户体验、分析流量并个性化内容；{roleB} 可通过浏览器设置调整相关偏好。",
+    c10_title_pp: "适用法律",
+    c10_body_pp: "本隐私政策受 {jurisdiction} 现行数据保护法律管辖，不影响其他强制适用的规定。",
+    c11_title_pp: "本政策的变更与联系方式",
+    c11_body_pp: "{roleA} 可能因法律、技术或运营方面的变化而更新本隐私政策，并通过同一渠道发布现行版本。如对数据处理有任何疑问，{roleB} 可通过本文件中提供的联系方式直接联系 {roleA}。",
+    sign_place_date_pp: "本隐私政策自以下注明日期起生效：",
+    label_object_pp: "数据描述及处理目的",
+    label_duration_pp: "数据保留期限",
+    party_a_legend_pp: "数据控制者",
+    checklist_item1_pp: "我已核实数据控制者的身份和信息",
+    checklist_item2_pp: "所收集数据的范围及其目的已明确界定",
+    checklist_item3_pp: "适用的数据保护法律信息正确",
+    verify_link_label: "公开验证链接",
+    verify_copy_btn: "复制链接",
+    verify_link_hint: "任何拥有此链接（或文档二维码）的人都可以核实内容是否被篡改。",
+  },
+  ja: {
+    tpl_privacy_title: "プライバシーポリシー",
+    tpl_privacy_desc: "ウェブサイトやアプリ向けの個人データ保護文書。",
+    tpl_privacy_short: "プライバシー",
+    role_data_controller: "データ管理者",
+    role_data_subject: "データ主体",
+    doc_title_privacy_policy: "プライバシーポリシー",
+    intro_privacy: "本プライバシーポリシーは、{nameA}として特定される{roleA}が、適用されるデータ保護法令に従い、利用者および訪問者の個人データをどのように収集、利用、保管、保護するかを説明するものです。",
+    c1_title_pp: "データ管理者",
+    c1_body_pp: "個人データの取り扱いに関するデータ管理者は{roleA}であり、識別番号は{idA}、住所は{addrA}です。本ポリシーに関するお問い合わせは、本書末尾に記載の連絡先までお願いいたします。",
+    c2_title_pp: "収集する個人データ",
+    c2_body_pp: "氏名、メールアドレス、電話番号などの識別・連絡情報、IPアドレスや端末の種類、閲覧ページなどの閲覧データ、また利用者がフォームやアカウント、通信を通じて任意に提供するその他のデータを収集する場合があります。",
+    c3_title_pp: "取り扱いの目的",
+    c3_body_pp: "個人データは次の目的で取り扱われます: {purpose} また、サービスの改善、問い合わせへの対応、法的義務の遵守のためにも利用される場合があります。",
+    c4_title_pp: "法的根拠",
+    c4_body_pp: "データの取り扱いは、データ主体の同意、契約または商取引関係の履行、および{roleA}に適用される法的義務の遵守に基づいています。",
+    c5_title_pp: "保管期間",
+    c5_body_pp: "個人データは{duration}の間、または収集目的の達成に厳密に必要な期間、保管されます。ただし、法令により異なる期間の保管が求められる場合はこの限りではありません。",
+    c6_title_pp: "データの提供先および委託先",
+    c6_body_pp: "データは、{roleA}の指示のもとで委託先として行動するサービス提供者(ホスティング、分析、決済など)、および法令上必要な場合には所管当局に提供されることがあります。",
+    c7_title_pp: "国際的なデータ移転",
+    c7_body_pp: "{roleB}が所在する国または地域の外にデータが移転される場合、{roleA}は同等水準の保護を確保するため、適用法令が求める適切な保護措置を講じます。",
+    c8_title_pp: "データ主体の権利",
+    c8_body_pp: "{roleB}は、法令の定めるところにより、アクセス権、訂正権、消去権、異議申立権、また該当する場合はデータポータビリティの権利および取り扱いの制限を求める権利を、記載の連絡先を通じて{roleA}に対して行使することができます。",
+    c9_title_pp: "Cookieおよび類似技術の利用",
+    c9_body_pp: "本サイトまたはアプリは、利用体験の向上、アクセス解析、コンテンツの最適化のためにCookieや類似の技術を使用する場合があり、{roleB}はブラウザの設定から選択を変更することができます。",
+    c10_title_pp: "準拠法",
+    c10_body_pp: "本プライバシーポリシーは、{jurisdiction}で施行されているデータ保護法令に準拠しますが、その他の強行法規の適用を妨げるものではありません。",
+    c11_title_pp: "本ポリシーの変更およびお問い合わせ",
+    c11_body_pp: "{roleA}は、法的、技術的または運用上の変更を反映するため、本プライバシーポリシーを更新することがあり、最新版は同じ手段で公開されます。データの取り扱いに関するお問い合わせは、{roleB}が本書に記載の連絡先を通じて{roleA}に直接ご連絡いただけます。",
+    sign_place_date_pp: "本プライバシーポリシーは、以下に示す日付より効力を生じます:",
+    label_object_pp: "データの内容および取り扱いの目的",
+    label_duration_pp: "データの保管期間",
+    party_a_legend_pp: "データ管理者",
+    checklist_item1_pp: "データ管理者の身元と情報を確認しました",
+    checklist_item2_pp: "収集するデータの範囲とその目的が明確に定義されています",
+    checklist_item3_pp: "適用されるデータ保護法令の記載が正しいことを確認しました",
+    verify_link_label: "公開検証リンク",
+    verify_copy_btn: "リンクをコピー",
+    verify_link_hint: "このリンク(または文書のQRコード)を持つ人は誰でも、内容が改ざんされていないことを確認できます。",
+  },
+  hi: {
+    tpl_privacy_title: "गोपनीयता नीति",
+    tpl_privacy_desc: "आपकी वेबसाइट या ऐप के लिए डेटा सुरक्षा दस्तावेज़।",
+    tpl_privacy_short: "गोपनीयता",
+    role_data_controller: "डेटा नियंत्रक",
+    role_data_subject: "डेटा विषय",
+    doc_title_privacy_policy: "गोपनीयता नीति",
+    intro_privacy: "यह गोपनीयता नीति बताती है कि {nameA} के रूप में पहचाना गया {roleA}, लागू डेटा सुरक्षा कानून के अनुसार उपयोगकर्ताओं और आगंतुकों के व्यक्तिगत डेटा को कैसे एकत्र, उपयोग, संरक्षित और सुरक्षित करता है।",
+    c1_title_pp: "डेटा नियंत्रक",
+    c1_body_pp: "व्यक्तिगत डेटा के प्रसंस्करण के लिए उत्तरदायी डेटा नियंत्रक {roleA} है, जिसकी पहचान संख्या {idA} और पता {addrA} है। इस नीति से संबंधित किसी भी प्रश्न के लिए इस दस्तावेज़ के अंत में दिए गए संपर्क विवरण पर संपर्क किया जा सकता है।",
+    c2_title_pp: "हम जो व्यक्तिगत डेटा एकत्र करते हैं",
+    c2_body_pp: "हम पहचान और संपर्क डेटा (जैसे नाम, ईमेल या फोन नंबर), ब्राउज़िंग डेटा (आईपी पता, डिवाइस का प्रकार, देखे गए पृष्ठ), और उपयोगकर्ता द्वारा फ़ॉर्म, खातों या संचार के माध्यम से स्वेच्छा से प्रदान किया गया कोई भी अन्य डेटा एकत्र कर सकते हैं।",
+    c3_title_pp: "प्रसंस्करण का उद्देश्य",
+    c3_body_pp: "व्यक्तिगत डेटा का प्रसंस्करण निम्नलिखित उद्देश्य के लिए किया जाता है: {purpose} इसके अतिरिक्त, इसका उपयोग सेवा में सुधार, प्रश्नों का उत्तर देने और कानूनी दायित्वों के पालन के लिए भी किया जा सकता है।",
+    c4_title_pp: "कानूनी आधार",
+    c4_body_pp: "प्रसंस्करण डेटा विषय की सहमति, संविदात्मक या व्यावसायिक संबंध के निष्पादन, और {roleA} पर लागू कानूनी दायित्वों के अनुपालन पर आधारित है।",
+    c5_title_pp: "प्रतिधारण अवधि",
+    c5_body_pp: "व्यक्तिगत डेटा को {duration} तक, या जिस उद्देश्य के लिए इसे एकत्र किया गया था उसे पूरा करने हेतु आवश्यक न्यूनतम समय तक संरक्षित रखा जाएगा, जब तक कि कानून द्वारा किसी भिन्न अवधि की आवश्यकता न हो।",
+    c6_title_pp: "प्राप्तकर्ता और डेटा प्रोसेसर",
+    c6_body_pp: "डेटा को {roleA} के निर्देशों के तहत डेटा प्रोसेसर के रूप में कार्य करने वाले सेवा प्रदाताओं (होस्टिंग, विश्लेषण, भुगतान) के साथ, तथा कानूनी रूप से आवश्यक होने पर सक्षम प्राधिकारियों के साथ साझा किया जा सकता है।",
+    c7_title_pp: "अंतर्राष्ट्रीय डेटा स्थानांतरण",
+    c7_body_pp: "यदि डेटा को {roleB} के देश या क्षेत्र से बाहर स्थानांतरित किया जाता है, तो {roleA} समान स्तर की सुरक्षा सुनिश्चित करने के लिए लागू कानून द्वारा आवश्यक उचित सुरक्षा उपाय अपनाएगा।",
+    c8_title_pp: "डेटा विषय के अधिकार",
+    c8_body_pp: "{roleB} कानून द्वारा निर्धारित शर्तों के अनुसार, पहुंच, सुधार, विलोपन या आपत्ति के अपने अधिकारों का, और जहां लागू हो, डेटा पोर्टेबिलिटी तथा प्रसंस्करण की सीमा के अधिकारों का प्रयोग, दिए गए संपर्क विवरण के माध्यम से {roleA} से संपर्क करके कर सकता है।",
+    c9_title_pp: "कुकीज़ और समान तकनीकों का उपयोग",
+    c9_body_pp: "यह साइट या एप्लिकेशन उपयोगकर्ता अनुभव को बेहतर बनाने, ट्रैफ़िक का विश्लेषण करने और सामग्री को वैयक्तिकृत करने के लिए कुकीज़ या समान तकनीकों का उपयोग कर सकता है; {roleB} अपने ब्राउज़र सेटिंग्स से अपनी प्राथमिकताएँ कॉन्फ़िगर कर सकता है।",
+    c10_title_pp: "लागू कानून",
+    c10_body_pp: "यह गोपनीयता नीति {jurisdiction} में लागू डेटा सुरक्षा कानून द्वारा शासित होती है, अन्य अनिवार्य रूप से लागू होने वाले नियमों पर प्रतिकूल प्रभाव डाले बिना।",
+    c11_title_pp: "इस नीति में परिवर्तन और संपर्क",
+    c11_body_pp: "{roleA} कानूनी, तकनीकी या परिचालन परिवर्तनों को प्रतिबिंबित करने के लिए इस गोपनीयता नीति को अद्यतन कर सकता है, तथा वर्तमान संस्करण इसी माध्यम से प्रकाशित करेगा। डेटा प्रसंस्करण से संबंधित प्रश्नों के लिए, {roleB} इस दस्तावेज़ में दिए गए विवरण के माध्यम से सीधे {roleA} से संपर्क कर सकता है।",
+    sign_place_date_pp: "यह गोपनीयता नीति नीचे दी गई तिथि से प्रभावी होती है:",
+    label_object_pp: "डेटा का विवरण और प्रसंस्करण का उद्देश्य",
+    label_duration_pp: "डेटा प्रतिधारण अवधि",
+    party_a_legend_pp: "डेटा नियंत्रक",
+    checklist_item1_pp: "मैंने डेटा नियंत्रक की पहचान और विवरण सत्यापित कर लिए हैं",
+    checklist_item2_pp: "एकत्र किए गए डेटा का दायरा और उसका उद्देश्य स्पष्ट रूप से परिभाषित है",
+    checklist_item3_pp: "लागू डेटा सुरक्षा कानून सही है",
+    verify_link_label: "सार्वजनिक सत्यापन लिंक",
+    verify_copy_btn: "लिंक कॉपी करें",
+    verify_link_hint: "इस लिंक (या दस्तावेज़ के क्यूआर कोड) वाला कोई भी व्यक्ति यह जांच सकता है कि सामग्री में कोई बदलाव नहीं किया गया है।",
+  },
+};
+Object.keys(PP_I18N).forEach(lang => Object.assign(I18N[lang], PP_I18N[lang]));
+
 /* ---------------------------------------------------------------------
    2) STATE
    --------------------------------------------------------------------- */
@@ -2538,6 +2874,43 @@ function applyI18n() {
   updateObjectLabel();
   updateDurationLabel();
   updateSignatureLabels();
+  updateChecklistLabels();
+  updateCanonicalForLang();
+}
+
+// Technical SEO: the site has no per-language routing (every language is
+// client-side, same URL), so hreflang alternates (index.html <head>) point
+// to this same page with ?lang=xx, and this function keeps the canonical
+// tag self-referential to whichever language is actually active — the
+// standard pattern for hreflang alternates that share one physical URL.
+function updateCanonicalForLang() {
+  const canonical = document.querySelector('link[rel="canonical"]');
+  if (!canonical) return;
+  const base = 'https://draftb2b.com/';
+  canonical.setAttribute('href', state.lang === 'es' ? base : `${base}?lang=${state.lang}`);
+}
+
+// Reads a ?lang= param from a shared/indexed URL (e.g. a search result
+// landing on a hreflang alternate) so the page actually renders in that
+// language on load, rather than only ever reflecting localStorage.
+function readLangFromUrl() {
+  const urlLang = new URLSearchParams(location.search).get('lang');
+  if (urlLang && LANGS[urlLang]) {
+    state.lang = urlLang;
+    localStorage.setItem('ndagen_lang', urlLang);
+  }
+}
+
+// Keeps the address bar's ?lang= param (and therefore what a crawler or
+// a bookmark sees) in sync with a manual language switch, without a full
+// reload — same history.replaceState pattern already used to strip the
+// one-shot ?share= param in applySharedDataFromUrl().
+function syncLangUrl() {
+  const url = new URL(location.href);
+  if (state.lang === 'es') url.searchParams.delete('lang');
+  else url.searchParams.set('lang', state.lang);
+  const qs = url.searchParams.toString();
+  history.replaceState(null, '', url.pathname + (qs ? '?' + qs : ''));
 }
 
 function populateLangSelect(selectEl, excludeLang) {
@@ -2570,6 +2943,9 @@ function updatePartyLegends() {
   } else if (state.docType === 'b2b_services') {
     legendA.textContent = t('party_a_legend_b2b');
     legendB.textContent = t('party_b_legend_b2b');
+  } else if (state.docType === 'privacy_policy') {
+    legendA.textContent = t('party_a_legend_pp');
+    legendB.textContent = '';
   } else {
     legendA.textContent = t('party_a_legend');
     legendB.textContent = t('party_b_legend');
@@ -2578,14 +2954,18 @@ function updatePartyLegends() {
 
 function updateObjectLabel() {
   const label = $('#label-object');
-  label.textContent = state.docType === 'b2b_services' ? t('label_object_b2b') : t('label_object');
+  if (state.docType === 'b2b_services') label.textContent = t('label_object_b2b');
+  else if (state.docType === 'privacy_policy') label.textContent = t('label_object_pp');
+  else label.textContent = t('label_object');
 }
 
 function updateDurationLabel() {
   const labels = $all('label.field-label');
   labels.forEach(l => {
     if (l.getAttribute('data-i18n') === 'label_duration') {
-      l.textContent = state.docType === 'b2b_services' ? t('label_duration_b2b') : t('label_duration');
+      if (state.docType === 'b2b_services') l.textContent = t('label_duration_b2b');
+      else if (state.docType === 'privacy_policy') l.textContent = t('label_duration_pp');
+      else l.textContent = t('label_duration');
     }
   });
 }
@@ -2601,12 +2981,40 @@ function updateSignatureLabels() {
   } else if (state.docType === 'b2b_services') {
     legendA = t('party_a_legend_b2b');
     legendB = t('party_b_legend_b2b');
+  } else if (state.docType === 'privacy_policy') {
+    legendA = t('party_a_legend_pp');
+    legendB = '';
   } else {
     legendA = t('party_a_legend');
     legendB = t('party_b_legend');
   }
   labelA.textContent = `${t('sig_slot_prefix')} ${legendA}`;
-  labelB.textContent = `${t('sig_slot_prefix')} ${legendB}`;
+  labelB.textContent = legendB ? `${t('sig_slot_prefix')} ${legendB}` : '';
+}
+
+// Privacy Policy has no counterparty: Party B never fills fields or
+// signs (the "second party" is just the general data subject, referenced
+// in clause text via {roleB} but never named). Hide the whole Party B
+// column, the non-compete/non-solicit/arbitration toggles and the
+// penalty calculator (all bilateral-dispute concepts that don't apply
+// to a unilaterally-published policy), and let Party A's fieldset span
+// the full row.
+function applyDocTypeVisibility() {
+  const isPP = state.docType === 'privacy_policy';
+  $('#partyB-fieldset')?.classList.toggle('hidden', isPP);
+  $('#partyA-fieldset')?.classList.toggle('party-fieldset-expand', isPP);
+  $('.sig-slot[data-sig-party="B"]')?.classList.toggle('hidden', isPP);
+  $('.sig-slots')?.classList.toggle('sig-slots-single', isPP);
+  $('#bilateral-clause-toggles')?.classList.toggle('hidden', isPP);
+  $('#penalty-calc-box')?.classList.toggle('hidden', isPP);
+}
+
+function updateChecklistLabels() {
+  const isPP = state.docType === 'privacy_policy';
+  const t1 = $('#checklist-text-1'), t2 = $('#checklist-text-2'), t3 = $('#checklist-text-3');
+  if (t1) t1.textContent = t(isPP ? 'checklist_item1_pp' : 'checklist_item1');
+  if (t2) t2.textContent = t(isPP ? 'checklist_item2_pp' : 'checklist_item2');
+  if (t3) t3.textContent = t(isPP ? 'checklist_item3_pp' : 'checklist_item3');
 }
 
 /* ---------------------------------------------------------------------
@@ -2643,7 +3051,7 @@ function getDocRef() {
     state.docCode = Math.random().toString(36).slice(2, 8).toUpperCase();
     state.docYear = new Date().getFullYear();
   }
-  const prefix = state.docType === 'b2b_services' ? 'B2B' : 'NDA';
+  const prefix = state.docType === 'b2b_services' ? 'B2B' : state.docType === 'privacy_policy' ? 'PP' : 'NDA';
   return `${prefix}-${state.docYear}-${state.docCode}`;
 }
 
@@ -2655,6 +3063,7 @@ const DOC_TYPE_FILE_LABEL = {
   nda_unilateral: 'NDA_Unilateral',
   nda_mutual: 'NDA_Mutuo',
   b2b_services: 'Contrato_B2B',
+  privacy_policy: 'Politica_Privacidad',
 };
 
 function getExportFilename(ext) {
@@ -2684,7 +3093,16 @@ function resolveTemplateParts(docType, lang = state.lang) {
   let roleA, roleB, title, intro, c1title, c1body, c2title, c2body;
   const tt = (key) => tFor(lang, key);
 
-  if (docType === 'nda_unilateral') {
+  if (docType === 'privacy_policy') {
+    // "Party B" here is never a named counterparty who fills fields or
+    // signs — it's the general data subject/user, referenced only as a
+    // role label inside clause text (see resolveClauses()).
+    roleA = tt('role_data_controller');
+    roleB = tt('role_data_subject');
+    title = tt('doc_title_privacy_policy');
+    intro = tt('intro_privacy');
+    c1title = ''; c1body = ''; c2title = ''; c2body = '';
+  } else if (docType === 'nda_unilateral') {
     roleA = tt('role_discloser');
     roleB = tt('role_receiver');
     title = tt('doc_title_nda_unilateral');
@@ -2718,6 +3136,17 @@ function resolveTemplateParts(docType, lang = state.lang) {
 
 function resolveClauses(docType, parts, lang = state.lang) {
   const tt = (key) => tFor(lang, key);
+  if (docType === 'privacy_policy') {
+    const clauses = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map(n => ({
+      title: tt(`c${n}_title_pp`), body: tt(`c${n}_body_pp`)
+    }));
+    state.customClauses.forEach(cc => {
+      if ((cc.title || '').trim() || (cc.body || '').trim()) {
+        clauses.push({ title: cc.title || '', body: cc.body || '' });
+      }
+    });
+    return clauses;
+  }
   const isB2b = docType === 'b2b_services';
   const clauses = [];
   clauses.push({ title: parts.c1title, body: parts.c1body });
@@ -2772,6 +3201,8 @@ function buildDocumentHtml() {
 
   const parts = resolveTemplateParts(docType, lang);
   const { roleA, roleB, title, intro } = parts;
+  const singleParty = docType === 'privacy_policy';
+  const signPlaceKey = singleParty ? 'sign_place_date_pp' : 'sign_place_date';
 
   const makeFill = (roleAL, roleBL, durationL) => (str) => str
     .replace(/\{nameA\}/g, nameA).replace(/\{nameB\}/g, nameB)
@@ -2844,8 +3275,8 @@ function buildDocumentHtml() {
         </tr>
         ${pairedClauseRows}
         <tr>
-          <td class="bilingual-cell"><p>${fill(escapeHtml(t('sign_place_date')))}</p></td>
-          <td class="bilingual-cell"><p>${fillB(escapeHtml(tFor(langB, 'sign_place_date')))}</p></td>
+          <td class="bilingual-cell"><p>${fill(escapeHtml(t(signPlaceKey)))}</p></td>
+          <td class="bilingual-cell"><p>${fillB(escapeHtml(tFor(langB, signPlaceKey)))}</p></td>
         </tr>
       </table>
     `;
@@ -2854,7 +3285,7 @@ function buildDocumentHtml() {
     bodyHtml = `
       <p>${fill(escapeHtml(intro))}</p>
       ${clausesHtml}
-      <p style="margin-top:1.5rem;">${fill(escapeHtml(t('sign_place_date')))}</p>
+      <p style="margin-top:1.5rem;">${fill(escapeHtml(t(signPlaceKey)))}</p>
     `;
   }
 
@@ -2908,16 +3339,16 @@ function buildDocumentHtml() {
     </div>
     <div class="doc-letterhead-divider"></div>
 
-    <div class="doc-parties-grid">
+    <div class="doc-parties-grid${singleParty ? ' single' : ''}">
       ${partyCard(`<strong>${roleA}</strong>`, nameA, idA, addrA)}
-      ${partyCard(`<strong>${roleB}</strong>`, nameB, idB, addrB)}
+      ${singleParty ? '' : partyCard(`<strong>${roleB}</strong>`, nameB, idB, addrB)}
     </div>
 
     ${bodyHtml}
 
-    <div class="sign-block">
+    <div class="sign-block${singleParty ? ' single' : ''}">
       ${signCard(`<strong>${roleA}</strong>`, sigAHtml, nameA, `<strong>${roleA}</strong>`, idA)}
-      ${signCard(`<strong>${roleB}</strong>`, sigBHtml, nameB, `<strong>${roleB}</strong>`, idB)}
+      ${singleParty ? '' : signCard(`<strong>${roleB}</strong>`, sigBHtml, nameB, `<strong>${roleB}</strong>`, idB)}
     </div>
 
     <div class="doc-verified-badge">
@@ -2983,7 +3414,7 @@ function getDocumentModel(lang = state.lang) {
     dateLine: tt('doc_subtitle').replace('{date}', formatDate(lang)),
     introRuns: toRuns(parts.intro),
     clauses: clauses.map(c => ({ title: c.title, bodyRuns: toRuns(c.body) })),
-    signPlaceRuns: toRuns(tt('sign_place_date')),
+    signPlaceRuns: toRuns(tt(docType === 'privacy_policy' ? 'sign_place_date_pp' : 'sign_place_date')),
     nameA, nameB,
     roleA: parts.roleA, roleB: parts.roleB,
     signNameLabel: tt('sign_name_label'),
@@ -3040,6 +3471,8 @@ function selectTemplate(type) {
   updateObjectLabel();
   updateDurationLabel();
   updateSignatureLabels();
+  updateChecklistLabels();
+  applyDocTypeVisibility();
   updatePreview();
 }
 
@@ -3324,7 +3757,7 @@ async function downloadDocx() {
       }));
     }
 
-    function signatureCell(name, role, sigDataUrl) {
+    function signatureCell(name, role, sigDataUrl, widthPct) {
       const cellChildren = [];
       if (sigDataUrl) {
         cellChildren.push(new Paragraph({
@@ -3345,7 +3778,7 @@ async function downloadDocx() {
         children: [new TextRun({ text: `${model.signNameLabel}: ${role}`, size: 16 })],
       }));
       return new TableCell({
-        width: { size: 50, type: WidthType.PERCENTAGE },
+        width: { size: widthPct, type: WidthType.PERCENTAGE },
         borders: {
           top: { style: BorderStyle.NONE }, bottom: { style: BorderStyle.NONE },
           left: { style: BorderStyle.NONE }, right: { style: BorderStyle.NONE }
@@ -3355,13 +3788,18 @@ async function downloadDocx() {
       });
     }
 
+    // Privacy Policy has no counterparty signature — a single, full-width
+    // signature cell for the data controller's representative instead of
+    // the two-party table used by every other document type.
+    const isSingleSignatory = state.docType === 'privacy_policy';
+    const signatureRowChildren = isSingleSignatory
+      ? [signatureCell(model.nameA, model.roleA, model.sigA, 100)]
+      : [signatureCell(model.nameA, model.roleA, model.sigA, 50), signatureCell(model.nameB, model.roleB, model.sigB, 50)];
+
     children.push(new Table({
       width: { size: 100, type: WidthType.PERCENTAGE },
       layout: TableLayoutType.FIXED,
-      rows: [new TableRow({ cantSplit: true, children: [
-        signatureCell(model.nameA, model.roleA, model.sigA),
-        signatureCell(model.nameB, model.roleB, model.sigB),
-      ] })],
+      rows: [new TableRow({ cantSplit: true, children: signatureRowChildren })],
     }));
 
     // Integrity seal: QR code + SHA-256 hash + digital timestamp,
@@ -3445,9 +3883,22 @@ function clearForm() {
 /* ---------------------------------------------------------------------
    COMPLETION BAR & VALIDATION
    --------------------------------------------------------------------- */
+// Privacy Policy has no counterparty and no required signature (it's a
+// unilaterally-published document, not a bilateral agreement) — Party B
+// fields and both signature requirements are dropped from validation for
+// that document type only.
+function activeRequiredFields() {
+  return state.docType === 'privacy_policy' ? REQUIRED_FIELDS.filter(f => f.party !== 'B') : REQUIRED_FIELDS;
+}
+
+function activeSignatureFields() {
+  return state.docType === 'privacy_policy' ? [] : SIGNATURE_FIELDS;
+}
+
 function updateCompletion() {
-  const filled = REQUIRED_FIELDS.filter(f => (($(`#${f.id}`) || {}).value || '').trim().length > 0).length;
-  const pct = Math.round((filled / REQUIRED_FIELDS.length) * 100);
+  const fields = activeRequiredFields();
+  const filled = fields.filter(f => (($(`#${f.id}`) || {}).value || '').trim().length > 0).length;
+  const pct = Math.round((filled / fields.length) * 100);
   const fillEl = $('#completion-fill');
   const pctEl = $('#completion-percent');
   if (fillEl) fillEl.style.width = pct + '%';
@@ -3456,8 +3907,8 @@ function updateCompletion() {
 }
 
 function getMissingFields() {
-  const missingInputs = REQUIRED_FIELDS.filter(f => !(($(`#${f.id}`) || {}).value || '').trim());
-  const missingSignatures = SIGNATURE_FIELDS.filter(f => !state.signatures[f.sigTarget]);
+  const missingInputs = activeRequiredFields().filter(f => !(($(`#${f.id}`) || {}).value || '').trim());
+  const missingSignatures = activeSignatureFields().filter(f => !state.signatures[f.sigTarget]);
   return missingInputs.concat(missingSignatures);
 }
 
@@ -4204,19 +4655,61 @@ function initWatermarkSelector() {
 /* ---------------------------------------------------------------------
    13g) INTEGRITY SEAL: SHA-256 HASH + QR CODE
    --------------------------------------------------------------------- */
-async function computeDocHash() {
+// Everything the SHA-256 seal covers, plus a few extra display-only
+// fields (docType/lang/ref) — this is also exactly what gets embedded
+// (base64url-encoded) in the QR code / verification link, so the public
+// verify.html page can recompute the same hash from the same payload
+// with no server or lookup table involved. Keep the hashed subset
+// (title/nameA/nameB/date/clauseTitles/sigA/sigB/optional) and its key
+// order stable: verify.html's canonicalHashPayload() must stay byte-for-
+// byte identical to this one for recomputed hashes to ever match.
+function buildVerificationPayload() {
   const model = getDocumentModel(state.lang);
-  const raw = JSON.stringify({
+  // Privacy Policy has no counterparty (see resolveTemplateParts()) — its
+  // document never shows a Party B card/signature, so the seal shouldn't
+  // reference one either, even if a stale nameB/signatures.B value is
+  // still sitting in state from a previously selected document type.
+  const isPP = state.docType === 'privacy_policy';
+  return {
+    v: 1,
+    docType: state.docType,
+    lang: state.lang,
+    ref: getDocRef(),
     title: model.title,
-    nameA: model.nameA, nameB: model.nameB,
+    nameA: model.nameA, nameB: isPP ? '' : model.nameB,
     date: model.dateLine,
     clauseTitles: model.clauses.map(c => c.title),
-    sigA: !!state.signatures.A, sigB: !!state.signatures.B,
+    sigA: !!state.signatures.A, sigB: isPP ? false : !!state.signatures.B,
     optional: state.optionalClauses,
+  };
+}
+
+function canonicalHashPayload(payload) {
+  return JSON.stringify({
+    title: payload.title,
+    nameA: payload.nameA, nameB: payload.nameB,
+    date: payload.date,
+    clauseTitles: payload.clauseTitles,
+    sigA: payload.sigA, sigB: payload.sigB,
+    optional: payload.optional,
   });
-  const enc = new TextEncoder().encode(raw);
+}
+
+async function computeDocHash() {
+  const payload = buildVerificationPayload();
+  const enc = new TextEncoder().encode(canonicalHashPayload(payload));
   const digestBuffer = await crypto.subtle.digest('SHA-256', enc);
   return Array.from(new Uint8Array(digestBuffer)).map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
+// Builds the public verify.html URL for the current document: a self-
+// contained link (and QR payload) that carries the document's own data
+// so verification works with zero backend — verify.html decodes `d`,
+// recomputes the hash the same way, and compares it against `h`.
+function buildVerifyUrl(payload, hash) {
+  const encoded = encodeShareData(payload);
+  const verifyPath = new URL('verify.html', location.href).toString();
+  return `${verifyPath}?d=${encoded}&h=${hash}`;
 }
 
 function shortHash(hash) {
@@ -4246,6 +4739,7 @@ function scheduleIntegrityUpdate() {
 }
 
 async function updateIntegritySeal() {
+  const payload = buildVerificationPayload();
   const hash = await computeDocHash();
   state.docHash = hash;
   state.docHashTime = new Date();
@@ -4253,8 +4747,24 @@ async function updateIntegritySeal() {
   const tsEl = $('#doc-timestamp-value');
   if (hashEl) hashEl.textContent = shortHash(hash);
   if (tsEl) { try { tsEl.textContent = state.docHashTime.toLocaleString(state.lang); } catch (e) { tsEl.textContent = state.docHashTime.toISOString(); } }
-  renderQrIntoSlot(`NDAgen-Verify:${hash}`);
+  state.verifyUrl = buildVerifyUrl(payload, hash);
+  renderQrIntoSlot(state.verifyUrl);
+  const verifyInput = $('#verify-link-output');
+  if (verifyInput) verifyInput.value = state.verifyUrl;
   return hash;
+}
+
+function copyVerifyLink() {
+  const input = $('#verify-link-output');
+  if (!input || !input.value) return;
+  input.select();
+  const done = () => toast(t('share_copied_msg'));
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(input.value).then(done).catch(() => { document.execCommand('copy'); done(); });
+  } else {
+    document.execCommand('copy');
+    done();
+  }
 }
 
 /* ---------------------------------------------------------------------
@@ -4336,6 +4846,7 @@ function applySharedDataFromUrl() {
 function init() {
   initTheme();
   loadAutosave();
+  readLangFromUrl();
   applyI18n();
   $('#bilingual-toggle').checked = state.bilingual;
   $('#bilingual-lang-picker').classList.toggle('hidden', !state.bilingual);
@@ -4378,6 +4889,7 @@ function init() {
     state.lang = e.target.value;
     localStorage.setItem('ndagen_lang', state.lang);
     applyI18n();
+    syncLangUrl();
     renderSignatureSlots();
     renderCustomClausesList();
     updatePreview();
@@ -4430,6 +4942,7 @@ function init() {
   $('#btn-docx').addEventListener('click', downloadDocx);
   $('#btn-copy').addEventListener('click', copyText);
   $('#btn-clear').addEventListener('click', clearForm);
+  $('#btn-verify-copy')?.addEventListener('click', copyVerifyLink);
 
   // Prevent implicit form submit on Enter
   $('#nda-form').addEventListener('submit', (e) => e.preventDefault());

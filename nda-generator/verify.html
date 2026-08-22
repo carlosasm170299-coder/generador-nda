@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="v-title">Verificar Documento · NDAgen</title>
+<meta name="description" content="Verifica gratis y sin registro si un documento generado con NDAgen (NDA, contrato B2B o Política de Privacidad) coincide con su sello de integridad SHA-256 original.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://draftb2b.com/verify.html">
+<meta name="theme-color" content="#0f172a">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: {
+      extend: {
+        colors: {
+          brand: {
+            50: '#eff6ff', 100:'#dbeafe', 200:'#bfdbfe', 300:'#93c5fd',
+            400:'#60a5fa', 500:'#3b82f6', 600:'#2563eb', 700:'#1d4ed8',
+            800:'#1e40af', 900:'#1e3a8a'
+          }
+        },
+        fontFamily: {
+          sans: ['Inter','Noto Sans SC','Noto Sans JP','Noto Sans Devanagari','ui-sans-serif','system-ui','-apple-system','sans-serif'],
+        }
+      }
+    }
+  }
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;700&family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+
+<style>
+  .verify-shell { max-width: 640px; }
+  .verify-status-card {
+    border-radius: 1rem;
+    padding: 1.25rem 1.4rem;
+    border: 1.5px solid;
+    display: flex;
+    gap: 0.85rem;
+    align-items: flex-start;
+  }
+  .verify-status-icon { font-size: 1.6rem; line-height: 1; flex-shrink: 0; }
+  .verify-status-card.state-match { background: rgb(240 253 244); border-color: rgb(187 247 208); }
+  .dark .verify-status-card.state-match { background: rgb(6 78 59 / 0.25); border-color: rgb(6 95 70); }
+  .verify-status-card.state-mismatch { background: rgb(254 242 242); border-color: rgb(254 202 202); }
+  .dark .verify-status-card.state-mismatch { background: rgb(127 29 29 / 0.25); border-color: rgb(153 27 27); }
+  .verify-status-card.state-empty { background: rgb(248 250 252); border-color: rgb(226 232 240); }
+  .dark .verify-status-card.state-empty { background: rgb(15 23 42); border-color: rgb(30 41 59); }
+  .verify-detail-grid { display: grid; grid-template-columns: auto 1fr; gap: 0.5rem 1rem; }
+  .verify-detail-grid dt { font-weight: 600; color: rgb(100 116 139); white-space: nowrap; }
+  .dark .verify-detail-grid dt { color: rgb(148 163 184); }
+  .verify-detail-grid dd { margin: 0; word-break: break-word; }
+  .verify-hash-value { font-family: ui-monospace, 'SFMono-Regular', Menlo, monospace; font-size: 0.78rem; }
+</style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-200 font-sans antialiased">
+
+<header class="border-b border-slate-200 dark:border-slate-800">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 py-3 flex items-center gap-2">
+    <a href="index.html" class="flex items-center gap-2">
+      <div class="h-8 w-8 rounded-lg bg-brand-600 flex items-center justify-center text-white font-bold text-lg shrink-0">§</div>
+      <span class="font-extrabold text-base tracking-tight text-slate-900 dark:text-white">NDAgen</span>
+    </a>
+  </div>
+</header>
+
+<main class="verify-shell mx-auto px-4 sm:px-6 py-10 sm:py-14">
+  <h1 id="v-heading" class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight"></h1>
+  <p id="v-subtitle" class="mt-2 text-sm sm:text-base text-slate-600 dark:text-slate-400"></p>
+
+  <div id="v-status" class="verify-status-card mt-6">
+    <span id="v-status-icon" class="verify-status-icon" aria-hidden="true"></span>
+    <div>
+      <div id="v-status-title" class="font-bold"></div>
+      <div id="v-status-desc" class="text-sm mt-1 text-slate-600 dark:text-slate-400"></div>
+    </div>
+  </div>
+
+  <div id="v-details-box" class="mt-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 hidden">
+    <dl id="v-details" class="verify-detail-grid text-sm"></dl>
+  </div>
+
+  <p id="v-disclaimer" class="mt-6 text-xs text-slate-500 dark:text-slate-400 leading-relaxed"></p>
+
+  <a id="v-back" href="index.html" class="inline-block mt-8 text-sm font-semibold text-brand-700 dark:text-brand-400 hover:underline"></a>
+</main>
+
+<script>
+(function () {
+  const V_I18N = {
+    es: {
+      page_title: "Verificar Documento · NDAgen",
+      heading: "Verificación de Integridad del Documento",
+      subtitle: "Comprueba si el contenido de un documento generado con NDAgen coincide con su sello de integridad original.",
+      status_match: "Documento íntegro",
+      status_match_desc: "El contenido recibido coincide exactamente con el sello SHA-256 generado originalmente. No se detectaron alteraciones en los campos verificados.",
+      status_mismatch: "No coincide",
+      status_mismatch_desc: "El hash recalculado no coincide con el sello original. El documento pudo haber sido modificado después de generar este enlace, o el enlace está incompleto.",
+      status_empty: "Sin datos para verificar",
+      status_empty_desc: "Abre esta página desde el código QR o el enlace de verificación incluido en un documento generado con NDAgen.",
+      field_ref: "Referencia", field_type: "Tipo de documento", field_parties: "Partes", field_date: "Fecha",
+      field_hash: "Huella SHA-256", field_clauses: "Cláusulas verificadas", field_signatures: "Firmas registradas",
+      sig_yes: "Sí", sig_no: "No",
+      disclaimer: "Esta verificación confirma únicamente que el título, las partes, la fecha, los títulos de las cláusulas y las cláusulas opcionales activadas coinciden con el momento de creación del enlace; no certifica la validez legal del documento ni el contenido íntegro de cada cláusula.",
+      back_link: "← Volver al generador",
+      doctype_nda_unilateral: "NDA Unilateral", doctype_nda_mutual: "NDA Bilateral (Mutuo)",
+      doctype_b2b_services: "Contrato B2B de Servicios", doctype_privacy_policy: "Política de Privacidad",
+    },
+    en: {
+      page_title: "Verify Document · NDAgen",
+      heading: "Document Integrity Verification",
+      subtitle: "Check whether a document generated with NDAgen matches its original integrity seal.",
+      status_match: "Document intact",
+      status_match_desc: "The received content matches the originally generated SHA-256 seal exactly. No alterations were detected in the verified fields.",
+      status_mismatch: "Does not match",
+      status_mismatch_desc: "The recalculated hash does not match the original seal. The document may have been modified after this link was generated, or the link is incomplete.",
+      status_empty: "No data to verify",
+      status_empty_desc: "Open this page from the QR code or verification link included in a document generated with NDAgen.",
+      field_ref: "Reference", field_type: "Document type", field_parties: "Parties", field_date: "Date",
+      field_hash: "SHA-256 fingerprint", field_clauses: "Verified clauses", field_signatures: "Recorded signatures",
+      sig_yes: "Yes", sig_no: "No",
+      disclaimer: "This check only confirms that the title, parties, date, clause titles and enabled optional clauses match the moment the link was created; it does not certify the document's legal validity or the full text of every clause.",
+      back_link: "← Back to the generator",
+      doctype_nda_unilateral: "Unilateral NDA", doctype_nda_mutual: "Mutual (Bilateral) NDA",
+      doctype_b2b_services: "B2B Services Contract", doctype_privacy_policy: "Privacy Policy",
+    },
+    pt: {
+      page_title: "Verificar Documento · NDAgen",
+      heading: "Verificação de Integridade do Documento",
+      subtitle: "Verifique se o conteúdo de um documento gerado com o NDAgen corresponde ao seu selo de integridade original.",
+      status_match: "Documento íntegro",
+      status_match_desc: "O conteúdo recebido corresponde exatamente ao selo SHA-256 gerado originalmente. Nenhuma alteração foi detectada nos campos verificados.",
+      status_mismatch: "Não corresponde",
+      status_mismatch_desc: "O hash recalculado não corresponde ao selo original. O documento pode ter sido modificado após a geração deste link, ou o link está incompleto.",
+      status_empty: "Sem dados para verificar",
+      status_empty_desc: "Abra esta página a partir do código QR ou do link de verificação incluído em um documento gerado com o NDAgen.",
+      field_ref: "Referência", field_type: "Tipo de documento", field_parties: "Partes", field_date: "Data",
+      field_hash: "Impressão SHA-256", field_clauses: "Cláusulas verificadas", field_signatures: "Assinaturas registradas",
+      sig_yes: "Sim", sig_no: "Não",
+      disclaimer: "Esta verificação confirma apenas que o título, as partes, a data, os títulos das cláusulas e as cláusulas opcionais ativadas correspondem ao momento de criação do link; não certifica a validade legal do documento nem o conteúdo integral de cada cláusula.",
+      back_link: "← Voltar ao gerador",
+      doctype_nda_unilateral: "NDA Unilateral", doctype_nda_mutual: "NDA Bilateral (Mútuo)",
+      doctype_b2b_services: "Contrato B2B de Serviços", doctype_privacy_policy: "Política de Privacidade",
+    },
+    fr: {
+      page_title: "Vérifier le Document · NDAgen",
+      heading: "Vérification de l'Intégrité du Document",
+      subtitle: "Vérifiez si le contenu d'un document généré avec NDAgen correspond à son sceau d'intégrité d'origine.",
+      status_match: "Document intact",
+      status_match_desc: "Le contenu reçu correspond exactement au sceau SHA-256 généré à l'origine. Aucune altération n'a été détectée dans les champs vérifiés.",
+      status_mismatch: "Ne correspond pas",
+      status_mismatch_desc: "Le hash recalculé ne correspond pas au sceau d'origine. Le document a peut-être été modifié après la génération de ce lien, ou le lien est incomplet.",
+      status_empty: "Aucune donnée à vérifier",
+      status_empty_desc: "Ouvrez cette page à partir du code QR ou du lien de vérification inclus dans un document généré avec NDAgen.",
+      field_ref: "Référence", field_type: "Type de document", field_parties: "Parties", field_date: "Date",
+      field_hash: "Empreinte SHA-256", field_clauses: "Clauses vérifiées", field_signatures: "Signatures enregistrées",
+      sig_yes: "Oui", sig_no: "Non",
+      disclaimer: "Cette vérification confirme uniquement que le titre, les parties, la date, les titres des clauses et les clauses optionnelles activées correspondent au moment de la création du lien ; elle ne certifie pas la validité juridique du document ni le contenu intégral de chaque clause.",
+      back_link: "← Retour au générateur",
+      doctype_nda_unilateral: "NDA Unilatéral", doctype_nda_mutual: "NDA Bilatéral (Mutuel)",
+      doctype_b2b_services: "Contrat B2B de Services", doctype_privacy_policy: "Politique de Confidentialité",
+    },
+    ru: {
+      page_title: "Проверка документа · NDAgen",
+      heading: "Проверка целостности документа",
+      subtitle: "Проверьте, соответствует ли содержимое документа, созданного в NDAgen, его исходной печати целостности.",
+      status_match: "Документ не изменён",
+      status_match_desc: "Полученное содержимое точно соответствует изначально сгенерированной SHA-256 печати. Изменений в проверяемых полях не обнаружено.",
+      status_mismatch: "Не совпадает",
+      status_mismatch_desc: "Пересчитанный хеш не совпадает с исходной печатью. Документ мог быть изменён после создания этой ссылки, либо ссылка неполная.",
+      status_empty: "Нет данных для проверки",
+      status_empty_desc: "Откройте эту страницу через QR-код или ссылку проверки, указанную в документе, созданном в NDAgen.",
+      field_ref: "Номер документа", field_type: "Тип документа", field_parties: "Стороны", field_date: "Дата",
+      field_hash: "Отпечаток SHA-256", field_clauses: "Проверенные пункты", field_signatures: "Зарегистрированные подписи",
+      sig_yes: "Да", sig_no: "Нет",
+      disclaimer: "Данная проверка подтверждает только то, что название, стороны, дата, заголовки пунктов и включённые дополнительные пункты совпадают с моментом создания ссылки; она не удостоверяет юридическую силу документа или полное содержание каждого пункта.",
+      back_link: "← Вернуться к генератору",
+      doctype_nda_unilateral: "Односторонний NDA", doctype_nda_mutual: "Двусторонний (взаимный) NDA",
+      doctype_b2b_services: "B2B договор об оказании услуг", doctype_privacy_policy: "Политика конфиденциальности",
+    },
+    zh: {
+      page_title: "验证文档 · NDAgen",
+      heading: "文档完整性验证",
+      subtitle: "检查通过 NDAgen 生成的文档内容是否与其原始完整性印记一致。",
+      status_match: "文档完整",
+      status_match_desc: "收到的内容与最初生成的 SHA-256 印记完全一致，所验证的字段未检测到任何更改。",
+      status_mismatch: "不一致",
+      status_mismatch_desc: "重新计算的哈希值与原始印记不一致。文档可能在生成此链接后被修改，或链接不完整。",
+      status_empty: "没有可验证的数据",
+      status_empty_desc: "请通过 NDAgen 生成文档中包含的二维码或验证链接打开此页面。",
+      field_ref: "文档编号", field_type: "文档类型", field_parties: "各方", field_date: "日期",
+      field_hash: "SHA-256 指纹", field_clauses: "已验证条款", field_signatures: "已记录签名",
+      sig_yes: "是", sig_no: "否",
+      disclaimer: "此验证仅确认标题、各方、日期、条款标题以及已启用的可选条款与链接创建时一致；并不证明文档的法律效力或每项条款的完整内容。",
+      back_link: "← 返回生成器",
+      doctype_nda_unilateral: "单方保密协议", doctype_nda_mutual: "双方（相互）保密协议",
+      doctype_b2b_services: "B2B 服务合同", doctype_privacy_policy: "隐私政策",
+    },
+    ja: {
+      page_title: "文書を検証 · NDAgen",
+      heading: "文書の完全性検証",
+      subtitle: "NDAgenで生成された文書の内容が、元の完全性シールと一致するかを確認します。",
+      status_match: "文書は改ざんされていません",
+      status_match_desc: "受信した内容は、最初に生成されたSHA-256シールと完全に一致します。検証対象の項目に変更は検出されませんでした。",
+      status_mismatch: "一致しません",
+      status_mismatch_desc: "再計算されたハッシュは元のシールと一致しません。このリンクの生成後に文書が変更されたか、リンクが不完全である可能性があります。",
+      status_empty: "検証するデータがありません",
+      status_empty_desc: "NDAgenで生成された文書に含まれるQRコードまたは検証リンクからこのページを開いてください。",
+      field_ref: "文書番号", field_type: "文書の種類", field_parties: "当事者", field_date: "日付",
+      field_hash: "SHA-256フィンガープリント", field_clauses: "検証済み条項", field_signatures: "記録された署名",
+      sig_yes: "はい", sig_no: "いいえ",
+      disclaimer: "この検証は、タイトル、当事者、日付、条項タイトル、有効化されたオプション条項が、リンク作成時点と一致していることのみを確認するものであり、文書の法的有効性や各条項の全文を証明するものではありません。",
+      back_link: "← 生成ツールに戻る",
+      doctype_nda_unilateral: "片務型NDA", doctype_nda_mutual: "双務型(相互)NDA",
+      doctype_b2b_services: "B2Bサービス契約", doctype_privacy_policy: "プライバシーポリシー",
+    },
+    hi: {
+      page_title: "दस्तावेज़ सत्यापित करें · NDAgen",
+      heading: "दस्तावेज़ अखंडता सत्यापन",
+      subtitle: "जांचें कि NDAgen से बनाए गए दस्तावेज़ की सामग्री उसकी मूल अखंडता मुहर से मेल खाती है या नहीं।",
+      status_match: "दस्तावेज़ अक्षुण्ण है",
+      status_match_desc: "प्राप्त सामग्री मूल रूप से बनाई गई SHA-256 मुहर से पूरी तरह मेल खाती है। सत्यापित क्षेत्रों में कोई परिवर्तन नहीं पाया गया।",
+      status_mismatch: "मेल नहीं खाता",
+      status_mismatch_desc: "पुनर्गणना किया गया हैश मूल मुहर से मेल नहीं खाता। हो सकता है कि यह लिंक बनने के बाद दस्तावेज़ में बदलाव किया गया हो, या लिंक अधूरा हो।",
+      status_empty: "सत्यापित करने के लिए कोई डेटा नहीं",
+      status_empty_desc: "इस पृष्ठ को NDAgen से बनाए गए दस्तावेज़ में शामिल क्यूआर कोड या सत्यापन लिंक से खोलें।",
+      field_ref: "दस्तावेज़ संदर्भ", field_type: "दस्तावेज़ का प्रकार", field_parties: "पक्ष", field_date: "तिथि",
+      field_hash: "SHA-256 फिंगरप्रिंट", field_clauses: "सत्यापित धाराएँ", field_signatures: "दर्ज हस्ताक्षर",
+      sig_yes: "हाँ", sig_no: "नहीं",
+      disclaimer: "यह सत्यापन केवल यह पुष्टि करता है कि शीर्षक, पक्ष, तिथि, धाराओं के शीर्षक और सक्षम की गई वैकल्पिक धाराएँ लिंक बनाए जाने के समय से मेल खाती हैं; यह दस्तावेज़ की कानूनी वैधता या प्रत्येक धारा की पूरी सामग्री को प्रमाणित नहीं करता।",
+      back_link: "← जनरेटर पर वापस जाएँ",
+      doctype_nda_unilateral: "एकपक्षीय एनडीए", doctype_nda_mutual: "द्विपक्षीय (पारस्परिक) एनडीए",
+      doctype_b2b_services: "B2B सेवा अनुबंध", doctype_privacy_policy: "गोपनीयता नीति",
+    },
+  };
+
+  const params = new URLSearchParams(location.search);
+  const urlLang = params.get('lang');
+  let lang = 'es';
+  if (urlLang && V_I18N[urlLang]) {
+    lang = urlLang;
+  } else {
+    try {
+      const stored = localStorage.getItem('ndagen_lang');
+      if (stored && V_I18N[stored]) lang = stored;
+    } catch (e) { /* localStorage unavailable */ }
+  }
+  function vt(key) { return (V_I18N[lang] && V_I18N[lang][key]) || V_I18N.es[key] || key; }
+
+  function decodePayload(encoded) {
+    try {
+      let base64 = encoded.replace(/-/g, '+').replace(/_/g, '/');
+      while (base64.length % 4) base64 += '=';
+      return JSON.parse(decodeURIComponent(escape(atob(base64))));
+    } catch (e) {
+      return null;
+    }
+  }
+
+  // Must stay byte-for-byte identical to app.js's canonicalHashPayload()
+  // (same field subset, same key order) for a recomputed hash to ever
+  // match the one embedded alongside it.
+  function canonicalHashPayload(payload) {
+    return JSON.stringify({
+      title: payload.title,
+      nameA: payload.nameA, nameB: payload.nameB,
+      date: payload.date,
+      clauseTitles: payload.clauseTitles,
+      sigA: payload.sigA, sigB: payload.sigB,
+      optional: payload.optional,
+    });
+  }
+
+  async function sha256Hex(str) {
+    const enc = new TextEncoder().encode(str);
+    const buf = await crypto.subtle.digest('SHA-256', enc);
+    return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+  }
+
+  function docTypeLabel(docType) {
+    const key = { nda_unilateral: 'doctype_nda_unilateral', nda_mutual: 'doctype_nda_mutual', b2b_services: 'doctype_b2b_services', privacy_policy: 'doctype_privacy_policy' }[docType];
+    return key ? vt(key) : (docType || '—');
+  }
+
+  function optionalList(optional) {
+    if (!optional) return '—';
+    const on = Object.keys(optional).filter(k => optional[k]);
+    return on.length ? on.join(', ') : '—';
+  }
+
+  function setStatus(state, titleKey, descKey) {
+    const box = document.getElementById('v-status');
+    const icons = { match: '✅', mismatch: '⚠️', empty: 'ℹ️' };
+    box.className = 'verify-status-card mt-6 state-' + state;
+    document.getElementById('v-status-icon').textContent = icons[state];
+    document.getElementById('v-status-title').textContent = vt(titleKey);
+    document.getElementById('v-status-desc').textContent = vt(descKey);
+  }
+
+  function renderDetails(payload, hash) {
+    const box = document.getElementById('v-details-box');
+    const dl = document.getElementById('v-details');
+    const rows = [
+      [vt('field_ref'), payload.ref || '—'],
+      [vt('field_type'), docTypeLabel(payload.docType)],
+      [vt('field_parties'), [payload.nameA, payload.nameB].filter(Boolean).join(' / ') || '—'],
+      [vt('field_date'), payload.date || '—'],
+      [vt('field_clauses'), String((payload.clauseTitles || []).length)],
+      [vt('field_signatures'), `${payload.sigA ? vt('sig_yes') : vt('sig_no')} / ${payload.sigB ? vt('sig_yes') : vt('sig_no')}`],
+      [vt('field_hash'), hash],
+    ];
+    dl.innerHTML = rows.map(([label, value]) => `<dt>${escapeHtml(label)}</dt><dd${label === vt('field_hash') ? ' class="verify-hash-value"' : ''}>${escapeHtml(String(value))}</dd>`).join('');
+    box.classList.remove('hidden');
+  }
+
+  function escapeHtml(str) {
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
+  async function run() {
+    document.documentElement.lang = lang;
+    document.getElementById('v-title').textContent = vt('page_title');
+    document.title = vt('page_title');
+    document.getElementById('v-heading').textContent = vt('heading');
+    document.getElementById('v-subtitle').textContent = vt('subtitle');
+    document.getElementById('v-disclaimer').textContent = vt('disclaimer');
+    document.getElementById('v-back').textContent = vt('back_link');
+
+    const encoded = params.get('d');
+    const expectedHash = params.get('h');
+
+    if (!encoded || !expectedHash) {
+      setStatus('empty', 'status_empty', 'status_empty_desc');
+      return;
+    }
+
+    const payload = decodePayload(encoded);
+    if (!payload) {
+      setStatus('empty', 'status_empty', 'status_empty_desc');
+      return;
+    }
+
+    const recomputed = await sha256Hex(canonicalHashPayload(payload));
+    if (recomputed === expectedHash) {
+      setStatus('match', 'status_match', 'status_match_desc');
+    } else {
+      setStatus('mismatch', 'status_mismatch', 'status_mismatch_desc');
+    }
+    renderDetails(payload, expectedHash);
+  }
+
+  run();
+})();
+</script>
+</body>
+</html>

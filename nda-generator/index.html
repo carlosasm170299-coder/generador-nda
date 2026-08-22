@@ -6,7 +6,16 @@
 <title data-i18n="meta_title">Generador de NDA y Contratos B2B Gratis Online | Plantillas PDF</title>
 <meta name="description" data-i18n-attr="meta_description" content="Genera y descarga en PDF tu Acuerdo de Confidencialidad (NDA) unilateral, bilateral o Contrato de Prestación de Servicios B2B en minutos. Gratis, sin registro.">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://ejemplo.com/">
+<link rel="canonical" href="https://draftb2b.com/">
+<link rel="alternate" hreflang="es" href="https://draftb2b.com/">
+<link rel="alternate" hreflang="en" href="https://draftb2b.com/?lang=en">
+<link rel="alternate" hreflang="pt" href="https://draftb2b.com/?lang=pt">
+<link rel="alternate" hreflang="fr" href="https://draftb2b.com/?lang=fr">
+<link rel="alternate" hreflang="ru" href="https://draftb2b.com/?lang=ru">
+<link rel="alternate" hreflang="zh" href="https://draftb2b.com/?lang=zh">
+<link rel="alternate" hreflang="ja" href="https://draftb2b.com/?lang=ja">
+<link rel="alternate" hreflang="hi" href="https://draftb2b.com/?lang=hi">
+<link rel="alternate" hreflang="x-default" href="https://draftb2b.com/">
 <meta property="og:title" content="Generador de NDA y Contratos B2B | Plantillas Legales Gratis">
 <meta property="og:description" content="Crea acuerdos de confidencialidad y contratos B2B profesionales en segundos. Previsualización en tiempo real y descarga en PDF.">
 <meta property="og:type" content="website">
@@ -207,8 +216,12 @@
           <span class="template-tab-icon" aria-hidden="true">🧾</span>
           <span data-i18n="tpl_b2b_short">B2B</span>
         </button>
+        <button type="button" class="template-tab" data-template="privacy_policy">
+          <span class="template-tab-icon" aria-hidden="true">🔐</span>
+          <span data-i18n="tpl_privacy_short">Privacidad</span>
+        </button>
       </div>
-      <div class="hidden sm:grid sm:grid-cols-3 gap-3 mb-6">
+      <div class="hidden sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
         <button class="template-card" data-template="nda_unilateral">
           <span class="text-2xl">📄</span>
           <span class="font-bold block mt-2" data-i18n="tpl_unilateral_title">NDA Unilateral</span>
@@ -223,6 +236,11 @@
           <span class="text-2xl">🧾</span>
           <span class="font-bold block mt-2" data-i18n="tpl_b2b_title">Contrato B2B de Servicios</span>
           <span class="text-xs text-slate-500 dark:text-slate-400 block mt-1" data-i18n="tpl_b2b_desc">Prestación de servicios entre empresas.</span>
+        </button>
+        <button class="template-card" data-template="privacy_policy">
+          <span class="text-2xl">🔐</span>
+          <span class="font-bold block mt-2" data-i18n="tpl_privacy_title">Política de Privacidad</span>
+          <span class="text-xs text-slate-500 dark:text-slate-400 block mt-1" data-i18n="tpl_privacy_desc">Documento de protección de datos personales.</span>
         </button>
       </div>
 
@@ -313,7 +331,7 @@
             </div>
 
             <div class="grid sm:grid-cols-2 gap-5">
-              <fieldset class="space-y-3">
+              <fieldset class="space-y-3" id="partyA-fieldset">
                 <legend class="font-bold text-sm text-brand-700 dark:text-brand-400 mb-1" id="legend-partyA" data-i18n="party_a_legend">Parte Emisora / Divulgante</legend>
                 <label class="field-label" data-i18n="label_name">Nombre / Empresa</label>
                 <input type="text" id="partyA_name" class="field-input" data-i18n-placeholder="ph_name" placeholder="Ej. Acme Corp S.L.">
@@ -322,7 +340,7 @@
                 <label class="field-label" data-i18n="label_address">Domicilio</label>
                 <input type="text" id="partyA_address" class="field-input" data-i18n-placeholder="ph_address" placeholder="Ej. Calle Mayor 10, Madrid, España">
               </fieldset>
-              <fieldset class="space-y-3">
+              <fieldset class="space-y-3" id="partyB-fieldset">
                 <legend class="font-bold text-sm text-brand-700 dark:text-brand-400 mb-1" id="legend-partyB" data-i18n="party_b_legend">Parte Receptora</legend>
                 <label class="field-label" data-i18n="label_name">Nombre / Empresa</label>
                 <input type="text" id="partyB_name" class="field-input" data-i18n-placeholder="ph_name" placeholder="Ej. Beta Solutions Inc.">
@@ -369,35 +387,49 @@
               <input type="text" id="custom-filename" class="field-input" data-i18n-placeholder="custom_filename_placeholder" placeholder="Ej. NDA_AcmeCorp_2026">
             </div>
 
+            <!-- Public verification link (mirrors the QR/hash in the integrity seal) -->
+            <div class="mt-4 verify-link-box">
+              <label class="field-label" data-i18n="verify_link_label">Enlace público de verificación</label>
+              <div class="share-link-row">
+                <input type="text" id="verify-link-output" class="field-input" readonly>
+                <button type="button" id="btn-verify-copy" class="btn-secondary btn-sm">
+                  <span data-i18n="verify_copy_btn">Copiar enlace</span>
+                </button>
+              </div>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-1" data-i18n="verify_link_hint">Cualquiera con este enlace (o el código QR del documento) puede comprobar que el contenido no ha sido alterado.</p>
+            </div>
+
             <!-- Optional / additional clauses -->
             <div class="optional-clauses-box mt-5">
               <h3 class="section-subtitle" data-i18n="optional_clauses_title">Cláusulas Adicionales / Opcionales</h3>
               <p class="section-subtitle-hint" data-i18n="optional_clauses_hint">Activa las cláusulas que quieras incluir. Se añadirán automáticamente al documento con la numeración correcta.</p>
 
-              <label class="optional-clause-toggle">
-                <input type="checkbox" id="toggle-noncompete">
-                <span class="bilingual-switch"></span>
-                <span class="optional-clause-toggle-text">
-                  <strong data-i18n="toggle_noncompete_label">No Competencia</strong>
-                  <small data-i18n="toggle_noncompete_desc">Impide que la parte receptora desarrolle negocios directamente competidores durante la vigencia del acuerdo.</small>
-                </span>
-              </label>
-              <label class="optional-clause-toggle">
-                <input type="checkbox" id="toggle-nonsolicit">
-                <span class="bilingual-switch"></span>
-                <span class="optional-clause-toggle-text">
-                  <strong data-i18n="toggle_nonsolicit_label">No Captación</strong>
-                  <small data-i18n="toggle_nonsolicit_desc">Prohíbe solicitar o contratar empleados, contratistas o clientes de la otra parte.</small>
-                </span>
-              </label>
-              <label class="optional-clause-toggle">
-                <input type="checkbox" id="toggle-arbitration">
-                <span class="bilingual-switch"></span>
-                <span class="optional-clause-toggle-text">
-                  <strong data-i18n="toggle_arbitration_label">Arbitraje en lugar de Tribunales</strong>
-                  <small data-i18n="toggle_arbitration_desc">Sustituye la cláusula estándar de tribunales ordinarios por arbitraje comercial vinculante.</small>
-                </span>
-              </label>
+              <div id="bilateral-clause-toggles">
+                <label class="optional-clause-toggle">
+                  <input type="checkbox" id="toggle-noncompete">
+                  <span class="bilingual-switch"></span>
+                  <span class="optional-clause-toggle-text">
+                    <strong data-i18n="toggle_noncompete_label">No Competencia</strong>
+                    <small data-i18n="toggle_noncompete_desc">Impide que la parte receptora desarrolle negocios directamente competidores durante la vigencia del acuerdo.</small>
+                  </span>
+                </label>
+                <label class="optional-clause-toggle">
+                  <input type="checkbox" id="toggle-nonsolicit">
+                  <span class="bilingual-switch"></span>
+                  <span class="optional-clause-toggle-text">
+                    <strong data-i18n="toggle_nonsolicit_label">No Captación</strong>
+                    <small data-i18n="toggle_nonsolicit_desc">Prohíbe solicitar o contratar empleados, contratistas o clientes de la otra parte.</small>
+                  </span>
+                </label>
+                <label class="optional-clause-toggle">
+                  <input type="checkbox" id="toggle-arbitration">
+                  <span class="bilingual-switch"></span>
+                  <span class="optional-clause-toggle-text">
+                    <strong data-i18n="toggle_arbitration_label">Arbitraje en lugar de Tribunales</strong>
+                    <small data-i18n="toggle_arbitration_desc">Sustituye la cláusula estándar de tribunales ordinarios por arbitraje comercial vinculante.</small>
+                  </span>
+                </label>
+              </div>
 
               <div id="custom-clauses-list" class="custom-clauses-list"></div>
               <button type="button" id="btn-add-custom-clause" class="btn-ghost btn-sm mt-3">
@@ -407,7 +439,7 @@
             </div>
 
             <!-- Penalty clause calculator (collapsible) -->
-            <div class="penalty-calc-box mt-4">
+            <div class="penalty-calc-box mt-4" id="penalty-calc-box">
               <button type="button" id="btn-penalty-toggle" class="penalty-calc-header" aria-expanded="false">
                 <span data-i18n="penalty_calc_title">Calculadora de Cláusula Penal</span>
                 <svg class="penalty-calc-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
@@ -466,15 +498,15 @@
               <h4 class="section-subtitle" data-i18n="checklist_title">Verificación Rápida Pre-Descarga</h4>
               <label class="checklist-item">
                 <input type="checkbox" id="check-identity">
-                <span data-i18n="checklist_item1">He comprobado la identidad de ambas partes</span>
+                <span id="checklist-text-1" data-i18n="checklist_item1">He comprobado la identidad de ambas partes</span>
               </label>
               <label class="checklist-item">
                 <input type="checkbox" id="check-scope">
-                <span data-i18n="checklist_item2">El alcance y objeto están claramente delimitados</span>
+                <span id="checklist-text-2" data-i18n="checklist_item2">El alcance y objeto están claramente delimitados</span>
               </label>
               <label class="checklist-item">
                 <input type="checkbox" id="check-jurisdiction">
-                <span data-i18n="checklist_item3">Existe acuerdo mutuo sobre la jurisdicción aplicable</span>
+                <span id="checklist-text-3" data-i18n="checklist_item3">Existe acuerdo mutuo sobre la jurisdicción aplicable</span>
               </label>
               <p class="checklist-hint" data-i18n="checklist_hint">Marca las 3 casillas para habilitar la descarga.</p>
             </div>

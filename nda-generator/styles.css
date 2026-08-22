@@ -43,6 +43,12 @@ body {
   width: 100%;
 }
 
+/* Party A's fieldset expands to fill the row when Party B is hidden
+   (Privacy Policy has no counterparty). */
+.party-fieldset-expand {
+  grid-column: 1 / -1;
+}
+
 /* ===== Template selector cards ===== */
 .template-card {
   text-align: left;
@@ -640,6 +646,13 @@ body {
   color: #111827;
 }
 
+/* Privacy Policy has no counterparty: a single, full-width party/sign
+   card instead of the two-column layout every other document type uses. */
+.doc-page .doc-parties-grid.single,
+.doc-page .sign-block.single {
+  grid-template-columns: 1fr;
+}
+
 /* --- Electronic verification badge --- */
 .doc-page .doc-verified-badge {
   display: flex;
@@ -776,6 +789,13 @@ body {
 .pdf-export-clone .doc-parties-grid,
 .pdf-export-clone .sign-block {
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+}
+/* Privacy Policy's single-card layout must still collapse to one column
+   inside the export clone — more specific than the forced 2-column rule
+   above, so it wins regardless of source order. */
+.pdf-export-clone .doc-parties-grid.single,
+.pdf-export-clone .sign-block.single {
+  grid-template-columns: 1fr !important;
 }
 .pdf-export-clone .bilingual-table,
 .pdf-export-clone .bilingual-table tbody {
@@ -1392,6 +1412,7 @@ body {
 }
 @media (min-width: 640px) {
   .sig-slots { grid-template-columns: 1fr 1fr; }
+  .sig-slots.sig-slots-single { grid-template-columns: 1fr; }
 }
 .sig-slot {
   border: 1.5px solid rgb(226 232 240);
