@@ -236,6 +236,14 @@ const I18N = {
     /* --- Completion & validation --- */
     completion_label: "Progreso del documento",
     validation_missing: "Completa los campos obligatorios resaltados antes de descargar el documento.",
+    validation_alert_title: "Campos requeridos incompletos",
+    validation_alert_intro: "Por favor completa:",
+    validation_field_name: "Nombre / Empresa",
+    validation_field_id: "Identificación fiscal",
+    validation_field_address: "Domicilio legal",
+    validation_field_purpose: "Objeto / Propósito",
+    validation_field_jurisdiction: "Jurisdicción",
+    validation_field_signature: "Firma",
 
     /* --- Bilingual mode & custom filename --- */
     bilingual_mode_label: "Modo Bilingüe (Dual Language)",
@@ -541,6 +549,14 @@ const I18N = {
     /* --- Completion & validation --- */
     completion_label: "Document progress",
     validation_missing: "Fill in the highlighted required fields before downloading the document.",
+    validation_alert_title: "Incomplete required fields",
+    validation_alert_intro: "Please complete:",
+    validation_field_name: "Name / Company",
+    validation_field_id: "Tax ID",
+    validation_field_address: "Legal address",
+    validation_field_purpose: "Purpose",
+    validation_field_jurisdiction: "Jurisdiction",
+    validation_field_signature: "Signature",
 
     /* --- Bilingual mode & custom filename --- */
     bilingual_mode_label: "Bilingual Mode (Dual Language)",
@@ -837,6 +853,14 @@ const I18N = {
     template_empty: "Você ainda não salvou nenhum modelo.",
     completion_label: "Progresso do documento",
     validation_missing: "Preencha os campos obrigatórios destacados antes de baixar o documento.",
+    validation_alert_title: "Campos obrigatórios incompletos",
+    validation_alert_intro: "Por favor, preencha:",
+    validation_field_name: "Nome / Empresa",
+    validation_field_id: "Identificação fiscal",
+    validation_field_address: "Domicílio legal",
+    validation_field_purpose: "Objeto / Propósito",
+    validation_field_jurisdiction: "Jurisdição",
+    validation_field_signature: "Assinatura",
     bilingual_mode_label: "Modo Bilíngue (Idioma Duplo)",
     bilingual_primary_label: "Idioma Principal",
     bilingual_secondary_label: "Idioma Secundário",
@@ -1129,6 +1153,14 @@ const I18N = {
     template_empty: "Vous n'avez pas encore enregistré de modèle.",
     completion_label: "Progression du document",
     validation_missing: "Complétez les champs obligatoires surlignés avant de télécharger le document.",
+    validation_alert_title: "Champs obligatoires incomplets",
+    validation_alert_intro: "Veuillez compléter :",
+    validation_field_name: "Nom / Société",
+    validation_field_id: "Identification fiscale",
+    validation_field_address: "Domicile légal",
+    validation_field_purpose: "Objet / Finalité",
+    validation_field_jurisdiction: "Juridiction",
+    validation_field_signature: "Signature",
     bilingual_mode_label: "Mode Bilingue (Double Langue)",
     bilingual_primary_label: "Langue Principale",
     bilingual_secondary_label: "Langue Secondaire",
@@ -1421,6 +1453,14 @@ const I18N = {
     template_empty: "Вы ещё не сохранили ни одного шаблона.",
     completion_label: "Заполненность документа",
     validation_missing: "Заполните выделенные обязательные поля перед скачиванием документа.",
+    validation_alert_title: "Не заполнены обязательные поля",
+    validation_alert_intro: "Пожалуйста, заполните:",
+    validation_field_name: "Имя / Компания",
+    validation_field_id: "Налоговый идентификатор",
+    validation_field_address: "Юридический адрес",
+    validation_field_purpose: "Предмет / Цель",
+    validation_field_jurisdiction: "Юрисдикция",
+    validation_field_signature: "Подпись",
     bilingual_mode_label: "Двуязычный режим (два языка)",
     bilingual_primary_label: "Основной язык",
     bilingual_secondary_label: "Дополнительный язык",
@@ -1713,6 +1753,14 @@ const I18N = {
     template_empty: "您尚未保存任何模板。",
     completion_label: "文档完成度",
     validation_missing: "请先填写高亮显示的必填字段，然后再下载文档。",
+    validation_alert_title: "必填字段未完成",
+    validation_alert_intro: "请填写：",
+    validation_field_name: "姓名/公司",
+    validation_field_id: "税务识别号",
+    validation_field_address: "法定地址",
+    validation_field_purpose: "目的/用途",
+    validation_field_jurisdiction: "管辖权",
+    validation_field_signature: "签名",
     bilingual_mode_label: "双语模式（双语对照）",
     bilingual_primary_label: "主要语言",
     bilingual_secondary_label: "次要语言",
@@ -2005,6 +2053,14 @@ const I18N = {
     template_empty: "まだテンプレートが保存されていません。",
     completion_label: "文書の入力状況",
     validation_missing: "ダウンロードする前に、ハイライトされた必須項目を入力してください。",
+    validation_alert_title: "必須項目が未入力です",
+    validation_alert_intro: "以下を入力してください：",
+    validation_field_name: "氏名・会社名",
+    validation_field_id: "税務ID",
+    validation_field_address: "法定住所",
+    validation_field_purpose: "目的",
+    validation_field_jurisdiction: "管轄",
+    validation_field_signature: "署名",
     bilingual_mode_label: "バイリンガルモード（二言語対応）",
     bilingual_primary_label: "第一言語",
     bilingual_secondary_label: "第二言語",
@@ -2297,6 +2353,14 @@ const I18N = {
     template_empty: "आपने अभी तक कोई टेम्पलेट सहेजा नहीं है।",
     completion_label: "दस्तावेज़ की प्रगति",
     validation_missing: "दस्तावेज़ डाउनलोड करने से पहले हाइलाइट किए गए आवश्यक फ़ील्ड भरें।",
+    validation_alert_title: "आवश्यक फ़ील्ड अधूरे हैं",
+    validation_alert_intro: "कृपया पूरा करें:",
+    validation_field_name: "नाम / कंपनी",
+    validation_field_id: "कर पहचान",
+    validation_field_address: "कानूनी पता",
+    validation_field_purpose: "उद्देश्य",
+    validation_field_jurisdiction: "क्षेत्राधिकार",
+    validation_field_signature: "हस्ताक्षर",
     bilingual_mode_label: "द्विभाषी मोड (दोहरी भाषा)",
     bilingual_primary_label: "प्राथमिक भाषा",
     bilingual_secondary_label: "द्वितीयक भाषा",
@@ -2407,15 +2471,27 @@ let customClauseSeq = 0;
 const AUTOSAVE_KEY = 'ndagen_autosave_v1';
 const TEMPLATE_KEY = 'ndagen_partyA_template_v1';
 
+// `party` + `fieldKey` let the validation alert build a human label like
+// "Parte Receptora: Identificación fiscal" for each missing field,
+// reusing whatever party legend (Divulgante/Receptora, Prestador/Cliente,
+// ...) is currently on screen for the active document type.
 const REQUIRED_FIELDS = [
-  { id: 'partyA_name', step: 1 },
-  { id: 'partyA_id', step: 1 },
-  { id: 'partyA_address', step: 1 },
-  { id: 'partyB_name', step: 1 },
-  { id: 'partyB_id', step: 1 },
-  { id: 'partyB_address', step: 1 },
-  { id: 'purpose', step: 2 },
-  { id: 'jurisdiction', step: 3 },
+  { id: 'partyA_name', step: 1, party: 'A', fieldKey: 'validation_field_name' },
+  { id: 'partyA_id', step: 1, party: 'A', fieldKey: 'validation_field_id' },
+  { id: 'partyA_address', step: 1, party: 'A', fieldKey: 'validation_field_address' },
+  { id: 'partyB_name', step: 1, party: 'B', fieldKey: 'validation_field_name' },
+  { id: 'partyB_id', step: 1, party: 'B', fieldKey: 'validation_field_id' },
+  { id: 'partyB_address', step: 1, party: 'B', fieldKey: 'validation_field_address' },
+  { id: 'purpose', step: 2, party: null, fieldKey: 'validation_field_purpose' },
+  { id: 'jurisdiction', step: 3, party: null, fieldKey: 'validation_field_jurisdiction' },
+];
+
+// Signatures aren't <input> elements (they're canvas-driven slots), so
+// they're validated separately from REQUIRED_FIELDS but described with
+// the same { party, fieldKey } shape for a consistent alert message.
+const SIGNATURE_FIELDS = [
+  { sigTarget: 'A', step: 4, party: 'A', fieldKey: 'validation_field_signature', isSignature: true },
+  { sigTarget: 'B', step: 4, party: 'B', fieldKey: 'validation_field_signature', isSignature: true },
 ];
 
 const $ = (sel, ctx = document) => ctx.querySelector(sel);
@@ -3380,19 +3456,54 @@ function updateCompletion() {
 }
 
 function getMissingFields() {
-  return REQUIRED_FIELDS.filter(f => !(($(`#${f.id}`) || {}).value || '').trim());
+  const missingInputs = REQUIRED_FIELDS.filter(f => !(($(`#${f.id}`) || {}).value || '').trim());
+  const missingSignatures = SIGNATURE_FIELDS.filter(f => !state.signatures[f.sigTarget]);
+  return missingInputs.concat(missingSignatures);
+}
+
+// Reads whatever party legend (Divulgante/Receptora, Prestador/Cliente,
+// Primera/Segunda Parte, ...) is currently shown for the active document
+// type, so the alert always names the party the way the user is already
+// seeing it on screen, in the active language.
+function partyLabelFor(party) {
+  if (party === 'A') return ($('#legend-partyA') || {}).textContent?.trim() || '';
+  if (party === 'B') return ($('#legend-partyB') || {}).textContent?.trim() || '';
+  return null;
+}
+
+function missingFieldLabel(f) {
+  const partyLabel = partyLabelFor(f.party);
+  const fieldLabel = t(f.fieldKey);
+  return partyLabel ? `${partyLabel}: ${fieldLabel}` : fieldLabel;
+}
+
+function missingFieldElement(f) {
+  return f.isSignature ? $(`.sig-slot[data-sig-party="${f.sigTarget}"]`) : $(`#${f.id}`);
 }
 
 function validateBeforeDownload() {
   const missing = getMissingFields();
   $all('.field-input').forEach(el => el.classList.remove('field-error'));
-  if (missing.length === 0) return true;
+  $all('.sig-slot').forEach(el => el.classList.remove('field-error'));
+  if (missing.length === 0) {
+    hideValidationAlert();
+    return true;
+  }
+
   missing.forEach(f => {
-    const el = $(`#${f.id}`);
+    const el = missingFieldElement(f);
     if (el) el.classList.add('field-error');
   });
+
   goToStep(missing[0].step);
-  toast(t('validation_missing'));
+  const firstEl = missingFieldElement(missing[0]);
+  // Let goToStep()'s step switch commit its layout first so the target
+  // is actually visible (not display:none) before we measure/scroll to it.
+  if (firstEl) {
+    setTimeout(() => firstEl.scrollIntoView({ behavior: 'smooth', block: 'center' }), 60);
+  }
+
+  showValidationAlert(missing.map(missingFieldLabel));
   return false;
 }
 
@@ -3417,6 +3528,53 @@ function toast(message) {
   clearTimeout(toastTimeout);
   requestAnimationFrame(() => { el.style.opacity = '1'; });
   toastTimeout = setTimeout(() => { el.style.opacity = '0'; }, 2200);
+}
+
+/* ---------------------------------------------------------------------
+   8b) VALIDATION ALERT (missing required fields before download)
+   --------------------------------------------------------------------- */
+let validationAlertTimeout;
+
+function buildValidationAlert() {
+  const el = document.createElement('div');
+  el.id = 'validation-alert';
+  el.className = 'validation-alert';
+  el.setAttribute('role', 'alert');
+  el.innerHTML = `
+    <button type="button" class="validation-alert-close" aria-label="Close">&times;</button>
+    <div class="validation-alert-header">
+      <span class="validation-alert-icon" aria-hidden="true">⚠️</span>
+      <strong class="validation-alert-title"></strong>
+    </div>
+    <p class="validation-alert-intro"></p>
+    <ul class="validation-alert-list"></ul>
+  `;
+  document.body.appendChild(el);
+  el.querySelector('.validation-alert-close').addEventListener('click', hideValidationAlert);
+  return el;
+}
+
+function showValidationAlert(missingLabels) {
+  const el = $('#validation-alert') || buildValidationAlert();
+  el.querySelector('.validation-alert-title').textContent = t('validation_alert_title');
+  el.querySelector('.validation-alert-intro').textContent = t('validation_alert_intro');
+  el.querySelector('.validation-alert-list').innerHTML = missingLabels.map(l => `<li>${escapeHtml(l)}</li>`).join('');
+
+  // A plain setTimeout (rather than requestAnimationFrame) still forces
+  // the "no .show class yet" frame to commit before the class is added,
+  // which is all the CSS transition needs to actually animate in — and
+  // unlike rAF it isn't tied to the paint loop, so it isn't starved if
+  // the tab is backgrounded when the user clicks download.
+  el.classList.remove('show');
+  setTimeout(() => el.classList.add('show'), 10);
+  clearTimeout(validationAlertTimeout);
+  validationAlertTimeout = setTimeout(hideValidationAlert, 7000);
+}
+
+function hideValidationAlert() {
+  clearTimeout(validationAlertTimeout);
+  const el = $('#validation-alert');
+  if (el) el.classList.remove('show');
 }
 
 /* ---------------------------------------------------------------------
@@ -3615,6 +3773,9 @@ function renderSignatureSlots() {
             <button type="button" class="btn-ghost btn-sm" data-sig-remove="${target}">${escapeHtml(t('sig_remove_btn'))}</button>
           </div>
         </div>`;
+      // A signature was just supplied — clear any validation-error
+      // highlight left on this slot from a previous failed download.
+      $(`.sig-slot[data-sig-party="${target}"]`)?.classList.remove('field-error');
     } else {
       body.innerHTML = `
         <button type="button" class="sig-add-btn" data-sig-add="${target}">

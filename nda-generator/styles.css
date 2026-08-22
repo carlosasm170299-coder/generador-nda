@@ -1241,8 +1241,99 @@ body {
 /* ===== Field validation error ===== */
 .field-input.field-error {
   border-color: rgb(220 38 38);
-  box-shadow: 0 0 0 3px rgb(220 38 38 / 0.12);
+  animation: field-error-pulse 1.4s ease-in-out infinite;
 }
+.sig-slot.field-error {
+  border-color: rgb(220 38 38) !important;
+  animation: field-error-pulse 1.4s ease-in-out infinite;
+}
+@keyframes field-error-pulse {
+  0%, 100% { box-shadow: 0 0 0 2px rgb(220 38 38 / 0.12); }
+  50% { box-shadow: 0 0 0 4px rgb(220 38 38 / 0.3); }
+}
+
+/* ===== Validation alert (missing required fields before download) ===== */
+.validation-alert {
+  position: fixed;
+  top: 1.25rem;
+  right: 1.25rem;
+  left: auto;
+  max-width: 22rem;
+  width: calc(100% - 2rem);
+  background: rgb(254 242 242 / 0.97);
+  border: 1px solid rgb(239 68 68);
+  border-radius: 0.85rem;
+  padding: 1rem 1.75rem 1rem 1.1rem;
+  box-shadow: 0 20px 40px -12px rgb(0 0 0 / 0.35);
+  z-index: 300;
+  opacity: 0;
+  transform: translateY(-14px) scale(0.98);
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.dark .validation-alert {
+  background: rgb(69 10 10 / 0.85);
+  backdrop-filter: blur(6px);
+}
+.validation-alert.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+@media (max-width: 640px) {
+  .validation-alert {
+    left: 1rem;
+    right: 1rem;
+    max-width: none;
+    width: auto;
+  }
+}
+.validation-alert-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.4rem;
+}
+.validation-alert-icon {
+  font-size: 1.1rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.validation-alert-title {
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: rgb(185 28 28);
+}
+.dark .validation-alert-title { color: rgb(248 113 113); }
+.validation-alert-intro {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: rgb(153 27 27);
+  margin-bottom: 0.35rem;
+}
+.dark .validation-alert-intro { color: rgb(252 165 165); }
+.validation-alert-list {
+  list-style: disc;
+  padding-left: 1.1rem;
+  font-size: 0.8rem;
+  color: rgb(127 29 29);
+  line-height: 1.55;
+}
+.dark .validation-alert-list { color: rgb(254 202 202); }
+.validation-alert-close {
+  position: absolute;
+  top: 0.55rem;
+  right: 0.65rem;
+  font-size: 1.25rem;
+  line-height: 1;
+  background: none;
+  border: none;
+  color: rgb(153 27 27);
+  opacity: 0.7;
+  cursor: pointer;
+}
+.dark .validation-alert-close { color: rgb(252 165 165); }
+.validation-alert-close:hover { opacity: 1; }
 
 /* ===== Logo upload ===== */
 .logo-upload-box {
