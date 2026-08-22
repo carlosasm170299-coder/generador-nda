@@ -2413,25 +2413,34 @@ function selectTemplate(type) {
 /* ---------------------------------------------------------------------
    7) ACTIONS: PDF / COPY / CLEAR
    --------------------------------------------------------------------- */
-// The physical page padding (mm) the .pdf-export-clone CSS class (in
-// styles.css) bakes directly into the clone's own box — since the
-// html2pdf `margin` option is 0 (see downloadPdf() below), this is the
-// only thing creating the page's visual margin, and it also defines
-// where the jsPDF footer overlay is drawn. Keep in sync with styles.css.
-const PDF_PAGE_PADDING_MM = { top: 20, right: 15, bottom: 20, left: 15 };
+// html2pdf's own page margin (mm), passed to its `margin` option below.
+// This is a REPEATING per-page inset (html2pdf reserves it on every
+// page it slices the content into, not just the first/last one) — unlike
+// padding baked into the source HTML, which only ever appears once, at
+// the very start/end of the single continuous content flow. A generous
+// 25mm bottom margin is what guarantees the last clause on ANY page
+// (not just the final one) never gets drawn underneath the jsPDF footer
+// overlay, which is written at a fixed Y position on every page. Also
+// used to position that footer overlay itself — keep in sync with the
+// `opt.margin` array in downloadPdf().
+const PDF_MARGIN_MM = { top: 15, right: 15, bottom: 25, left: 15 };
 
-// Builds a throwaway, fully isolated A4-width clone of the live preview
-// and appends it (off-screen) to <body>. Exporting FROM this clone
-// instead of the visible #pdf-content is the fix for the "blank first
-// page + text cut between pages in real browsers" bug: #pdf-content
-// normally lives inside #preview-scroll, itself inside a responsive
-// flex/grid layout (w-full lg:w-[46%]) — so its actual on-screen pixel
-// width (and therefore how text wraps, and therefore where html2canvas
-// slices pages) depends on the visitor's current viewport/zoom. The
-// .pdf-export-clone class (styles.css) forces a fixed 210mm width, fixed
-// pt typography, and !important page-break-inside:avoid on every
-// paragraph/clause/card/heading/table-row, so the exported PDF always
-// paginates identically regardless of the device it was generated from.
+// Builds a throwaway, fully isolated clone of the live preview and
+// appends it (off-screen) to <body>. Exporting FROM this clone instead
+// of the visible #pdf-content is the fix for the "blank first page +
+// text cut between pages in real browsers" bug: #pdf-content normally
+// lives inside #preview-scroll, itself inside a responsive flex/grid
+// layout (w-full lg:w-[46%]) — so its actual on-screen pixel width (and
+// therefore how text wraps, and therefore where html2canvas slices
+// pages) depends on the visitor's current viewport/zoom. The
+// .pdf-export-clone class (styles.css) gives it fixed pt typography and
+// !important page-break-inside:avoid on every paragraph/clause/card/
+// heading/table-row, and stretches it to fill (width:100%) whatever
+// fixed-size wrapper html2pdf's own toContainer() step puts it in — that
+// wrapper's width is derived purely from the A4 page format and
+// PDF_MARGIN_MM below, never from the live page's layout, so the
+// exported PDF always paginates identically regardless of the device it
+// was generated from.
 function buildPdfExportClone() {
   const source = $('#pdf-content');
   const clone = source.cloneNode(true);
@@ -2459,7 +2468,7 @@ function downloadPdf() {
   const clone = host.firstElementChild;
 
   const opt = {
-    margin: 0,
+    margin: [PDF_MARGIN_MM.top, PDF_MARGIN_MM.left, PDF_MARGIN_MM.bottom, PDF_MARGIN_MM.right],
     filename: getExportFilename('pdf'),
     image: { type: 'jpeg', quality: 0.98 },
     html2canvas: {
@@ -2488,9 +2497,9 @@ function downloadPdf() {
   const footerLang = NON_LATIN_FOOTER_LANGS.includes(state.lang) ? 'en' : state.lang;
   const footerLeft = tFor(footerLang, 'pdf_footer_confidential');
   const footerPageOfTemplate = tFor(footerLang, 'pdf_footer_page_of');
-  const marginBottom = PDF_PAGE_PADDING_MM.bottom;
-  const marginLeft = PDF_PAGE_PADDING_MM.left;
-  const marginRight = PDF_PAGE_PADDING_MM.right;
+  const marginBottom = PDF_MARGIN_MM.bottom;
+  const marginLeft = PDF_MARGIN_MM.left;
+  const marginRight = PDF_MARGIN_MM.right;
 
   const fontsReady = (document.fonts && document.fonts.ready) ? document.fonts.ready : Promise.resolve();
   fontsReady.then(() => html2pdf().set(opt).from(clone).toPdf().get('pdf').then(function (pdf) {
@@ -2530,7 +2539,7 @@ async function downloadDocx() {
     return;
   }
 
-  const { Document, Packer, Paragraph, TextRun, AlignmentType, Table, TableRow, TableCell, ImageRun, WidthType, BorderStyle } = window.docx;
+  const { Document, Packer, Paragraph, TextRun, AlignmentType, Table, TableRow, TableCell, ImageRun, WidthType, BorderStyle, TableLayoutType } = window.docx;
   const model = getDocumentModel(state.lang);
   const isBilingual = state.bilingual && state.langSecondary && state.langSecondary !== state.lang;
   const modelSecondary = isBilingual ? getDocumentModel(state.langSecondary) : null;
@@ -2612,7 +2621,13 @@ async function downloadDocx() {
       });
       rows.push(new TableRow({ cantSplit: true, children: [bilingualCell([signPlaceParagraph(model)]), bilingualCell([signPlaceParagraph(modelSecondary)])] }));
 
-      children.push(new Table({ width: { size: 100, type: WidthType.PERCENTAGE }, rows }));
+      // layout: FIXED forces Word to honor the declared column widths as
+      // literal (via <w:tblLayout w:type="fixed"/>) instead of shrinking
+      // or stretching each column to fit its own content — without it,
+      // Word's default AUTOFIT layout can render one language's column
+      // very narrow and the other excessively wide whenever the two
+      // languages' text naturally wraps to different lengths.
+      children.push(new Table({ width: { size: 100, type: WidthType.PERCENTAGE }, layout: TableLayoutType.FIXED, rows }));
       children.push(new Paragraph({ text: '', spacing: { after: 200 } }));
     } else {
       children.push(new Paragraph({
@@ -2673,6 +2688,7 @@ async function downloadDocx() {
 
     children.push(new Table({
       width: { size: 100, type: WidthType.PERCENTAGE },
+      layout: TableLayoutType.FIXED,
       rows: [new TableRow({ cantSplit: true, children: [
         signatureCell(model.nameA, model.roleA, model.sigA),
         signatureCell(model.nameB, model.roleB, model.sigB),

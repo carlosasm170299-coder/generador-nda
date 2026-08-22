@@ -670,24 +670,36 @@ body {
    ---------------------------------------------------------------------
    Applied only to the throwaway off-screen clone built by
    buildPdfExportClone() in app.js, never to the live on-screen preview.
-   Fixed width + pt typography (rather than the live preview's flexible
-   %/rem-based sizing) means html2canvas always measures and paginates
-   an identical layout no matter the visitor's viewport, zoom, or browser
-   — this is what eliminates the blank first page and mid-line text cuts
-   between pages. Every rule here is !important so no cascade/specificity
-   quirk in a real browser can defeat it.
-   ===================================================================== */
+   Fixed pt typography (rather than the live preview's flexible rem-based
+   sizing) means html2canvas always measures and paginates an identical
+   layout no matter the visitor's viewport, zoom, or browser — this is
+   what eliminates the blank first page and mid-line text cuts between
+   pages. Every rule here is !important so no cascade/specificity quirk
+   in a real browser can defeat it.
+
+   Width is deliberately 100%, NOT a fixed mm value: html2pdf's own
+   internal toContainer() step re-wraps whatever we hand it in a div
+   sized to exactly (page width − left/right margin) and captures THAT
+   div with html2canvas — so a clone forced to a fixed 210mm here would
+   be wider than that wrapper and get clipped down its right edge the
+   moment opt.margin has any horizontal component (which PDF_MARGIN_MM
+   in app.js does). width:100% lets the clone fill whatever width
+   html2pdf's own wrapper gives it, which is still fully deterministic
+   and viewport-independent (it's derived from the A4 page format and
+   our own fixed margin config, never from the live page's layout). */
 .pdf-export-clone {
-  width: 210mm !important;
-  max-width: 210mm !important;
-  min-width: 210mm !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
   min-height: 0 !important;
   box-sizing: border-box !important;
   margin: 0 !important;
-  /* Baked-in page margin: html2pdf's own `margin` option is 0, so this
-     padding is the export's only visual margin. Keep in sync with
-     PDF_PAGE_PADDING_MM in app.js (used to position the footer overlay). */
-  padding: 20mm 15mm !important;
+  /* Only a small interior breathing space here — the real page margin
+     (including the 25mm bottom band the jsPDF footer overlay lives in)
+     is html2pdf's own repeating per-page `margin` option (PDF_MARGIN_MM
+     in app.js), NOT this padding. Stacking a large padding on top of
+     that margin would double-count it on every page. */
+  padding: 4mm !important;
   font-size: 10pt !important;
 }
 
@@ -735,6 +747,12 @@ body {
 .pdf-export-clone > *:first-child {
   page-break-before: avoid !important;
   break-before: avoid !important;
+}
+/* Extra trailing safety clearance below the very last element, on top of
+   html2pdf's own per-page bottom margin, so the verified badge (and
+   whatever precedes it) never sits flush against the footer band. */
+.pdf-export-clone > *:last-child {
+  margin-bottom: 20mm !important;
 }
 
 /* ===== Prose (guide/FAQ) ===== */
