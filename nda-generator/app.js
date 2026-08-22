@@ -40,6 +40,69 @@ const I18N = {
     tpl_mutual_short: "Bilateral",
     tpl_b2b_short: "B2B",
     btn_view_document: "Ver Documento",
+
+    // --- Optional / additional clauses ---
+    optional_clauses_title: "Cláusulas Adicionales / Opcionales",
+    optional_clauses_hint: "Activa las cláusulas que quieras incluir. Se añadirán automáticamente al documento con la numeración correcta.",
+    toggle_noncompete_label: "No Competencia",
+    toggle_noncompete_desc: "Impide que la parte receptora desarrolle negocios directamente competidores durante la vigencia del acuerdo.",
+    toggle_nonsolicit_label: "No Captación",
+    toggle_nonsolicit_desc: "Prohíbe solicitar o contratar empleados, contratistas o clientes de la otra parte.",
+    toggle_arbitration_label: "Arbitraje en lugar de Tribunales",
+    toggle_arbitration_desc: "Sustituye la cláusula estándar de tribunales ordinarios por arbitraje comercial vinculante.",
+    clause_noncompete_title: "NO COMPETENCIA",
+    clause_noncompete_body: "Durante la vigencia del presente Acuerdo y por un período de {duration} posterior a su terminación, {roleB} se compromete a no desarrollar, operar, invertir en, ni participar directa o indirectamente en cualquier negocio, proyecto o actividad que compita directamente con el objeto descrito en la Cláusula Primera, sin el consentimiento previo y por escrito de {roleA}.",
+    clause_nonsolicit_title: "NO CAPTACIÓN DE PERSONAL Y CLIENTES",
+    clause_nonsolicit_body: "Durante la vigencia del presente Acuerdo y por un período de {duration} posterior a su terminación, {roleB} se compromete a no solicitar, contratar, ni captar, directa o indirectamente, a empleados, contratistas o clientes de {roleA} que hayan tenido relación con el objeto del presente Acuerdo, sin el consentimiento previo y por escrito de {roleA}.",
+    clause_arbitration_title: "RESOLUCIÓN DE DISPUTAS - ARBITRAJE",
+    clause_arbitration_body: "Cualquier controversia derivada de la interpretación o cumplimiento del presente documento será resuelta de manera definitiva mediante arbitraje comercial vinculante, con sede en {jurisdiction}, renunciando las Partes expresamente a acudir a los tribunales ordinarios, salvo para la ejecución del laudo arbitral que se dicte.",
+    custom_clause_add_btn: "+ Agregar cláusula personalizada",
+    custom_clause_title_label: "Título de la cláusula",
+    custom_clause_title_placeholder: "Ej. Propiedad Intelectual",
+    custom_clause_body_label: "Contenido de la cláusula",
+    custom_clause_body_placeholder: "Escribe el texto completo de la cláusula...",
+    custom_clause_remove_btn: "Eliminar",
+    custom_clause_empty_hint: "Aún no has agregado cláusulas personalizadas.",
+
+    // --- Integrity seal (SHA-256 + QR) ---
+    doc_hash_label: "Hash de Verificación",
+    doc_timestamp_label: "Timbrado digital",
+    doc_integrity_hint: "Este sello permite verificar que el contenido no ha sido alterado tras su generación.",
+
+    // --- Watermark ---
+    watermark_label: "Marca de Agua",
+    watermark_none: "Sin Marca de Agua",
+    watermark_draft: "BORRADOR",
+    watermark_confidential: "CONFIDENCIAL",
+    watermark_review: "COPIA DE REVISIÓN",
+
+    // --- Share pre-filled link ---
+    btn_share_link: "Compartir con la contraparte",
+    share_modal_title: "Compartir formulario",
+    share_modal_desc: "Comparte este enlace con la otra parte. Se abrirá con los datos de tu empresa ya completados; ellos solo deberán completar los suyos.",
+    share_copy_btn: "Copiar Enlace",
+    share_copied_msg: "¡Enlace copiado al portapapeles!",
+    share_prefill_notice: "Hemos completado los datos de la contraparte. Por favor, completa tu información como Parte Receptora.",
+
+    // --- Penalty clause calculator ---
+    penalty_calc_title: "Calculadora de Cláusula Penal",
+    penalty_calc_desc: "Estima un monto y una redacción para la cláusula de indemnización por incumplimiento, según el valor de tu información o proyecto. Es solo una sugerencia orientativa, no asesoría legal.",
+    penalty_value_label: "Valor estimado del proyecto / información",
+    penalty_currency_label: "Moneda",
+    penalty_calc_btn: "Calcular sugerencia",
+    penalty_result_intro: "Sugerencia orientativa:",
+    penalty_result_text: "En caso de incumplimiento, se sugiere una penalización de aproximadamente {amount} {currency} (equivalente al 15% del valor declarado), sin perjuicio de otros daños y perjuicios demostrables.",
+    penalty_insert_btn: "Insertar en el contrato",
+    penalty_inserted_msg: "Cláusula de penalización añadida a tus cláusulas personalizadas.",
+    penalty_clause_title: "INDEMNIZACIÓN POR INCUMPLIMIENTO",
+
+    // --- Pre-download checklist ---
+    checklist_title: "Verificación Rápida Pre-Descarga",
+    checklist_item1: "He comprobado la identidad de ambas partes",
+    checklist_item2: "El alcance y objeto están claramente delimitados",
+    checklist_item3: "Existe acuerdo mutuo sobre la jurisdicción aplicable",
+    checklist_hint: "Marca las 3 casillas para habilitar la descarga.",
+
     step1_label: "Partes",
     step2_label: "Objeto",
     step3_label: "Duración",
@@ -282,6 +345,69 @@ const I18N = {
     tpl_mutual_short: "Mutual",
     tpl_b2b_short: "B2B",
     btn_view_document: "View Document",
+
+    // --- Optional / additional clauses ---
+    optional_clauses_title: "Additional / Optional Clauses",
+    optional_clauses_hint: "Turn on the clauses you want to include. They'll be added automatically with the correct numbering.",
+    toggle_noncompete_label: "Non-Compete",
+    toggle_noncompete_desc: "Prevents the receiving party from operating directly competing businesses during the term of the agreement.",
+    toggle_nonsolicit_label: "Non-Solicitation",
+    toggle_nonsolicit_desc: "Prohibits soliciting or hiring the other party's employees, contractors, or clients.",
+    toggle_arbitration_label: "Arbitration Instead of Courts",
+    toggle_arbitration_desc: "Replaces the standard ordinary-courts clause with binding commercial arbitration.",
+    clause_noncompete_title: "NON-COMPETE",
+    clause_noncompete_body: "During the term of this Agreement and for a period of {duration} following its termination, {roleB} agrees not to develop, operate, invest in, or directly or indirectly participate in any business, project, or activity that directly competes with the subject matter described in the First Clause, without {roleA}'s prior written consent.",
+    clause_nonsolicit_title: "NON-SOLICITATION OF PERSONNEL AND CLIENTS",
+    clause_nonsolicit_body: "During the term of this Agreement and for a period of {duration} following its termination, {roleB} agrees not to solicit, hire, or otherwise recruit, directly or indirectly, any employees, contractors, or clients of {roleA} who have been involved with the subject matter of this Agreement, without {roleA}'s prior written consent.",
+    clause_arbitration_title: "DISPUTE RESOLUTION - ARBITRATION",
+    clause_arbitration_body: "Any dispute arising from the interpretation or performance of this document shall be finally resolved through binding commercial arbitration, seated in {jurisdiction}, with the Parties expressly waiving recourse to ordinary courts, except for the enforcement of the resulting arbitral award.",
+    custom_clause_add_btn: "+ Add custom clause",
+    custom_clause_title_label: "Clause title",
+    custom_clause_title_placeholder: "E.g. Intellectual Property",
+    custom_clause_body_label: "Clause content",
+    custom_clause_body_placeholder: "Write the full text of the clause...",
+    custom_clause_remove_btn: "Remove",
+    custom_clause_empty_hint: "You haven't added any custom clauses yet.",
+
+    // --- Integrity seal (SHA-256 + QR) ---
+    doc_hash_label: "Verification Hash",
+    doc_timestamp_label: "Digital timestamp",
+    doc_integrity_hint: "This seal lets you verify the content hasn't been altered since it was generated.",
+
+    // --- Watermark ---
+    watermark_label: "Watermark",
+    watermark_none: "No Watermark",
+    watermark_draft: "DRAFT",
+    watermark_confidential: "CONFIDENTIAL",
+    watermark_review: "REVIEW COPY",
+
+    // --- Share pre-filled link ---
+    btn_share_link: "Share with counterparty",
+    share_modal_title: "Share form",
+    share_modal_desc: "Share this link with the other party. It will open with your company's details already filled in; they'll only need to complete theirs.",
+    share_copy_btn: "Copy Link",
+    share_copied_msg: "Link copied to clipboard!",
+    share_prefill_notice: "We've filled in the counterparty's details. Please complete your information as the Receiving Party.",
+
+    // --- Penalty clause calculator ---
+    penalty_calc_title: "Penalty Clause Calculator",
+    penalty_calc_desc: "Estimate an amount and wording for the breach-of-contract indemnity clause, based on the value of your information or project. This is only an indicative suggestion, not legal advice.",
+    penalty_value_label: "Estimated value of the project / information",
+    penalty_currency_label: "Currency",
+    penalty_calc_btn: "Calculate suggestion",
+    penalty_result_intro: "Indicative suggestion:",
+    penalty_result_text: "In the event of a breach, a penalty of approximately {amount} {currency} is suggested (equivalent to 15% of the declared value), without prejudice to other demonstrable damages.",
+    penalty_insert_btn: "Insert into the contract",
+    penalty_inserted_msg: "Penalty clause added to your custom clauses.",
+    penalty_clause_title: "INDEMNIFICATION FOR BREACH",
+
+    // --- Pre-download checklist ---
+    checklist_title: "Quick Pre-Download Checklist",
+    checklist_item1: "I have verified the identity of both parties",
+    checklist_item2: "The scope and purpose are clearly defined",
+    checklist_item3: "There is mutual agreement on the applicable jurisdiction",
+    checklist_hint: "Check all 3 boxes to enable downloading.",
+
     step1_label: "Parties",
     step2_label: "Purpose",
     step3_label: "Duration",
@@ -523,6 +649,69 @@ const I18N = {
     tpl_mutual_short: "Bilateral",
     tpl_b2b_short: "B2B",
     btn_view_document: "Ver Documento",
+
+    // --- Optional / additional clauses ---
+    optional_clauses_title: "Cláusulas Adicionais / Opcionais",
+    optional_clauses_hint: "Ative as cláusulas que deseja incluir. Elas serão adicionadas automaticamente ao documento com a numeração correta.",
+    toggle_noncompete_label: "Não Concorrência",
+    toggle_noncompete_desc: "Impede que a parte receptora desenvolva negócios diretamente concorrentes durante a vigência do acordo.",
+    toggle_nonsolicit_label: "Não Aliciamento",
+    toggle_nonsolicit_desc: "Proíbe solicitar ou contratar funcionários, prestadores ou clientes da outra parte.",
+    toggle_arbitration_label: "Arbitragem em vez de Tribunais",
+    toggle_arbitration_desc: "Substitui a cláusula padrão de tribunais ordinários por arbitragem comercial vinculante.",
+    clause_noncompete_title: "NÃO CONCORRÊNCIA",
+    clause_noncompete_body: "Durante a vigência do presente Acordo e por um período de {duration} após seu término, {roleB} compromete-se a não desenvolver, operar, investir ou participar direta ou indiretamente em qualquer negócio, projeto ou atividade que concorra diretamente com o objeto descrito na Cláusula Primeira, sem o consentimento prévio e por escrito de {roleA}.",
+    clause_nonsolicit_title: "NÃO ALICIAMENTO DE PESSOAL E CLIENTES",
+    clause_nonsolicit_body: "Durante a vigência do presente Acordo e por um período de {duration} após seu término, {roleB} compromete-se a não solicitar, contratar ou aliciar, direta ou indiretamente, funcionários, prestadores ou clientes de {roleA} que tenham tido relação com o objeto do presente Acordo, sem o consentimento prévio e por escrito de {roleA}.",
+    clause_arbitration_title: "RESOLUÇÃO DE DISPUTAS - ARBITRAGEM",
+    clause_arbitration_body: "Qualquer controvérsia decorrente da interpretação ou cumprimento do presente documento será resolvida de forma definitiva por meio de arbitragem comercial vinculante, com sede em {jurisdiction}, renunciando as Partes expressamente a recorrer aos tribunais ordinários, exceto para a execução da sentença arbitral proferida.",
+    custom_clause_add_btn: "+ Adicionar cláusula personalizada",
+    custom_clause_title_label: "Título da cláusula",
+    custom_clause_title_placeholder: "Ex. Propriedade Intelectual",
+    custom_clause_body_label: "Conteúdo da cláusula",
+    custom_clause_body_placeholder: "Escreva o texto completo da cláusula...",
+    custom_clause_remove_btn: "Remover",
+    custom_clause_empty_hint: "Você ainda não adicionou cláusulas personalizadas.",
+
+    // --- Integrity seal (SHA-256 + QR) ---
+    doc_hash_label: "Hash de Verificação",
+    doc_timestamp_label: "Timbre digital",
+    doc_integrity_hint: "Este selo permite verificar que o conteúdo não foi alterado após sua geração.",
+
+    // --- Watermark ---
+    watermark_label: "Marca d'Água",
+    watermark_none: "Sem Marca d'Água",
+    watermark_draft: "RASCUNHO",
+    watermark_confidential: "CONFIDENCIAL",
+    watermark_review: "CÓPIA DE REVISÃO",
+
+    // --- Share pre-filled link ---
+    btn_share_link: "Compartilhar com a contraparte",
+    share_modal_title: "Compartilhar formulário",
+    share_modal_desc: "Compartilhe este link com a outra parte. Ele abrirá com os dados da sua empresa já preenchidos; eles só precisarão completar os deles.",
+    share_copy_btn: "Copiar Link",
+    share_copied_msg: "Link copiado para a área de transferência!",
+    share_prefill_notice: "Preenchemos os dados da contraparte. Por favor, complete suas informações como Parte Receptora.",
+
+    // --- Penalty clause calculator ---
+    penalty_calc_title: "Calculadora de Cláusula Penal",
+    penalty_calc_desc: "Estime um valor e uma redação para a cláusula de indenização por descumprimento, com base no valor da sua informação ou projeto. É apenas uma sugestão orientativa, não assessoria jurídica.",
+    penalty_value_label: "Valor estimado do projeto / informação",
+    penalty_currency_label: "Moeda",
+    penalty_calc_btn: "Calcular sugestão",
+    penalty_result_intro: "Sugestão orientativa:",
+    penalty_result_text: "Em caso de descumprimento, sugere-se uma penalidade de aproximadamente {amount} {currency} (equivalente a 15% do valor declarado), sem prejuízo de outros danos comprováveis.",
+    penalty_insert_btn: "Inserir no contrato",
+    penalty_inserted_msg: "Cláusula de penalidade adicionada às suas cláusulas personalizadas.",
+    penalty_clause_title: "INDENIZAÇÃO POR DESCUMPRIMENTO",
+
+    // --- Pre-download checklist ---
+    checklist_title: "Verificação Rápida Pré-Download",
+    checklist_item1: "Verifiquei a identidade de ambas as partes",
+    checklist_item2: "O escopo e objeto estão claramente delimitados",
+    checklist_item3: "Há acordo mútuo sobre a jurisdição aplicável",
+    checklist_hint: "Marque as 3 caixas para habilitar o download.",
+
     step1_label: "Partes",
     step2_label: "Objeto",
     step3_label: "Duração",
@@ -752,6 +941,69 @@ const I18N = {
     tpl_mutual_short: "Bilatéral",
     tpl_b2b_short: "B2B",
     btn_view_document: "Voir le document",
+
+    // --- Optional / additional clauses ---
+    optional_clauses_title: "Clauses Additionnelles / Optionnelles",
+    optional_clauses_hint: "Activez les clauses que vous souhaitez inclure. Elles seront ajoutées automatiquement au document avec la numérotation correcte.",
+    toggle_noncompete_label: "Non-Concurrence",
+    toggle_noncompete_desc: "Empêche la partie réceptrice d'exploiter des activités directement concurrentes pendant la durée de l'accord.",
+    toggle_nonsolicit_label: "Non-Débauchage",
+    toggle_nonsolicit_desc: "Interdit de solliciter ou d'embaucher les employés, prestataires ou clients de l'autre partie.",
+    toggle_arbitration_label: "Arbitrage au lieu des Tribunaux",
+    toggle_arbitration_desc: "Remplace la clause standard des tribunaux ordinaires par un arbitrage commercial contraignant.",
+    clause_noncompete_title: "NON-CONCURRENCE",
+    clause_noncompete_body: "Pendant la durée du présent Accord et pendant une période de {duration} suivant sa résiliation, {roleB} s'engage à ne pas développer, exploiter, investir dans, ni participer directement ou indirectement à toute activité, projet ou entreprise concurrençant directement l'objet décrit dans la Première Clause, sans le consentement préalable et écrit de {roleA}.",
+    clause_nonsolicit_title: "NON-DÉBAUCHAGE DE PERSONNEL ET DE CLIENTS",
+    clause_nonsolicit_body: "Pendant la durée du présent Accord et pendant une période de {duration} suivant sa résiliation, {roleB} s'engage à ne pas solliciter, embaucher ou débaucher, directement ou indirectement, les employés, prestataires ou clients de {roleA} ayant été impliqués dans l'objet du présent Accord, sans le consentement préalable et écrit de {roleA}.",
+    clause_arbitration_title: "RÈGLEMENT DES DIFFÉRENDS - ARBITRAGE",
+    clause_arbitration_body: "Tout différend découlant de l'interprétation ou de l'exécution du présent document sera résolu de manière définitive par voie d'arbitrage commercial contraignant, avec siège à {jurisdiction}, les Parties renonçant expressément à recourir aux tribunaux ordinaires, sauf pour l'exécution de la sentence arbitrale rendue.",
+    custom_clause_add_btn: "+ Ajouter une clause personnalisée",
+    custom_clause_title_label: "Titre de la clause",
+    custom_clause_title_placeholder: "Ex. Propriété Intellectuelle",
+    custom_clause_body_label: "Contenu de la clause",
+    custom_clause_body_placeholder: "Rédigez le texte complet de la clause...",
+    custom_clause_remove_btn: "Supprimer",
+    custom_clause_empty_hint: "Vous n'avez pas encore ajouté de clause personnalisée.",
+
+    // --- Integrity seal (SHA-256 + QR) ---
+    doc_hash_label: "Hachage de Vérification",
+    doc_timestamp_label: "Horodatage numérique",
+    doc_integrity_hint: "Ce sceau permet de vérifier que le contenu n'a pas été modifié depuis sa génération.",
+
+    // --- Watermark ---
+    watermark_label: "Filigrane",
+    watermark_none: "Sans Filigrane",
+    watermark_draft: "BROUILLON",
+    watermark_confidential: "CONFIDENTIEL",
+    watermark_review: "COPIE DE RÉVISION",
+
+    // --- Share pre-filled link ---
+    btn_share_link: "Partager avec la contrepartie",
+    share_modal_title: "Partager le formulaire",
+    share_modal_desc: "Partagez ce lien avec l'autre partie. Il s'ouvrira avec les informations de votre entreprise déjà renseignées ; elle n'aura plus qu'à compléter les siennes.",
+    share_copy_btn: "Copier le Lien",
+    share_copied_msg: "Lien copié dans le presse-papiers !",
+    share_prefill_notice: "Nous avons rempli les informations de la contrepartie. Veuillez compléter vos informations en tant que Partie Réceptrice.",
+
+    // --- Penalty clause calculator ---
+    penalty_calc_title: "Calculateur de Clause Pénale",
+    penalty_calc_desc: "Estimez un montant et une formulation pour la clause d'indemnisation en cas de manquement, selon la valeur de votre information ou projet. Ce n'est qu'une suggestion indicative, pas un conseil juridique.",
+    penalty_value_label: "Valeur estimée du projet / de l'information",
+    penalty_currency_label: "Devise",
+    penalty_calc_btn: "Calculer la suggestion",
+    penalty_result_intro: "Suggestion indicative :",
+    penalty_result_text: "En cas de manquement, une pénalité d'environ {amount} {currency} est suggérée (équivalente à 15 % de la valeur déclarée), sans préjudice d'autres dommages démontrables.",
+    penalty_insert_btn: "Insérer dans le contrat",
+    penalty_inserted_msg: "Clause de pénalité ajoutée à vos clauses personnalisées.",
+    penalty_clause_title: "INDEMNISATION EN CAS DE MANQUEMENT",
+
+    // --- Pre-download checklist ---
+    checklist_title: "Vérification Rapide Avant Téléchargement",
+    checklist_item1: "J'ai vérifié l'identité des deux parties",
+    checklist_item2: "Le périmètre et l'objet sont clairement délimités",
+    checklist_item3: "Il existe un accord mutuel sur la juridiction applicable",
+    checklist_hint: "Cochez les 3 cases pour activer le téléchargement.",
+
     step1_label: "Parties",
     step2_label: "Objet",
     step3_label: "Durée",
@@ -981,6 +1233,69 @@ const I18N = {
     tpl_mutual_short: "Взаимный",
     tpl_b2b_short: "B2B",
     btn_view_document: "Смотреть документ",
+
+    // --- Optional / additional clauses ---
+    optional_clauses_title: "Дополнительные / Опциональные пункты",
+    optional_clauses_hint: "Включите пункты, которые хотите добавить. Они будут автоматически добавлены в документ с правильной нумерацией.",
+    toggle_noncompete_label: "Отказ от конкуренции",
+    toggle_noncompete_desc: "Запрещает принимающей стороне вести напрямую конкурирующий бизнес в течение срока действия соглашения.",
+    toggle_nonsolicit_label: "Запрет переманивания",
+    toggle_nonsolicit_desc: "Запрещает переманивать или нанимать сотрудников, подрядчиков или клиентов другой стороны.",
+    toggle_arbitration_label: "Арбитраж вместо судов",
+    toggle_arbitration_desc: "Заменяет стандартный пункт об обычных судах на обязательный коммерческий арбитраж.",
+    clause_noncompete_title: "ОТКАЗ ОТ КОНКУРЕНЦИИ",
+    clause_noncompete_body: "В течение срока действия настоящего Соглашения и в течение {duration} после его прекращения {roleB} обязуется не развивать, не эксплуатировать, не инвестировать и не участвовать прямо или косвенно в каком-либо бизнесе, проекте или деятельности, напрямую конкурирующей с предметом, описанным в Первом пункте, без предварительного письменного согласия {roleA}.",
+    clause_nonsolicit_title: "ЗАПРЕТ ПЕРЕМАНИВАНИЯ ПЕРСОНАЛА И КЛИЕНТОВ",
+    clause_nonsolicit_body: "В течение срока действия настоящего Соглашения и в течение {duration} после его прекращения {roleB} обязуется не переманивать, не нанимать и не привлекать прямо или косвенно сотрудников, подрядчиков или клиентов {roleA}, имевших отношение к предмету настоящего Соглашения, без предварительного письменного согласия {roleA}.",
+    clause_arbitration_title: "РАЗРЕШЕНИЕ СПОРОВ - АРБИТРАЖ",
+    clause_arbitration_body: "Любой спор, возникающий из толкования или исполнения настоящего документа, будет окончательно разрешён путём обязательного коммерческого арбитража с местом проведения в {jurisdiction}, при этом Стороны прямо отказываются от обращения в обычные суды, за исключением случаев приведения в исполнение вынесенного арбитражного решения.",
+    custom_clause_add_btn: "+ Добавить свой пункт",
+    custom_clause_title_label: "Название пункта",
+    custom_clause_title_placeholder: "Напр., Интеллектуальная собственность",
+    custom_clause_body_label: "Содержание пункта",
+    custom_clause_body_placeholder: "Введите полный текст пункта...",
+    custom_clause_remove_btn: "Удалить",
+    custom_clause_empty_hint: "Вы ещё не добавили пользовательские пункты.",
+
+    // --- Integrity seal (SHA-256 + QR) ---
+    doc_hash_label: "Хеш проверки",
+    doc_timestamp_label: "Цифровая отметка времени",
+    doc_integrity_hint: "Эта печать позволяет убедиться, что содержимое не было изменено после создания.",
+
+    // --- Watermark ---
+    watermark_label: "Водяной знак",
+    watermark_none: "Без водяного знака",
+    watermark_draft: "ЧЕРНОВИК",
+    watermark_confidential: "КОНФИДЕНЦИАЛЬНО",
+    watermark_review: "КОПИЯ НА ПРОВЕРКЕ",
+
+    // --- Share pre-filled link ---
+    btn_share_link: "Поделиться с контрагентом",
+    share_modal_title: "Поделиться формой",
+    share_modal_desc: "Поделитесь этой ссылкой с другой стороной. Она откроется с уже заполненными данными вашей компании; им останется заполнить только свои.",
+    share_copy_btn: "Скопировать ссылку",
+    share_copied_msg: "Ссылка скопирована в буфер обмена!",
+    share_prefill_notice: "Мы заполнили данные контрагента. Пожалуйста, заполните свою информацию как Принимающая сторона.",
+
+    // --- Penalty clause calculator ---
+    penalty_calc_title: "Калькулятор штрафной неустойки",
+    penalty_calc_desc: "Оцените сумму и формулировку для пункта о возмещении убытков за нарушение, исходя из стоимости вашей информации или проекта. Это лишь ориентировочное предложение, а не юридическая консультация.",
+    penalty_value_label: "Оценочная стоимость проекта / информации",
+    penalty_currency_label: "Валюта",
+    penalty_calc_btn: "Рассчитать предложение",
+    penalty_result_intro: "Ориентировочное предложение:",
+    penalty_result_text: "В случае нарушения предлагается штраф в размере примерно {amount} {currency} (эквивалент 15% от заявленной стоимости), без ущерба для других доказуемых убытков.",
+    penalty_insert_btn: "Вставить в договор",
+    penalty_inserted_msg: "Штрафной пункт добавлен в ваши пользовательские пункты.",
+    penalty_clause_title: "ВОЗМЕЩЕНИЕ УБЫТКОВ ЗА НАРУШЕНИЕ",
+
+    // --- Pre-download checklist ---
+    checklist_title: "Быстрая проверка перед скачиванием",
+    checklist_item1: "Я проверил(а) личность обеих сторон",
+    checklist_item2: "Объём и предмет чётко определены",
+    checklist_item3: "Существует взаимное согласие относительно применимой юрисдикции",
+    checklist_hint: "Отметьте все 3 пункта, чтобы разрешить скачивание.",
+
     step1_label: "Стороны",
     step2_label: "Предмет",
     step3_label: "Срок",
@@ -1210,6 +1525,69 @@ const I18N = {
     tpl_mutual_short: "双向",
     tpl_b2b_short: "B2B",
     btn_view_document: "查看文档",
+
+    // --- Optional / additional clauses ---
+    optional_clauses_title: "附加/可选条款",
+    optional_clauses_hint: "启用您想要包含的条款，它们将自动以正确的编号添加到文档中。",
+    toggle_noncompete_label: "禁止竞业",
+    toggle_noncompete_desc: "禁止接收方在协议有效期内经营直接竞争性业务。",
+    toggle_nonsolicit_label: "禁止招揽",
+    toggle_nonsolicit_desc: "禁止招揽或聘用对方的员工、承包商或客户。",
+    toggle_arbitration_label: "以仲裁代替法院",
+    toggle_arbitration_desc: "以具有约束力的商业仲裁取代标准的普通法院条款。",
+    clause_noncompete_title: "禁止竞业",
+    clause_noncompete_body: "在本协议有效期内及终止后的{duration}内，未经{roleA}事先书面同意，{roleB}承诺不开发、经营、投资或以直接或间接方式参与与第一条所述事项直接竞争的任何业务、项目或活动。",
+    clause_nonsolicit_title: "禁止招揽人员及客户",
+    clause_nonsolicit_body: "在本协议有效期内及终止后的{duration}内，未经{roleA}事先书面同意，{roleB}承诺不直接或间接招揽、聘用与本协议事项相关的{roleA}的员工、承包商或客户。",
+    clause_arbitration_title: "争议解决 - 仲裁",
+    clause_arbitration_body: "因本文件的解释或履行而产生的任何争议，均应通过具有约束力的商业仲裁最终解决，仲裁地为{jurisdiction}，双方明确放弃诉诸普通法院的权利，但执行所作出的仲裁裁决除外。",
+    custom_clause_add_btn: "+ 添加自定义条款",
+    custom_clause_title_label: "条款标题",
+    custom_clause_title_placeholder: "例如：知识产权",
+    custom_clause_body_label: "条款内容",
+    custom_clause_body_placeholder: "请输入条款的完整文本...",
+    custom_clause_remove_btn: "删除",
+    custom_clause_empty_hint: "您尚未添加任何自定义条款。",
+
+    // --- Integrity seal (SHA-256 + QR) ---
+    doc_hash_label: "验证哈希值",
+    doc_timestamp_label: "数字时间戳",
+    doc_integrity_hint: "此印章可用于验证内容自生成以来是否被篡改。",
+
+    // --- Watermark ---
+    watermark_label: "水印",
+    watermark_none: "无水印",
+    watermark_draft: "草稿",
+    watermark_confidential: "保密",
+    watermark_review: "审阅副本",
+
+    // --- Share pre-filled link ---
+    btn_share_link: "与对方共享",
+    share_modal_title: "共享表单",
+    share_modal_desc: "将此链接分享给对方。打开后将自动填充您公司的信息；对方只需填写他们自己的信息。",
+    share_copy_btn: "复制链接",
+    share_copied_msg: "链接已复制到剪贴板！",
+    share_prefill_notice: "我们已填写对方的信息。请以接收方身份填写您的信息。",
+
+    // --- Penalty clause calculator ---
+    penalty_calc_title: "违约金计算器",
+    penalty_calc_desc: "根据您的信息或项目的价值，估算违约赔偿条款的金额和措辞建议。这仅是参考性建议，不构成法律意见。",
+    penalty_value_label: "项目/信息的估计价值",
+    penalty_currency_label: "货币",
+    penalty_calc_btn: "计算建议",
+    penalty_result_intro: "参考建议：",
+    penalty_result_text: "如发生违约，建议赔偿金约为{amount} {currency}（相当于申报价值的15%），但不影响其他可证明的损害赔偿。",
+    penalty_insert_btn: "插入合同",
+    penalty_inserted_msg: "违约金条款已添加到您的自定义条款中。",
+    penalty_clause_title: "违约赔偿",
+
+    // --- Pre-download checklist ---
+    checklist_title: "下载前快速检查",
+    checklist_item1: "我已核实双方的身份",
+    checklist_item2: "范围和目的已明确界定",
+    checklist_item3: "双方就适用管辖权达成一致",
+    checklist_hint: "勾选全部3项以启用下载。",
+
     step1_label: "各方信息",
     step2_label: "目的",
     step3_label: "期限",
@@ -1439,6 +1817,69 @@ const I18N = {
     tpl_mutual_short: "双務型",
     tpl_b2b_short: "B2B",
     btn_view_document: "書類を見る",
+
+    // --- Optional / additional clauses ---
+    optional_clauses_title: "追加・任意条項",
+    optional_clauses_hint: "含めたい条項を有効にしてください。正しい番号で文書に自動的に追加されます。",
+    toggle_noncompete_label: "競業避止",
+    toggle_noncompete_desc: "契約期間中、受領当事者が直接競合する事業を行うことを防止します。",
+    toggle_nonsolicit_label: "引き抜き禁止",
+    toggle_nonsolicit_desc: "相手方の従業員、業務委託先、または顧客を勧誘・雇用することを禁止します。",
+    toggle_arbitration_label: "裁判所の代わりに仲裁",
+    toggle_arbitration_desc: "通常裁判所に関する標準条項を、拘束力のある商事仲裁に置き換えます。",
+    clause_noncompete_title: "競業避止",
+    clause_noncompete_body: "本契約の有効期間中及び終了後{duration}の間、{roleB}は、{roleA}の事前の書面による同意なく、第一条に記載された事項と直接競合する事業、プロジェクト、または活動を、開発、運営、投資、または直接的もしくは間接的に関与しないことに同意する。",
+    clause_nonsolicit_title: "人材及び顧客の引き抜き禁止",
+    clause_nonsolicit_body: "本契約の有効期間中及び終了後{duration}の間、{roleB}は、{roleA}の事前の書面による同意なく、本契約の対象事項に関与した{roleA}の従業員、業務委託先、または顧客を、直接的または間接的に勧誘、雇用、その他採用しないことに同意する。",
+    clause_arbitration_title: "紛争解決 - 仲裁",
+    clause_arbitration_body: "本文書の解釈または履行から生じるいかなる紛争も、{jurisdiction}を仲裁地とする拘束力のある商事仲裁により最終的に解決されるものとし、両当事者は下される仲裁判断の執行を除き、通常裁判所への提訴を明示的に放棄する。",
+    custom_clause_add_btn: "+ カスタム条項を追加",
+    custom_clause_title_label: "条項のタイトル",
+    custom_clause_title_placeholder: "例：知的財産",
+    custom_clause_body_label: "条項の内容",
+    custom_clause_body_placeholder: "条項の全文を入力してください...",
+    custom_clause_remove_btn: "削除",
+    custom_clause_empty_hint: "まだカスタム条項を追加していません。",
+
+    // --- Integrity seal (SHA-256 + QR) ---
+    doc_hash_label: "検証ハッシュ",
+    doc_timestamp_label: "デジタルタイムスタンプ",
+    doc_integrity_hint: "このシールにより、生成後に内容が改ざんされていないことを確認できます。",
+
+    // --- Watermark ---
+    watermark_label: "透かし",
+    watermark_none: "透かしなし",
+    watermark_draft: "ドラフト",
+    watermark_confidential: "機密",
+    watermark_review: "レビュー用コピー",
+
+    // --- Share pre-filled link ---
+    btn_share_link: "相手方と共有",
+    share_modal_title: "フォームを共有",
+    share_modal_desc: "このリンクを相手方と共有してください。開くとあなたの会社の情報が入力済みの状態で表示され、相手は自分の情報を入力するだけで済みます。",
+    share_copy_btn: "リンクをコピー",
+    share_copied_msg: "リンクをクリップボードにコピーしました！",
+    share_prefill_notice: "相手方の情報を入力しました。受領当事者としてご自身の情報を入力してください。",
+
+    // --- Penalty clause calculator ---
+    penalty_calc_title: "違約金計算ツール",
+    penalty_calc_desc: "情報またはプロジェクトの価値に基づいて、契約違反時の損害賠償条項の金額と文言を見積もります。これはあくまで目安の提案であり、法的助言ではありません。",
+    penalty_value_label: "プロジェクト・情報の推定価値",
+    penalty_currency_label: "通貨",
+    penalty_calc_btn: "提案を計算",
+    penalty_result_intro: "目安の提案：",
+    penalty_result_text: "契約違反の場合、約{amount} {currency}（申告額の15%相当）の違約金が提案されます。ただし、その他の立証可能な損害賠償を妨げるものではありません。",
+    penalty_insert_btn: "契約書に挿入",
+    penalty_inserted_msg: "違約金条項がカスタム条項に追加されました。",
+    penalty_clause_title: "契約違反に対する損害賠償",
+
+    // --- Pre-download checklist ---
+    checklist_title: "ダウンロード前のクイックチェック",
+    checklist_item1: "両当事者の身元を確認しました",
+    checklist_item2: "範囲と目的が明確に定義されています",
+    checklist_item3: "適用管轄について相互に合意しています",
+    checklist_hint: "3つのボックスすべてにチェックを入れるとダウンロードが有効になります。",
+
     step1_label: "当事者",
     step2_label: "目的",
     step3_label: "期間",
@@ -1668,6 +2109,69 @@ const I18N = {
     tpl_mutual_short: "पारस्परिक",
     tpl_b2b_short: "B2B",
     btn_view_document: "दस्तावेज़ देखें",
+
+    // --- Optional / additional clauses ---
+    optional_clauses_title: "अतिरिक्त / वैकल्पिक धाराएँ",
+    optional_clauses_hint: "जिन धाराओं को आप शामिल करना चाहते हैं उन्हें सक्षम करें। वे सही क्रमांक के साथ स्वतः दस्तावेज़ में जोड़ दी जाएँगी।",
+    toggle_noncompete_label: "गैर-प्रतिस्पर्धा",
+    toggle_noncompete_desc: "समझौते की अवधि के दौरान प्राप्तकर्ता पक्ष को सीधे प्रतिस्पर्धी व्यवसाय संचालित करने से रोकता है।",
+    toggle_nonsolicit_label: "गैर-अनुनयन",
+    toggle_nonsolicit_desc: "दूसरे पक्ष के कर्मचारियों, ठेकेदारों या ग्राहकों को लुभाने या नियुक्त करने पर रोक लगाता है।",
+    toggle_arbitration_label: "न्यायालयों के बजाय मध्यस्थता",
+    toggle_arbitration_desc: "सामान्य न्यायालयों की मानक धारा को बाध्यकारी वाणिज्यिक मध्यस्थता से प्रतिस्थापित करता है।",
+    clause_noncompete_title: "गैर-प्रतिस्पर्धा",
+    clause_noncompete_body: "इस समझौते की अवधि के दौरान और इसकी समाप्ति के बाद {duration} तक, {roleB} बिना {roleA} की पूर्व लिखित सहमति के, प्रथम धारा में वर्णित विषय से सीधे प्रतिस्पर्धा करने वाले किसी भी व्यवसाय, परियोजना या गतिविधि को विकसित करने, संचालित करने, उसमें निवेश करने या प्रत्यक्ष या अप्रत्यक्ष रूप से भाग लेने से सहमत नहीं होने का वचन देता है।",
+    clause_nonsolicit_title: "कर्मचारियों और ग्राहकों के अनुनयन पर रोक",
+    clause_nonsolicit_body: "इस समझौते की अवधि के दौरान और इसकी समाप्ति के बाद {duration} तक, {roleB} बिना {roleA} की पूर्व लिखित सहमति के, इस समझौते के विषय से संबंधित {roleA} के कर्मचारियों, ठेकेदारों या ग्राहकों को प्रत्यक्ष या अप्रत्यक्ष रूप से लुभाने, नियुक्त करने या अन्यथा भर्ती करने से सहमत नहीं होने का वचन देता है।",
+    clause_arbitration_title: "विवाद समाधान - मध्यस्थता",
+    clause_arbitration_body: "इस दस्तावेज़ की व्याख्या या पालन से उत्पन्न कोई भी विवाद {jurisdiction} में स्थित बाध्यकारी वाणिज्यिक मध्यस्थता के माध्यम से अंतिम रूप से हल किया जाएगा, जिसमें पक्षकार स्पष्ट रूप से सामान्य न्यायालयों में जाने का अधिकार त्याग देते हैं, सिवाय जारी मध्यस्थता निर्णय के प्रवर्तन के।",
+    custom_clause_add_btn: "+ कस्टम धारा जोड़ें",
+    custom_clause_title_label: "धारा का शीर्षक",
+    custom_clause_title_placeholder: "उदा.: बौद्धिक संपदा",
+    custom_clause_body_label: "धारा की सामग्री",
+    custom_clause_body_placeholder: "धारा का पूरा पाठ लिखें...",
+    custom_clause_remove_btn: "हटाएँ",
+    custom_clause_empty_hint: "आपने अभी तक कोई कस्टम धारा नहीं जोड़ी है।",
+
+    // --- Integrity seal (SHA-256 + QR) ---
+    doc_hash_label: "सत्यापन हैश",
+    doc_timestamp_label: "डिजिटल टाइमस्टैंप",
+    doc_integrity_hint: "यह मुहर यह सत्यापित करने में मदद करती है कि सामग्री बनने के बाद बदली नहीं गई है।",
+
+    // --- Watermark ---
+    watermark_label: "वॉटरमार्क",
+    watermark_none: "बिना वॉटरमार्क",
+    watermark_draft: "मसौदा",
+    watermark_confidential: "गोपनीय",
+    watermark_review: "समीक्षा प्रति",
+
+    // --- Share pre-filled link ---
+    btn_share_link: "प्रतिपक्ष के साथ साझा करें",
+    share_modal_title: "फ़ॉर्म साझा करें",
+    share_modal_desc: "इस लिंक को दूसरे पक्ष के साथ साझा करें। यह आपकी कंपनी का विवरण पहले से भरा हुआ खुलेगा; उन्हें केवल अपनी जानकारी पूरी करनी होगी।",
+    share_copy_btn: "लिंक कॉपी करें",
+    share_copied_msg: "लिंक क्लिपबोर्ड पर कॉपी हो गया!",
+    share_prefill_notice: "हमने प्रतिपक्ष का विवरण भर दिया है। कृपया प्राप्तकर्ता पक्ष के रूप में अपनी जानकारी पूरी करें।",
+
+    // --- Penalty clause calculator ---
+    penalty_calc_title: "दंड धारा कैलकुलेटर",
+    penalty_calc_desc: "अपनी जानकारी या परियोजना के मूल्य के आधार पर, अनुबंध उल्लंघन क्षतिपूर्ति धारा हेतु एक राशि और शब्दावली का अनुमान लगाएँ। यह केवल एक संकेतात्मक सुझाव है, कानूनी सलाह नहीं।",
+    penalty_value_label: "परियोजना / जानकारी का अनुमानित मूल्य",
+    penalty_currency_label: "मुद्रा",
+    penalty_calc_btn: "सुझाव की गणना करें",
+    penalty_result_intro: "संकेतात्मक सुझाव:",
+    penalty_result_text: "उल्लंघन की स्थिति में, लगभग {amount} {currency} (घोषित मूल्य के 15% के बराबर) का दंड सुझाया जाता है, जो अन्य सिद्ध करने योग्य नुकसानों पर प्रतिकूल प्रभाव डाले बिना है।",
+    penalty_insert_btn: "अनुबंध में जोड़ें",
+    penalty_inserted_msg: "दंड धारा आपकी कस्टम धाराओं में जोड़ दी गई है।",
+    penalty_clause_title: "उल्लंघन हेतु क्षतिपूर्ति",
+
+    // --- Pre-download checklist ---
+    checklist_title: "डाउनलोड-पूर्व त्वरित जाँच सूची",
+    checklist_item1: "मैंने दोनों पक्षों की पहचान सत्यापित कर ली है",
+    checklist_item2: "दायरा और उद्देश्य स्पष्ट रूप से परिभाषित हैं",
+    checklist_item3: "लागू क्षेत्राधिकार पर आपसी सहमति है",
+    checklist_hint: "डाउनलोड सक्षम करने के लिए सभी 3 बॉक्स चेक करें।",
+
     step1_label: "पक्ष",
     step2_label: "उद्देश्य",
     step3_label: "अवधि",
@@ -1890,7 +2394,15 @@ const state = {
   docYear: null,
   bilingual: false,
   langSecondary: 'en',
+  optionalClauses: { nonCompete: false, nonSolicit: false, arbitration: false },
+  customClauses: [], // [{ id, title, body }]
+  watermark: 'none', // 'none' | 'draft' | 'confidential' | 'review'
+  docHash: null,
+  docHashTime: null,
+  checklist: { identity: false, scope: false, jurisdiction: false },
 };
+
+let customClauseSeq = 0;
 
 const AUTOSAVE_KEY = 'ndagen_autosave_v1';
 const TEMPLATE_KEY = 'ndagen_partyA_template_v1';
@@ -2144,8 +2656,26 @@ function resolveClauses(docType, parts, lang = state.lang) {
     title: isB2b ? tt('c6_title_b2b') : tt('c6_title_nda'),
     body: isB2b ? tt('c6_body_b2b') : tt('c6_body_nda')
   });
-  clauses.push({ title: isB2b ? tt('c7_title_b2b') : tt('c7_title'), body: tt('c7_body') });
+  if (state.optionalClauses.nonCompete) {
+    clauses.push({ title: tt('clause_noncompete_title'), body: tt('clause_noncompete_body') });
+  }
+  if (state.optionalClauses.nonSolicit) {
+    clauses.push({ title: tt('clause_nonsolicit_title'), body: tt('clause_nonsolicit_body') });
+  }
+  // Arbitration replaces the standard ordinary-courts clause entirely
+  // rather than sitting alongside it, since the two are contradictory
+  // (one submits disputes to courts, the other waives them).
+  if (state.optionalClauses.arbitration) {
+    clauses.push({ title: tt('clause_arbitration_title'), body: tt('clause_arbitration_body') });
+  } else {
+    clauses.push({ title: isB2b ? tt('c7_title_b2b') : tt('c7_title'), body: tt('c7_body') });
+  }
   clauses.push({ title: isB2b ? tt('c8_title_b2b') : tt('c8_title'), body: tt('c8_body') });
+  state.customClauses.forEach(cc => {
+    if ((cc.title || '').trim() || (cc.body || '').trim()) {
+      clauses.push({ title: cc.title || '', body: cc.body || '' });
+    }
+  });
   return clauses;
 }
 
@@ -2282,7 +2812,12 @@ function buildDocumentHtml() {
     </div>
   `;
 
+  const watermarkHtml = state.watermark !== 'none'
+    ? `<div class="doc-watermark">${escapeHtml(t('watermark_' + state.watermark))}</div>`
+    : '';
+
   return `
+    ${watermarkHtml}
     <div class="doc-letterhead">
       <div class="doc-letterhead-logo">${logoHtml}</div>
       <div class="doc-letterhead-meta">
@@ -2308,6 +2843,14 @@ function buildDocumentHtml() {
     <div class="doc-verified-badge">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
       ${escapeHtml(t('doc_verified_badge'))}
+    </div>
+
+    <div class="doc-integrity-block">
+      <div id="doc-qr-slot" class="doc-qr-slot"></div>
+      <div class="doc-integrity-text">
+        <div class="doc-integrity-line"><span data-i18n="doc_hash_label">${escapeHtml(t('doc_hash_label'))}</span>: <span id="doc-hash-value">…</span></div>
+        <div class="doc-integrity-line"><span data-i18n="doc_timestamp_label">${escapeHtml(t('doc_timestamp_label'))}</span>: <span id="doc-timestamp-value">…</span></div>
+      </div>
     </div>
   `;
 }
@@ -2364,6 +2907,7 @@ function getDocumentModel(lang = state.lang) {
 function updatePreview() {
   $('#pdf-content').innerHTML = buildDocumentHtml();
   updateCompletion();
+  scheduleIntegrityUpdate();
 }
 
 /* ---------------------------------------------------------------------
@@ -2446,6 +2990,14 @@ function buildPdfExportClone() {
   const clone = source.cloneNode(true);
   clone.classList.add('pdf-export-clone');
   clone.style.removeProperty('page-break-before');
+  // The CSS watermark is a single absolutely-positioned div meant for the
+  // one continuous on-screen preview; it would only ever land on whatever
+  // page its fixed position happens to fall on once sliced. The PDF gets
+  // its own watermark instead, drawn per-page as jsPDF vector text after
+  // pagination (see downloadPdf()) — strip this one so it doesn't also
+  // show up once, in the wrong place, underneath that.
+  const cloneWatermark = clone.querySelector('.doc-watermark');
+  if (cloneWatermark) cloneWatermark.remove();
 
   const host = document.createElement('div');
   host.id = 'pdf-export-host';
@@ -2461,8 +3013,14 @@ function buildPdfExportClone() {
   return host;
 }
 
-function downloadPdf() {
+async function downloadPdf() {
   if (!validateBeforeDownload()) return;
+
+  // Refresh the integrity seal (hash + QR) synchronously right before
+  // cloning, so the export always reflects the exact current content —
+  // not whatever the last 500ms-debounced background update happened to
+  // compute.
+  await updateIntegritySeal();
 
   const host = buildPdfExportClone();
   const clone = host.firstElementChild;
@@ -2500,6 +3058,7 @@ function downloadPdf() {
   const marginBottom = PDF_MARGIN_MM.bottom;
   const marginLeft = PDF_MARGIN_MM.left;
   const marginRight = PDF_MARGIN_MM.right;
+  const watermarkText = state.watermark !== 'none' ? tFor(footerLang, 'watermark_' + state.watermark) : null;
 
   const fontsReady = (document.fonts && document.fonts.ready) ? document.fonts.ready : Promise.resolve();
   fontsReady.then(() => html2pdf().set(opt).from(clone).toPdf().get('pdf').then(function (pdf) {
@@ -2512,6 +3071,19 @@ function downloadPdf() {
     const footerY = pageHeight - marginBottom / 2;
     for (let i = 1; i <= totalPages; i++) {
       pdf.setPage(i);
+      if (watermarkText) {
+        // Diagonal, translucent watermark repeated on every page — drawn
+        // as jsPDF vector text (not baked into the rasterized content),
+        // since the source is a single continuous flow with no per-page
+        // boundaries of its own; this is the only way to guarantee it
+        // repeats on every sliced page rather than appearing once.
+        const hasGState = typeof pdf.setGState === 'function' && typeof pdf.GState === 'function';
+        if (hasGState) { pdf.saveGraphicsState(); pdf.setGState(new pdf.GState({ opacity: 0.15 })); }
+        pdf.setFontSize(60);
+        pdf.setTextColor(203, 213, 225); // #cbd5e1
+        pdf.text(watermarkText, pageWidth / 2, pageHeight / 2, { angle: 45, align: 'center', baseline: 'middle' });
+        if (hasGState) pdf.restoreGraphicsState();
+      }
       pdf.setFontSize(7.5);
       pdf.setTextColor(148, 163, 184);
       pdf.text(footerLeft, marginLeft, footerY);
@@ -2538,6 +3110,10 @@ async function downloadDocx() {
     toast(t('docx_lib_error'));
     return;
   }
+
+  // Refresh the integrity seal (hash + QR) so the export always reflects
+  // the exact current content, not a stale debounced background update.
+  await updateIntegritySeal();
 
   const { Document, Packer, Paragraph, TextRun, AlignmentType, Table, TableRow, TableCell, ImageRun, WidthType, BorderStyle, TableLayoutType } = window.docx;
   const model = getDocumentModel(state.lang);
@@ -2695,6 +3271,28 @@ async function downloadDocx() {
       ] })],
     }));
 
+    // Integrity seal: QR code + SHA-256 hash + digital timestamp,
+    // matching the same block shown in the live preview and PDF footer.
+    if (state.qrDataUrl) {
+      children.push(new Paragraph({
+        alignment: AlignmentType.CENTER,
+        spacing: { before: 300 },
+        children: [new ImageRun({ type: 'png', data: dataUrlToUint8Array(state.qrDataUrl), transformation: { width: 60, height: 60 } })],
+      }));
+    }
+    children.push(new Paragraph({
+      alignment: AlignmentType.CENTER,
+      spacing: { before: 100 },
+      children: [new TextRun({ text: `${tFor(state.lang, 'doc_hash_label')}: ${shortHash(state.docHash)}`, size: 16, color: '888888' })],
+    }));
+    children.push(new Paragraph({
+      alignment: AlignmentType.CENTER,
+      children: [new TextRun({
+        text: `${tFor(state.lang, 'doc_timestamp_label')}: ${state.docHashTime ? state.docHashTime.toLocaleString(state.lang) : ''}`,
+        size: 16, color: '888888'
+      })],
+    }));
+
     const doc = new Document({
       sections: [{
         properties: { page: { margin: { top: 1000, bottom: 1000, left: 1200, right: 1200 } } },
@@ -2738,9 +3336,14 @@ function clearForm() {
   state.signatures = { A: null, B: null };
   state.docCode = null;
   state.docYear = null;
+  state.optionalClauses = { nonCompete: false, nonSolicit: false, arbitration: false };
+  state.customClauses = [];
+  state.watermark = 'none';
   $all('.field-input').forEach(el => el.classList.remove('field-error'));
   renderLogo();
   renderSignatureSlots();
+  renderCustomClausesList();
+  updateChecklistGate();
   goToStep(1);
   updatePreview();
   try { localStorage.removeItem(AUTOSAVE_KEY); } catch (e) {}
@@ -3044,6 +3647,9 @@ function autosave() {
         docYear: state.docYear,
         bilingual: state.bilingual,
         langSecondary: state.langSecondary,
+        optionalClauses: state.optionalClauses,
+        customClauses: state.customClauses,
+        watermark: state.watermark,
       }));
     } catch (e) { /* storage full or unavailable */ }
   }, 400);
@@ -3062,6 +3668,13 @@ function loadAutosave() {
     state.docYear = data.docYear || null;
     state.bilingual = !!data.bilingual;
     state.langSecondary = data.langSecondary || 'en';
+    state.optionalClauses = Object.assign({ nonCompete: false, nonSolicit: false, arbitration: false }, data.optionalClauses || {});
+    state.customClauses = Array.isArray(data.customClauses) ? data.customClauses : [];
+    customClauseSeq = state.customClauses.reduce((max, cc) => {
+      const n = parseInt(String(cc.id).replace('cc', ''), 10);
+      return Number.isFinite(n) && n > max ? n : max;
+    }, 0);
+    state.watermark = data.watermark || 'none';
   } catch (e) { /* ignore corrupt data */ }
 }
 
@@ -3267,6 +3880,274 @@ function initDonationModal() {
 }
 
 /* ---------------------------------------------------------------------
+   13c) OPTIONAL & CUSTOM CLAUSES
+   --------------------------------------------------------------------- */
+function renderCustomClausesList() {
+  const container = $('#custom-clauses-list');
+  if (!container) return;
+  if (state.customClauses.length === 0) {
+    container.innerHTML = `<p class="custom-clause-empty" data-i18n="custom_clause_empty_hint">${escapeHtml(t('custom_clause_empty_hint'))}</p>`;
+    return;
+  }
+  container.innerHTML = state.customClauses.map(cc => `
+    <div class="custom-clause-item">
+      <div class="custom-clause-item-row">
+        <input type="text" class="field-input custom-clause-title-input" data-clause-id="${cc.id}" value="${escapeHtml(cc.title)}" placeholder="${escapeHtml(t('custom_clause_title_placeholder'))}">
+        <button type="button" class="btn-ghost btn-sm custom-clause-remove" data-clause-id="${cc.id}">
+          <span>${escapeHtml(t('custom_clause_remove_btn'))}</span>
+        </button>
+      </div>
+      <textarea class="field-input custom-clause-body-input mt-2" data-clause-id="${cc.id}" rows="3" placeholder="${escapeHtml(t('custom_clause_body_placeholder'))}">${escapeHtml(cc.body)}</textarea>
+    </div>
+  `).join('');
+
+  $all('.custom-clause-title-input', container).forEach(el => {
+    el.addEventListener('input', () => {
+      const cc = state.customClauses.find(c => c.id === el.dataset.clauseId);
+      if (cc) { cc.title = el.value; updatePreview(); autosave(); }
+    });
+  });
+  $all('.custom-clause-body-input', container).forEach(el => {
+    el.addEventListener('input', () => {
+      const cc = state.customClauses.find(c => c.id === el.dataset.clauseId);
+      if (cc) { cc.body = el.value; updatePreview(); autosave(); }
+    });
+  });
+  $all('.custom-clause-remove', container).forEach(btn => {
+    btn.addEventListener('click', () => {
+      state.customClauses = state.customClauses.filter(c => c.id !== btn.dataset.clauseId);
+      renderCustomClausesList();
+      updatePreview();
+      autosave();
+    });
+  });
+}
+
+function addCustomClause() {
+  customClauseSeq++;
+  state.customClauses.push({ id: 'cc' + customClauseSeq, title: '', body: '' });
+  renderCustomClausesList();
+  autosave();
+}
+
+function initOptionalClauses() {
+  renderCustomClausesList();
+  $('#toggle-noncompete').addEventListener('change', (e) => {
+    state.optionalClauses.nonCompete = e.target.checked;
+    updatePreview(); autosave();
+  });
+  $('#toggle-nonsolicit').addEventListener('change', (e) => {
+    state.optionalClauses.nonSolicit = e.target.checked;
+    updatePreview(); autosave();
+  });
+  $('#toggle-arbitration').addEventListener('change', (e) => {
+    state.optionalClauses.arbitration = e.target.checked;
+    updatePreview(); autosave();
+  });
+  $('#btn-add-custom-clause').addEventListener('click', addCustomClause);
+}
+
+/* ---------------------------------------------------------------------
+   13d) PENALTY CLAUSE CALCULATOR
+   --------------------------------------------------------------------- */
+function calcPenaltySuggestion() {
+  const value = parseFloat($('#penalty-value').value);
+  const currency = $('#penalty-currency').value;
+  const resultBox = $('#penalty-result');
+  const resultText = $('#penalty-result-text');
+  if (!value || value <= 0) {
+    toast(t('validation_missing'));
+    return;
+  }
+  const suggested = Math.round(value * 0.15);
+  let formattedAmount;
+  try { formattedAmount = suggested.toLocaleString(state.lang); }
+  catch (e) { formattedAmount = String(suggested); }
+  resultText.textContent = t('penalty_result_text')
+    .replace('{amount}', formattedAmount)
+    .replace('{currency}', currency);
+  resultBox.classList.remove('hidden');
+}
+
+function insertPenaltyClause() {
+  const text = $('#penalty-result-text').textContent;
+  if (!text) return;
+  customClauseSeq++;
+  state.customClauses.push({ id: 'cc' + customClauseSeq, title: t('penalty_clause_title'), body: text });
+  renderCustomClausesList();
+  updatePreview();
+  autosave();
+  toast(t('penalty_inserted_msg'));
+}
+
+function initPenaltyCalculator() {
+  const toggleBtn = $('#btn-penalty-toggle');
+  const body = $('#penalty-calc-body');
+  toggleBtn.addEventListener('click', () => {
+    const isOpen = toggleBtn.getAttribute('aria-expanded') === 'true';
+    toggleBtn.setAttribute('aria-expanded', String(!isOpen));
+    body.style.maxHeight = isOpen ? '0px' : body.scrollHeight + 'px';
+  });
+  $('#btn-penalty-calc').addEventListener('click', calcPenaltySuggestion);
+  $('#btn-penalty-insert').addEventListener('click', insertPenaltyClause);
+}
+
+/* ---------------------------------------------------------------------
+   13e) PRE-DOWNLOAD CHECKLIST
+   --------------------------------------------------------------------- */
+function updateChecklistGate() {
+  const allChecked = $('#check-identity').checked && $('#check-scope').checked && $('#check-jurisdiction').checked;
+  $('#btn-pdf').disabled = !allChecked;
+  $('#btn-docx').disabled = !allChecked;
+}
+
+function initChecklist() {
+  ['check-identity', 'check-scope', 'check-jurisdiction'].forEach(id => {
+    $('#' + id).addEventListener('change', updateChecklistGate);
+  });
+}
+
+/* ---------------------------------------------------------------------
+   13f) WATERMARK
+   --------------------------------------------------------------------- */
+function initWatermarkSelector() {
+  $('#watermark-select').addEventListener('change', (e) => {
+    state.watermark = e.target.value;
+    updatePreview();
+    autosave();
+  });
+}
+
+/* ---------------------------------------------------------------------
+   13g) INTEGRITY SEAL: SHA-256 HASH + QR CODE
+   --------------------------------------------------------------------- */
+async function computeDocHash() {
+  const model = getDocumentModel(state.lang);
+  const raw = JSON.stringify({
+    title: model.title,
+    nameA: model.nameA, nameB: model.nameB,
+    date: model.dateLine,
+    clauseTitles: model.clauses.map(c => c.title),
+    sigA: !!state.signatures.A, sigB: !!state.signatures.B,
+    optional: state.optionalClauses,
+  });
+  const enc = new TextEncoder().encode(raw);
+  const digestBuffer = await crypto.subtle.digest('SHA-256', enc);
+  return Array.from(new Uint8Array(digestBuffer)).map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
+function shortHash(hash) {
+  return hash ? `${hash.slice(0, 8)}…${hash.slice(-4)}` : '';
+}
+
+function renderQrIntoSlot(text) {
+  const slot = $('#doc-qr-slot');
+  if (!slot || typeof QRCode === 'undefined') return;
+  const tempHost = document.createElement('div');
+  new QRCode(tempHost, { text, width: 64, height: 64, colorDark: '#1e293b', colorLight: '#ffffff' });
+  // QRCode.js renders into a <canvas>. cloneNode() does NOT copy a
+  // canvas's rendered pixels (only its DOM attributes), so leaving a
+  // live <canvas> in #pdf-content would export as a blank square in the
+  // PDF — read it back out as a data-URL <img> immediately, which DOES
+  // clone/rasterize correctly.
+  const canvas = tempHost.querySelector('canvas');
+  const dataUrl = canvas ? canvas.toDataURL('image/png') : null;
+  state.qrDataUrl = dataUrl;
+  slot.innerHTML = dataUrl ? `<img src="${dataUrl}" class="doc-qr-img" alt="QR">` : '';
+}
+
+let integrityTimeout;
+function scheduleIntegrityUpdate() {
+  clearTimeout(integrityTimeout);
+  integrityTimeout = setTimeout(updateIntegritySeal, 500);
+}
+
+async function updateIntegritySeal() {
+  const hash = await computeDocHash();
+  state.docHash = hash;
+  state.docHashTime = new Date();
+  const hashEl = $('#doc-hash-value');
+  const tsEl = $('#doc-timestamp-value');
+  if (hashEl) hashEl.textContent = shortHash(hash);
+  if (tsEl) { try { tsEl.textContent = state.docHashTime.toLocaleString(state.lang); } catch (e) { tsEl.textContent = state.docHashTime.toISOString(); } }
+  renderQrIntoSlot(`NDAgen-Verify:${hash}`);
+  return hash;
+}
+
+/* ---------------------------------------------------------------------
+   13h) SHARE PRE-FILLED FORM VIA URL
+   --------------------------------------------------------------------- */
+function encodeShareData(fields) {
+  const json = JSON.stringify(fields);
+  const base64 = btoa(unescape(encodeURIComponent(json)));
+  return base64.replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+}
+
+function decodeShareData(encoded) {
+  try {
+    let base64 = encoded.replace(/-/g, '+').replace(/_/g, '/');
+    while (base64.length % 4) base64 += '=';
+    return JSON.parse(decodeURIComponent(escape(atob(base64))));
+  } catch (e) {
+    return null;
+  }
+}
+
+function openShareModal() {
+  const fields = {
+    n: $('#partyA_name').value,
+    i: $('#partyA_id').value,
+    a: $('#partyA_address').value,
+  };
+  const encoded = encodeShareData(fields);
+  const url = `${location.origin}${location.pathname}?share=${encoded}`;
+  $('#share-link-output').value = url;
+  $('#share-modal').classList.remove('hidden');
+}
+
+function closeShareModal() {
+  $('#share-modal').classList.add('hidden');
+}
+
+function copyShareLink() {
+  const input = $('#share-link-output');
+  input.select();
+  const done = () => toast(t('share_copied_msg'));
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(input.value).then(done).catch(() => { document.execCommand('copy'); done(); });
+  } else {
+    document.execCommand('copy');
+    done();
+  }
+}
+
+function initShareLink() {
+  $('#btn-share-link').addEventListener('click', openShareModal);
+  $('#share-modal-close').addEventListener('click', closeShareModal);
+  $('#btn-share-close').addEventListener('click', closeShareModal);
+  $('#btn-share-copy').addEventListener('click', copyShareLink);
+  $('#share-modal').addEventListener('click', (e) => { if (e.target.id === 'share-modal') closeShareModal(); });
+}
+
+function applySharedDataFromUrl() {
+  const params = new URLSearchParams(location.search);
+  const encoded = params.get('share');
+  if (!encoded) return;
+  const fields = decodeShareData(encoded);
+  if (!fields) return;
+  if (fields.n) $('#partyA_name').value = fields.n;
+  if (fields.i) $('#partyA_id').value = fields.i;
+  if (fields.a) $('#partyA_address').value = fields.a;
+  updatePreview();
+  autosave();
+  toast(t('share_prefill_notice'));
+  setTimeout(() => { $('#partyB_name').focus(); }, 300);
+  // Strip the ?share= param so a refresh/bookmark doesn't keep
+  // re-prefilling and the encoded data isn't left in browser history.
+  history.replaceState(null, '', location.pathname);
+}
+
+/* ---------------------------------------------------------------------
    14) INIT & EVENT BINDING
    --------------------------------------------------------------------- */
 function init() {
@@ -3279,6 +4160,11 @@ function init() {
   renderLogo();
   initSignaturePad();
   renderSignatureSlots();
+  $('#toggle-noncompete').checked = state.optionalClauses.nonCompete;
+  $('#toggle-nonsolicit').checked = state.optionalClauses.nonSolicit;
+  $('#toggle-arbitration').checked = state.optionalClauses.arbitration;
+  $('#watermark-select').value = state.watermark;
+  applySharedDataFromUrl();
   goToStep(1);
   updatePreview();
 
@@ -3288,6 +4174,12 @@ function init() {
   initGuideAccordion();
   initDonationModal();
   initMobilePreview();
+  initOptionalClauses();
+  initPenaltyCalculator();
+  initChecklist();
+  initWatermarkSelector();
+  initShareLink();
+  updateChecklistGate();
 
   // Template cards
   $all('.template-card').forEach(card => {
@@ -3304,6 +4196,7 @@ function init() {
     localStorage.setItem('ndagen_lang', state.lang);
     applyI18n();
     renderSignatureSlots();
+    renderCustomClausesList();
     updatePreview();
     refreshOpenGuidePanels();
     autosave();

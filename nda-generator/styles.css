@@ -718,7 +718,8 @@ body {
 .pdf-export-clone .sign-block,
 .pdf-export-clone .sign-card,
 .pdf-export-clone .bilingual-table tr,
-.pdf-export-clone .doc-verified-badge {
+.pdf-export-clone .doc-verified-badge,
+.pdf-export-clone .doc-integrity-block {
   page-break-inside: avoid !important;
   break-inside: avoid !important;
 }
@@ -1511,3 +1512,259 @@ body {
   transform: translateY(-1px);
 }
 .preview-fab.hidden { display: none; }
+
+/* ===== Section subtitle (shared by new step-4 blocks) ===== */
+.section-subtitle {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: rgb(15 23 42);
+  margin-bottom: 0.25rem;
+}
+.dark .section-subtitle { color: white; }
+.section-subtitle-hint {
+  font-size: 0.78rem;
+  color: rgb(100 116 139);
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+}
+.dark .section-subtitle-hint { color: rgb(148 163 184); }
+
+/* ===== Optional clauses ===== */
+.optional-clauses-box {
+  border: 1.5px solid rgb(226 232 240);
+  border-radius: 0.75rem;
+  padding: 1rem 1.1rem;
+  background: rgb(248 250 252);
+}
+.dark .optional-clauses-box {
+  border-color: rgb(30 41 59);
+  background: rgb(2 6 23 / 0.3);
+}
+.optional-clause-toggle {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.6rem 0;
+  border-top: 1px solid rgb(226 232 240);
+  cursor: pointer;
+  user-select: none;
+}
+.optional-clause-toggle:first-of-type { border-top: none; }
+.dark .optional-clause-toggle { border-top-color: rgb(30 41 59); }
+.optional-clause-toggle input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.optional-clause-toggle .bilingual-switch { margin-top: 0.15rem; }
+.optional-clause-toggle input:checked + .bilingual-switch {
+  background: rgb(37 99 235);
+}
+.optional-clause-toggle input:checked + .bilingual-switch::before {
+  transform: translateX(1.05rem);
+}
+.optional-clause-toggle-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+.optional-clause-toggle-text strong {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: rgb(15 23 42);
+}
+.dark .optional-clause-toggle-text strong { color: white; }
+.optional-clause-toggle-text small {
+  font-size: 0.75rem;
+  color: rgb(100 116 139);
+  line-height: 1.4;
+}
+.dark .optional-clause-toggle-text small { color: rgb(148 163 184); }
+
+/* ===== Custom clauses ===== */
+.custom-clauses-list {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.custom-clause-empty {
+  font-size: 0.78rem;
+  color: rgb(148 163 184);
+  font-style: italic;
+  margin-top: 0.5rem;
+}
+.custom-clause-item {
+  border: 1.5px solid rgb(226 232 240);
+  border-radius: 0.6rem;
+  padding: 0.75rem;
+  background: white;
+}
+.dark .custom-clause-item {
+  border-color: rgb(30 41 59);
+  background: rgb(15 23 42);
+}
+.custom-clause-item-row {
+  display: flex;
+  gap: 0.5rem;
+}
+.custom-clause-item-row .field-input { flex: 1; }
+.custom-clause-body-input {
+  resize: vertical;
+  min-height: 4.5rem;
+}
+
+/* ===== Penalty clause calculator (collapsible) ===== */
+.penalty-calc-box {
+  border: 1.5px solid rgb(226 232 240);
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+.dark .penalty-calc-box { border-color: rgb(30 41 59); }
+.penalty-calc-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.75rem 1.1rem;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: rgb(15 23 42);
+  background: rgb(248 250 252);
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+.dark .penalty-calc-header {
+  color: white;
+  background: rgb(2 6 23 / 0.3);
+}
+.penalty-calc-icon {
+  width: 1rem;
+  height: 1rem;
+  color: rgb(100 116 139);
+  transition: transform 0.25s ease;
+  flex-shrink: 0;
+}
+.penalty-calc-header[aria-expanded="true"] .penalty-calc-icon {
+  transform: rotate(180deg);
+}
+.penalty-calc-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+.penalty-calc-inner {
+  padding: 1rem 1.1rem;
+}
+.penalty-result {
+  margin-top: 0.9rem;
+  padding: 0.75rem 0.9rem;
+  border-radius: 0.5rem;
+  background: rgb(239 246 255);
+  font-size: 0.82rem;
+}
+.dark .penalty-result { background: rgb(30 58 138 / 0.2); }
+.penalty-result p { margin: 0.4rem 0 0.6rem; color: rgb(51 65 85); line-height: 1.5; }
+.dark .penalty-result p { color: rgb(203 213 225); }
+.penalty-result.hidden { display: none; }
+
+/* ===== Pre-download checklist ===== */
+.checklist-box {
+  border: 1.5px solid rgb(226 232 240);
+  border-radius: 0.75rem;
+  padding: 1rem 1.1rem;
+  background: rgb(248 250 252);
+}
+.dark .checklist-box {
+  border-color: rgb(30 41 59);
+  background: rgb(2 6 23 / 0.3);
+}
+.checklist-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.4rem 0;
+  font-size: 0.83rem;
+  color: rgb(51 65 85);
+  cursor: pointer;
+  user-select: none;
+}
+.dark .checklist-item { color: rgb(226 232 240); }
+.checklist-item input {
+  width: 1.05rem;
+  height: 1.05rem;
+  accent-color: rgb(37 99 235);
+  flex-shrink: 0;
+  cursor: pointer;
+}
+.checklist-hint {
+  font-size: 0.72rem;
+  color: rgb(148 163 184);
+  margin-top: 0.4rem;
+  font-style: italic;
+}
+
+/* ===== Share link modal ===== */
+.share-link-row {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.share-link-row .field-input {
+  flex: 1;
+  font-size: 0.78rem;
+  font-family: monospace;
+}
+.share-link-row .btn-primary { white-space: nowrap; }
+
+/* ===== Watermark (live preview) ===== */
+.doc-page { position: relative; }
+.doc-page .doc-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  font-size: 4rem;
+  font-weight: 800;
+  color: #cbd5e1;
+  opacity: 0.15;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+  letter-spacing: 0.05em;
+}
+
+/* ===== Integrity seal (QR + hash + timestamp) ===== */
+.doc-integrity-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px dashed #e2e8f0;
+}
+.doc-qr-slot {
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.doc-qr-img {
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated;
+}
+.doc-integrity-text {
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.62rem;
+  color: #94a3b8;
+  line-height: 1.5;
+}
+.doc-integrity-line { white-space: nowrap; }
