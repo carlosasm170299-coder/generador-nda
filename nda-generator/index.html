@@ -164,9 +164,9 @@
 
     <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600 dark:text-slate-300">
       <a href="#main-tool" class="hover:text-brand-600 dark:hover:text-brand-400" data-i18n="nav_tool">Generador</a>
-      <a href="#guide" class="hover:text-brand-600 dark:hover:text-brand-400" data-i18n="nav_guide">Guía Legal</a>
-      <a href="#faq" class="hover:text-brand-600 dark:hover:text-brand-400" data-i18n="nav_faq">FAQ</a>
-      <a href="#glossary" class="hover:text-brand-600 dark:hover:text-brand-400" data-i18n="nav_glossary">Glosario</a>
+      <a href="#info-tabs" data-nav-info-tab="guide" class="hover:text-brand-600 dark:hover:text-brand-400" data-i18n="nav_guide">Guía Legal</a>
+      <a href="#info-tabs" data-nav-info-tab="faq" class="hover:text-brand-600 dark:hover:text-brand-400" data-i18n="nav_faq">FAQ</a>
+      <a href="#info-tabs" data-nav-info-tab="glossary" class="hover:text-brand-600 dark:hover:text-brand-400" data-i18n="nav_glossary">Glosario</a>
     </nav>
 
     <div class="flex items-center gap-1.5 sm:gap-2 shrink-0">
@@ -205,123 +205,85 @@
   </div>
 </div>
 
-<!-- ============ HERO ============ -->
-<section class="max-w-7xl mx-auto px-4 sm:px-6 pt-6 pb-4 sm:pt-10 sm:pb-6 text-center">
-  <span class="inline-block text-xs font-bold tracking-wide uppercase text-brand-700 dark:text-brand-400 bg-brand-50 dark:bg-brand-900/30 px-3 py-1 rounded-full mb-3 sm:mb-4" data-i18n="hero_badge">100% Gratis · Sin registro · Descarga instantánea</span>
-  <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight max-w-4xl mx-auto" data-i18n="hero_title">Generador de Acuerdos de Confidencialidad (NDA) y Contratos B2B</h1>
-  <p class="mt-2 sm:mt-4 text-sm sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto" data-i18n="hero_subtitle">Crea, previsualiza y descarga en PDF tu NDA o contrato de servicios profesional en menos de 3 minutos.</p>
+<!-- ============ HERO (compact) ============ -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 py-3 text-center">
+  <span class="inline-block text-xs font-bold tracking-wide uppercase text-brand-700 dark:text-brand-400 bg-brand-50 dark:bg-brand-900/30 px-3 py-1 rounded-full my-2" data-i18n="hero_badge">100% Gratis · Sin registro · Descarga instantánea</span>
+  <h1 class="text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight max-w-4xl mx-auto my-2" data-i18n="hero_title">Generador de Acuerdos de Confidencialidad (NDA) y Contratos B2B</h1>
+  <p class="text-sm text-slate-600 dark:text-slate-400 max-w-2xl mx-auto my-2" data-i18n="hero_subtitle">Crea, previsualiza y descarga en PDF tu NDA o contrato de servicios profesional en menos de 3 minutos.</p>
 </section>
 
 <!-- ============ MAIN TOOL ============ -->
 <main id="main-tool" class="max-w-7xl mx-auto px-4 sm:px-6 pb-16">
 
-  <!-- Template selector: full-width, above the two-column workspace so it
-       always gets the whole main-content width to breathe, regardless of
-       how the form/preview columns below it split. Compact tab bar on
-       mobile, a 2x2 -> 1x4 card grid from sm up. -->
-  <div class="mb-6">
-    <div class="template-tabs sm:hidden" role="tablist">
-      <button type="button" class="template-tab" data-template="nda_unilateral">
-        <span class="template-tab-icon" aria-hidden="true">📄</span>
-        <span data-i18n="tpl_unilateral_short">Unilateral</span>
-      </button>
-      <button type="button" class="template-tab" data-template="nda_mutual">
-        <span class="template-tab-icon" aria-hidden="true">🤝</span>
-        <span data-i18n="tpl_mutual_short">Bilateral</span>
-      </button>
-      <button type="button" class="template-tab" data-template="b2b_services">
-        <span class="template-tab-icon" aria-hidden="true">🧾</span>
-        <span data-i18n="tpl_b2b_short">B2B</span>
-      </button>
-      <button type="button" class="template-tab" data-template="privacy_policy">
-        <span class="template-tab-icon" aria-hidden="true">🔐</span>
-        <span data-i18n="tpl_privacy_short">Privacidad</span>
-      </button>
-    </div>
-    <div class="hidden sm:grid grid-cols-2 md:grid-cols-4 gap-3">
-      <button class="template-card" data-template="nda_unilateral">
-        <span class="template-card-check" aria-hidden="true">✓</span>
-        <span class="text-2xl">📄</span>
-        <span class="font-bold block mt-2 text-balance" data-i18n="tpl_unilateral_title">NDA Unilateral</span>
-        <span class="text-xs text-slate-500 dark:text-slate-400 block mt-1 break-words" data-i18n="tpl_unilateral_desc">Una parte revela información, la otra la protege.</span>
-      </button>
-      <button class="template-card" data-template="nda_mutual">
-        <span class="template-card-check" aria-hidden="true">✓</span>
-        <span class="text-2xl">🤝</span>
-        <span class="font-bold block mt-2 text-balance" data-i18n="tpl_mutual_title">NDA Bilateral (Mutuo)</span>
-        <span class="text-xs text-slate-500 dark:text-slate-400 block mt-1 break-words" data-i18n="tpl_mutual_desc">Ambas partes comparten y protegen información.</span>
-      </button>
-      <button class="template-card" data-template="b2b_services">
-        <span class="template-card-check" aria-hidden="true">✓</span>
-        <span class="text-2xl">🧾</span>
-        <span class="font-bold block mt-2 text-balance" data-i18n="tpl_b2b_title">Contrato B2B de Servicios</span>
-        <span class="text-xs text-slate-500 dark:text-slate-400 block mt-1 break-words" data-i18n="tpl_b2b_desc">Prestación de servicios entre empresas.</span>
-      </button>
-      <button class="template-card" data-template="privacy_policy">
-        <span class="template-card-check" aria-hidden="true">✓</span>
-        <span class="text-2xl">🔐</span>
-        <span class="font-bold block mt-2 text-balance" data-i18n="tpl_privacy_title">Política de Privacidad</span>
-        <span class="text-xs text-slate-500 dark:text-slate-400 block mt-1 break-words" data-i18n="tpl_privacy_desc">Documento de protección de datos personales.</span>
-      </button>
-    </div>
+  <!-- Template selector: a single slim tab bar (not a card grid) at every
+       breakpoint, full-width above the two-column workspace so it always
+       gets the whole main-content width. Each tab's longer description
+       lives in its native title tooltip instead of visible text, keeping
+       the bar thin per the compact-layout redesign. -->
+  <div class="template-tabs mb-4" role="tablist">
+    <button type="button" class="template-tab" data-template="nda_unilateral" data-i18n-title="tpl_unilateral_desc" title="Una parte revela información, la otra la protege.">
+      <span class="template-tab-icon" aria-hidden="true">📄</span>
+      <span data-i18n="tpl_unilateral_short">Unilateral</span>
+    </button>
+    <button type="button" class="template-tab" data-template="nda_mutual" data-i18n-title="tpl_mutual_desc" title="Ambas partes comparten y protegen información.">
+      <span class="template-tab-icon" aria-hidden="true">🤝</span>
+      <span data-i18n="tpl_mutual_short">Bilateral</span>
+    </button>
+    <button type="button" class="template-tab" data-template="b2b_services" data-i18n-title="tpl_b2b_desc" title="Prestación de servicios entre empresas.">
+      <span class="template-tab-icon" aria-hidden="true">🧾</span>
+      <span data-i18n="tpl_b2b_short">B2B</span>
+    </button>
+    <button type="button" class="template-tab" data-template="privacy_policy" data-i18n-title="tpl_privacy_desc" title="Documento de protección de datos personales.">
+      <span class="template-tab-icon" aria-hidden="true">🔐</span>
+      <span data-i18n="tpl_privacy_short">Privacidad</span>
+    </button>
   </div>
 
   <div class="flex flex-col lg:flex-row gap-6 items-start">
 
-    <!-- Core tool column: a comfortable, fixed ~42% share on desktop so
-         fields/toggles/buttons never fight the preview column for room. -->
-    <div class="w-full lg:w-[42%] min-w-0">
+   <!-- Editor + preview workspace: a 50/50 split between just these two
+        columns, kept in its own flex row so the fixed-width ad sidebar
+        (a sibling, not a third participant in this split) never dilutes
+        the "50% editor" balance the redesign calls for. -->
+   <div class="flex flex-col lg:flex-row gap-6 items-start flex-1 min-w-0">
 
-      <!-- Save/load template toolbar -->
-      <div class="flex items-center justify-between gap-3 flex-wrap mb-3">
-        <div class="flex items-center gap-2 flex-wrap">
-          <button type="button" id="btn-save-template" class="btn-ghost btn-sm">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><path d="M17 21v-8H7v8M7 3v5h8"/></svg>
-            <span data-i18n="btn_save_template">Guardar mis datos como plantilla</span>
-          </button>
-          <button type="button" id="btn-load-template" class="btn-ghost btn-sm">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-            <span data-i18n="btn_load_template">Cargar mis datos</span>
-          </button>
-          <button type="button" id="btn-share-link" class="btn-ghost btn-sm">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 3.9M15.4 6.6L8.6 10.5"/></svg>
-            <span data-i18n="btn_share_link">Compartir con la contraparte</span>
-          </button>
-        </div>
-        <span class="autosave-indicator" data-i18n="autosave_note">Tus datos se guardan automáticamente en este navegador.</span>
-      </div>
-
-      <!-- Bilingual (dual-language) mode toolbar -->
-      <div class="bilingual-toolbar">
-        <label class="bilingual-switch-label">
-          <input type="checkbox" id="bilingual-toggle">
-          <span class="bilingual-switch"></span>
-          <span data-i18n="bilingual_mode_label">Modo Bilingüe (Dual Language)</span>
-        </label>
-        <div id="bilingual-lang-picker" class="bilingual-lang-picker hidden">
-          <span class="bilingual-lang-picker-label" data-i18n="bilingual_primary_label">Idioma Principal</span>
-          <span id="bilingual-primary-readout" class="bilingual-primary-readout"></span>
-          <span class="bilingual-lang-picker-label" data-i18n="bilingual_secondary_label">Idioma Secundario</span>
-          <select id="bilingual-secondary-select" class="lang-select lang-select-sm"></select>
-        </div>
-      </div>
+    <!-- Core tool column: a balanced 50% share of the workspace. -->
+    <div class="w-full lg:w-1/2 min-w-0">
 
       <!-- Step wizard card -->
       <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-sm">
 
-        <!-- Completion progress bar -->
-        <div class="completion-bar-wrap">
-          <div class="completion-bar-track">
-            <div id="completion-fill" class="completion-bar-fill" style="width:0%"></div>
+        <!-- Compact toolbar: completion bar + icon-only utility actions
+             (save/load template, share link), each with a native title
+             tooltip instead of a full text label, to keep this row thin. -->
+        <div class="wizard-toolbar">
+          <div class="completion-bar-wrap">
+            <div class="completion-bar-track">
+              <div id="completion-fill" class="completion-bar-fill" style="width:0%"></div>
+            </div>
+            <div class="completion-bar-label">
+              <span data-i18n="completion_label">Progreso del documento</span>
+              <span id="completion-percent">0%</span>
+            </div>
           </div>
-          <div class="completion-bar-label">
-            <span data-i18n="completion_label">Progreso del documento</span>
-            <span id="completion-percent">0%</span>
+          <div class="wizard-icon-actions">
+            <button type="button" id="btn-save-template" class="icon-btn" data-i18n-title="btn_save_template" title="Guardar mis datos como plantilla">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><path d="M17 21v-8H7v8M7 3v5h8"/></svg>
+            </button>
+            <button type="button" id="btn-load-template" class="icon-btn" data-i18n-title="btn_load_template" title="Cargar mis datos">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            </button>
+            <button type="button" id="btn-share-link" class="icon-btn" data-i18n-title="btn_share_link" title="Compartir con la contraparte">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 3.9M15.4 6.6L8.6 10.5"/></svg>
+            </button>
+            <button type="button" id="btn-autosave-info" class="icon-btn" data-i18n-title="autosave_note" title="Tus datos se guardan automáticamente en este navegador.">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+            </button>
           </div>
         </div>
 
-        <!-- Steps indicator -->
-        <div class="flex items-center gap-2 px-5 sm:px-6 pt-5 overflow-x-auto">
+        <!-- Steps indicator (ultra-compact) -->
+        <div class="step-indicator flex items-center gap-2 px-5 sm:px-6 pt-2 overflow-x-auto">
           <div class="step-dot active" data-step="1">1</div>
           <div class="step-line"></div>
           <div class="step-dot" data-step="2">2</div>
@@ -330,7 +292,7 @@
           <div class="step-line"></div>
           <div class="step-dot" data-step="4">4</div>
         </div>
-        <div class="px-5 sm:px-6 pt-2 pb-4 flex justify-between text-[11px] sm:text-xs font-medium text-slate-500 dark:text-slate-400">
+        <div class="px-5 sm:px-6 pt-1 pb-2 flex justify-between text-[10px] sm:text-[11px] font-medium text-slate-500 dark:text-slate-400">
           <span data-i18n="step1_label">Partes</span>
           <span data-i18n="step2_label">Objeto</span>
           <span data-i18n="step3_label">Duración</span>
@@ -598,7 +560,40 @@
             <svg class="preview-toggle-icon lg:hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
           </span>
         </button>
-        <div id="preview-scroll" class="preview-collapsible max-h-[560px] overflow-y-auto p-1 sm:p-2">
+
+        <!-- Preview toolbar: bilingual toggle, zoom, and quick download
+             shortcuts docked to the panel so the most-used actions never
+             require scrolling back up to Step 4. -->
+        <div class="preview-toolbar">
+          <div class="bilingual-toolbar">
+            <label class="bilingual-switch-label">
+              <input type="checkbox" id="bilingual-toggle">
+              <span class="bilingual-switch"></span>
+              <span data-i18n="bilingual_mode_label">Modo Bilingüe (Dual Language)</span>
+            </label>
+            <div id="bilingual-lang-picker" class="bilingual-lang-picker hidden">
+              <span class="bilingual-lang-picker-label" data-i18n="bilingual_primary_label">Idioma Principal</span>
+              <span id="bilingual-primary-readout" class="bilingual-primary-readout"></span>
+              <span class="bilingual-lang-picker-label" data-i18n="bilingual_secondary_label">Idioma Secundario</span>
+              <select id="bilingual-secondary-select" class="lang-select lang-select-sm"></select>
+            </div>
+          </div>
+          <div class="preview-zoom-controls">
+            <button type="button" id="btn-zoom-out" class="icon-btn" data-i18n-title="zoom_out" title="Reducir zoom">−</button>
+            <span id="zoom-level-label" class="zoom-level-label">100%</span>
+            <button type="button" id="btn-zoom-in" class="icon-btn" data-i18n-title="zoom_in" title="Aumentar zoom">+</button>
+          </div>
+          <div class="preview-quick-actions">
+            <button type="button" id="btn-pdf-quick" class="icon-btn" data-i18n-title="btn_pdf" title="Descargar en PDF" disabled>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/></svg>
+            </button>
+            <button type="button" id="btn-docx-quick" class="icon-btn" data-i18n-title="btn_docx" title="Descargar en Word (.docx)" disabled>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h1.5l1 4 1-4H13l1 4 1-4h1.5"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div id="preview-scroll" class="preview-collapsible max-h-[calc(100vh-140px)] overflow-y-auto p-1 sm:p-2">
           <div id="pdf-content" class="doc-page">
             <!-- populated by JS -->
           </div>
@@ -610,6 +605,9 @@
         <span data-i18n="ad_label">Publicidad</span> · <span data-i18n="ad_native">Bloque nativo</span>
       </div>
     </div>
+
+   </div>
+   <!-- end editor + preview workspace -->
 
     <!-- ============ AD: STICKY SIDEBAR 300x600 ============ -->
     <aside class="hidden xl:block w-[300px] shrink-0">
@@ -623,216 +621,228 @@
 </main>
 
 <!-- ============ MOBILE PREVIEW FAB ============ -->
-<button type="button" id="btn-preview-fab" class="preview-fab lg:hidden" aria-label="Ver Documento">
-  <span aria-hidden="true">👁️</span>
-  <span data-i18n="btn_view_document">Ver Documento</span>
+<button type="button" id="btn-preview-fab" class="preview-fab lg:hidden" aria-label="Ver Previa">
+  <span id="preview-fab-icon" aria-hidden="true">👁️</span>
+  <span id="preview-fab-label" data-i18n="btn_view_document">Ver Previa</span>
 </button>
 
-<!-- ============ BENEFITS ============ -->
-<section id="benefits" class="max-w-7xl mx-auto px-4 sm:px-6 py-14">
-  <div class="text-center max-w-2xl mx-auto mb-10">
-    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white" data-i18n="benefits_title">¿Por qué usar DraftB2B?</h2>
-    <p class="mt-3 text-slate-600 dark:text-slate-400" data-i18n="benefits_subtitle">La forma más rápida, segura y profesional de proteger tu información confidencial.</p>
-  </div>
-  <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-    <div class="benefit-card">
-      <span class="benefit-icon" aria-hidden="true">🆓</span>
-      <h3 data-i18n="benefit_1_title">100% Gratuito y Sin Registro</h3>
-      <p data-i18n="benefit_1_desc">Genera y descarga tus documentos sin costo alguno, sin crear cuentas ni compartir tu correo electrónico.</p>
+<!-- ============ INFORMATIONAL TABS (Benefits / Guide / FAQ / Glossary) ============
+     Replaces the old vertically-stacked sections with one switchable set
+     of panels, so the page no longer stretches indefinitely below the fold. -->
+<section id="info-tabs" class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 py-10">
+    <div class="info-tab-nav" role="tablist">
+      <button type="button" class="info-tab active" data-info-tab="benefits" data-i18n="info_tab_benefits">¿Por qué DraftB2B?</button>
+      <button type="button" class="info-tab" data-info-tab="guide" data-i18n="info_tab_guide">Guía Legal</button>
+      <button type="button" class="info-tab" data-info-tab="faq" data-i18n="info_tab_faq">FAQ</button>
+      <button type="button" class="info-tab" data-info-tab="glossary" data-i18n="info_tab_glossary">Glosario</button>
     </div>
-    <div class="benefit-card">
-      <span class="benefit-icon" aria-hidden="true">🔒</span>
-      <h3 data-i18n="benefit_2_title">Privacidad Total (Client-Side)</h3>
-      <p data-i18n="benefit_2_desc">Todo el procesamiento ocurre en tu propio navegador. Tus datos nunca se envían ni se almacenan en ningún servidor.</p>
+
+    <!-- ---- Panel: Benefits ---- -->
+    <div class="info-tab-panel" data-info-panel="benefits">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div class="benefit-card">
+          <span class="benefit-icon" aria-hidden="true">🆓</span>
+          <h3 data-i18n="benefit_1_title">100% Gratuito y Sin Registro</h3>
+          <p data-i18n="benefit_1_desc">Genera y descarga tus documentos sin costo alguno, sin crear cuentas ni compartir tu correo electrónico.</p>
+        </div>
+        <div class="benefit-card">
+          <span class="benefit-icon" aria-hidden="true">🔒</span>
+          <h3 data-i18n="benefit_2_title">Privacidad Total (Client-Side)</h3>
+          <p data-i18n="benefit_2_desc">Todo el procesamiento ocurre en tu propio navegador. Tus datos nunca se envían ni se almacenan en ningún servidor.</p>
+        </div>
+        <div class="benefit-card">
+          <span class="benefit-icon" aria-hidden="true">⚖️</span>
+          <h3 data-i18n="benefit_3_title">Validez y Estándar B2B</h3>
+          <p data-i18n="benefit_3_desc">Cláusulas redactadas siguiendo estándares legales habituales en acuerdos de confidencialidad y contratos B2B internacionales.</p>
+        </div>
+        <div class="benefit-card">
+          <span class="benefit-icon" aria-hidden="true">🌐</span>
+          <h3 data-i18n="benefit_4_title">Modo Bilingüe y Exportación Dual</h3>
+          <p data-i18n="benefit_4_desc">Crea contratos en dos idiomas en paralelo y expórtalos en PDF o Word con un solo clic.</p>
+        </div>
+      </div>
     </div>
-    <div class="benefit-card">
-      <span class="benefit-icon" aria-hidden="true">⚖️</span>
-      <h3 data-i18n="benefit_3_title">Validez y Estándar B2B</h3>
-      <p data-i18n="benefit_3_desc">Cláusulas redactadas siguiendo estándares legales habituales en acuerdos de confidencialidad y contratos B2B internacionales.</p>
+
+    <!-- ---- Panel: Legal Guide ---- -->
+    <div class="info-tab-panel hidden prose-legal" data-info-panel="guide">
+      <div class="guide-accordion not-prose">
+        <div class="guide-item open" data-guide-index="1">
+          <button type="button" class="guide-question" aria-expanded="true" aria-controls="guide-panel-1">
+            <span data-i18n="guide_h2_1">¿Qué es un Acuerdo de Confidencialidad (NDA)?</span>
+            <svg class="guide-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="guide-panel" id="guide-panel-1">
+            <div class="guide-panel-inner">
+              <p data-i18n="guide_p_1"></p>
+              <h4 class="guide-subheading" data-i18n="guide_h3_3">Contratos de Prestación de Servicios B2B</h4>
+              <p data-i18n="guide_p_3"></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-item" data-guide-index="2">
+          <button type="button" class="guide-question" aria-expanded="false" aria-controls="guide-panel-2">
+            <span data-i18n="guide_h3_1">Tipos de NDA: unilateral vs. bilateral</span>
+            <svg class="guide-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="guide-panel" id="guide-panel-2">
+            <div class="guide-panel-inner">
+              <p data-i18n="guide_p_2"></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-item" data-guide-index="3">
+          <button type="button" class="guide-question" aria-expanded="false" aria-controls="guide-panel-3">
+            <span data-i18n="guide_h3_2">Cláusulas indispensables en un NDA</span>
+            <svg class="guide-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="guide-panel" id="guide-panel-3">
+            <div class="guide-panel-inner">
+              <p data-i18n="guide_p_clauses_intro"></p>
+              <ul data-i18n-list="guide_list_clauses"></ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-item" data-guide-index="4">
+          <button type="button" class="guide-question" aria-expanded="false" aria-controls="guide-panel-4">
+            <span data-i18n="guide_h3_4">Consejos para la firma y validez del documento</span>
+            <svg class="guide-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="guide-panel" id="guide-panel-4">
+            <div class="guide-panel-inner">
+              <p data-i18n="guide_p_tips_intro"></p>
+              <ul data-i18n-list="guide_list_tips"></ul>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="benefit-card">
-      <span class="benefit-icon" aria-hidden="true">🌐</span>
-      <h3 data-i18n="benefit_4_title">Modo Bilingüe y Exportación Dual</h3>
-      <p data-i18n="benefit_4_desc">Crea contratos en dos idiomas en paralelo y expórtalos en PDF o Word con un solo clic.</p>
+
+    <!-- ---- Panel: FAQ ---- -->
+    <div class="info-tab-panel hidden" data-info-panel="faq">
+      <div class="space-y-3">
+        <div class="faq-item open">
+          <button type="button" class="faq-question" aria-expanded="true" aria-controls="faq-answer-1">
+            <span data-i18n="faq_q1"></span>
+            <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer" id="faq-answer-1">
+            <p data-i18n="faq_a1"></p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-2">
+            <span data-i18n="faq_q2"></span>
+            <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer" id="faq-answer-2">
+            <p data-i18n="faq_a2"></p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-3">
+            <span data-i18n="faq_q3"></span>
+            <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer" id="faq-answer-3">
+            <p data-i18n="faq_a3"></p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-4">
+            <span data-i18n="faq_q4"></span>
+            <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer" id="faq-answer-4">
+            <p data-i18n="faq_a4"></p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-5">
+            <span data-i18n="faq_q5"></span>
+            <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer" id="faq-answer-5">
+            <p data-i18n="faq_a5"></p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-6">
+            <span data-i18n="faq_q6"></span>
+            <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer" id="faq-answer-6">
+            <p data-i18n="faq_a6"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ---- Panel: Glossary (2-column card grid + search) ---- -->
+    <div class="info-tab-panel hidden" data-info-panel="glossary">
+      <input type="search" id="glossary-search" class="field-input mb-4" data-i18n-placeholder="glossary_search_placeholder" placeholder="Buscar un término...">
+      <dl class="glossary-list">
+        <div class="glossary-item" id="glossary-nda">
+          <dt data-i18n="glossary_term_nda">NDA (Acuerdo de Confidencialidad)</dt>
+          <dd data-i18n="glossary_def_nda"></dd>
+        </div>
+        <div class="glossary-item" id="glossary-noncompete">
+          <dt data-i18n="glossary_term_noncompete">Cláusula de No Competencia</dt>
+          <dd data-i18n="glossary_def_noncompete"></dd>
+        </div>
+        <div class="glossary-item" id="glossary-nonsolicit">
+          <dt data-i18n="glossary_term_nonsolicit">Cláusula de No Captación (No Solicitation)</dt>
+          <dd data-i18n="glossary_def_nonsolicit"></dd>
+        </div>
+        <div class="glossary-item" id="glossary-arbitration">
+          <dt data-i18n="glossary_term_arbitration">Arbitraje Comercial</dt>
+          <dd data-i18n="glossary_def_arbitration"></dd>
+        </div>
+        <div class="glossary-item" id="glossary-penalty">
+          <dt data-i18n="glossary_term_penalty">Cláusula Penal</dt>
+          <dd data-i18n="glossary_def_penalty"></dd>
+        </div>
+        <div class="glossary-item" id="glossary-controller">
+          <dt data-i18n="glossary_term_controller">Responsable del Tratamiento</dt>
+          <dd data-i18n="glossary_def_controller"></dd>
+        </div>
+        <div class="glossary-item" id="glossary-subject">
+          <dt data-i18n="glossary_term_subject">Titular de los Datos</dt>
+          <dd data-i18n="glossary_def_subject"></dd>
+        </div>
+        <div class="glossary-item" id="glossary-legalbasis">
+          <dt data-i18n="glossary_term_legalbasis">Base Legal / Legitimación</dt>
+          <dd data-i18n="glossary_def_legalbasis"></dd>
+        </div>
+        <div class="glossary-item" id="glossary-transfer">
+          <dt data-i18n="glossary_term_transfer">Transferencia Internacional de Datos</dt>
+          <dd data-i18n="glossary_def_transfer"></dd>
+        </div>
+        <div class="glossary-item" id="glossary-esignature">
+          <dt data-i18n="glossary_term_esignature">Firma Electrónica</dt>
+          <dd data-i18n="glossary_def_esignature"></dd>
+        </div>
+      </dl>
+      <p id="glossary-empty" class="text-sm text-slate-500 dark:text-slate-400 mt-4 hidden" data-i18n="glossary_empty">No se encontraron términos que coincidan con tu búsqueda.</p>
     </div>
   </div>
 </section>
 
-<!-- ============ SEO CONTENT ============ -->
-<section id="guide" class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800">
-  <div class="max-w-3xl mx-auto px-4 sm:px-6 py-14 prose-legal">
-    <div class="guide-accordion not-prose">
-      <div class="guide-item open" data-guide-index="1">
-        <button type="button" class="guide-question" aria-expanded="true" aria-controls="guide-panel-1">
-          <span data-i18n="guide_h2_1">¿Qué es un Acuerdo de Confidencialidad (NDA)?</span>
-          <svg class="guide-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
-        </button>
-        <div class="guide-panel" id="guide-panel-1">
-          <div class="guide-panel-inner">
-            <p data-i18n="guide_p_1"></p>
-            <h4 class="guide-subheading" data-i18n="guide_h3_3">Contratos de Prestación de Servicios B2B</h4>
-            <p data-i18n="guide_p_3"></p>
-          </div>
-        </div>
-      </div>
-
-      <div class="guide-item" data-guide-index="2">
-        <button type="button" class="guide-question" aria-expanded="false" aria-controls="guide-panel-2">
-          <span data-i18n="guide_h3_1">Tipos de NDA: unilateral vs. bilateral</span>
-          <svg class="guide-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
-        </button>
-        <div class="guide-panel" id="guide-panel-2">
-          <div class="guide-panel-inner">
-            <p data-i18n="guide_p_2"></p>
-          </div>
-        </div>
-      </div>
-
-      <div class="guide-item" data-guide-index="3">
-        <button type="button" class="guide-question" aria-expanded="false" aria-controls="guide-panel-3">
-          <span data-i18n="guide_h3_2">Cláusulas indispensables en un NDA</span>
-          <svg class="guide-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
-        </button>
-        <div class="guide-panel" id="guide-panel-3">
-          <div class="guide-panel-inner">
-            <p data-i18n="guide_p_clauses_intro"></p>
-            <ul data-i18n-list="guide_list_clauses"></ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="guide-item" data-guide-index="4">
-        <button type="button" class="guide-question" aria-expanded="false" aria-controls="guide-panel-4">
-          <span data-i18n="guide_h3_4">Consejos para la firma y validez del documento</span>
-          <svg class="guide-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
-        </button>
-        <div class="guide-panel" id="guide-panel-4">
-          <div class="guide-panel-inner">
-            <p data-i18n="guide_p_tips_intro"></p>
-            <ul data-i18n-list="guide_list_tips"></ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <h2 id="faq" data-i18n="faq_title">Preguntas Frecuentes</h2>
-    <div class="space-y-3 not-prose mt-6">
-      <div class="faq-item open">
-        <button type="button" class="faq-question" aria-expanded="true" aria-controls="faq-answer-1">
-          <span data-i18n="faq_q1"></span>
-          <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
-        </button>
-        <div class="faq-answer" id="faq-answer-1">
-          <p data-i18n="faq_a1"></p>
-        </div>
-      </div>
-      <div class="faq-item">
-        <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-2">
-          <span data-i18n="faq_q2"></span>
-          <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
-        </button>
-        <div class="faq-answer" id="faq-answer-2">
-          <p data-i18n="faq_a2"></p>
-        </div>
-      </div>
-      <div class="faq-item">
-        <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-3">
-          <span data-i18n="faq_q3"></span>
-          <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
-        </button>
-        <div class="faq-answer" id="faq-answer-3">
-          <p data-i18n="faq_a3"></p>
-        </div>
-      </div>
-      <div class="faq-item">
-        <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-4">
-          <span data-i18n="faq_q4"></span>
-          <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
-        </button>
-        <div class="faq-answer" id="faq-answer-4">
-          <p data-i18n="faq_a4"></p>
-        </div>
-      </div>
-      <div class="faq-item">
-        <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-5">
-          <span data-i18n="faq_q5"></span>
-          <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
-        </button>
-        <div class="faq-answer" id="faq-answer-5">
-          <p data-i18n="faq_a5"></p>
-        </div>
-      </div>
-      <div class="faq-item">
-        <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-6">
-          <span data-i18n="faq_q6"></span>
-          <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
-        </button>
-        <div class="faq-answer" id="faq-answer-6">
-          <p data-i18n="faq_a6"></p>
-        </div>
-      </div>
-    </div>
-
-    <div class="disclaimer-box mt-10">
-      <strong data-i18n="disclaimer_title">Aviso legal:</strong>
-      <p class="mt-2" data-i18n="disclaimer_text"></p>
+<!-- ============ DISCLAIMER (discreet collapsible, above the footer) ============ -->
+<div class="disclaimer-collapsible">
+  <button type="button" id="disclaimer-toggle" class="disclaimer-toggle" aria-expanded="false" aria-controls="disclaimer-body">
+    <svg class="disclaimer-toggle-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+    <span data-i18n="disclaimer_title">Aviso legal:</span>
+  </button>
+  <div id="disclaimer-body" class="hidden">
+    <div class="disclaimer-box">
+      <p data-i18n="disclaimer_text"></p>
     </div>
   </div>
-</section>
-
-<!-- ============ LEGAL GLOSSARY ============ -->
-<section id="glossary" class="bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800">
-  <div class="max-w-3xl mx-auto px-4 sm:px-6 py-14">
-    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white" data-i18n="glossary_title">Glosario Legal</h2>
-    <p class="mt-2 text-slate-600 dark:text-slate-400" data-i18n="glossary_subtitle">Términos legales explicados en lenguaje sencillo.</p>
-
-    <input type="search" id="glossary-search" class="field-input mt-5" data-i18n-placeholder="glossary_search_placeholder" placeholder="Buscar un término...">
-
-    <dl class="glossary-list mt-4">
-      <div class="glossary-item" id="glossary-nda">
-        <dt data-i18n="glossary_term_nda">NDA (Acuerdo de Confidencialidad)</dt>
-        <dd data-i18n="glossary_def_nda"></dd>
-      </div>
-      <div class="glossary-item" id="glossary-noncompete">
-        <dt data-i18n="glossary_term_noncompete">Cláusula de No Competencia</dt>
-        <dd data-i18n="glossary_def_noncompete"></dd>
-      </div>
-      <div class="glossary-item" id="glossary-nonsolicit">
-        <dt data-i18n="glossary_term_nonsolicit">Cláusula de No Captación (No Solicitation)</dt>
-        <dd data-i18n="glossary_def_nonsolicit"></dd>
-      </div>
-      <div class="glossary-item" id="glossary-arbitration">
-        <dt data-i18n="glossary_term_arbitration">Arbitraje Comercial</dt>
-        <dd data-i18n="glossary_def_arbitration"></dd>
-      </div>
-      <div class="glossary-item" id="glossary-penalty">
-        <dt data-i18n="glossary_term_penalty">Cláusula Penal</dt>
-        <dd data-i18n="glossary_def_penalty"></dd>
-      </div>
-      <div class="glossary-item" id="glossary-controller">
-        <dt data-i18n="glossary_term_controller">Responsable del Tratamiento</dt>
-        <dd data-i18n="glossary_def_controller"></dd>
-      </div>
-      <div class="glossary-item" id="glossary-subject">
-        <dt data-i18n="glossary_term_subject">Titular de los Datos</dt>
-        <dd data-i18n="glossary_def_subject"></dd>
-      </div>
-      <div class="glossary-item" id="glossary-legalbasis">
-        <dt data-i18n="glossary_term_legalbasis">Base Legal / Legitimación</dt>
-        <dd data-i18n="glossary_def_legalbasis"></dd>
-      </div>
-      <div class="glossary-item" id="glossary-transfer">
-        <dt data-i18n="glossary_term_transfer">Transferencia Internacional de Datos</dt>
-        <dd data-i18n="glossary_def_transfer"></dd>
-      </div>
-      <div class="glossary-item" id="glossary-esignature">
-        <dt data-i18n="glossary_term_esignature">Firma Electrónica</dt>
-        <dd data-i18n="glossary_def_esignature"></dd>
-      </div>
-    </dl>
-    <p id="glossary-empty" class="text-sm text-slate-500 dark:text-slate-400 mt-4 hidden" data-i18n="glossary_empty">No se encontraron términos que coincidan con tu búsqueda.</p>
-  </div>
-</section>
+</div>
 
 <footer class="border-t border-slate-200 dark:border-slate-800 py-8">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-slate-500 dark:text-slate-400">

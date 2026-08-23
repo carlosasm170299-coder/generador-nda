@@ -142,11 +142,26 @@ body {
   border-color: rgb(59 130 246);
   color: rgb(96 165 250);
 }
+/* From sm up, the tab bar is the only template selector (no more card
+   grid) — lay it out as a slim horizontal row (icon beside label, not
+   stacked) with a bit more breathing room per tab. */
+@media (min-width: 640px) {
+  .template-tab {
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.4rem;
+    padding: 0.6rem 0.5rem;
+    font-size: 0.8rem;
+  }
+  .template-tab-icon {
+    font-size: 1rem;
+  }
+}
 
-/* ===== Step wizard ===== */
+/* ===== Step wizard (ultra-compact) ===== */
 .step-dot {
-  height: 1.75rem;
-  width: 1.75rem;
+  height: 1.45rem;
+  width: 1.45rem;
   border-radius: 9999px;
   display: flex;
   align-items: center;
@@ -944,6 +959,44 @@ body {
   border-radius: 0.5rem;
   font-size: 0.85rem;
   color: rgb(120 53 15);
+}
+
+/* ===== Discreet collapsible disclaimer, just above the footer ===== */
+.disclaimer-collapsible {
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+.disclaimer-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  width: 100%;
+  padding: 0.7rem 0;
+  background: none;
+  border: none;
+  border-top: 1px solid rgb(226 232 240);
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: rgb(100 116 139);
+  cursor: pointer;
+}
+.dark .disclaimer-toggle {
+  border-top-color: rgb(30 41 59);
+  color: rgb(148 163 184);
+}
+.disclaimer-toggle-icon {
+  width: 0.85rem;
+  height: 0.85rem;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+.disclaimer-toggle[aria-expanded="true"] .disclaimer-toggle-icon {
+  transform: rotate(180deg);
+}
+.disclaimer-collapsible .disclaimer-box {
+  margin-bottom: 1rem;
 }
 /* ===== Legal Guide accordion ===== */
 .guide-accordion {
@@ -1952,26 +2005,34 @@ body {
 }
 .doc-integrity-line { white-space: nowrap; }
 
-/* ===== Legal glossary ===== */
+/* ===== Legal glossary: 2-column card grid ===== */
 .glossary-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.85rem;
+}
+@media (min-width: 768px) {
+  .glossary-list { grid-template-columns: 1fr 1fr; }
 }
 .glossary-item {
-  padding: 1rem 0;
-  border-bottom: 1px solid rgb(226 232 240);
+  padding: 1rem 1.1rem;
+  border: 1.5px solid rgb(226 232 240);
+  border-radius: 0.85rem;
+  background: white;
+  transition: border-color 0.15s ease, transform 0.15s ease;
 }
 .dark .glossary-item {
   border-color: rgb(30 41 59);
+  background: rgb(15 23 42);
 }
-.glossary-item:first-child {
-  padding-top: 0;
+.glossary-item:hover {
+  border-color: rgb(147 197 253);
+  transform: translateY(-1px);
 }
 .glossary-item dt {
   font-weight: 700;
   color: rgb(15 23 42);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   scroll-margin-top: 5rem;
 }
 .dark .glossary-item dt {
@@ -1980,8 +2041,8 @@ body {
 .glossary-item dd {
   margin: 0.35rem 0 0;
   color: rgb(71 85 105);
-  font-size: 0.85rem;
-  line-height: 1.6;
+  font-size: 0.8rem;
+  line-height: 1.55;
 }
 .dark .glossary-item dd {
   color: rgb(148 163 184);
@@ -2090,4 +2151,160 @@ body {
   @page {
     margin: 15mm;
   }
+}
+
+/* =====================================================================
+   Compact wizard toolbar: completion bar + icon-only utility actions
+   (save/load template, share link) with native title tooltips, replacing
+   the old full-width text-label button row to reclaim vertical space.
+   ===================================================================== */
+.wizard-toolbar {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.85rem 1.25rem 0;
+}
+.wizard-toolbar .completion-bar-wrap {
+  flex: 1;
+  padding: 0;
+  min-width: 0;
+}
+.wizard-icon-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-shrink: 0;
+  padding-top: 0.1rem;
+}
+.icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.9rem;
+  height: 1.9rem;
+  border-radius: 0.5rem;
+  border: 1.5px solid rgb(226 232 240);
+  background: transparent;
+  color: rgb(71 85 105);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  flex-shrink: 0;
+}
+.icon-btn svg {
+  width: 0.95rem;
+  height: 0.95rem;
+}
+.dark .icon-btn {
+  border-color: rgb(30 41 59);
+  color: rgb(148 163 184);
+}
+.icon-btn:hover {
+  background: rgb(248 250 252);
+  border-color: rgb(147 197 253);
+  color: rgb(37 99 235);
+}
+.dark .icon-btn:hover {
+  background: rgb(30 41 59 / 0.5);
+  color: rgb(96 165 250);
+}
+
+/* =====================================================================
+   Live preview toolbar: bilingual toggle, zoom controls, and quick PDF/
+   Word download shortcuts, docked to the top of the preview card so the
+   most-used actions never require scrolling back up to Step 4.
+   ===================================================================== */
+.preview-toolbar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid rgb(241 245 249);
+  background: rgb(250 250 252);
+}
+.dark .preview-toolbar {
+  border-bottom-color: rgb(30 41 59);
+  background: rgb(2 6 23 / 0.3);
+}
+.preview-toolbar .bilingual-toolbar {
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  flex: 1;
+  min-width: 9rem;
+}
+.preview-zoom-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  flex-shrink: 0;
+}
+.zoom-level-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: rgb(100 116 139);
+  min-width: 2.4rem;
+  text-align: center;
+}
+.dark .zoom-level-label {
+  color: rgb(148 163 184);
+}
+.preview-quick-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-shrink: 0;
+}
+.preview-quick-actions .icon-btn {
+  width: 2rem;
+  height: 2rem;
+}
+.preview-quick-actions .icon-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* =====================================================================
+   Informational tab navigation (replaces the long Benefits / Guide /
+   FAQ / Glossary vertical stack with one switchable panel set).
+   ===================================================================== */
+.info-tab-nav {
+  display: flex;
+  gap: 0.25rem;
+  overflow-x: auto;
+  border-bottom: 1.5px solid rgb(226 232 240);
+  margin-bottom: 2rem;
+}
+.dark .info-tab-nav {
+  border-bottom-color: rgb(30 41 59);
+}
+.info-tab {
+  flex-shrink: 0;
+  padding: 0.85rem 1.1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: rgb(100 116 139);
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1.5px;
+  background: none;
+  white-space: nowrap;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.dark .info-tab {
+  color: rgb(148 163 184);
+}
+.info-tab:hover {
+  color: rgb(37 99 235);
+}
+.info-tab.active {
+  color: rgb(37 99 235);
+  border-bottom-color: rgb(37 99 235);
+}
+.dark .info-tab.active {
+  color: rgb(96 165 250);
+  border-bottom-color: rgb(96 165 250);
+}
+.info-tab-panel.hidden {
+  display: none;
 }

@@ -39,7 +39,8 @@ const I18N = {
     tpl_unilateral_short: "Unilateral",
     tpl_mutual_short: "Bilateral",
     tpl_b2b_short: "B2B",
-    btn_view_document: "Ver Documento",
+    btn_view_document: "Ver Previa",
+    btn_edit_form: "Editar Formulario",
 
     // --- Optional / additional clauses ---
     optional_clauses_title: "Cláusulas Adicionales / Opcionales",
@@ -352,7 +353,8 @@ const I18N = {
     tpl_unilateral_short: "Unilateral",
     tpl_mutual_short: "Mutual",
     tpl_b2b_short: "B2B",
-    btn_view_document: "View Document",
+    btn_view_document: "View Preview",
+    btn_edit_form: "Edit Form",
 
     // --- Optional / additional clauses ---
     optional_clauses_title: "Additional / Optional Clauses",
@@ -664,7 +666,8 @@ const I18N = {
     tpl_unilateral_short: "Unilateral",
     tpl_mutual_short: "Bilateral",
     tpl_b2b_short: "B2B",
-    btn_view_document: "Ver Documento",
+    btn_view_document: "Ver Prévia",
+    btn_edit_form: "Editar Formulário",
 
     // --- Optional / additional clauses ---
     optional_clauses_title: "Cláusulas Adicionais / Opcionais",
@@ -964,7 +967,8 @@ const I18N = {
     tpl_unilateral_short: "Unilatéral",
     tpl_mutual_short: "Bilatéral",
     tpl_b2b_short: "B2B",
-    btn_view_document: "Voir le document",
+    btn_view_document: "Voir l'aperçu",
+    btn_edit_form: "Modifier le formulaire",
 
     // --- Optional / additional clauses ---
     optional_clauses_title: "Clauses Additionnelles / Optionnelles",
@@ -1264,7 +1268,8 @@ const I18N = {
     tpl_unilateral_short: "Односторонний",
     tpl_mutual_short: "Взаимный",
     tpl_b2b_short: "B2B",
-    btn_view_document: "Смотреть документ",
+    btn_view_document: "Предпросмотр",
+    btn_edit_form: "Редактировать форму",
 
     // --- Optional / additional clauses ---
     optional_clauses_title: "Дополнительные / Опциональные пункты",
@@ -1564,7 +1569,8 @@ const I18N = {
     tpl_unilateral_short: "单向",
     tpl_mutual_short: "双向",
     tpl_b2b_short: "B2B",
-    btn_view_document: "查看文档",
+    btn_view_document: "查看预览",
+    btn_edit_form: "编辑表单",
 
     // --- Optional / additional clauses ---
     optional_clauses_title: "附加/可选条款",
@@ -1864,7 +1870,8 @@ const I18N = {
     tpl_unilateral_short: "片務型",
     tpl_mutual_short: "双務型",
     tpl_b2b_short: "B2B",
-    btn_view_document: "書類を見る",
+    btn_view_document: "プレビューを見る",
+    btn_edit_form: "フォームを編集",
 
     // --- Optional / additional clauses ---
     optional_clauses_title: "追加・任意条項",
@@ -2164,7 +2171,8 @@ const I18N = {
     tpl_unilateral_short: "एकतरफ़ा",
     tpl_mutual_short: "पारस्परिक",
     tpl_b2b_short: "B2B",
-    btn_view_document: "दस्तावेज़ देखें",
+    btn_view_document: "पूर्वावलोकन देखें",
+    btn_edit_form: "फ़ॉर्म संपादित करें",
 
     // --- Optional / additional clauses ---
     optional_clauses_title: "अतिरिक्त / वैकल्पिक धाराएँ",
@@ -2787,6 +2795,12 @@ Object.keys(PP_I18N).forEach(lang => Object.assign(I18N[lang], PP_I18N[lang]));
 const V2_I18N = {
   es: {
     nav_glossary: "Glosario",
+    info_tab_benefits: "¿Por qué DraftB2B?",
+    info_tab_guide: "Guía Legal",
+    info_tab_faq: "FAQ",
+    info_tab_glossary: "Glosario",
+    zoom_out: "Reducir zoom",
+    zoom_in: "Aumentar zoom",
     btn_print: "Imprimir",
     btn_ics: "Recordatorio de vencimiento",
     ics_no_duration: "Este documento tiene una duración indefinida; no se puede generar un recordatorio de vencimiento.",
@@ -2826,6 +2840,12 @@ const V2_I18N = {
   },
   en: {
     nav_glossary: "Glossary",
+    info_tab_benefits: "Why DraftB2B?",
+    info_tab_guide: "Legal Guide",
+    info_tab_faq: "FAQ",
+    info_tab_glossary: "Glossary",
+    zoom_out: "Zoom out",
+    zoom_in: "Zoom in",
     btn_print: "Print",
     btn_ics: "Expiration reminder",
     ics_no_duration: "This document has an indefinite duration; an expiration reminder can't be generated.",
@@ -2865,6 +2885,12 @@ const V2_I18N = {
   },
   pt: {
     nav_glossary: "Glossário",
+    info_tab_benefits: "Por que o DraftB2B?",
+    info_tab_guide: "Guia Legal",
+    info_tab_faq: "FAQ",
+    info_tab_glossary: "Glossário",
+    zoom_out: "Diminuir zoom",
+    zoom_in: "Aumentar zoom",
     btn_print: "Imprimir",
     btn_ics: "Lembrete de vencimento",
     ics_no_duration: "Este documento tem duração indefinida; não é possível gerar um lembrete de vencimento.",
@@ -2904,6 +2930,12 @@ const V2_I18N = {
   },
   fr: {
     nav_glossary: "Glossaire",
+    info_tab_benefits: "Pourquoi DraftB2B ?",
+    info_tab_guide: "Guide Juridique",
+    info_tab_faq: "FAQ",
+    info_tab_glossary: "Glossaire",
+    zoom_out: "Réduire le zoom",
+    zoom_in: "Augmenter le zoom",
     btn_print: "Imprimer",
     btn_ics: "Rappel d'échéance",
     ics_no_duration: "Ce document a une durée indéterminée ; un rappel d'échéance ne peut pas être généré.",
@@ -2943,6 +2975,12 @@ const V2_I18N = {
   },
   ru: {
     nav_glossary: "Глоссарий",
+    info_tab_benefits: "Почему DraftB2B?",
+    info_tab_guide: "Юридическое руководство",
+    info_tab_faq: "Частые вопросы",
+    info_tab_glossary: "Глоссарий",
+    zoom_out: "Уменьшить масштаб",
+    zoom_in: "Увеличить масштаб",
     btn_print: "Печать",
     btn_ics: "Напоминание об истечении срока",
     ics_no_duration: "Этот документ имеет бессрочный срок действия; напоминание об истечении срока не может быть создано.",
@@ -2982,6 +3020,12 @@ const V2_I18N = {
   },
   zh: {
     nav_glossary: "术语表",
+    info_tab_benefits: "为什么选择 DraftB2B？",
+    info_tab_guide: "法律指南",
+    info_tab_faq: "常见问题",
+    info_tab_glossary: "术语表",
+    zoom_out: "缩小",
+    zoom_in: "放大",
     btn_print: "打印",
     btn_ics: "到期提醒",
     ics_no_duration: "该文档为无限期，无法生成到期提醒。",
@@ -3021,6 +3065,12 @@ const V2_I18N = {
   },
   ja: {
     nav_glossary: "用語集",
+    info_tab_benefits: "DraftB2Bを選ぶ理由",
+    info_tab_guide: "法的ガイド",
+    info_tab_faq: "よくある質問",
+    info_tab_glossary: "用語集",
+    zoom_out: "縮小",
+    zoom_in: "拡大",
     btn_print: "印刷",
     btn_ics: "期限リマインダー",
     ics_no_duration: "この文書は無期限のため、期限リマインダーを作成できません。",
@@ -3060,6 +3110,12 @@ const V2_I18N = {
   },
   hi: {
     nav_glossary: "शब्दावली",
+    info_tab_benefits: "DraftB2B क्यों?",
+    info_tab_guide: "कानूनी गाइड",
+    info_tab_faq: "सामान्य प्रश्न",
+    info_tab_glossary: "शब्दावली",
+    zoom_out: "ज़ूम आउट",
+    zoom_in: "ज़ूम इन",
     btn_print: "प्रिंट करें",
     btn_ics: "समाप्ति रिमाइंडर",
     ics_no_duration: "इस दस्तावेज़ की अवधि अनिश्चितकालीन है; समाप्ति रिमाइंडर नहीं बनाया जा सकता।",
@@ -3175,6 +3231,14 @@ function applyI18n() {
   $all('[data-i18n-placeholder]').forEach(el => {
     const key = el.getAttribute('data-i18n-placeholder');
     el.setAttribute('placeholder', t(key));
+  });
+
+  // Compact icon-only buttons (wizard toolbar, preview quick actions,
+  // template tabs) carry their full label as a native title tooltip
+  // instead of visible text.
+  $all('[data-i18n-title]').forEach(el => {
+    const key = el.getAttribute('data-i18n-title');
+    el.setAttribute('title', t(key));
   });
 
   $all('[data-i18n-list]').forEach(el => {
@@ -3781,9 +3845,6 @@ function goToStep(step) {
    --------------------------------------------------------------------- */
 function selectTemplate(type) {
   state.docType = type;
-  $all('.template-card').forEach(card => {
-    card.classList.toggle('active', card.dataset.template === type);
-  });
   $all('.template-tab').forEach(tab => {
     tab.classList.toggle('active', tab.dataset.template === type);
   });
@@ -3832,6 +3893,11 @@ function buildPdfExportClone() {
   const clone = source.cloneNode(true);
   clone.classList.add('pdf-export-clone');
   clone.style.removeProperty('page-break-before');
+  // The live preview may be zoomed in/out via the preview toolbar's zoom
+  // controls (a CSS `zoom` on #pdf-content, copied verbatim by
+  // cloneNode) — the exported PDF must always reflect the true 100%
+  // layout regardless of what the visitor happens to be viewing at.
+  clone.style.removeProperty('zoom');
   // The CSS watermark is a single absolutely-positioned div meant for the
   // one continuous on-screen preview; it would only ever land on whatever
   // page its fixed position happens to fall on once sliced. The PDF gets
@@ -4726,10 +4792,28 @@ function initMobilePreview() {
   const toggleBtn = $('#btn-preview-toggle');
   const scrollEl = $('#preview-scroll');
   const fab = $('#btn-preview-fab');
+  const fabIcon = $('#preview-fab-icon');
+  const fabLabel = $('#preview-fab-label');
   const previewCard = $('#preview-card');
+  const formCard = $('#nda-form');
   if (!toggleBtn || !scrollEl) return;
 
   const isMobileLayout = () => window.innerWidth < 1024;
+
+  // On mobile the FAB alternates between "Ver Previa" (form is showing,
+  // tap to jump to the preview) and "Editar Formulario" (preview is
+  // showing, tap to collapse it and jump back to the form) — a single
+  // floating control instead of two separate buttons.
+  function syncFabLabel() {
+    if (!fab) return;
+    const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+    if (fabIcon) fabIcon.textContent = isExpanded ? '✏️' : '👁️';
+    if (fabLabel) {
+      const key = isExpanded ? 'btn_edit_form' : 'btn_view_document';
+      fabLabel.setAttribute('data-i18n', key);
+      fabLabel.textContent = t(key);
+    }
+  }
 
   function collapsePreview() {
     scrollEl.style.maxHeight = '0px';
@@ -4738,6 +4822,7 @@ function initMobilePreview() {
     scrollEl.style.paddingBottom = '0px';
     scrollEl.style.overflow = 'hidden';
     toggleBtn.setAttribute('aria-expanded', 'false');
+    syncFabLabel();
   }
   function expandPreview() {
     scrollEl.style.maxHeight = '';
@@ -4746,6 +4831,7 @@ function initMobilePreview() {
     scrollEl.style.paddingBottom = '';
     scrollEl.style.overflow = '';
     toggleBtn.setAttribute('aria-expanded', 'true');
+    syncFabLabel();
   }
 
   if (isMobileLayout()) collapsePreview(); else expandPreview();
@@ -4757,8 +4843,14 @@ function initMobilePreview() {
   });
 
   fab?.addEventListener('click', () => {
-    expandPreview();
-    previewCard?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+    if (isExpanded) {
+      collapsePreview();
+      formCard?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      expandPreview();
+      previewCard?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   });
 
   window.addEventListener('resize', () => {
@@ -4955,6 +5047,12 @@ function updateChecklistGate() {
   const allChecked = $('#check-identity').checked && $('#check-scope').checked && $('#check-jurisdiction').checked;
   $('#btn-pdf').disabled = !allChecked;
   $('#btn-docx').disabled = !allChecked;
+  // Quick-download shortcuts docked to the preview toolbar mirror the
+  // same gate as the full Step 4 buttons.
+  const pdfQuick = $('#btn-pdf-quick');
+  const docxQuick = $('#btn-docx-quick');
+  if (pdfQuick) pdfQuick.disabled = !allChecked;
+  if (docxQuick) docxQuick.disabled = !allChecked;
 }
 
 function initChecklist() {
@@ -5350,6 +5448,79 @@ function dismissEmailCapture() {
 }
 
 /* ---------------------------------------------------------------------
+   13m) PREVIEW ZOOM
+   --------------------------------------------------------------------- */
+let previewZoom = 1;
+const ZOOM_MIN = 0.6;
+const ZOOM_MAX = 1.4;
+const ZOOM_STEP = 0.1;
+
+function applyPreviewZoom() {
+  const content = $('#pdf-content');
+  if (content) content.style.zoom = String(previewZoom);
+  const label = $('#zoom-level-label');
+  if (label) label.textContent = Math.round(previewZoom * 100) + '%';
+}
+
+function initPreviewZoom() {
+  $('#btn-zoom-out')?.addEventListener('click', () => {
+    previewZoom = Math.max(ZOOM_MIN, +(previewZoom - ZOOM_STEP).toFixed(2));
+    applyPreviewZoom();
+  });
+  $('#btn-zoom-in')?.addEventListener('click', () => {
+    previewZoom = Math.min(ZOOM_MAX, +(previewZoom + ZOOM_STEP).toFixed(2));
+    applyPreviewZoom();
+  });
+}
+
+/* ---------------------------------------------------------------------
+   13n) INFORMATIONAL TABS (Benefits / Guide / FAQ / Glossary)
+   --------------------------------------------------------------------- */
+function activateInfoTab(name) {
+  const tabs = $all('.info-tab');
+  if (!tabs.length) return;
+  tabs.forEach(tab => tab.classList.toggle('active', tab.dataset.infoTab === name));
+  $all('.info-tab-panel').forEach(panel => {
+    panel.classList.toggle('hidden', panel.dataset.infoPanel !== name);
+  });
+  // The Guide accordion's default-open item has its height measured via
+  // scrollHeight (see expandGuideItem()/refreshOpenGuidePanels()) — that
+  // reads as 0 while its tab panel is display:none, so re-measure now
+  // that switching to this tab just made it visible.
+  if (name === 'guide') refreshOpenGuidePanels();
+}
+
+function initInfoTabs() {
+  $all('.info-tab').forEach(tab => {
+    tab.addEventListener('click', () => activateInfoTab(tab.dataset.infoTab));
+  });
+}
+
+function initNavInfoLinks() {
+  $all('[data-nav-info-tab]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      activateInfoTab(link.dataset.navInfoTab);
+      $('#info-tabs')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+}
+
+/* ---------------------------------------------------------------------
+   13o) DISCREET DISCLAIMER COLLAPSIBLE
+   --------------------------------------------------------------------- */
+function initDisclaimerToggle() {
+  const btn = $('#disclaimer-toggle');
+  const body = $('#disclaimer-body');
+  if (!btn || !body) return;
+  btn.addEventListener('click', () => {
+    const isOpen = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!isOpen));
+    body.classList.toggle('hidden', isOpen);
+  });
+}
+
+/* ---------------------------------------------------------------------
    14) INIT & EVENT BINDING
    --------------------------------------------------------------------- */
 function init() {
@@ -5385,13 +5556,13 @@ function init() {
   initPrint();
   initIcsReminder();
   initGlossary();
+  initPreviewZoom();
+  initInfoTabs();
+  initNavInfoLinks();
+  initDisclaimerToggle();
   updateChecklistGate();
 
-  // Template cards
-  $all('.template-card').forEach(card => {
-    card.addEventListener('click', () => selectTemplate(card.dataset.template));
-  });
-  // Template mobile tabs
+  // Template selector (single tab bar at every breakpoint)
   $all('.template-tab').forEach(tab => {
     tab.addEventListener('click', () => selectTemplate(tab.dataset.template));
   });
@@ -5452,6 +5623,8 @@ function init() {
   // Actions
   $('#btn-pdf').addEventListener('click', downloadPdf);
   $('#btn-docx').addEventListener('click', downloadDocx);
+  $('#btn-pdf-quick')?.addEventListener('click', downloadPdf);
+  $('#btn-docx-quick')?.addEventListener('click', downloadDocx);
   $('#btn-copy').addEventListener('click', copyText);
   $('#btn-clear').addEventListener('click', clearForm);
   $('#btn-verify-copy')?.addEventListener('click', copyVerifyLink);
