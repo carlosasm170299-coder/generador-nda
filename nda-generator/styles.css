@@ -109,6 +109,7 @@ body {
   gap: 0.5rem;
 }
 .template-tab {
+  position: relative;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -121,26 +122,51 @@ body {
   font-size: 0.72rem;
   font-weight: 700;
   color: rgb(71 85 105);
-  transition: all 0.15s ease;
+  transition: all 0.2s ease-out;
 }
 .dark .template-tab {
-  background: rgb(15 23 42);
+  background: rgb(15 23 42 / 0.7);
   border-color: rgb(30 41 59);
   color: rgb(148 163 184);
 }
+.template-tab:hover {
+  border-color: rgb(59 130 246 / 0.5);
+  box-shadow: 0 8px 20px -8px rgb(59 130 246 / 0.3);
+  transform: translateY(-2px);
+}
 .template-tab-icon {
-  font-size: 1.2rem;
-  line-height: 1;
+  width: 1.2rem;
+  height: 1.2rem;
+  flex-shrink: 0;
 }
 .template-tab.active {
-  border-color: rgb(37 99 235);
-  background: rgb(239 246 255);
+  border-color: rgb(59 130 246);
+  background: rgb(59 130 246 / 0.1);
   color: rgb(37 99 235);
+  box-shadow: 0 0 0 3px rgb(59 130 246 / 0.15);
 }
 .dark .template-tab.active {
-  background: rgb(30 58 138 / 0.25);
+  background: rgb(59 130 246 / 0.15);
   border-color: rgb(59 130 246);
   color: rgb(96 165 250);
+}
+.template-tab-active-badge {
+  display: none;
+  position: absolute;
+  top: -0.5rem;
+  right: 0.4rem;
+  font-size: 0.55rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: 0.1rem 0.4rem;
+  border-radius: 9999px;
+  background: linear-gradient(to right, rgb(37 99 235), rgb(79 70 229));
+  color: white;
+  box-shadow: 0 2px 6px -1px rgb(59 130 246 / 0.5);
+}
+.template-tab.active .template-tab-active-badge {
+  display: inline-block;
 }
 /* From sm up, the tab bar is the only template selector (no more card
    grid) — lay it out as a slim horizontal row (icon beside label, not
@@ -154,7 +180,8 @@ body {
     font-size: 0.8rem;
   }
   .template-tab-icon {
-    font-size: 1rem;
+    width: 1.05rem;
+    height: 1.05rem;
   }
 }
 
@@ -252,23 +279,36 @@ body {
   font-weight: 600;
   padding: 0.55rem 1.1rem;
   border-radius: 0.6rem;
-  transition: all 0.15s ease;
+  transition: all 0.2s ease-out;
   white-space: nowrap;
 }
 .btn-primary {
-  background: rgb(37 99 235);
+  background: linear-gradient(to right, rgb(37 99 235), rgb(79 70 229));
   color: white;
+  box-shadow: 0 8px 20px -8px rgb(59 130 246 / 0.5);
+  border: 1px solid rgb(255 255 255 / 0.1);
 }
-.btn-primary:hover { background: rgb(29 78 216); }
+.btn-primary:hover {
+  background: linear-gradient(to right, rgb(59 130 246), rgb(99 102 241));
+  box-shadow: 0 10px 25px -6px rgb(59 130 246 / 0.55);
+  transform: translateY(-1px);
+}
 .btn-secondary {
   background: rgb(226 232 240);
   color: rgb(30 41 59);
 }
 .dark .btn-secondary {
-  background: rgb(30 41 59);
+  background: rgb(30 41 59 / 0.8);
   color: rgb(226 232 240);
+  border: 1px solid rgb(51 65 85 / 0.6);
 }
-.btn-secondary:hover { filter: brightness(0.95); }
+.btn-secondary:hover {
+  filter: brightness(0.95);
+  transform: translateY(-1px);
+}
+.dark .btn-secondary:hover {
+  border-color: rgb(59 130 246 / 0.4);
+}
 .btn-ghost {
   background: transparent;
   color: rgb(71 85 105);
@@ -278,8 +318,14 @@ body {
   color: rgb(148 163 184);
   border-color: rgb(30 41 59);
 }
-.btn-ghost:hover { background: rgb(248 250 252); }
-.dark .btn-ghost:hover { background: rgb(30 41 59 / 0.5); }
+.btn-ghost:hover {
+  background: rgb(248 250 252);
+  border-color: rgb(147 197 253);
+}
+.dark .btn-ghost:hover {
+  background: rgb(30 41 59 / 0.5);
+  border-color: rgb(59 130 246 / 0.4);
+}
 .btn-ghost:disabled {
   opacity: 0.4;
   cursor: not-allowed;
@@ -287,6 +333,7 @@ body {
 .btn-primary:disabled, .btn-secondary:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+  transform: none;
 }
 
 /* ===== Language selector ===== */
@@ -311,6 +358,25 @@ body {
   padding: 0.3rem 1.6rem 0.3rem 0.6rem;
   font-size: 0.75rem;
   width: 100%;
+}
+.lang-select-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+.lang-select-icon {
+  position: absolute;
+  left: 0.65rem;
+  width: 0.8rem;
+  height: 0.8rem;
+  color: rgb(100 116 139);
+  pointer-events: none;
+}
+.dark .lang-select-icon {
+  color: rgb(148 163 184);
+}
+.lang-select-wrap .lang-select {
+  padding-left: 1.75rem;
 }
 
 /* ===== Bilingual (dual-language) toolbar ===== */
@@ -1125,15 +1191,21 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.6rem;
-  height: 3rem;
-  width: 3rem;
-  border-radius: 9999px;
-  background: rgb(239 246 255);
-  margin-bottom: 0.75rem;
+  height: 2.75rem;
+  width: 2.75rem;
+  border-radius: 0.85rem;
+  background: rgb(59 130 246 / 0.1);
+  border: 1px solid rgb(59 130 246 / 0.2);
+  color: rgb(59 130 246);
+  margin-bottom: 0.85rem;
 }
 .dark .benefit-icon {
-  background: rgb(30 58 138 / 0.25);
+  background: rgb(59 130 246 / 0.12);
+  color: rgb(96 165 250);
+}
+.benefit-icon svg {
+  width: 1.35rem;
+  height: 1.35rem;
 }
 .benefit-card h3 {
   font-size: 0.95rem;
@@ -1185,8 +1257,9 @@ body {
     justify-content: center;
     gap: 0;
   }
-  .donate-btn-nav .donate-icon {
-    font-size: 1rem;
+  .donate-btn-nav .donate-icon svg {
+    width: 0.95rem;
+    height: 0.95rem;
   }
 }
 .donate-btn-footer {
@@ -1215,8 +1288,12 @@ body {
   background: rgb(120 53 15 / 0.55);
 }
 .donate-icon {
-  font-size: 1rem;
+  display: inline-flex;
   line-height: 1;
+}
+.donate-icon svg {
+  width: 1rem;
+  height: 1rem;
 }
 .donate-modal-desc {
   font-size: 0.85rem;
@@ -1395,9 +1472,14 @@ body {
   margin-bottom: 0.4rem;
 }
 .validation-alert-icon {
-  font-size: 1.1rem;
+  display: inline-flex;
+  color: rgb(220 38 38);
   line-height: 1;
   flex-shrink: 0;
+}
+.validation-alert-icon svg {
+  width: 1.2rem;
+  height: 1.2rem;
 }
 .validation-alert-title {
   font-size: 0.92rem;
@@ -1563,7 +1645,11 @@ body {
 }
 .modal-overlay.hidden { display: none; }
 .modal-box {
-  background: white;
+  background: rgb(255 255 255 / 0.94);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgb(226 232 240 / 0.8);
+  border-top: 1px solid rgb(255 255 255 / 0.9);
   border-radius: 1rem;
   padding: 1.25rem;
   width: 100%;
@@ -1571,8 +1657,9 @@ body {
   box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.4);
 }
 .dark .modal-box {
-  background: rgb(15 23 42);
-  border: 1px solid rgb(30 41 59);
+  background: rgb(15 23 42 / 0.9);
+  border-color: rgb(30 41 59 / 0.9);
+  border-top-color: rgb(255 255 255 / 0.1);
 }
 .modal-header {
   display: flex;
@@ -1734,20 +1821,28 @@ body {
   gap: 0.45rem;
   padding: 0.75rem 1.15rem;
   border-radius: 9999px;
-  background: rgb(37 99 235);
+  background: linear-gradient(to right, rgb(37 99 235), rgb(79 70 229));
   color: white;
   font-size: 0.85rem;
   font-weight: 700;
-  border: none;
+  border: 1px solid rgb(255 255 255 / 0.15);
   box-shadow: 0 10px 25px -8px rgb(37 99 235 / 0.5);
   cursor: pointer;
-  transition: all 0.15s ease;
+  transition: all 0.2s ease-out;
 }
 .preview-fab:hover {
-  background: rgb(29 78 216);
-  transform: translateY(-1px);
+  background: linear-gradient(to right, rgb(59 130 246), rgb(99 102 241));
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px -6px rgb(59 130 246 / 0.55);
 }
 .preview-fab.hidden { display: none; }
+.preview-fab-icon {
+  display: inline-flex;
+}
+.preview-fab-icon svg {
+  width: 1.05rem;
+  height: 1.05rem;
+}
 
 /* ===== Section subtitle (shared by new step-4 blocks) ===== */
 .section-subtitle {
@@ -2015,21 +2110,25 @@ body {
   .glossary-list { grid-template-columns: 1fr 1fr; }
 }
 .glossary-item {
-  padding: 1rem 1.1rem;
+  padding: 1.1rem;
   border: 1.5px solid rgb(226 232 240);
   border-radius: 0.85rem;
   background: white;
-  transition: border-color 0.15s ease, transform 0.15s ease;
+  transition: all 0.2s ease-out;
 }
 .dark .glossary-item {
   border-color: rgb(30 41 59);
   background: rgb(15 23 42);
 }
 .glossary-item:hover {
-  border-color: rgb(147 197 253);
-  transform: translateY(-1px);
+  border-color: rgb(59 130 246 / 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px -8px rgb(59 130 246 / 0.25);
 }
 .glossary-item dt {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
   font-weight: 700;
   color: rgb(15 23 42);
   font-size: 0.9rem;
@@ -2038,8 +2137,28 @@ body {
 .dark .glossary-item dt {
   color: white;
 }
+.glossary-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.1rem;
+  height: 2.1rem;
+  flex-shrink: 0;
+  border-radius: 0.65rem;
+  background: rgb(59 130 246 / 0.1);
+  border: 1px solid rgb(59 130 246 / 0.2);
+  color: rgb(59 130 246);
+}
+.dark .glossary-icon {
+  background: rgb(59 130 246 / 0.12);
+  color: rgb(96 165 250);
+}
+.glossary-icon svg {
+  width: 1.05rem;
+  height: 1.05rem;
+}
 .glossary-item dd {
-  margin: 0.35rem 0 0;
+  margin: 0.5rem 0 0;
   color: rgb(71 85 105);
   font-size: 0.8rem;
   line-height: 1.55;
@@ -2059,8 +2178,11 @@ body {
   z-index: 90;
   width: 21rem;
   max-width: calc(100vw - 2rem);
-  background: white;
-  border: 1px solid rgb(226 232 240);
+  background: rgb(255 255 255 / 0.9);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgb(226 232 240 / 0.8);
+  border-top: 1px solid rgb(255 255 255 / 0.9);
   border-radius: 0.9rem;
   box-shadow: 0 12px 30px -8px rgb(0 0 0 / 0.2);
   padding: 1.1rem 1.2rem;
@@ -2069,14 +2191,15 @@ body {
   transition: opacity 0.2s ease, transform 0.2s ease;
   pointer-events: none;
 }
+.dark .email-capture-banner {
+  background: rgb(15 23 42 / 0.85);
+  border-color: rgb(30 41 59 / 0.9);
+  border-top-color: rgb(255 255 255 / 0.1);
+}
 .email-capture-banner.show {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
-}
-.dark .email-capture-banner {
-  background: rgb(15 23 42);
-  border-color: rgb(30 41 59);
 }
 .email-capture-close {
   position: absolute;
@@ -2307,4 +2430,93 @@ body {
 }
 .info-tab-panel.hidden {
   display: none;
+}
+
+/* =====================================================================
+   Premium visual pass: ambient background glow, glassmorphism surfaces,
+   and a polished frame for the live document preview. Deliberately
+   scoped to the app's CHROME only — never to #pdf-content/.doc-page,
+   which must stay a plain, high-contrast "paper" surface regardless of
+   site theme (it's what gets exported to PDF and printed).
+   ===================================================================== */
+
+/* --- Ambient background glow orbs (decorative, never intercept clicks) --- */
+.ambient-glow {
+  position: fixed;
+  width: 42rem;
+  height: 42rem;
+  border-radius: 9999px;
+  filter: blur(120px);
+  pointer-events: none;
+  /* Negative z-index keeps this behind ALL normal in-flow page content
+     (header, hero, cards, footer...) without needing to touch any of
+     their own positioning/z-index — simpler and safer than making every
+     sibling "win" a stacking fight against it. */
+  z-index: -1;
+  opacity: 0.06;
+  transition: opacity 0.4s ease;
+}
+.dark .ambient-glow {
+  opacity: 0.22;
+}
+.ambient-glow-1 {
+  top: -14rem;
+  left: -12rem;
+  background: radial-gradient(circle, rgb(79 70 229), transparent 70%);
+}
+.ambient-glow-2 {
+  bottom: -16rem;
+  right: -12rem;
+  background: radial-gradient(circle, rgb(37 99 235), transparent 70%);
+}
+@media (max-width: 768px) {
+  .ambient-glow { width: 26rem; height: 26rem; }
+}
+
+/* --- Glassmorphism surface: wizard card + live preview card --- */
+.glass-card {
+  background: rgb(255 255 255 / 0.8);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgb(226 232 240 / 0.8);
+  border-top: 1px solid rgb(255 255 255 / 0.9);
+  border-radius: 1rem;
+  box-shadow: 0 25px 50px -18px rgb(15 23 42 / 0.18);
+}
+.dark .glass-card {
+  background: rgb(15 23 42 / 0.72);
+  border-color: rgb(30 41 59 / 0.8);
+  border-top-color: rgb(255 255 255 / 0.1);
+  box-shadow: 0 25px 50px -18px rgb(0 0 0 / 0.55);
+}
+
+/* --- Icon-only buttons: same hover lift/glow language as the rest --- */
+.icon-btn {
+  transition: all 0.2s ease-out;
+}
+.icon-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px -6px rgb(59 130 246 / 0.35);
+}
+
+/* --- Live preview frame: paper-on-desk feel. The frosted header/toolbar
+   sit on the glass surface; #preview-scroll and the document itself
+   stay a plain, undecorated white "sheet" so it always reads correctly
+   and matches what gets exported. --- */
+#preview-card > .glass-card {
+  overflow: hidden;
+}
+.preview-header {
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+#preview-scroll {
+  background: rgb(226 232 240 / 0.4);
+}
+.dark #preview-scroll {
+  background: rgb(2 6 23 / 0.5);
+}
+#preview-scroll .doc-page {
+  box-shadow: 0 20px 45px -15px rgb(0 0 0 / 0.4);
+  border-radius: 0.4rem;
 }

@@ -2801,6 +2801,7 @@ const V2_I18N = {
     info_tab_glossary: "Glosario",
     zoom_out: "Reducir zoom",
     zoom_in: "Aumentar zoom",
+    badge_active: "Activo",
     btn_print: "Imprimir",
     btn_ics: "Recordatorio de vencimiento",
     ics_no_duration: "Este documento tiene una duración indefinida; no se puede generar un recordatorio de vencimiento.",
@@ -2846,6 +2847,7 @@ const V2_I18N = {
     info_tab_glossary: "Glossary",
     zoom_out: "Zoom out",
     zoom_in: "Zoom in",
+    badge_active: "Active",
     btn_print: "Print",
     btn_ics: "Expiration reminder",
     ics_no_duration: "This document has an indefinite duration; an expiration reminder can't be generated.",
@@ -2891,6 +2893,7 @@ const V2_I18N = {
     info_tab_glossary: "Glossário",
     zoom_out: "Diminuir zoom",
     zoom_in: "Aumentar zoom",
+    badge_active: "Ativo",
     btn_print: "Imprimir",
     btn_ics: "Lembrete de vencimento",
     ics_no_duration: "Este documento tem duração indefinida; não é possível gerar um lembrete de vencimento.",
@@ -2936,6 +2939,7 @@ const V2_I18N = {
     info_tab_glossary: "Glossaire",
     zoom_out: "Réduire le zoom",
     zoom_in: "Augmenter le zoom",
+    badge_active: "Actif",
     btn_print: "Imprimer",
     btn_ics: "Rappel d'échéance",
     ics_no_duration: "Ce document a une durée indéterminée ; un rappel d'échéance ne peut pas être généré.",
@@ -2981,6 +2985,7 @@ const V2_I18N = {
     info_tab_glossary: "Глоссарий",
     zoom_out: "Уменьшить масштаб",
     zoom_in: "Увеличить масштаб",
+    badge_active: "Активно",
     btn_print: "Печать",
     btn_ics: "Напоминание об истечении срока",
     ics_no_duration: "Этот документ имеет бессрочный срок действия; напоминание об истечении срока не может быть создано.",
@@ -3026,6 +3031,7 @@ const V2_I18N = {
     info_tab_glossary: "术语表",
     zoom_out: "缩小",
     zoom_in: "放大",
+    badge_active: "使用中",
     btn_print: "打印",
     btn_ics: "到期提醒",
     ics_no_duration: "该文档为无限期，无法生成到期提醒。",
@@ -3071,6 +3077,7 @@ const V2_I18N = {
     info_tab_glossary: "用語集",
     zoom_out: "縮小",
     zoom_in: "拡大",
+    badge_active: "使用中",
     btn_print: "印刷",
     btn_ics: "期限リマインダー",
     ics_no_duration: "この文書は無期限のため、期限リマインダーを作成できません。",
@@ -3116,6 +3123,7 @@ const V2_I18N = {
     info_tab_glossary: "शब्दावली",
     zoom_out: "ज़ूम आउट",
     zoom_in: "ज़ूम इन",
+    badge_active: "सक्रिय",
     btn_print: "प्रिंट करें",
     btn_ics: "समाप्ति रिमाइंडर",
     ics_no_duration: "इस दस्तावेज़ की अवधि अनिश्चितकालीन है; समाप्ति रिमाइंडर नहीं बनाया जा सकता।",
@@ -4382,7 +4390,7 @@ function buildValidationAlert() {
   el.innerHTML = `
     <button type="button" class="validation-alert-close" aria-label="Close">&times;</button>
     <div class="validation-alert-header">
-      <span class="validation-alert-icon" aria-hidden="true">⚠️</span>
+      <span class="validation-alert-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></span>
       <strong class="validation-alert-title"></strong>
     </div>
     <p class="validation-alert-intro"></p>
@@ -4800,6 +4808,9 @@ function initMobilePreview() {
 
   const isMobileLayout = () => window.innerWidth < 1024;
 
+  const ICON_EYE = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>';
+  const ICON_PENCIL = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497Z"/><path d="m15 5 4 4"/></svg>';
+
   // On mobile the FAB alternates between "Ver Previa" (form is showing,
   // tap to jump to the preview) and "Editar Formulario" (preview is
   // showing, tap to collapse it and jump back to the form) — a single
@@ -4807,7 +4818,7 @@ function initMobilePreview() {
   function syncFabLabel() {
     if (!fab) return;
     const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
-    if (fabIcon) fabIcon.textContent = isExpanded ? '✏️' : '👁️';
+    if (fabIcon) fabIcon.innerHTML = isExpanded ? ICON_PENCIL : ICON_EYE;
     if (fabLabel) {
       const key = isExpanded ? 'btn_edit_form' : 'btn_view_document';
       fabLabel.setAttribute('data-i18n', key);

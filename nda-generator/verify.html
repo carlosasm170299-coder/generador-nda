@@ -44,7 +44,11 @@
     gap: 0.85rem;
     align-items: flex-start;
   }
-  .verify-status-icon { font-size: 1.6rem; line-height: 1; flex-shrink: 0; }
+  .verify-status-icon { display: inline-flex; line-height: 1; flex-shrink: 0; }
+  .verify-status-icon svg { width: 1.6rem; height: 1.6rem; }
+  .state-match .verify-status-icon { color: rgb(22 163 74); }
+  .state-mismatch .verify-status-icon { color: rgb(220 38 38); }
+  .state-empty .verify-status-icon { color: rgb(100 116 139); }
   .verify-status-card.state-match { background: rgb(240 253 244); border-color: rgb(187 247 208); }
   .dark .verify-status-card.state-match { background: rgb(6 78 59 / 0.25); border-color: rgb(6 95 70); }
   .verify-status-card.state-mismatch { background: rgb(254 242 242); border-color: rgb(254 202 202); }
@@ -297,9 +301,13 @@
 
   function setStatus(state, titleKey, descKey) {
     const box = document.getElementById('v-status');
-    const icons = { match: '✅', mismatch: '⚠️', empty: 'ℹ️' };
+    const icons = {
+      match: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.801 10A10 10 0 1 1 17 3.335"/><path d="m9 11 3 3L22 4"/></svg>',
+      mismatch: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>',
+      empty: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>',
+    };
     box.className = 'verify-status-card mt-6 state-' + state;
-    document.getElementById('v-status-icon').textContent = icons[state];
+    document.getElementById('v-status-icon').innerHTML = icons[state];
     document.getElementById('v-status-title').textContent = vt(titleKey);
     document.getElementById('v-status-desc').textContent = vt(descKey);
   }
