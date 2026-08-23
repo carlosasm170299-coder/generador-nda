@@ -1951,3 +1951,143 @@ body {
   line-height: 1.5;
 }
 .doc-integrity-line { white-space: nowrap; }
+
+/* ===== Legal glossary ===== */
+.glossary-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.glossary-item {
+  padding: 1rem 0;
+  border-bottom: 1px solid rgb(226 232 240);
+}
+.dark .glossary-item {
+  border-color: rgb(30 41 59);
+}
+.glossary-item:first-child {
+  padding-top: 0;
+}
+.glossary-item dt {
+  font-weight: 700;
+  color: rgb(15 23 42);
+  font-size: 0.95rem;
+  scroll-margin-top: 5rem;
+}
+.dark .glossary-item dt {
+  color: white;
+}
+.glossary-item dd {
+  margin: 0.35rem 0 0;
+  color: rgb(71 85 105);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+.dark .glossary-item dd {
+  color: rgb(148 163 184);
+}
+.glossary-item.hidden {
+  display: none;
+}
+
+/* ===== Post-download email capture banner ===== */
+.email-capture-banner {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 90;
+  width: 21rem;
+  max-width: calc(100vw - 2rem);
+  background: white;
+  border: 1px solid rgb(226 232 240);
+  border-radius: 0.9rem;
+  box-shadow: 0 12px 30px -8px rgb(0 0 0 / 0.2);
+  padding: 1.1rem 1.2rem;
+  opacity: 0;
+  transform: translateY(0.75rem);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+}
+.email-capture-banner.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.dark .email-capture-banner {
+  background: rgb(15 23 42);
+  border-color: rgb(30 41 59);
+}
+.email-capture-close {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.7rem;
+  font-size: 1.1rem;
+  line-height: 1;
+  color: rgb(148 163 184);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.email-capture-title {
+  display: block;
+  font-size: 0.95rem;
+  color: rgb(15 23 42);
+  padding-right: 1.25rem;
+}
+.dark .email-capture-title {
+  color: white;
+}
+.email-capture-desc {
+  margin: 0.35rem 0 0.85rem;
+  font-size: 0.78rem;
+  color: rgb(100 116 139);
+  line-height: 1.5;
+}
+.dark .email-capture-desc {
+  color: rgb(148 163 184);
+}
+.email-capture-form {
+  display: flex;
+  gap: 0.5rem;
+}
+.email-capture-input {
+  flex: 1;
+  min-width: 0;
+}
+.email-capture-submit {
+  white-space: nowrap;
+}
+
+/* =====================================================================
+   Native print: show only the generated document, reset it to a plain
+   printable layout, and hide the rest of the wizard/marketing chrome
+   entirely (header, ads, forms, modals, the email-capture banner...).
+   ===================================================================== */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #pdf-content, #pdf-content * {
+    visibility: visible;
+  }
+  #pdf-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    margin: 0 !important;
+  }
+  #preview-scroll {
+    max-height: none !important;
+    overflow: visible !important;
+    padding: 0 !important;
+  }
+  .email-capture-banner,
+  .validation-alert,
+  #ndagen-toast {
+    display: none !important;
+  }
+  @page {
+    margin: 15mm;
+  }
+}
