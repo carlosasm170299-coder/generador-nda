@@ -920,6 +920,50 @@ const I18N = {
     footer_feedback_link: "Reportar um erro / Sugerir modelo",
     footer_terms_link: "Termos de Serviço",
     footer_privacy_link: "Política de Privacidade",
+    terms_modal_content: `<p>Última atualização: 22 de agosto de 2026.</p>
+      <h3>1. Natureza do serviço</h3>
+      <p>O DraftB2B é uma ferramenta gratuita de geração de documentos que ajuda a redigir acordos de confidencialidade (NDA), contratos de prestação de serviços B2B, políticas de privacidade, cessões de propriedade intelectual e termos de quitação de serviços a partir de modelos padronizados. Sua única finalidade é informativa e de apoio à redação comercial.</p>
+      <h3>2. Não é consultoria jurídica</h3>
+      <p>O uso do DraftB2B <strong>não constitui consultoria jurídica</strong> nem cria uma relação advogado-cliente entre você e o DraftB2B ou qualquer pessoa vinculada ao projeto. Os modelos oferecem um ponto de partida geral e não substituem a revisão de um advogado licenciado em sua jurisdição, que poderá adaptar o conteúdo ao seu caso específico, à legislação local vigente e às particularidades da sua operação.</p>
+      <h3>3. Responsabilidade do usuário</h3>
+      <p>Você é responsável por revisar, adaptar e validar qualquer documento gerado com esta ferramenta antes de assiná-lo, enviá-lo ou dar-lhe qualquer uso com efeitos legais. Recomendamos fortemente que um profissional do direito revise o documento final.</p>
+      <h3>4. Isenção de garantias</h3>
+      <p>O DraftB2B é oferecido "no estado em que se encontra" e "conforme disponibilidade", sem garantias de qualquer tipo, expressas ou implícitas, incluindo (sem limitação) garantias de adequação a um propósito específico, exatidão, atualização normativa ou aplicabilidade em uma jurisdição específica.</p>
+      <h3>5. Limitação de responsabilidade</h3>
+      <p>Na máxima medida permitida pela lei aplicável, o DraftB2B e as pessoas responsáveis por seu desenvolvimento não serão responsáveis por danos diretos, indiretos, incidentais ou consequenciais decorrentes do uso ou da impossibilidade de uso dos documentos gerados com esta ferramenta.</p>
+      <h3>6. Propriedade dos documentos gerados</h3>
+      <p>O conteúdo específico que você insere no formulário e o documento final que você baixa pertencem a você. O código, design, modelos base e funcionamento da plataforma DraftB2B são propriedade de seus desenvolvedores.</p>
+      <h3>7. Uso aceitável</h3>
+      <p>Você se compromete a não utilizar esta ferramenta para gerar documentos com fins ilícitos, fraudulentos ou que infrinjam direitos de terceiros.</p>
+      <h3>8. Alterações a estes termos</h3>
+      <p>Podemos atualizar estes termos ocasionalmente para refletir mudanças na ferramenta. A data da última atualização é indicada no início deste documento.</p>`,
+    privacy_modal_content: `<p>Última atualização: 22 de agosto de 2026.</p>
+      <h3>1. Arquitetura 100% do lado do cliente</h3>
+      <p>O DraftB2B não possui servidor de backend próprio. Todo o processamento —a redação do documento, o cálculo do selo de integridade SHA-256, a geração do código QR, a criação do PDF e do arquivo Word— ocorre inteiramente dentro do seu próprio navegador, no seu próprio dispositivo. Nenhum dado que você insira no formulário (nomes, endereços, identificações fiscais, cláusulas, assinaturas manuscritas digitalizadas, logotipos) é enviado, processado ou armazenado em qualquer servidor nosso, porque esse servidor não existe.</p>
+      <h3>2. Uso de armazenamento local (localStorage)</h3>
+      <p>Para sua conveniência, o DraftB2B armazena certas informações apenas no armazenamento local do seu próprio navegador (localStorage/sessionStorage), sem que saiam do seu dispositivo:</p>
+      <ul>
+        <li>O salvamento automático do formulário em andamento, para que você não perca seu trabalho se fechar a aba.</li>
+        <li>O histórico dos documentos mais recentes gerados neste dispositivo.</li>
+        <li>Um modelo salvo manualmente por você, se utilizar esse recurso.</li>
+        <li>Suas preferências de idioma e de tema claro/escuro.</li>
+        <li>Um indicador de se você já preencheu ou dispensou o aviso de novos modelos, para não mostrá-lo novamente.</li>
+      </ul>
+      <p>Você pode apagar todas essas informações a qualquer momento excluindo os dados de navegação deste site nas configurações do seu próprio navegador.</p>
+      <h3>3. Links para compartilhar</h3>
+      <p>Se você usar o recurso de compartilhar um rascunho pré-preenchido, os dados do formulário são codificados diretamente dentro da própria URL do link —não em um banco de dados externo. Qualquer pessoa que receba esse link poderá ver essas informações, então compartilhe-o apenas com a contraparte correspondente.</p>
+      <h3>4. Serviços de terceiros que utilizamos</h3>
+      <p><strong>FormSubmit</strong> — se você decidir voluntariamente deixar seu e-mail no formulário de aviso de novos modelos, esse endereço é enviado ao formsubmit.co, um serviço externo que o encaminha por e-mail à nossa caixa de entrada. Não armazenamos esse endereço em nenhum servidor próprio; o envio está sujeito à política de privacidade do FormSubmit.</p>
+      <p><strong>Ko-fi</strong> — o botão "Apoie este Projeto" leva você ao ko-fi.com, um site externo independente. Não compartilhamos automaticamente nenhum dado seu com o Ko-fi; qualquer informação que você forneça lá fica sujeita à política de privacidade própria dele.</p>
+      <p><strong>Bibliotecas carregadas via CDN</strong> — utilizamos bibliotecas públicas de terceiros (Tailwind CSS, html2pdf.js, docx.js, qrcodejs) servidas por redes de distribuição de conteúdo para gerar a interface, o PDF, o Word e o código QR. Elas são executadas localmente no seu navegador e não transmitem o conteúdo do seu documento a nenhum servidor externo.</p>
+      <h3>5. Cookies e publicidade</h3>
+      <p>O DraftB2B não utiliza cookies de rastreamento próprios nem ferramentas de análise de terceiros. O site reserva espaços visuais para publicidade; se anúncios de fornecedores externos (por exemplo, Google AdSense) forem ativados no futuro, eles poderão utilizar cookies de acordo com suas próprias políticas —atualizaremos esta seção caso isso ocorra.</p>
+      <h3>6. Seus direitos sobre suas informações</h3>
+      <p>Como não armazenamos seus dados em nenhum servidor externo, não existe um banco de dados nosso do qual solicitar acesso, retificação ou exclusão. Todas as suas informações vivem apenas no seu próprio dispositivo: para removê-las, basta apagar os dados de navegação deste site no seu navegador.</p>
+      <h3>7. Alterações a esta política</h3>
+      <p>Podemos atualizar esta política ocasionalmente. A data da versão vigente é indicada no início deste documento.</p>
+      <h3>8. Contato</h3>
+      <p>Se você tiver dúvidas sobre esta política, pode nos contatar através do formulário de relato de erros e sugestões vinculado no rodapé.</p>`,
     copy_success: "Texto copiado para a área de transferência!",
     copy_error: "Não foi possível copiar o texto.",
     clear_confirm: "Tem certeza de que deseja limpar todo o formulário?",
@@ -1224,6 +1268,50 @@ const I18N = {
     footer_feedback_link: "Signaler un problème / Suggérer un modèle",
     footer_terms_link: "Conditions d'Utilisation",
     footer_privacy_link: "Politique de Confidentialité",
+    terms_modal_content: `<p>Dernière mise à jour : 22 août 2026.</p>
+      <h3>1. Nature du service</h3>
+      <p>DraftB2B est un outil gratuit de génération de documents qui aide à rédiger des accords de confidentialité (NDA), des contrats de prestation de services B2B, des politiques de confidentialité, des cessions de propriété intellectuelle et des procès-verbaux de solde de tout compte à partir de modèles standardisés. Son seul but est informatif et d'assistance à la rédaction commerciale.</p>
+      <h3>2. Ce n'est pas un conseil juridique</h3>
+      <p>L'utilisation de DraftB2B <strong>ne constitue pas un conseil juridique</strong> et ne crée pas de relation avocat-client entre vous et DraftB2B ou toute personne associée au projet. Les modèles offrent un point de départ général et ne remplacent pas l'examen par un avocat inscrit au barreau de votre juridiction, qui pourra adapter le contenu à votre cas précis, à la législation locale en vigueur et aux particularités de votre activité.</p>
+      <h3>3. Responsabilité de l'utilisateur</h3>
+      <p>Vous êtes responsable de la relecture, de l'adaptation et de la validation de tout document généré avec cet outil avant de le signer, de l'envoyer ou de lui donner un usage ayant des effets juridiques. Nous vous recommandons vivement de faire relire le document final par un professionnel du droit.</p>
+      <h3>4. Exclusion de garanties</h3>
+      <p>DraftB2B est fourni « en l'état » et « selon disponibilité », sans garantie d'aucune sorte, expresse ou implicite, y compris (sans s'y limiter) les garanties d'adéquation à un usage particulier, d'exactitude, d'actualité réglementaire ou d'applicabilité dans une juridiction spécifique.</p>
+      <h3>5. Limitation de responsabilité</h3>
+      <p>Dans toute la mesure permise par la loi applicable, DraftB2B et les personnes responsables de son développement ne pourront être tenus responsables des dommages directs, indirects, accessoires ou consécutifs découlant de l'utilisation ou de l'impossibilité d'utiliser les documents générés avec cet outil.</p>
+      <h3>6. Propriété des documents générés</h3>
+      <p>Le contenu spécifique que vous saisissez dans le formulaire et le document final que vous téléchargez vous appartiennent. Le code, la conception, les modèles de base et le fonctionnement de la plateforme DraftB2B sont la propriété de ses développeurs.</p>
+      <h3>7. Utilisation acceptable</h3>
+      <p>Vous vous engagez à ne pas utiliser cet outil pour générer des documents à des fins illicites, frauduleuses ou portant atteinte aux droits de tiers.</p>
+      <h3>8. Modifications de ces conditions</h3>
+      <p>Nous pouvons mettre à jour ces conditions occasionnellement pour refléter les évolutions de l'outil. La date de dernière mise à jour est indiquée en haut de ce document.</p>`,
+    privacy_modal_content: `<p>Dernière mise à jour : 22 août 2026.</p>
+      <h3>1. Architecture 100 % côté client</h3>
+      <p>DraftB2B ne dispose d'aucun serveur back-end propre. Tout le traitement —la rédaction du document, le calcul du sceau d'intégrité SHA-256, la génération du code QR, la création du PDF et du fichier Word— se déroule entièrement dans votre propre navigateur, sur votre propre appareil. Aucune donnée que vous saisissez dans le formulaire (noms, adresses, numéros d'identification fiscale, clauses, signatures manuscrites numérisées, logos) n'est envoyée, traitée ni stockée sur un quelconque serveur de notre part, car ce serveur n'existe pas.</p>
+      <h3>2. Utilisation du stockage local (localStorage)</h3>
+      <p>Pour votre confort, DraftB2B stocke certaines informations uniquement dans le stockage local de votre propre navigateur (localStorage/sessionStorage), sans qu'elles ne quittent jamais votre appareil :</p>
+      <ul>
+        <li>La sauvegarde automatique du formulaire en cours, pour que vous ne perdiez pas votre travail si vous fermez l'onglet.</li>
+        <li>L'historique des documents les plus récemment générés sur cet appareil.</li>
+        <li>Un modèle que vous avez enregistré manuellement, si vous utilisez cette fonction.</li>
+        <li>Vos préférences de langue et de thème clair/sombre.</li>
+        <li>Un indicateur permettant de savoir si vous avez déjà complété ou fermé l'invite d'information sur les nouveaux modèles, afin de ne pas vous la montrer à nouveau.</li>
+      </ul>
+      <p>Vous pouvez effacer toutes ces informations à tout moment en supprimant les données de navigation de ce site depuis les paramètres de votre propre navigateur.</p>
+      <h3>3. Liens de partage</h3>
+      <p>Si vous utilisez la fonction de partage d'un brouillon pré-rempli, les données du formulaire sont encodées directement dans l'URL du lien lui-même —et non dans une base de données externe. Toute personne recevant ce lien pourra voir ces informations ; ne le partagez donc qu'avec la contrepartie concernée.</p>
+      <h3>4. Services tiers que nous utilisons</h3>
+      <p><strong>FormSubmit</strong> — si vous choisissez volontairement de laisser votre adresse e-mail dans le formulaire d'alerte sur les nouveaux modèles, cette adresse est envoyée à formsubmit.co, un service externe qui la relaie par e-mail vers notre boîte de réception. Nous ne stockons pas cette adresse sur un quelconque serveur qui nous appartienne ; l'envoi est soumis à la politique de confidentialité propre de FormSubmit.</p>
+      <p><strong>Ko-fi</strong> — le bouton « Soutenez ce Projet » vous redirige vers ko-fi.com, un site externe indépendant. Nous ne partageons automatiquement aucune de vos données avec Ko-fi ; toute information que vous y fournissez est soumise à sa propre politique de confidentialité.</p>
+      <p><strong>Bibliothèques chargées via CDN</strong> — nous utilisons des bibliothèques tierces publiques (Tailwind CSS, html2pdf.js, docx.js, qrcodejs) servies depuis des réseaux de diffusion de contenu pour générer l'interface, le PDF, le fichier Word et le code QR. Elles s'exécutent localement dans votre navigateur et ne transmettent le contenu de votre document à aucun serveur externe.</p>
+      <h3>5. Cookies et publicité</h3>
+      <p>DraftB2B n'utilise pas de cookies de suivi propres ni d'outils d'analyse tiers. Le site réserve des espaces visuels pour la publicité ; si des publicités de fournisseurs tiers (par exemple, Google AdSense) sont activées à l'avenir, elles pourraient utiliser des cookies conformément à leurs propres politiques —nous mettrons à jour cette section si cela se produit.</p>
+      <h3>6. Vos droits sur vos informations</h3>
+      <p>Comme nous ne stockons pas vos données sur un serveur externe, il n'existe aucune base de données de notre part auprès de laquelle demander un accès, une rectification ou une suppression. Toutes vos informations résident uniquement sur votre propre appareil : pour les supprimer, il suffit d'effacer les données de navigation de ce site dans votre navigateur.</p>
+      <h3>7. Modifications de cette politique</h3>
+      <p>Nous pouvons mettre à jour cette politique occasionnellement. La date de la version en vigueur est indiquée en haut de ce document.</p>
+      <h3>8. Contact</h3>
+      <p>Si vous avez des questions concernant cette politique, vous pouvez nous contacter via le formulaire de signalement de bugs et de suggestions accessible dans le pied de page.</p>`,
     copy_success: "Texte copié dans le presse-papiers !",
     copy_error: "Impossible de copier le texte.",
     clear_confirm: "Voulez-vous vraiment effacer tout le formulaire ?",
@@ -1528,6 +1616,50 @@ const I18N = {
     footer_feedback_link: "Сообщить об ошибке / Предложить шаблон",
     footer_terms_link: "Условия использования",
     footer_privacy_link: "Политика конфиденциальности",
+    terms_modal_content: `<p>Последнее обновление: 22 августа 2026 г.</p>
+      <h3>1. Характер сервиса</h3>
+      <p>DraftB2B — это бесплатный инструмент для создания документов, который помогает составлять соглашения о неразглашении (NDA), B2B-договоры об оказании услуг, политики конфиденциальности, договоры об уступке прав интеллектуальной собственности и акты взаиморасчётов по услугам на основе стандартизированных шаблонов. Его единственная цель — информационная поддержка и помощь в составлении коммерческих документов.</p>
+      <h3>2. Это не юридическая консультация</h3>
+      <p>Использование DraftB2B <strong>не является юридической консультацией</strong> и не создаёт отношений «адвокат-клиент» между вами и DraftB2B или любым лицом, связанным с проектом. Шаблоны предлагают общую отправную точку и не заменяют проверку лицензированным адвокатом в вашей юрисдикции, который сможет адаптировать содержание к вашему конкретному случаю, действующему местному законодательству и особенностям вашей деятельности.</p>
+      <h3>3. Ответственность пользователя</h3>
+      <p>Вы несёте ответственность за проверку, адаптацию и подтверждение любого документа, созданного с помощью этого инструмента, перед его подписанием, отправкой или любым использованием, имеющим юридические последствия. Мы настоятельно рекомендуем, чтобы окончательный документ проверил профессиональный юрист.</p>
+      <h3>4. Отказ от гарантий</h3>
+      <p>DraftB2B предоставляется «как есть» и «по мере доступности», без каких-либо гарантий, явных или подразумеваемых, включая (помимо прочего) гарантии пригодности для конкретной цели, точности, соответствия действующим нормам или применимости в конкретной юрисдикции.</p>
+      <h3>5. Ограничение ответственности</h3>
+      <p>В максимальной степени, разрешённой применимым законодательством, DraftB2B и лица, ответственные за его разработку, не несут ответственности за прямые, косвенные, случайные или косвенные убытки, возникшие в результате использования или невозможности использования документов, созданных с помощью этого инструмента.</p>
+      <h3>6. Право собственности на созданные документы</h3>
+      <p>Конкретное содержание, которое вы вводите в форму, и итоговый документ, который вы скачиваете, принадлежат вам. Код, дизайн, базовые шаблоны и функционирование платформы DraftB2B являются собственностью её разработчиков.</p>
+      <h3>7. Допустимое использование</h3>
+      <p>Вы обязуетесь не использовать этот инструмент для создания документов в незаконных, мошеннических целях или в целях, нарушающих права третьих лиц.</p>
+      <h3>8. Изменения настоящих условий</h3>
+      <p>Мы можем время от времени обновлять настоящие условия, отражая изменения в инструменте. Дата последнего обновления указана в начале этого документа.</p>`,
+    privacy_modal_content: `<p>Последнее обновление: 22 августа 2026 г.</p>
+      <h3>1. Архитектура, на 100% работающая на стороне клиента</h3>
+      <p>У DraftB2B нет собственного серверного бэкенда. Вся обработка —составление документа, вычисление печати целостности SHA-256, генерация QR-кода, создание PDF и файла Word— происходит полностью в вашем собственном браузере, на вашем собственном устройстве. Ни одна из данных, которые вы вводите в форму (имена, адреса, налоговые идентификаторы, пункты, оцифрованные рукописные подписи, логотипы), не отправляется, не обрабатывается и не хранится ни на каком нашем сервере, потому что такого сервера не существует.</p>
+      <h3>2. Использование локального хранилища (localStorage)</h3>
+      <p>Для вашего удобства DraftB2B сохраняет определённую информацию только в локальном хранилище вашего собственного браузера (localStorage/sessionStorage), и она никогда не покидает ваше устройство:</p>
+      <ul>
+        <li>Автосохранение незавершённой формы, чтобы вы не потеряли свою работу при закрытии вкладки.</li>
+        <li>Историю последних документов, созданных на этом устройстве.</li>
+        <li>Шаблон, сохранённый вами вручную, если вы используете эту функцию.</li>
+        <li>Ваши настройки языка и светлой/тёмной темы.</li>
+        <li>Отметку о том, заполнили ли вы уже или закрыли уведомление о новых шаблонах, чтобы больше не показывать его вам.</li>
+      </ul>
+      <p>Вы можете удалить всю эту информацию в любой момент, очистив данные просмотра этого сайта в настройках вашего собственного браузера.</p>
+      <h3>3. Ссылки для совместного доступа</h3>
+      <p>Если вы используете функцию совместного доступа к предзаполненному черновику, данные формы кодируются непосредственно в самой ссылке —а не во внешней базе данных. Любой, кто получит эту ссылку, сможет увидеть эту информацию, поэтому делитесь ею только с соответствующей стороной.</p>
+      <h3>4. Сторонние сервисы, которые мы используем</h3>
+      <p><strong>FormSubmit</strong> — если вы добровольно решите оставить свой адрес электронной почты в форме уведомления о новых шаблонах, этот адрес отправляется в formsubmit.co, внешний сервис, который пересылает его по электронной почте в наш почтовый ящик. Мы не храним этот адрес ни на одном собственном сервере; отправка подчиняется собственной политике конфиденциальности FormSubmit.</p>
+      <p><strong>Ko-fi</strong> — кнопка «Поддержать проект» переносит вас на ko-fi.com, независимый внешний сайт. Мы автоматически не передаём никакие ваши данные Ko-fi; любая информация, которую вы предоставляете там, подчиняется его собственной политике конфиденциальности.</p>
+      <p><strong>Библиотеки, загружаемые через CDN</strong> — мы используем публичные сторонние библиотеки (Tailwind CSS, html2pdf.js, docx.js, qrcodejs), обслуживаемые сетями доставки контента, для создания интерфейса, PDF, Word и QR-кода. Они выполняются локально в вашем браузере и не передают содержимое вашего документа ни на какой внешний сервер.</p>
+      <h3>5. Файлы cookie и реклама</h3>
+      <p>DraftB2B не использует собственные отслеживающие файлы cookie или сторонние инструменты аналитики. Сайт резервирует визуальное пространство для рекламы; если в будущем будет включена реклама сторонних поставщиков (например, Google AdSense), они могут использовать файлы cookie в соответствии со своими собственными политиками —мы обновим этот раздел, если это произойдёт.</p>
+      <h3>6. Ваши права в отношении вашей информации</h3>
+      <p>Поскольку мы не храним ваши данные на каком-либо внешнем сервере, не существует нашей базы данных, к которой можно было бы обратиться с запросом на доступ, исправление или удаление. Вся ваша информация хранится только на вашем собственном устройстве: чтобы удалить её, достаточно очистить данные просмотра этого сайта в вашем браузере.</p>
+      <h3>7. Изменения настоящей политики</h3>
+      <p>Мы можем время от времени обновлять эту политику. Дата действующей версии указана в начале этого документа.</p>
+      <h3>8. Контакты</h3>
+      <p>Если у вас есть вопросы об этой политике, вы можете связаться с нами через форму сообщения об ошибках и предложений, ссылка на которую находится в нижнем колонтитуле.</p>`,
     copy_success: "Текст скопирован в буфер обмена!",
     copy_error: "Не удалось скопировать текст.",
     clear_confirm: "Вы уверены, что хотите очистить всю форму?",
@@ -1832,6 +1964,50 @@ const I18N = {
     footer_feedback_link: "报告问题 / 建议模板",
     footer_terms_link: "服务条款",
     footer_privacy_link: "隐私政策",
+    terms_modal_content: `<p>最后更新：2026年8月22日。</p>
+      <h3>1. 服务的性质</h3>
+      <p>DraftB2B 是一款免费的文档生成工具，可帮助您根据标准化模板起草保密协议（NDA）、B2B 服务合同、隐私政策、知识产权转让合同以及服务结算书。其唯一目的是提供信息并协助商业文书起草。</p>
+      <h3>2. 不构成法律意见</h3>
+      <p>使用 DraftB2B <strong>不构成法律意见</strong>，也不会在您与 DraftB2B 或与该项目相关的任何人之间建立律师-客户关系。这些模板提供一个通用的起点，不能替代您所在司法管辖区持牌律师的审查——律师可以根据您的具体情况、当地现行法律以及您业务的特殊性来调整内容。</p>
+      <h3>3. 用户责任</h3>
+      <p>在签署、发送使用此工具生成的任何文档或将其用于任何具有法律效力的用途之前，您有责任对其进行审查、调整和验证。我们强烈建议由法律专业人士审查最终文档。</p>
+      <h3>4. 免责声明</h3>
+      <p>DraftB2B 按"现状"和"可用"提供，不提供任何形式的明示或暗示保证，包括（但不限于）对特定用途的适用性、准确性、法规时效性或在特定司法管辖区可执行性的保证。</p>
+      <h3>5. 责任限制</h3>
+      <p>在适用法律允许的最大范围内，DraftB2B 及其开发负责人对因使用或无法使用本工具生成的文档而产生的直接、间接、附带或后果性损害不承担责任。</p>
+      <h3>6. 生成文档的所有权</h3>
+      <p>您在表单中输入的具体内容以及您下载的最终文档归您所有。DraftB2B 平台的代码、设计、基础模板及其运作方式归其开发者所有。</p>
+      <h3>7. 可接受的使用</h3>
+      <p>您同意不会使用此工具生成用于非法、欺诈目的或侵犯第三方权利的文档。</p>
+      <h3>8. 本条款的变更</h3>
+      <p>我们可能会不定期更新本条款以反映工具的变化。文档开头标明了最后更新日期。</p>`,
+    privacy_modal_content: `<p>最后更新：2026年8月22日。</p>
+      <h3>1. 100% 客户端架构</h3>
+      <p>DraftB2B 没有自己的后端服务器。所有处理过程——文档起草、SHA-256 完整性印记计算、二维码生成、PDF 和 Word 文件的创建——完全在您自己的浏览器、您自己的设备上进行。您在表单中输入的任何数据（姓名、地址、税务识别号、条款、数字化手写签名、徽标）都不会发送到、由我们的任何服务器处理或存储，因为这样的服务器根本不存在。</p>
+      <h3>2. 本地存储（localStorage）的使用</h3>
+      <p>为方便起见，DraftB2B 仅在您自己浏览器的本地存储（localStorage/sessionStorage）中保存某些信息，这些信息永远不会离开您的设备：</p>
+      <ul>
+        <li>正在进行的表单的自动保存，以便您在关闭标签页时不会丢失工作内容。</li>
+        <li>此设备上最近生成的文档历史记录。</li>
+        <li>如果您使用该功能，则包括您手动保存的模板。</li>
+        <li>您的语言和浅色/深色主题偏好设置。</li>
+        <li>标记您是否已完成或关闭了新模板通知提示，以免再次显示。</li>
+      </ul>
+      <p>您可以随时通过浏览器设置删除本网站的浏览数据，从而清除所有这些信息。</p>
+      <h3>3. 分享链接</h3>
+      <p>如果您使用分享预填草稿的功能，表单数据会直接编码在链接的 URL 本身中——而不是存储在外部数据库中。任何收到该链接的人都能看到这些信息，因此请仅与相应的对方分享。</p>
+      <h3>4. 我们使用的第三方服务</h3>
+      <p><strong>FormSubmit</strong> — 如果您自愿在新模板通知表单中留下您的电子邮件地址，该地址会发送到 formsubmit.co（一项外部服务），由其通过电子邮件转发到我们的收件箱。我们不会将该地址存储在我们自己的任何服务器上；提交行为受 FormSubmit 自身隐私政策的约束。</p>
+      <p><strong>Ko-fi</strong> — "支持这个项目"按钮会将您带到 ko-fi.com，一个独立的外部网站。我们不会自动与 Ko-fi 分享您的任何数据；您在该网站提供的任何信息均受其自身隐私政策约束。</p>
+      <p><strong>通过 CDN 加载的库</strong> — 我们使用公开的第三方库（Tailwind CSS、html2pdf.js、docx.js、qrcodejs），这些库由内容分发网络提供，用于生成界面、PDF、Word 文件和二维码。它们在您的浏览器本地运行，不会将您文档的内容传输到任何外部服务器。</p>
+      <h3>5. Cookie 与广告</h3>
+      <p>DraftB2B 不使用自有的跟踪 Cookie，也不使用第三方分析工具。本网站为广告预留了视觉空间；如果未来启用了第三方广告（例如 Google AdSense），它们可能会根据自身政策使用 Cookie——如果发生这种情况，我们将更新本节内容。</p>
+      <h3>6. 您对自己信息的权利</h3>
+      <p>由于我们不在任何外部服务器上存储您的数据，因此不存在可供您申请访问、更正或删除的我方数据库。您的所有信息仅存在于您自己的设备上：要删除这些信息，只需在浏览器中清除本网站的浏览数据即可。</p>
+      <h3>7. 本政策的变更</h3>
+      <p>我们可能会不定期更新本政策。文档开头标明了现行版本的日期。</p>
+      <h3>8. 联系方式</h3>
+      <p>如果您对本政策有任何疑问，可以通过页脚中链接的错误报告/建议表单与我们联系。</p>`,
     copy_success: "文本已复制到剪贴板！",
     copy_error: "无法复制文本。",
     clear_confirm: "确定要清空整个表单吗？",
@@ -2136,6 +2312,50 @@ const I18N = {
     footer_feedback_link: "問題を報告 / テンプレートを提案",
     footer_terms_link: "利用規約",
     footer_privacy_link: "プライバシーポリシー",
+    terms_modal_content: `<p>最終更新日：2026年8月22日。</p>
+      <h3>1. サービスの性質</h3>
+      <p>DraftB2Bは、標準化されたテンプレートをもとに秘密保持契約（NDA）、B2Bサービス契約、プライバシーポリシー、知的財産権譲渡契約、サービス精算書の作成を支援する無料の文書生成ツールです。その唯一の目的は、情報提供および商用文書作成の補助です。</p>
+      <h3>2. 法的助言ではありません</h3>
+      <p>DraftB2Bの利用は<strong>法的助言を構成するものではなく</strong>、お客様とDraftB2Bまたは本プロジェクトに関係する者との間に弁護士-依頼者関係を生じさせるものでもありません。テンプレートは一般的な出発点を提供するものであり、お客様の具体的な事案、適用される現地法、事業の特殊性に応じて内容を調整できる、お客様の管轄区域における弁護士資格を有する法律専門家によるレビューに代わるものではありません。</p>
+      <h3>3. 利用者の責任</h3>
+      <p>本ツールで生成した文書に署名、送付、または法的効力を持つ用途で使用する前に、内容を確認・調整・検証する責任はお客様にあります。最終的な文書については、法律専門家によるレビューを強くお勧めします。</p>
+      <h3>4. 保証の免責</h3>
+      <p>DraftB2Bは「現状有姿」および「提供可能な範囲」で提供され、特定目的への適合性、正確性、法規制への準拠、特定の管轄区域における執行可能性を含む（ただしこれらに限定されない）、明示または黙示を問わずいかなる保証も行いません。</p>
+      <h3>5. 責任の制限</h3>
+      <p>適用法が許容する最大限の範囲において、DraftB2Bおよびその開発に関与する者は、本ツールで生成された文書の使用または使用不能から生じる直接的、間接的、付随的、または結果的損害について責任を負いません。</p>
+      <h3>6. 生成された文書の所有権</h3>
+      <p>フォームに入力した具体的な内容、およびダウンロードした最終文書はお客様に帰属します。DraftB2Bプラットフォームのコード、デザイン、基本テンプレート、および動作方式はその開発者の所有物です。</p>
+      <h3>7. 許容される利用</h3>
+      <p>お客様は、本ツールを違法または詐欺的な目的、あるいは第三者の権利を侵害する目的で文書を生成するために使用しないことに同意するものとします。</p>
+      <h3>8. 本規約の変更</h3>
+      <p>ツールの変更を反映するため、本規約を随時更新する場合があります。最終更新日は本文書の冒頭に記載されています。</p>`,
+    privacy_modal_content: `<p>最終更新日：2026年8月22日。</p>
+      <h3>1. 100%クライアントサイドのアーキテクチャ</h3>
+      <p>DraftB2Bは独自のバックエンドサーバーを持っていません。文書の作成、SHA-256完全性シールの計算、QRコードの生成、PDFおよびWordファイルの作成など、すべての処理はお客様自身のブラウザ内、お客様自身のデバイス上で完結します。フォームに入力するいかなるデータ（氏名、住所、税務識別番号、条項、デジタル化された手書き署名、ロゴ）も、当社のサーバーへ送信、処理、保存されることはありません。なぜなら、そのようなサーバー自体が存在しないからです。</p>
+      <h3>2. ローカルストレージ（localStorage）の使用</h3>
+      <p>利便性のため、DraftB2Bは特定の情報をお客様自身のブラウザのローカルストレージ（localStorage/sessionStorage）にのみ保存し、それがお客様のデバイスから外に出ることはありません：</p>
+      <ul>
+        <li>タブを閉じても作業内容を失わないようにするための、作業中のフォームの自動保存。</li>
+        <li>このデバイスで生成された最近の文書の履歴。</li>
+        <li>この機能を使用する場合、お客様が手動で保存したテンプレート。</li>
+        <li>言語およびライト/ダークテーマの設定。</li>
+        <li>新しいテンプレートの通知を再表示しないための、既に入力または閉じたかどうかを示すフラグ。</li>
+      </ul>
+      <p>これらの情報はいつでも、お客様自身のブラウザの設定からこのサイトの閲覧データを削除することで消去できます。</p>
+      <h3>3. 共有リンク</h3>
+      <p>入力済みの下書きを共有する機能を使用する場合、フォームのデータは外部データベースではなく、リンクのURL自体に直接エンコードされます。そのリンクを受け取った人は誰でもその情報を見ることができるため、該当する相手とのみ共有してください。</p>
+      <h3>4. 当社が使用する第三者サービス</h3>
+      <p><strong>FormSubmit</strong> — 新テンプレート通知フォームに任意でメールアドレスを入力された場合、そのアドレスは外部サービスであるformsubmit.coに送信され、当社の受信箱にメールで転送されます。当社独自のサーバーにそのアドレスを保存することはなく、送信はFormSubmit独自のプライバシーポリシーに従います。</p>
+      <p><strong>Ko-fi</strong> — 「このプロジェクトを支援する」ボタンをクリックすると、独立した外部サイトであるko-fi.comに移動します。当社がお客様のデータを自動的にKo-fiと共有することはなく、そこで提供する情報はKo-fi独自のプライバシーポリシーに従います。</p>
+      <p><strong>CDN経由で読み込まれるライブラリ</strong> — 当社は、インターフェース、PDF、Word、QRコードを生成するために、コンテンツ配信ネットワークから提供される公開の第三者ライブラリ（Tailwind CSS、html2pdf.js、docx.js、qrcodejs）を使用しています。これらはお客様のブラウザ内でローカルに実行され、文書の内容を外部サーバーに送信することはありません。</p>
+      <h3>5. Cookieと広告</h3>
+      <p>DraftB2Bは独自の追跡Cookieや第三者の分析ツールを使用していません。当サイトは広告用の表示スペースを確保していますが、将来的に第三者広告（例：Google AdSense）が有効化された場合、それらは各社独自のポリシーに基づいてCookieを使用する可能性があります。その場合は本セクションを更新します。</p>
+      <h3>6. お客様の情報に関する権利</h3>
+      <p>当社は外部サーバーにお客様のデータを保存していないため、アクセス、訂正、削除を要求できる当社のデータベースは存在しません。お客様の情報はすべてお客様自身のデバイスにのみ存在します。削除するには、ブラウザでこのサイトの閲覧データを消去するだけで済みます。</p>
+      <h3>7. 本ポリシーの変更</h3>
+      <p>当社は本ポリシーを随時更新する場合があります。現行バージョンの日付は本文書の冒頭に記載されています。</p>
+      <h3>8. お問い合わせ</h3>
+      <p>本ポリシーに関するご質問がございましたら、フッターにリンクされているバグ報告・提案フォームからご連絡ください。</p>`,
     copy_success: "テキストをクリップボードにコピーしました！",
     copy_error: "テキストをコピーできませんでした。",
     clear_confirm: "フォーム全体をクリアしてもよろしいですか？",
@@ -2440,6 +2660,50 @@ const I18N = {
     footer_feedback_link: "समस्या रिपोर्ट करें / टेम्पलेट सुझाएं",
     footer_terms_link: "सेवा की शर्तें",
     footer_privacy_link: "गोपनीयता नीति",
+    terms_modal_content: `<p>अंतिम अद्यतन: 22 अगस्त, 2026।</p>
+      <h3>1. सेवा की प्रकृति</h3>
+      <p>DraftB2B एक निःशुल्क दस्तावेज़-निर्माण उपकरण है जो मानकीकृत टेम्पलेट्स के आधार पर गोपनीयता समझौते (NDA), B2B सेवा अनुबंध, गोपनीयता नीतियां, बौद्धिक संपदा समनुदेशन और सेवा निपटान विलेख तैयार करने में मदद करता है। इसका एकमात्र उद्देश्य सूचनात्मक है और वाणिज्यिक प्रारूपण में सहायता करना है।</p>
+      <h3>2. यह कानूनी सलाह नहीं है</h3>
+      <p>DraftB2B का उपयोग <strong>कानूनी सलाह नहीं है</strong> और यह आपके और DraftB2B या परियोजना से जुड़े किसी भी व्यक्ति के बीच वकील-मुवक्किल संबंध नहीं बनाता। टेम्पलेट्स एक सामान्य शुरुआती बिंदु प्रदान करते हैं और आपके क्षेत्राधिकार में एक लाइसेंस प्राप्त वकील की समीक्षा का स्थान नहीं लेते, जो सामग्री को आपके विशिष्ट मामले, लागू स्थानीय कानून और आपके व्यवसाय की विशिष्टताओं के अनुसार अनुकूलित कर सकता है।</p>
+      <h3>3. उपयोगकर्ता की जिम्मेदारी</h3>
+      <p>इस उपकरण से उत्पन्न किसी भी दस्तावेज़ पर हस्ताक्षर करने, भेजने या किसी भी कानूनी रूप से बाध्यकारी उपयोग में लाने से पहले उसकी समीक्षा, अनुकूलन और सत्यापन करने की जिम्मेदारी आपकी है। हम दृढ़ता से अनुशंसा करते हैं कि अंतिम दस्तावेज़ की समीक्षा एक कानूनी पेशेवर द्वारा की जाए।</p>
+      <h3>4. वारंटी अस्वीकरण</h3>
+      <p>DraftB2B "जैसा है" और "जैसा उपलब्ध है" के आधार पर प्रदान किया जाता है, बिना किसी प्रकार की स्पष्ट या निहित वारंटी के, जिसमें (बिना सीमा के) किसी विशेष उद्देश्य के लिए उपयुक्तता, सटीकता, नियामक अद्यतन या किसी विशिष्ट क्षेत्राधिकार में प्रवर्तनीयता की वारंटी शामिल है।</p>
+      <h3>5. दायित्व की सीमा</h3>
+      <p>लागू कानून द्वारा अनुमत अधिकतम सीमा तक, DraftB2B और इसके विकास के लिए जिम्मेदार व्यक्ति इस उपकरण से उत्पन्न दस्तावेज़ों के उपयोग या उपयोग करने में असमर्थता से उत्पन्न प्रत्यक्ष, अप्रत्यक्ष, आकस्मिक या परिणामी क्षति के लिए उत्तरदायी नहीं होंगे।</p>
+      <h3>6. जनरेट किए गए दस्तावेज़ों का स्वामित्व</h3>
+      <p>आपके द्वारा फ़ॉर्म में दर्ज की गई विशिष्ट सामग्री और आपके द्वारा डाउनलोड किया गया अंतिम दस्तावेज़ आपका है। DraftB2B प्लेटफ़ॉर्म का कोड, डिज़ाइन, आधार टेम्पलेट्स और कार्यप्रणाली इसके डेवलपर्स की संपत्ति है।</p>
+      <h3>7. स्वीकार्य उपयोग</h3>
+      <p>आप सहमत हैं कि आप इस उपकरण का उपयोग अवैध, धोखाधड़ीपूर्ण उद्देश्यों के लिए या तीसरे पक्ष के अधिकारों का उल्लंघन करने वाले दस्तावेज़ बनाने के लिए नहीं करेंगे।</p>
+      <h3>8. इन शर्तों में परिवर्तन</h3>
+      <p>हम उपकरण में परिवर्तनों को दर्शाने के लिए इन शर्तों को समय-समय पर अपडेट कर सकते हैं। अंतिम अद्यतन की तिथि इस दस्तावेज़ के शीर्ष पर दर्शाई गई है।</p>`,
+    privacy_modal_content: `<p>अंतिम अद्यतन: 22 अगस्त, 2026।</p>
+      <h3>1. 100% क्लाइंट-साइड आर्किटेक्चर</h3>
+      <p>DraftB2B के पास अपना कोई बैकएंड सर्वर नहीं है। सारी प्रोसेसिंग —दस्तावेज़ का प्रारूपण, SHA-256 अखंडता मुहर की गणना, QR कोड जनरेशन, PDF और Word फ़ाइल का निर्माण— पूरी तरह से आपके अपने ब्राउज़र में, आपके अपने डिवाइस पर होती है। आपके द्वारा फ़ॉर्म में दर्ज किया गया कोई भी डेटा (नाम, पते, कर पहचान संख्या, धाराएं, डिजिटाइज़्ड हस्तलिखित हस्ताक्षर, लोगो) हमारे किसी भी सर्वर पर नहीं भेजा जाता, संसाधित नहीं होता, या संग्रहीत नहीं होता, क्योंकि ऐसा सर्वर मौजूद ही नहीं है।</p>
+      <h3>2. लोकल स्टोरेज (localStorage) का उपयोग</h3>
+      <p>आपकी सुविधा के लिए, DraftB2B कुछ जानकारी केवल आपके अपने ब्राउज़र के लोकल स्टोरेज (localStorage/sessionStorage) में संग्रहीत करता है, जो कभी भी आपके डिवाइस से बाहर नहीं जाती:</p>
+      <ul>
+        <li>प्रगति पर मौजूद फ़ॉर्म का ऑटो-सेव, ताकि टैब बंद करने पर आपका काम न खोए।</li>
+        <li>इस डिवाइस पर हाल ही में जनरेट किए गए दस्तावेज़ों का इतिहास।</li>
+        <li>आपके द्वारा मैन्युअल रूप से सहेजा गया एक टेम्पलेट, यदि आप उस सुविधा का उपयोग करते हैं।</li>
+        <li>आपकी भाषा और लाइट/डार्क थीम प्राथमिकताएं।</li>
+        <li>यह संकेतक कि क्या आपने पहले ही नए टेम्पलेट सूचना संदेश को पूरा कर लिया है या खारिज कर दिया है, ताकि इसे दोबारा न दिखाया जाए।</li>
+      </ul>
+      <p>आप अपने ब्राउज़र की सेटिंग्स से इस साइट का ब्राउज़िंग डेटा हटाकर किसी भी समय इस सारी जानकारी को मिटा सकते हैं।</p>
+      <h3>3. साझा करने योग्य लिंक</h3>
+      <p>यदि आप पहले से भरे गए ड्राफ्ट को साझा करने की सुविधा का उपयोग करते हैं, तो फ़ॉर्म डेटा सीधे लिंक की स्वयं की URL के भीतर एन्कोड किया जाता है —किसी बाहरी डेटाबेस में नहीं। उस लिंक को प्राप्त करने वाला कोई भी व्यक्ति उस जानकारी को देख सकता है, इसलिए इसे केवल संबंधित पक्ष के साथ ही साझा करें।</p>
+      <h3>4. हमारे द्वारा उपयोग की जाने वाली तृतीय-पक्ष सेवाएं</h3>
+      <p><strong>FormSubmit</strong> — यदि आप स्वेच्छा से नए टेम्पलेट सूचना फ़ॉर्म में अपना ईमेल पता छोड़ने का निर्णय लेते हैं, तो वह पता formsubmit.co को भेजा जाता है, जो एक बाहरी सेवा है और इसे ईमेल के माध्यम से हमारे इनबॉक्स में अग्रेषित करती है। हम उस पते को अपने किसी भी सर्वर पर संग्रहीत नहीं करते; यह सबमिशन FormSubmit की अपनी गोपनीयता नीति के अधीन है।</p>
+      <p><strong>Ko-fi</strong> — "इस परियोजना का समर्थन करें" बटन आपको ko-fi.com पर ले जाता है, जो एक स्वतंत्र बाहरी साइट है। हम स्वचालित रूप से आपका कोई भी डेटा Ko-fi के साथ साझा नहीं करते; वहां आपके द्वारा प्रदान की गई कोई भी जानकारी उसकी अपनी गोपनीयता नीति के अधीन है।</p>
+      <p><strong>CDN के माध्यम से लोड की गई लाइब्रेरीज़</strong> — हम इंटरफ़ेस, PDF, Word और QR कोड जनरेट करने के लिए कंटेंट डिलीवरी नेटवर्क से सर्व की जाने वाली सार्वजनिक तृतीय-पक्ष लाइब्रेरीज़ (Tailwind CSS, html2pdf.js, docx.js, qrcodejs) का उपयोग करते हैं। ये आपके ब्राउज़र में स्थानीय रूप से चलती हैं और आपके दस्तावेज़ की सामग्री को किसी भी बाहरी सर्वर पर प्रसारित नहीं करतीं।</p>
+      <h3>5. कुकीज़ और विज्ञापन</h3>
+      <p>DraftB2B अपनी कोई ट्रैकिंग कुकीज़ या तृतीय-पक्ष एनालिटिक्स टूल का उपयोग नहीं करता। साइट विज्ञापन के लिए दृश्य स्थान आरक्षित रखती है; यदि भविष्य में तृतीय-पक्ष विज्ञापन (उदाहरण के लिए, Google AdSense) सक्षम किए जाते हैं, तो वे अपनी स्वयं की नीतियों के अनुसार कुकीज़ का उपयोग कर सकते हैं —यदि ऐसा होता है तो हम इस अनुभाग को अपडेट करेंगे।</p>
+      <h3>6. आपकी जानकारी पर आपके अधिकार</h3>
+      <p>चूंकि हम आपका डेटा किसी बाहरी सर्वर पर संग्रहीत नहीं करते, इसलिए हमारा कोई डेटाबेस नहीं है जिससे पहुंच, सुधार या हटाने का अनुरोध किया जा सके। आपकी सारी जानकारी केवल आपके अपने डिवाइस पर मौजूद रहती है: इसे हटाने के लिए, बस अपने ब्राउज़र में इस साइट का ब्राउज़िंग डेटा साफ़ करें।</p>
+      <h3>7. इस नीति में परिवर्तन</h3>
+      <p>हम इस नीति को समय-समय पर अपडेट कर सकते हैं। वर्तमान संस्करण की तिथि इस दस्तावेज़ के शीर्ष पर दर्शाई गई है।</p>
+      <h3>8. संपर्क करें</h3>
+      <p>यदि आपके पास इस नीति के बारे में कोई प्रश्न हैं, तो आप फ़ुटर में लिंक किए गए बग-रिपोर्ट / सुझाव फ़ॉर्म के माध्यम से हमसे संपर्क कर सकते हैं।</p>`,
     copy_success: "टेक्स्ट क्लिपबोर्ड पर कॉपी हो गया!",
     copy_error: "टेक्स्ट कॉपी नहीं किया जा सका।",
     clear_confirm: "क्या आप वाकई पूरा फ़ॉर्म साफ़ करना चाहते हैं?",
