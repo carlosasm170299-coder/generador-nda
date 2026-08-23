@@ -6045,7 +6045,21 @@ function renderQrIntoSlot(text) {
   const slot = $('#doc-qr-slot');
   if (!slot || typeof QRCode === 'undefined') return;
   const tempHost = document.createElement('div');
-  new QRCode(tempHost, { text, width: 64, height: 64, colorDark: '#1e293b', colorLight: '#ffffff' });
+  try {
+    // qrcodejs defaults to correctLevel H (~30% redundancy, lowest data
+    // capacity) and throws instead of upgrading the QR version when a
+    // long verify-URL payload (many clauses, non-Latin script, custom
+    // clauses) doesn't fit — L (~7% redundancy) fits roughly 4x more
+    // data and is plenty robust for an on-screen/printed digital seal.
+    // The try/catch is a second line of defense: custom clause text is
+    // unbounded, so even L can theoretically overflow — if it ever does,
+    // skip the QR image rather than aborting the whole PDF/DOCX export.
+    new QRCode(tempHost, { text, width: 64, height: 64, colorDark: '#1e293b', colorLight: '#ffffff', correctLevel: QRCode.CorrectLevel.L });
+  } catch (e) {
+    state.qrDataUrl = null;
+    slot.innerHTML = '';
+    return;
+  }
   // QRCode.js renders into a <canvas>. cloneNode() does NOT copy a
   // canvas's rendered pixels (only its DOM attributes), so leaving a
   // live <canvas> in #pdf-content would export as a blank square in the
