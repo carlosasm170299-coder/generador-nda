@@ -123,6 +123,7 @@
       back_link: "← Volver al generador",
       doctype_nda_unilateral: "NDA Unilateral", doctype_nda_mutual: "NDA Bilateral (Mutuo)",
       doctype_b2b_services: "Contrato B2B de Servicios", doctype_privacy_policy: "Política de Privacidad",
+      doctype_ip_assignment: "Cesión de Propiedad Intelectual", doctype_service_settlement: "Acta de Entrega / Finiquito de Servicios",
     },
     en: {
       page_title: "Verify Document · DraftB2B",
@@ -141,6 +142,7 @@
       back_link: "← Back to the generator",
       doctype_nda_unilateral: "Unilateral NDA", doctype_nda_mutual: "Mutual (Bilateral) NDA",
       doctype_b2b_services: "B2B Services Contract", doctype_privacy_policy: "Privacy Policy",
+      doctype_ip_assignment: "Intellectual Property Assignment", doctype_service_settlement: "Service Delivery Acceptance and Settlement",
     },
     pt: {
       page_title: "Verificar Documento · DraftB2B",
@@ -159,6 +161,7 @@
       back_link: "← Voltar ao gerador",
       doctype_nda_unilateral: "NDA Unilateral", doctype_nda_mutual: "NDA Bilateral (Mútuo)",
       doctype_b2b_services: "Contrato B2B de Serviços", doctype_privacy_policy: "Política de Privacidade",
+      doctype_ip_assignment: "Cessão de Propriedade Intelectual", doctype_service_settlement: "Termo de Entrega e Quitação de Serviços",
     },
     fr: {
       page_title: "Vérifier le Document · DraftB2B",
@@ -177,6 +180,7 @@
       back_link: "← Retour au générateur",
       doctype_nda_unilateral: "NDA Unilatéral", doctype_nda_mutual: "NDA Bilatéral (Mutuel)",
       doctype_b2b_services: "Contrat B2B de Services", doctype_privacy_policy: "Politique de Confidentialité",
+      doctype_ip_assignment: "Cession de Propriété Intellectuelle", doctype_service_settlement: "Procès-Verbal de Livraison et Solde de Tout Compte",
     },
     ru: {
       page_title: "Проверка документа · DraftB2B",
@@ -195,6 +199,7 @@
       back_link: "← Вернуться к генератору",
       doctype_nda_unilateral: "Односторонний NDA", doctype_nda_mutual: "Двусторонний (взаимный) NDA",
       doctype_b2b_services: "B2B договор об оказании услуг", doctype_privacy_policy: "Политика конфиденциальности",
+      doctype_ip_assignment: "Договор об уступке прав ИС", doctype_service_settlement: "Акт Сдачи-Приёмки и Взаиморасчётов по Услугам",
     },
     zh: {
       page_title: "验证文档 · DraftB2B",
@@ -213,6 +218,7 @@
       back_link: "← 返回生成器",
       doctype_nda_unilateral: "单方保密协议", doctype_nda_mutual: "双方（相互）保密协议",
       doctype_b2b_services: "B2B 服务合同", doctype_privacy_policy: "隐私政策",
+      doctype_ip_assignment: "知识产权转让合同", doctype_service_settlement: "服务交付验收与结算书",
     },
     ja: {
       page_title: "文書を検証 · DraftB2B",
@@ -231,6 +237,7 @@
       back_link: "← 生成ツールに戻る",
       doctype_nda_unilateral: "片務型NDA", doctype_nda_mutual: "双務型(相互)NDA",
       doctype_b2b_services: "B2Bサービス契約", doctype_privacy_policy: "プライバシーポリシー",
+      doctype_ip_assignment: "知的財産権譲渡契約", doctype_service_settlement: "サービス納品検収・精算書",
     },
     hi: {
       page_title: "दस्तावेज़ सत्यापित करें · DraftB2B",
@@ -249,6 +256,7 @@
       back_link: "← जनरेटर पर वापस जाएँ",
       doctype_nda_unilateral: "एकपक्षीय एनडीए", doctype_nda_mutual: "द्विपक्षीय (पारस्परिक) एनडीए",
       doctype_b2b_services: "B2B सेवा अनुबंध", doctype_privacy_policy: "गोपनीयता नीति",
+      doctype_ip_assignment: "बौद्धिक संपदा समनुदेशन", doctype_service_settlement: "सेवा वितरण स्वीकृति और निपटान विलेख",
     },
   };
 
@@ -296,7 +304,7 @@
   }
 
   function docTypeLabel(docType) {
-    const key = { nda_unilateral: 'doctype_nda_unilateral', nda_mutual: 'doctype_nda_mutual', b2b_services: 'doctype_b2b_services', privacy_policy: 'doctype_privacy_policy' }[docType];
+    const key = { nda_unilateral: 'doctype_nda_unilateral', nda_mutual: 'doctype_nda_mutual', b2b_services: 'doctype_b2b_services', privacy_policy: 'doctype_privacy_policy', ip_assignment: 'doctype_ip_assignment', service_settlement: 'doctype_service_settlement' }[docType];
     return key ? vt(key) : (docType || '—');
   }
 

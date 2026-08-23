@@ -28,8 +28,8 @@ const I18N = {
     ad_label: "Publicidad",
     ad_native: "Bloque nativo",
     hero_badge: "100% Gratis · Sin registro · Descarga instantánea",
-    hero_title: "Generador de Acuerdos de Confidencialidad (NDA) y Contratos B2B",
-    hero_subtitle: "Crea, previsualiza y descarga en PDF tu NDA o contrato de servicios profesional en menos de 3 minutos.",
+    hero_title: "Suite de Contratos Comerciales y Acuerdos Legales B2B",
+    hero_subtitle: "Crea, firma y valida acuerdos de confidencialidad (NDA), contratos y documentos legales en 8 idiomas con verificación criptográfica.",
     tpl_unilateral_title: "NDA Unilateral",
     tpl_unilateral_desc: "Una parte revela información, la otra la protege.",
     tpl_mutual_title: "NDA Bilateral (Mutuo)",
@@ -342,8 +342,8 @@ const I18N = {
     ad_label: "Advertisement",
     ad_native: "Native ad block",
     hero_badge: "100% Free · No signup · Instant download",
-    hero_title: "Non-Disclosure Agreement (NDA) & B2B Contract Generator",
-    hero_subtitle: "Create, preview, and download your professional NDA or services contract as a PDF in under 3 minutes.",
+    hero_title: "B2B Commercial Contracts and Legal Agreements Suite",
+    hero_subtitle: "Create, sign, and validate non-disclosure agreements (NDA), contracts, and legal documents in 8 languages with cryptographic verification.",
     tpl_unilateral_title: "Unilateral NDA",
     tpl_unilateral_desc: "One party discloses information, the other protects it.",
     tpl_mutual_title: "Mutual (Bilateral) NDA",
@@ -655,8 +655,8 @@ const I18N = {
     ad_label: "Publicidade",
     ad_native: "Bloco nativo",
     hero_badge: "100% Grátis · Sem cadastro · Download instantâneo",
-    hero_title: "Gerador de Acordos de Confidencialidade (NDA) e Contratos B2B",
-    hero_subtitle: "Crie, visualize e baixe em PDF seu NDA ou contrato de serviços profissional em menos de 3 minutos.",
+    hero_title: "Suíte de Contratos Comerciais e Acordos Legais B2B",
+    hero_subtitle: "Crie, assine e valide acordos de confidencialidade (NDA), contratos e documentos legais em 8 idiomas com verificação criptográfica.",
     tpl_unilateral_title: "NDA Unilateral",
     tpl_unilateral_desc: "Uma parte revela informações, a outra as protege.",
     tpl_mutual_title: "NDA Bilateral (Mútuo)",
@@ -956,8 +956,8 @@ const I18N = {
     ad_label: "Publicité",
     ad_native: "Bloc natif",
     hero_badge: "100 % Gratuit · Sans inscription · Téléchargement instantané",
-    hero_title: "Générateur d'Accords de Confidentialité (NDA) et de Contrats B2B",
-    hero_subtitle: "Créez, prévisualisez et téléchargez votre NDA ou contrat de services professionnel au format PDF en moins de 3 minutes.",
+    hero_title: "Suite de Contrats Commerciaux et d'Accords Juridiques B2B",
+    hero_subtitle: "Créez, signez et validez des accords de confidentialité (NDA), des contrats et des documents juridiques en 8 langues avec vérification cryptographique.",
     tpl_unilateral_title: "NDA Unilatéral",
     tpl_unilateral_desc: "Une partie divulgue des informations, l'autre les protège.",
     tpl_mutual_title: "NDA Bilatéral (Mutuel)",
@@ -1257,8 +1257,8 @@ const I18N = {
     ad_label: "Реклама",
     ad_native: "Нативный блок",
     hero_badge: "100% бесплатно · Без регистрации · Мгновенное скачивание",
-    hero_title: "Генератор соглашений о неразглашении (NDA) и B2B-договоров",
-    hero_subtitle: "Создайте, просмотрите и скачайте профессиональное NDA или договор оказания услуг в формате PDF менее чем за 3 минуты.",
+    hero_title: "Набор Коммерческих Контрактов и Юридических Соглашений B2B",
+    hero_subtitle: "Создавайте, подписывайте и проверяйте соглашения о неразглашении (NDA), контракты и юридические документы на 8 языках с криптографической проверкой.",
     tpl_unilateral_title: "Одностороннее NDA",
     tpl_unilateral_desc: "Одна сторона раскрывает информацию, другая её защищает.",
     tpl_mutual_title: "Взаимное (двустороннее) NDA",
@@ -1558,8 +1558,8 @@ const I18N = {
     ad_label: "广告",
     ad_native: "原生广告位",
     hero_badge: "100% 免费 · 无需注册 · 即时下载",
-    hero_title: "保密协议(NDA)与B2B合同生成器",
-    hero_subtitle: "3分钟内创建、预览并下载专业的NDA或服务合同PDF文件。",
+    hero_title: "B2B商业合同与法律协议套件",
+    hero_subtitle: "以8种语言创建、签署并验证保密协议（NDA）、合同和法律文件，并进行加密验证。",
     tpl_unilateral_title: "单向保密协议",
     tpl_unilateral_desc: "一方披露信息，另一方负责保护。",
     tpl_mutual_title: "双向（互惠）保密协议",
@@ -1859,8 +1859,8 @@ const I18N = {
     ad_label: "広告",
     ad_native: "ネイティブ広告枠",
     hero_badge: "100%無料 · 登録不要 · 即時ダウンロード",
-    hero_title: "秘密保持契約（NDA）・B2B契約書ジェネレーター",
-    hero_subtitle: "3分以内にプロフェッショナルなNDAまたはサービス契約書を作成・プレビューし、PDFでダウンロードできます。",
+    hero_title: "B2B商用契約・法的合意スイート",
+    hero_subtitle: "秘密保持契約（NDA）、契約書、法的文書を8言語で作成・署名・検証。暗号による真正性確認付き。",
     tpl_unilateral_title: "片務型NDA",
     tpl_unilateral_desc: "一方が情報を開示し、他方がそれを保護します。",
     tpl_mutual_title: "双務型（相互）NDA",
@@ -2160,8 +2160,8 @@ const I18N = {
     ad_label: "विज्ञापन",
     ad_native: "नेटिव विज्ञापन ब्लॉक",
     hero_badge: "100% मुफ़्त · पंजीकरण की आवश्यकता नहीं · तुरंत डाउनलोड",
-    hero_title: "गोपनीयता समझौता (NDA) और B2B अनुबंध जनरेटर",
-    hero_subtitle: "3 मिनट से भी कम समय में अपना पेशेवर NDA या सेवा अनुबंध बनाएं, पूर्वावलोकन करें और PDF में डाउनलोड करें।",
+    hero_title: "B2B वाणिज्यिक अनुबंध और कानूनी समझौता सुइट",
+    hero_subtitle: "गोपनीयता समझौते (NDA), अनुबंध और कानूनी दस्तावेज़ 8 भाषाओं में बनाएं, हस्ताक्षर करें और क्रिप्टोग्राफ़िक सत्यापन के साथ मान्य करें।",
     tpl_unilateral_title: "एकतरफ़ा NDA",
     tpl_unilateral_desc: "एक पक्ष जानकारी प्रकट करता है, दूसरा उसकी सुरक्षा करता है।",
     tpl_mutual_title: "पारस्परिक (द्विपक्षीय) NDA",
@@ -3524,6 +3524,199 @@ const V3_I18N = {
 };
 Object.keys(V3_I18N).forEach(lang => Object.assign(I18N[lang], V3_I18N[lang]));
 
+// V4: mobile-first utilities (Markdown copy, bottom sheet) and the
+// "Acta de Entrega / Finiquito de Servicios" template. The settlement
+// doc reuses the b2b_services role labels (party_a/b_legend_b2b) since
+// it closes out the same Provider/Client relationship — no new legend
+// keys needed, only its own title/intro/clauses/object/duration labels.
+const V4_I18N = {
+  es: {
+    sheet_title: "Más acciones",
+    btn_more_actions: "Más opciones",
+    btn_copy_md: "Copiar como Markdown",
+    btn_sheet_close: "Cerrar",
+    tpl_settlement_title: "Acta de Entrega / Finiquito",
+    tpl_settlement_desc: "Cierra un proyecto de servicios con conformidad y finiquito.",
+    tpl_settlement_short: "Finiquito",
+    doc_title_settlement: "Acta de Entrega y Finiquito de Servicios",
+    intro_settlement: "Conste por el presente documento el Acta de Entrega y Finiquito de Servicios (en adelante, el \"Acta\") que celebran, de una parte, {nameA}, identificado(a) con {idA} y domicilio en {addrA} (en adelante, \"{roleA}\"); y de otra parte, {nameB}, identificado(a) con {idB} y domicilio en {addrB} (en adelante, \"{roleB}\"), quienes en conjunto serán denominados \"las Partes\", conforme a las siguientes cláusulas:",
+    label_object_settlement: "Descripción de los servicios o entregables",
+    label_duration_settlement: "Vigencia de garantías posteriores a la entrega (si aplica)",
+    c1_title_settlement: "Objeto de la Entrega",
+    c1_body_settlement: "{roleA} declara haber completado y entregado a {roleB} los servicios, trabajos o entregables descritos a continuación: {purpose}",
+    c2_title_settlement: "Conformidad y Aceptación",
+    c2_body_settlement: "{roleB} declara haber revisado los entregables descritos y los acepta a su entera satisfacción, sin observaciones pendientes salvo que se indique lo contrario por escrito.",
+    c3_title_settlement: "Finiquito y Liberación de Obligaciones",
+    c3_body_settlement: "Las partes se otorgan finiquito recíproco por los servicios objeto de esta acta, liberándose de responsabilidades derivadas de su ejecución, sin perjuicio de las garantías y obligaciones de confidencialidad que expresamente sobrevivan a su terminación.",
+    c4_title_settlement: "Pagos Pendientes",
+    c4_body_settlement: "A la fecha de firma, {roleA} declara que los pagos acordados por los servicios prestados han sido cubiertos en su totalidad por {roleB}, salvo que se indique un saldo pendiente y su fecha de pago.",
+    c5_title_settlement: "Ley Aplicable y Jurisdicción",
+    c5_body_settlement: "La presente acta se rige por las leyes vigentes en {jurisdiction}. Para cualquier controversia derivada de su interpretación o cumplimiento, las partes se someten a los tribunales competentes de dicha jurisdicción.",
+  },
+  en: {
+    sheet_title: "More actions",
+    btn_more_actions: "More options",
+    btn_copy_md: "Copy as Markdown",
+    btn_sheet_close: "Close",
+    tpl_settlement_title: "Delivery Acceptance / Settlement",
+    tpl_settlement_desc: "Closes out a services project with acceptance and settlement.",
+    tpl_settlement_short: "Settlement",
+    doc_title_settlement: "Service Delivery Acceptance and Settlement",
+    intro_settlement: "This Service Delivery Acceptance and Settlement (the \"Document\") is entered into by and between {nameA}, identified with {idA} and domiciled at {addrA} (hereinafter, \"{roleA}\"); and {nameB}, identified with {idB} and domiciled at {addrB} (hereinafter, \"{roleB}\"), collectively referred to as the \"Parties\", under the following terms:",
+    label_object_settlement: "Description of the services or deliverables",
+    label_duration_settlement: "Post-delivery warranty period (if applicable)",
+    c1_title_settlement: "Object of the Delivery",
+    c1_body_settlement: "{roleA} declares having completed and delivered to {roleB} the services, work, or deliverables described as follows: {purpose}",
+    c2_title_settlement: "Acceptance and Conformity",
+    c2_body_settlement: "{roleB} declares having reviewed the deliverables described above and accepts them to their full satisfaction, with no pending objections unless stated otherwise in writing.",
+    c3_title_settlement: "Settlement and Release of Obligations",
+    c3_body_settlement: "The parties grant each other a mutual settlement release for the services covered by this document, releasing each other from liabilities arising from their performance, without prejudice to any warranties and confidentiality obligations that expressly survive termination.",
+    c4_title_settlement: "Outstanding Payments",
+    c4_body_settlement: "As of the signing date, {roleA} declares that the agreed payments for the services rendered have been fully covered by {roleB}, unless an outstanding balance and its payment date are stated otherwise.",
+    c5_title_settlement: "Governing Law and Jurisdiction",
+    c5_body_settlement: "This document is governed by the laws in force in {jurisdiction}. For any dispute arising from its interpretation or performance, the parties submit to the competent courts of that jurisdiction.",
+  },
+  pt: {
+    sheet_title: "Mais ações",
+    btn_more_actions: "Mais opções",
+    btn_copy_md: "Copiar como Markdown",
+    btn_sheet_close: "Fechar",
+    tpl_settlement_title: "Termo de Entrega / Quitação",
+    tpl_settlement_desc: "Encerra um projeto de serviços com aceitação e quitação.",
+    tpl_settlement_short: "Quitação",
+    doc_title_settlement: "Termo de Entrega e Quitação de Serviços",
+    intro_settlement: "Pelo presente instrumento, celebra-se o Termo de Entrega e Quitação de Serviços (doravante, o \"Termo\") entre, de um lado, {nameA}, identificado(a) com {idA} e domicílio em {addrA} (doravante, \"{roleA}\"); e, de outro lado, {nameB}, identificado(a) com {idB} e domicílio em {addrB} (doravante, \"{roleB}\"), doravante denominados em conjunto \"as Partes\", conforme as seguintes cláusulas:",
+    label_object_settlement: "Descrição dos serviços ou entregáveis",
+    label_duration_settlement: "Prazo de garantia pós-entrega (se aplicável)",
+    c1_title_settlement: "Objeto da Entrega",
+    c1_body_settlement: "{roleA} declara ter concluído e entregado a {roleB} os serviços, trabalhos ou entregáveis descritos a seguir: {purpose}",
+    c2_title_settlement: "Conformidade e Aceitação",
+    c2_body_settlement: "{roleB} declara ter revisado os entregáveis descritos e os aceita à sua inteira satisfação, sem ressalvas pendentes, salvo indicação em contrário por escrito.",
+    c3_title_settlement: "Quitação e Liberação de Obrigações",
+    c3_body_settlement: "As partes outorgam-se quitação recíproca pelos serviços objeto deste termo, liberando-se de responsabilidades decorrentes de sua execução, sem prejuízo das garantias e obrigações de confidencialidade que expressamente sobrevivam ao seu término.",
+    c4_title_settlement: "Pagamentos Pendentes",
+    c4_body_settlement: "Na data de assinatura, {roleA} declara que os pagamentos acordados pelos serviços prestados foram integralmente quitados por {roleB}, salvo indicação de saldo pendente e sua data de pagamento.",
+    c5_title_settlement: "Lei Aplicável e Jurisdição",
+    c5_body_settlement: "Este termo rege-se pelas leis vigentes em {jurisdiction}. Para qualquer controvérsia decorrente de sua interpretação ou cumprimento, as partes submetem-se aos tribunais competentes dessa jurisdição.",
+  },
+  fr: {
+    sheet_title: "Plus d'actions",
+    btn_more_actions: "Plus d'options",
+    btn_copy_md: "Copier en Markdown",
+    btn_sheet_close: "Fermer",
+    tpl_settlement_title: "Livraison / Solde de Tout Compte",
+    tpl_settlement_desc: "Clôture un projet de services avec acceptation et solde de tout compte.",
+    tpl_settlement_short: "Solde de Compte",
+    doc_title_settlement: "Procès-Verbal de Livraison et Solde de Tout Compte",
+    intro_settlement: "Le présent Procès-Verbal de Livraison et Solde de Tout Compte (ci-après, le « Document ») est conclu entre, d'une part, {nameA}, identifié(e) par {idA} et domicilié(e) à {addrA} (ci-après, « {roleA} ») ; et, d'autre part, {nameB}, identifié(e) par {idB} et domicilié(e) à {addrB} (ci-après, « {roleB} »), collectivement dénommés « les Parties », selon les clauses suivantes :",
+    label_object_settlement: "Description des services ou livrables",
+    label_duration_settlement: "Durée de garantie après livraison (le cas échéant)",
+    c1_title_settlement: "Objet de la Livraison",
+    c1_body_settlement: "{roleA} déclare avoir achevé et livré à {roleB} les services, travaux ou livrables décrits ci-après : {purpose}",
+    c2_title_settlement: "Conformité et Acceptation",
+    c2_body_settlement: "{roleB} déclare avoir examiné les livrables décrits et les accepte à son entière satisfaction, sans réserve en suspens sauf indication contraire par écrit.",
+    c3_title_settlement: "Solde de Tout Compte et Libération des Obligations",
+    c3_body_settlement: "Les parties se consentent mutuellement un solde de tout compte pour les services objet du présent document, se libérant des responsabilités découlant de leur exécution, sans préjudice des garanties et obligations de confidentialité qui survivraient expressément à sa résiliation.",
+    c4_title_settlement: "Paiements en Suspens",
+    c4_body_settlement: "À la date de signature, {roleA} déclare que les paiements convenus pour les services rendus ont été intégralement réglés par {roleB}, sauf indication d'un solde restant dû et de sa date de paiement.",
+    c5_title_settlement: "Droit Applicable et Juridiction",
+    c5_body_settlement: "Le présent document est régi par les lois en vigueur à {jurisdiction}. Pour tout litige découlant de son interprétation ou de son exécution, les parties se soumettent aux tribunaux compétents de cette juridiction.",
+  },
+  ru: {
+    sheet_title: "Ещё действия",
+    btn_more_actions: "Ещё варианты",
+    btn_copy_md: "Копировать как Markdown",
+    btn_sheet_close: "Закрыть",
+    tpl_settlement_title: "Акт сдачи / взаиморасчёт",
+    tpl_settlement_desc: "Закрывает проект услуг с приёмкой и взаиморасчётом.",
+    tpl_settlement_short: "Взаиморасчёт",
+    doc_title_settlement: "Акт Сдачи-Приёмки и Взаиморасчётов по Услугам",
+    intro_settlement: "Настоящий Акт Сдачи-Приёмки и Взаиморасчётов по Услугам (далее — «Акт») заключается между {nameA}, идентифицируемым(ой) как {idA}, с адресом {addrA} (далее — «{roleA}»), с одной стороны, и {nameB}, идентифицируемым(ой) как {idB}, с адресом {addrB} (далее — «{roleB}»), с другой стороны, совместно именуемыми «Стороны», на следующих условиях:",
+    label_object_settlement: "Описание услуг или результатов",
+    label_duration_settlement: "Гарантийный срок после сдачи (если применимо)",
+    c1_title_settlement: "Предмет сдачи",
+    c1_body_settlement: "{roleA} заявляет, что завершил и передал {roleB} услуги, работы или результаты, описанные следующим образом: {purpose}",
+    c2_title_settlement: "Соответствие и приёмка",
+    c2_body_settlement: "{roleB} заявляет, что ознакомился с указанными результатами и принимает их в полном объёме без замечаний, если иное не указано в письменной форме.",
+    c3_title_settlement: "Взаиморасчёт и освобождение от обязательств",
+    c3_body_settlement: "Стороны предоставляют друг другу взаимный взаиморасчёт по услугам, являющимся предметом настоящего акта, освобождая друг друга от ответственности, связанной с их исполнением, без ущерба для гарантий и обязательств о конфиденциальности, прямо сохраняющих силу после прекращения акта.",
+    c4_title_settlement: "Непогашенные платежи",
+    c4_body_settlement: "На дату подписания {roleA} заявляет, что согласованные платежи за оказанные услуги полностью произведены {roleB}, если иное (наличие остатка задолженности и срок его погашения) не указано отдельно.",
+    c5_title_settlement: "Применимое право и юрисдикция",
+    c5_body_settlement: "Настоящий акт регулируется законодательством, действующим в {jurisdiction}. Любые споры, возникающие из его толкования или исполнения, подлежат рассмотрению компетентными судами данной юрисдикции.",
+  },
+  zh: {
+    sheet_title: "更多操作",
+    btn_more_actions: "更多选项",
+    btn_copy_md: "复制为 Markdown",
+    btn_sheet_close: "关闭",
+    tpl_settlement_title: "交付验收/结算书",
+    tpl_settlement_desc: "以验收和结算方式结束服务项目。",
+    tpl_settlement_short: "结算书",
+    doc_title_settlement: "服务交付验收与结算书",
+    intro_settlement: "本服务交付验收与结算书（以下简称\"本文件\"）由{nameA}（标识为{idA}，地址为{addrA}，以下简称\"{roleA}\"）与{nameB}（标识为{idB}，地址为{addrB}，以下简称\"{roleB}\"）共同签订，双方合称\"各方\"，按以下条款约定：",
+    label_object_settlement: "服务或交付物说明",
+    label_duration_settlement: "交付后保修期限（如适用）",
+    c1_title_settlement: "交付标的",
+    c1_body_settlement: "{roleA}声明已完成并向{roleB}交付以下描述的服务、工作成果或交付物：{purpose}",
+    c2_title_settlement: "验收与确认",
+    c2_body_settlement: "{roleB}声明已审阅上述交付物，并对其完全满意地予以验收，除非另有书面说明，否则不存在未决异议。",
+    c3_title_settlement: "结算与责任解除",
+    c3_body_settlement: "双方就本文件所涉服务相互给予结算确认，解除因履行该服务而产生的责任，但明确约定在终止后仍然存续的保证和保密义务除外。",
+    c4_title_settlement: "未结款项",
+    c4_body_settlement: "截至签署之日，{roleA}声明{roleB}已全额支付所提供服务约定的款项，另有说明未结余额及其付款日期的除外。",
+    c5_title_settlement: "适用法律与管辖",
+    c5_body_settlement: "本文件受{jurisdiction}现行法律管辖。因本文件解释或履行产生的任何争议，双方同意提交该管辖区有管辖权的法院管辖。",
+  },
+  ja: {
+    sheet_title: "その他の操作",
+    btn_more_actions: "その他のオプション",
+    btn_copy_md: "Markdownとしてコピー",
+    btn_sheet_close: "閉じる",
+    tpl_settlement_title: "納品検収・精算書",
+    tpl_settlement_desc: "検収と精算でサービスプロジェクトを終了します。",
+    tpl_settlement_short: "精算書",
+    doc_title_settlement: "サービス納品検収・精算書",
+    intro_settlement: "本サービス納品検収・精算書（以下「本書」）は、{nameA}（識別番号{idA}、住所{addrA}、以下「{roleA}」）と、{nameB}（識別番号{idB}、住所{addrB}、以下「{roleB}」）との間で締結され、両者を総称して「両当事者」といい、以下の条項に従うものとします：",
+    label_object_settlement: "サービスまたは成果物の説明",
+    label_duration_settlement: "納品後の保証期間（該当する場合）",
+    c1_title_settlement: "納品の目的",
+    c1_body_settlement: "{roleA}は、以下に記載するサービス、業務または成果物を完了し、{roleB}に納品したことを表明します：{purpose}",
+    c2_title_settlement: "検収と承認",
+    c2_body_settlement: "{roleB}は、上記成果物を確認し、書面による別段の指摘がない限り、これに全面的に満足して検収したことを表明します。",
+    c3_title_settlement: "精算および義務の解除",
+    c3_body_settlement: "両当事者は、本書の対象となるサービスについて相互に精算を行い、その履行に起因する責任を相互に解除します。ただし、終了後も明示的に存続する保証および秘密保持義務についてはこの限りではありません。",
+    c4_title_settlement: "未払金",
+    c4_body_settlement: "署名日時点で、{roleA}は、提供されたサービスに対する合意済みの支払いが{roleB}により全額完了していることを表明します。ただし、未払残高およびその支払期日が別途示されている場合はこの限りではありません。",
+    c5_title_settlement: "準拠法および管轄",
+    c5_body_settlement: "本書は{jurisdiction}で施行されている法律に準拠します。本書の解釈または履行から生じるあらゆる紛争については、当事者は当該管轄の管轄裁判所に服することに同意します。",
+  },
+  hi: {
+    sheet_title: "अधिक कार्रवाइयां",
+    btn_more_actions: "अधिक विकल्प",
+    btn_copy_md: "Markdown के रूप में कॉपी करें",
+    btn_sheet_close: "बंद करें",
+    tpl_settlement_title: "वितरण स्वीकृति / निपटान",
+    tpl_settlement_desc: "स्वीकृति और निपटान के साथ सेवा परियोजना बंद करता है।",
+    tpl_settlement_short: "निपटान",
+    doc_title_settlement: "सेवा वितरण स्वीकृति और निपटान विलेख",
+    intro_settlement: "यह सेवा वितरण स्वीकृति और निपटान विलेख (इसके बाद, \"विलेख\") {nameA}, जिसकी पहचान {idA} है और जिसका पता {addrA} है (इसके बाद, \"{roleA}\"), तथा {nameB}, जिसकी पहचान {idB} है और जिसका पता {addrB} है (इसके बाद, \"{roleB}\"), के बीच संपन्न होता है, जिन्हें संयुक्त रूप से \"पक्षकार\" कहा जाएगा, निम्नलिखित शर्तों के अधीन:",
+    label_object_settlement: "सेवाओं या डिलिवरेबल्स का विवरण",
+    label_duration_settlement: "वितरण के बाद वारंटी अवधि (यदि लागू हो)",
+    c1_title_settlement: "वितरण का विषय",
+    c1_body_settlement: "{roleA} घोषणा करता है कि उसने {roleB} को नीचे वर्णित सेवाएं, कार्य या डिलिवरेबल्स पूर्ण करके सौंप दिए हैं: {purpose}",
+    c2_title_settlement: "अनुरूपता और स्वीकृति",
+    c2_body_settlement: "{roleB} घोषणा करता है कि उसने उपरोक्त डिलिवरेबल्स की समीक्षा कर ली है और लिखित रूप में अन्यथा न बताए जाने तक, इन्हें पूर्ण संतुष्टि के साथ, बिना किसी लंबित आपत्ति के स्वीकार करता है।",
+    c3_title_settlement: "निपटान और दायित्वों से मुक्ति",
+    c3_body_settlement: "पक्षकार इस विलेख के विषय सेवाओं के लिए एक-दूसरे को पारस्परिक निपटान प्रदान करते हैं, तथा उनके निष्पादन से उत्पन्न दायित्वों से एक-दूसरे को मुक्त करते हैं, बशर्ते कि समाप्ति के बाद भी स्पष्ट रूप से बनी रहने वाली गारंटी और गोपनीयता संबंधी बाध्यताएं प्रभावित न हों।",
+    c4_title_settlement: "लंबित भुगतान",
+    c4_body_settlement: "हस्ताक्षर की तिथि तक, {roleA} घोषणा करता है कि प्रदान की गई सेवाओं के लिए सहमत भुगतान {roleB} द्वारा पूर्ण रूप से किए जा चुके हैं, जब तक कि कोई शेष राशि और उसकी भुगतान तिथि अन्यथा न बताई जाए।",
+    c5_title_settlement: "लागू कानून और अधिकार क्षेत्र",
+    c5_body_settlement: "यह विलेख {jurisdiction} में लागू कानूनों द्वारा शासित होता है। इसकी व्याख्या या पालन से उत्पन्न किसी भी विवाद के लिए, पक्ष उस अधिकार क्षेत्र की सक्षम अदालतों के अधीन होने के लिए सहमत हैं।",
+  },
+};
+Object.keys(V4_I18N).forEach(lang => Object.assign(I18N[lang], V4_I18N[lang]));
+
 /* ---------------------------------------------------------------------
    2) STATE
    --------------------------------------------------------------------- */
@@ -3702,6 +3895,9 @@ function updatePartyLegends() {
   } else if (state.docType === 'ip_assignment') {
     legendA.textContent = t('party_a_legend_ip');
     legendB.textContent = t('party_b_legend_ip');
+  } else if (state.docType === 'service_settlement') {
+    legendA.textContent = t('party_a_legend_b2b');
+    legendB.textContent = t('party_b_legend_b2b');
   } else {
     legendA.textContent = t('party_a_legend');
     legendB.textContent = t('party_b_legend');
@@ -3713,6 +3909,7 @@ function updateObjectLabel() {
   if (state.docType === 'b2b_services') label.textContent = t('label_object_b2b');
   else if (state.docType === 'privacy_policy') label.textContent = t('label_object_pp');
   else if (state.docType === 'ip_assignment') label.textContent = t('label_object_ip');
+  else if (state.docType === 'service_settlement') label.textContent = t('label_object_settlement');
   else label.textContent = t('label_object');
 }
 
@@ -3723,6 +3920,7 @@ function updateDurationLabel() {
       if (state.docType === 'b2b_services') l.textContent = t('label_duration_b2b');
       else if (state.docType === 'privacy_policy') l.textContent = t('label_duration_pp');
       else if (state.docType === 'ip_assignment') l.textContent = t('label_duration_ip');
+      else if (state.docType === 'service_settlement') l.textContent = t('label_duration_settlement');
       else l.textContent = t('label_duration');
     }
   });
@@ -3745,6 +3943,9 @@ function updateSignatureLabels() {
   } else if (state.docType === 'ip_assignment') {
     legendA = t('party_a_legend_ip');
     legendB = t('party_b_legend_ip');
+  } else if (state.docType === 'service_settlement') {
+    legendA = t('party_a_legend_b2b');
+    legendB = t('party_b_legend_b2b');
   } else {
     legendA = t('party_a_legend');
     legendB = t('party_b_legend');
@@ -3762,12 +3963,13 @@ function updateSignatureLabels() {
 // the full row.
 function applyDocTypeVisibility() {
   const isPP = state.docType === 'privacy_policy';
+  const isSettlement = state.docType === 'service_settlement';
   $('#partyB-fieldset')?.classList.toggle('hidden', isPP);
   $('#partyA-fieldset')?.classList.toggle('party-fieldset-expand', isPP);
   $('.sig-slot[data-sig-party="B"]')?.classList.toggle('hidden', isPP);
   $('.sig-slots')?.classList.toggle('sig-slots-single', isPP);
-  $('#bilateral-clause-toggles')?.classList.toggle('hidden', isPP);
-  $('#penalty-calc-box')?.classList.toggle('hidden', isPP);
+  $('#bilateral-clause-toggles')?.classList.toggle('hidden', isPP || isSettlement);
+  $('#penalty-calc-box')?.classList.toggle('hidden', isPP || isSettlement);
 }
 
 function updateChecklistLabels() {
@@ -3859,7 +4061,7 @@ function getDocRef() {
     state.docCode = Math.random().toString(36).slice(2, 8).toUpperCase();
     state.docYear = new Date().getFullYear();
   }
-  const prefixMap = { b2b_services: 'B2B', privacy_policy: 'PP', ip_assignment: 'IP' };
+  const prefixMap = { b2b_services: 'B2B', privacy_policy: 'PP', ip_assignment: 'IP', service_settlement: 'ACT' };
   const prefix = prefixMap[state.docType] || 'NDA';
   return `${prefix}-${state.docYear}-${state.docCode}`;
 }
@@ -3874,6 +4076,7 @@ const DOC_TYPE_FILE_LABEL = {
   b2b_services: 'Contrato_B2B',
   privacy_policy: 'Politica_Privacidad',
   ip_assignment: 'Cesion_Propiedad_Intelectual',
+  service_settlement: 'Acta_Finiquito_Servicios',
 };
 
 function getExportFilename(ext) {
@@ -3917,6 +4120,12 @@ function resolveTemplateParts(docType, lang = state.lang) {
     roleB = tt('role_assignee');
     title = tt('doc_title_ip_assignment');
     intro = tt('intro_ip');
+    c1title = ''; c1body = ''; c2title = ''; c2body = '';
+  } else if (docType === 'service_settlement') {
+    roleA = tt('role_provider');
+    roleB = tt('role_client');
+    title = tt('doc_title_settlement');
+    intro = tt('intro_settlement');
     c1title = ''; c1body = ''; c2title = ''; c2body = '';
   } else if (docType === 'nda_unilateral') {
     roleA = tt('role_discloser');
@@ -3966,6 +4175,17 @@ function resolveClauses(docType, parts, lang = state.lang) {
   if (docType === 'ip_assignment') {
     const clauses = [1, 2, 3, 4, 5, 6, 7, 8].map(n => ({
       title: tt(`c${n}_title_ip`), body: tt(`c${n}_body_ip`)
+    }));
+    state.customClauses.forEach(cc => {
+      if ((cc.title || '').trim() || (cc.body || '').trim()) {
+        clauses.push({ title: cc.title || '', body: cc.body || '' });
+      }
+    });
+    return clauses;
+  }
+  if (docType === 'service_settlement') {
+    const clauses = [1, 2, 3, 4, 5].map(n => ({
+      title: tt(`c${n}_title_settlement`), body: tt(`c${n}_body_settlement`)
     }));
     state.customClauses.forEach(cc => {
       if ((cc.title || '').trim() || (cc.body || '').trim()) {
@@ -4694,6 +4914,70 @@ async function copyText() {
   }
 }
 
+// Structured Markdown export (as opposed to copyText()'s flat plain-text
+// dump of the rendered preview) — headings, bold role/duration/jurisdiction
+// tokens and numbered clauses survive a paste into Notion/Docs/email as
+// real formatting instead of one undifferentiated block of text.
+function buildDocumentMarkdown() {
+  const data = getFormData();
+  const lang = state.lang;
+  const docType = state.docType;
+  const parts = resolveTemplateParts(docType, lang);
+  const { roleA, roleB, title, intro } = parts;
+  const singleParty = docType === 'privacy_policy';
+
+  const nameA = (data.nameA || '').trim() || t('ph_nameA');
+  const nameB = (data.nameB || '').trim() || t('ph_nameB');
+  const idA = (data.idA || '').trim() || t('ph_id');
+  const idB = (data.idB || '').trim() || t('ph_id');
+  const addrA = (data.addrA || '').trim() || t('ph_addr');
+  const addrB = (data.addrB || '').trim() || t('ph_addr');
+  const purpose = (data.purpose || '').trim() || t('ph_purpose');
+  const jurisdiction = (data.jurisdiction || '').trim() || t('ph_jur');
+  const duration = durationText(data.duration);
+
+  const fillMd = (str) => (str || '')
+    .replace(/\{nameA\}/g, nameA).replace(/\{nameB\}/g, nameB)
+    .replace(/\{idA\}/g, idA).replace(/\{idB\}/g, idB)
+    .replace(/\{addrA\}/g, addrA).replace(/\{addrB\}/g, addrB)
+    .replace(/\{roleA\}/g, `**${roleA}**`).replace(/\{roleB\}/g, `**${roleB}**`)
+    .replace(/\{purpose\}/g, purpose)
+    .replace(/\{duration\}/g, `**${duration}**`)
+    .replace(/\{jurisdiction\}/g, `**${jurisdiction}**`);
+
+  const clauses = resolveClauses(docType, parts, lang);
+  const idLabel = effectiveTaxIdLabel();
+  const lines = [];
+  lines.push(`# ${title}`, '');
+  lines.push(`**${t('doc_ref_label')}:** ${getDocRef()}  `);
+  lines.push(`**${t('doc_issue_date_label')}:** ${formatDate(lang)}`, '');
+  lines.push(`## ${roleA}`);
+  lines.push(`- **${t('label_name')}:** ${nameA}`);
+  lines.push(`- **${idLabel}:** ${idA}`);
+  lines.push(`- **${t('label_address')}:** ${addrA}`, '');
+  if (!singleParty) {
+    lines.push(`## ${roleB}`);
+    lines.push(`- **${t('label_name')}:** ${nameB}`);
+    lines.push(`- **${idLabel}:** ${idB}`);
+    lines.push(`- **${t('label_address')}:** ${addrB}`, '');
+  }
+  lines.push(fillMd(intro), '');
+  clauses.forEach((c, idx) => {
+    lines.push(`### ${String(idx + 1).padStart(2, '0')}. ${c.title}`);
+    lines.push(fillMd(c.body), '');
+  });
+  return lines.join('\n');
+}
+
+async function copyMarkdown() {
+  try {
+    await navigator.clipboard.writeText(buildDocumentMarkdown());
+    toast(t('copy_success'));
+  } catch (e) {
+    toast(t('copy_error'));
+  }
+}
+
 function clearForm() {
   if (!confirm(t('clear_confirm'))) return;
   $('#nda-form').reset();
@@ -5309,6 +5593,37 @@ function initMobilePreview() {
 }
 
 /* ---------------------------------------------------------------------
+   13a) MOBILE ACTIONS BOTTOM SHEET
+   --------------------------------------------------------------------- */
+// Groups the secondary export/utility actions behind one trigger on
+// mobile (<640px). Each sheet button just proxies the exact handler
+// already bound to its Step-4 twin, so there is a single source of
+// truth for what each action does — the sheet never re-implements logic.
+function initMobileActionsSheet() {
+  const trigger = $('#btn-more-actions');
+  const sheet = $('#mobile-actions-sheet');
+  if (!trigger || !sheet) return;
+
+  const open = () => sheet.classList.remove('hidden');
+  const close = () => sheet.classList.add('hidden');
+
+  const proxy = (sheetId, handler) => {
+    $(sheetId)?.addEventListener('click', () => { close(); handler(); });
+  };
+
+  trigger.addEventListener('click', open);
+  $('#sheet-close-btn')?.addEventListener('click', close);
+  sheet.addEventListener('click', (e) => { if (e.target === sheet) close(); });
+
+  proxy('#sheet-btn-docx', downloadDocx);
+  proxy('#sheet-btn-md', copyMarkdown);
+  proxy('#sheet-btn-print', () => window.print());
+  proxy('#sheet-btn-ics', downloadIcsReminder);
+  proxy('#sheet-btn-copy', copyText);
+  proxy('#sheet-btn-clear', clearForm);
+}
+
+/* ---------------------------------------------------------------------
    13b) DONATION MODAL
    --------------------------------------------------------------------- */
 const DONATE_CONFIG = {
@@ -5503,6 +5818,9 @@ function updateChecklistGate() {
   const docxQuick = $('#btn-docx-quick');
   if (pdfQuick) pdfQuick.disabled = !allChecked;
   if (docxQuick) docxQuick.disabled = !allChecked;
+  // Mobile bottom-sheet proxy button mirrors the same gate.
+  const docxSheet = $('#sheet-btn-docx');
+  if (docxSheet) docxSheet.disabled = !allChecked;
 }
 
 function initChecklist() {
@@ -5945,6 +6263,7 @@ function docTypeDisplayLabel(docType) {
     b2b_services: 'tpl_b2b_title',
     privacy_policy: 'tpl_privacy_title',
     ip_assignment: 'tpl_ip_title',
+    service_settlement: 'tpl_settlement_title',
   };
   return t(keyMap[docType] || 'tpl_unilateral_title');
 }
@@ -6103,6 +6422,7 @@ function init() {
   initGuideAccordion();
   initDonationModal();
   initMobilePreview();
+  initMobileActionsSheet();
   initOptionalClauses();
   initPenaltyCalculator();
   initChecklist();
@@ -6183,6 +6503,7 @@ function init() {
   $('#btn-pdf-quick')?.addEventListener('click', downloadPdf);
   $('#btn-docx-quick')?.addEventListener('click', downloadDocx);
   $('#btn-copy').addEventListener('click', copyText);
+  $('#btn-copy-md')?.addEventListener('click', copyMarkdown);
   $('#btn-clear').addEventListener('click', clearForm);
   $('#btn-verify-copy')?.addEventListener('click', copyVerifyLink);
 

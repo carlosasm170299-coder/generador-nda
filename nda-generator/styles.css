@@ -1863,17 +1863,19 @@ body {
 
 .preview-fab {
   position: fixed;
-  bottom: 1.25rem;
-  right: 1.25rem;
+  bottom: 1rem;
+  left: 1rem;
+  right: 1rem;
   z-index: 150;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.45rem;
-  padding: 0.75rem 1.15rem;
-  border-radius: 9999px;
+  padding: 0.85rem 1.15rem;
+  border-radius: 1rem;
   background: linear-gradient(to right, rgb(37 99 235), rgb(79 70 229));
   color: white;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   font-weight: 700;
   border: 1px solid rgb(255 255 255 / 0.15);
   box-shadow: 0 10px 25px -8px rgb(37 99 235 / 0.5);
@@ -1892,6 +1894,102 @@ body {
 .preview-fab-icon svg {
   width: 1.05rem;
   height: 1.05rem;
+}
+
+/* ===== Mobile bottom sheet (secondary export/utility actions) ===== */
+.sheet-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgb(15 23 42 / 0.5);
+  z-index: 200;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.sheet-overlay.hidden { display: none; }
+.sheet-panel {
+  background: rgb(255 255 255 / 0.98);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgb(226 232 240 / 0.8);
+  border-bottom: none;
+  border-radius: 1.25rem 1.25rem 0 0;
+  width: 100%;
+  max-width: 32rem;
+  padding: 0.75rem 1rem calc(1rem + env(safe-area-inset-bottom, 0px));
+  box-shadow: 0 -20px 40px -12px rgb(0 0 0 / 0.35);
+  animation: sheet-slide-up 0.25s ease-out;
+}
+.dark .sheet-panel {
+  background: rgb(15 23 42 / 0.96);
+  border-color: rgb(30 41 59 / 0.9);
+}
+@keyframes sheet-slide-up {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+.sheet-handle {
+  width: 2.5rem;
+  height: 0.3rem;
+  background: rgb(203 213 225);
+  border-radius: 9999px;
+  margin: 0 auto 0.75rem;
+}
+.dark .sheet-handle { background: rgb(51 65 85); }
+.sheet-title {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: rgb(15 23 42);
+  margin-bottom: 0.65rem;
+  text-align: center;
+}
+.dark .sheet-title { color: white; }
+.sheet-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+.sheet-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  width: 100%;
+  padding: 0.75rem 0.9rem;
+  border-radius: 0.65rem;
+  background: rgb(248 250 252);
+  border: 1px solid rgb(226 232 240);
+  color: rgb(30 41 59);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: left;
+}
+.dark .sheet-btn {
+  background: rgb(30 41 59 / 0.6);
+  border-color: rgb(51 65 85);
+  color: rgb(226 232 240);
+}
+.sheet-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.sheet-btn svg { width: 1.1rem; height: 1.1rem; flex-shrink: 0; }
+.sheet-btn-danger { color: rgb(220 38 38); }
+.dark .sheet-btn-danger { color: rgb(248 113 113); }
+.sheet-close-btn {
+  margin-top: 0.6rem;
+  width: 100%;
+  padding: 0.7rem;
+  border-radius: 0.65rem;
+  background: transparent;
+  border: 1px solid rgb(226 232 240);
+  color: rgb(100 116 139);
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+.dark .sheet-close-btn { border-color: rgb(51 65 85); color: rgb(148 163 184); }
+@media (min-width: 640px) {
+  .sheet-overlay { display: none !important; }
 }
 
 /* ===== Section subtitle (shared by new step-4 blocks) ===== */
