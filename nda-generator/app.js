@@ -2838,6 +2838,7 @@ const V2_I18N = {
     email_capture_btn: "Avisarme",
     email_capture_error: "Ingresa un correo electrónico válido.",
     email_capture_thanks: "¡Gracias! Te avisaremos de las novedades.",
+    email_capture_network_error: "No se pudo enviar. Por favor, inténtalo de nuevo.",
   },
   en: {
     nav_glossary: "Glossary",
@@ -2884,6 +2885,7 @@ const V2_I18N = {
     email_capture_btn: "Notify me",
     email_capture_error: "Enter a valid email address.",
     email_capture_thanks: "Thanks! We'll let you know about updates.",
+    email_capture_network_error: "Couldn't send it. Please try again.",
   },
   pt: {
     nav_glossary: "Glossário",
@@ -2930,6 +2932,7 @@ const V2_I18N = {
     email_capture_btn: "Avisar-me",
     email_capture_error: "Digite um e-mail válido.",
     email_capture_thanks: "Obrigado! Vamos avisá-lo sobre novidades.",
+    email_capture_network_error: "Não foi possível enviar. Por favor, tente novamente.",
   },
   fr: {
     nav_glossary: "Glossaire",
@@ -2976,6 +2979,7 @@ const V2_I18N = {
     email_capture_btn: "M'avertir",
     email_capture_error: "Saisissez une adresse e-mail valide.",
     email_capture_thanks: "Merci ! Nous vous tiendrons informé des nouveautés.",
+    email_capture_network_error: "Échec de l'envoi. Veuillez réessayer.",
   },
   ru: {
     nav_glossary: "Глоссарий",
@@ -3022,6 +3026,7 @@ const V2_I18N = {
     email_capture_btn: "Уведомить меня",
     email_capture_error: "Введите корректный адрес электронной почты.",
     email_capture_thanks: "Спасибо! Мы сообщим вам о новостях.",
+    email_capture_network_error: "Не удалось отправить. Пожалуйста, попробуйте снова.",
   },
   zh: {
     nav_glossary: "术语表",
@@ -3068,6 +3073,7 @@ const V2_I18N = {
     email_capture_btn: "通知我",
     email_capture_error: "请输入有效的电子邮箱地址。",
     email_capture_thanks: "谢谢！我们会通知您最新动态。",
+    email_capture_network_error: "发送失败，请重试。",
   },
   ja: {
     nav_glossary: "用語集",
@@ -3114,6 +3120,7 @@ const V2_I18N = {
     email_capture_btn: "通知を受け取る",
     email_capture_error: "有効なメールアドレスを入力してください。",
     email_capture_thanks: "ありがとうございます！最新情報をお知らせします。",
+    email_capture_network_error: "送信できませんでした。もう一度お試しください。",
   },
   hi: {
     nav_glossary: "शब्दावली",
@@ -3160,6 +3167,7 @@ const V2_I18N = {
     email_capture_btn: "मुझे सूचित करें",
     email_capture_error: "एक मान्य ईमेल पता दर्ज करें।",
     email_capture_thanks: "धन्यवाद! हम आपको नई जानकारी के बारे में बताएंगे।",
+    email_capture_network_error: "भेजा नहीं जा सका। कृपया पुनः प्रयास करें।",
   },
 };
 Object.keys(V2_I18N).forEach(lang => Object.assign(I18N[lang], V2_I18N[lang]));
@@ -6296,15 +6304,13 @@ function initGlossary() {
 /* ---------------------------------------------------------------------
    13l) POST-DOWNLOAD EMAIL CAPTURE
    --------------------------------------------------------------------- */
-const EMAIL_CAPTURE_CONFIG = {
-  // Set this to the address that should receive lead notifications (e.g.
-  // 'hello@draftb2b.com'). Each interested visitor's own mail client
-  // opens a pre-filled message addressed to it when they submit the
-  // banner below — no backend or server-side storage involved. While
-  // empty, submissions are only remembered locally (so the banner
-  // doesn't ask again) and the visitor just sees a thank-you message.
-  notifyEmail: '',
-};
+// formsubmit.co/ajax relays a POSTed form by email with zero backend of our
+// own, matching this project's $0-infra constraint. The FIRST submission
+// ever sent to a given address triggers a one-time confirmation email from
+// formsubmit.co to that address — it must be opened and confirmed before
+// later submissions actually get delivered (formsubmit.co silently accepts
+// and discards AJAX submissions to an unconfirmed address in the meantime).
+const EMAIL_CAPTURE_ENDPOINT = 'https://formsubmit.co/ajax/carlosasm170299@gmail.com';
 const EMAIL_CAPTURE_KEY = 'draftb2b_email_capture_v1';
 const EMAIL_CAPTURE_DISMISS_KEY = 'draftb2b_email_capture_dismissed';
 
@@ -6326,19 +6332,37 @@ function buildEmailCaptureBanner() {
   el.querySelector('.email-capture-form').addEventListener('submit', (e) => {
     e.preventDefault();
     const input = el.querySelector('.email-capture-input');
+    const submitBtn = el.querySelector('.email-capture-submit');
     const email = input.value.trim();
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       toast(t('email_capture_error'));
       return;
     }
-    try { localStorage.setItem(EMAIL_CAPTURE_KEY, JSON.stringify({ email, ts: Date.now() })); } catch (err) { /* storage unavailable */ }
-    if (EMAIL_CAPTURE_CONFIG.notifyEmail) {
-      const subject = encodeURIComponent('Nuevo interés en DraftB2B');
-      const body = encodeURIComponent(`Correo del interesado: ${email}`);
-      window.open(`mailto:${EMAIL_CAPTURE_CONFIG.notifyEmail}?subject=${subject}&body=${body}`, '_blank');
-    }
-    toast(t('email_capture_thanks'));
-    hideEmailCaptureBanner();
+    const originalLabel = submitBtn.textContent;
+    submitBtn.disabled = true;
+    fetch(EMAIL_CAPTURE_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        email,
+        _subject: 'Nuevo interés en DraftB2B — aviso de nuevas plantillas',
+        _captcha: 'false',
+      }),
+    })
+      .then((res) => {
+        if (!res.ok) throw new Error('formsubmit request failed');
+        try { localStorage.setItem(EMAIL_CAPTURE_KEY, JSON.stringify({ email, ts: Date.now() })); } catch (err) { /* storage unavailable */ }
+        input.value = '';
+        toast(t('email_capture_thanks'));
+        hideEmailCaptureBanner();
+      })
+      .catch(() => {
+        toast(t('email_capture_network_error'));
+      })
+      .finally(() => {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalLabel;
+      });
   });
   return el;
 }
