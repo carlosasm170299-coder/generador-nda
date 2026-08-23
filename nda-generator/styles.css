@@ -1768,6 +1768,25 @@ body {
   border-color: rgb(30 41 59 / 0.9);
   border-top-color: rgb(255 255 255 / 0.1);
 }
+/* Terms/Privacy modals: content is long prose, so the box caps itself to
+   the viewport height and only the body scrolls — the header (title + ×)
+   stays put instead of scrolling away with the text. */
+.modal-box.legal-modal-box {
+  max-width: 40rem;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+}
+.legal-modal-box .modal-header {
+  flex-shrink: 0;
+}
+.legal-modal-body {
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+@media (max-width: 480px) {
+  .modal-box.legal-modal-box { max-height: 80vh; }
+}
 .modal-header {
   display: flex;
   align-items: center;

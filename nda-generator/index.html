@@ -1037,6 +1037,8 @@
     <div class="flex items-center gap-4 flex-wrap justify-center">
       <span data-i18n="footer_note">Herramienta gratuita · No sustituye asesoría legal profesional.</span>
       <a href="https://forms.gle/7fKisH8bRXw8k6118" target="_blank" rel="noopener noreferrer" class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline" data-i18n="footer_feedback_link">Reportar un error / Sugerir plantilla</a>
+      <button type="button" id="btn-terms" class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline" data-i18n="footer_terms_link">Términos de Servicio</button>
+      <button type="button" id="btn-privacy" class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline" data-i18n="footer_privacy_link">Política de Privacidad</button>
       <button id="btn-donate-footer" type="button" class="donate-btn-footer">
         <span class="donate-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><line x1="6" x2="6" y1="2" y2="4"/><line x1="10" x2="10" y1="2" y2="4"/><line x1="14" x2="14" y1="2" y2="4"/></svg></span>
         <span data-i18n="donate_btn_label">Apoya este Proyecto</span>
@@ -1154,6 +1156,32 @@
       </button>
       <button type="button" id="btn-history-close" class="btn-primary"><span data-i18n="btn_cancel">Cerrar</span></button>
     </div>
+  </div>
+</div>
+
+<!-- ============ LEGAL MODALS (Terms of Service / Privacy Policy) ============
+     Static compliance content ahead of AdSense review — client-rendered,
+     no page reload, closes via the header ×, Esc, or a backdrop click,
+     matching every other modal on the page. Body content is set via
+     data-i18n (applyI18n() assigns it as innerHTML), so the translated
+     value itself carries the headings/paragraphs/lists as HTML. -->
+<div id="terms-modal" class="modal-overlay hidden">
+  <div class="modal-box legal-modal-box" role="dialog" aria-modal="true" aria-labelledby="terms-modal-title">
+    <div class="modal-header">
+      <h3 id="terms-modal-title" data-i18n="footer_terms_link">Términos de Servicio</h3>
+      <button type="button" id="terms-modal-close" class="modal-close" aria-label="Close">&times;</button>
+    </div>
+    <div class="legal-modal-body prose-legal" data-i18n="terms_modal_content"></div>
+  </div>
+</div>
+
+<div id="privacy-modal" class="modal-overlay hidden">
+  <div class="modal-box legal-modal-box" role="dialog" aria-modal="true" aria-labelledby="privacy-modal-title">
+    <div class="modal-header">
+      <h3 id="privacy-modal-title" data-i18n="footer_privacy_link">Política de Privacidad</h3>
+      <button type="button" id="privacy-modal-close" class="modal-close" aria-label="Close">&times;</button>
+    </div>
+    <div class="legal-modal-body prose-legal" data-i18n="privacy_modal_content"></div>
   </div>
 </div>
 
