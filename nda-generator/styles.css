@@ -2646,6 +2646,61 @@ body {
   box-shadow: 0 25px 50px -18px rgb(0 0 0 / 0.55);
 }
 
+/* ===== Capabilities panel (Feature Matrix) — same frosted-glass
+   language as .glass-card, themed for both light/dark instead of the
+   flat dark-only treatment, with the requested blue-glow hover lift. */
+.capability-card {
+  padding: 1.25rem;
+  border-radius: 1rem;
+  background: rgb(255 255 255 / 0.7);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgb(226 232 240 / 0.9);
+  transition: all 0.2s ease-out;
+}
+.dark .capability-card {
+  background: rgb(15 23 42 / 0.6);
+  border-color: rgb(30 41 59 / 0.8);
+}
+.capability-card:hover {
+  border-color: rgb(59 130 246 / 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px -10px rgb(37 99 235 / 0.3);
+}
+.capability-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.75rem;
+  width: 2.75rem;
+  border-radius: 0.85rem;
+  background: rgb(59 130 246 / 0.1);
+  border: 1px solid rgb(59 130 246 / 0.2);
+  color: rgb(59 130 246);
+  margin-bottom: 0.85rem;
+}
+.dark .capability-icon {
+  background: rgb(59 130 246 / 0.12);
+  color: rgb(96 165 250);
+}
+.capability-icon svg {
+  width: 1.35rem;
+  height: 1.35rem;
+}
+.capability-card h3 {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: rgb(15 23 42);
+  margin-bottom: 0.4rem;
+}
+.dark .capability-card h3 { color: white; }
+.capability-card p {
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: rgb(100 116 139);
+}
+.dark .capability-card p { color: rgb(148 163 184); }
+
 /* --- Icon-only buttons: same hover lift/glow language as the rest --- */
 .icon-btn {
   transition: all 0.2s ease-out;

@@ -164,6 +164,10 @@
 
     <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600 dark:text-slate-300">
       <a href="#main-tool" class="hover:text-brand-600 dark:hover:text-brand-400" data-i18n="nav_tool">Generador</a>
+      <a href="#info-tabs" data-nav-info-tab="capabilities" class="inline-flex items-center gap-1 hover:text-brand-600 dark:hover:text-brand-400">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/></svg>
+        <span data-i18n="nav_capabilities">Capacidades</span>
+      </a>
       <a href="#info-tabs" data-nav-info-tab="guide" class="hover:text-brand-600 dark:hover:text-brand-400" data-i18n="nav_guide">Guía Legal</a>
       <a href="#info-tabs" data-nav-info-tab="faq" class="hover:text-brand-600 dark:hover:text-brand-400" data-i18n="nav_faq">FAQ</a>
       <a href="#info-tabs" data-nav-info-tab="glossary" class="hover:text-brand-600 dark:hover:text-brand-400" data-i18n="nav_glossary">Glosario</a>
@@ -730,14 +734,51 @@
 <section id="info-tabs" class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800">
   <div class="max-w-5xl mx-auto px-4 sm:px-6 py-10">
     <div class="info-tab-nav" role="tablist">
-      <button type="button" class="info-tab active" data-info-tab="benefits" data-i18n="info_tab_benefits">¿Por qué DraftB2B?</button>
+      <button type="button" class="info-tab active" data-info-tab="capabilities" data-i18n="info_tab_capabilities">Capacidades</button>
+      <button type="button" class="info-tab" data-info-tab="benefits" data-i18n="info_tab_benefits">¿Por qué DraftB2B?</button>
       <button type="button" class="info-tab" data-info-tab="guide" data-i18n="info_tab_guide">Guía Legal</button>
       <button type="button" class="info-tab" data-info-tab="faq" data-i18n="info_tab_faq">FAQ</button>
       <button type="button" class="info-tab" data-info-tab="glossary" data-i18n="info_tab_glossary">Glosario</button>
     </div>
 
+    <!-- ---- Panel: Capabilities (Feature Matrix) ---- -->
+    <div class="info-tab-panel" data-info-panel="capabilities">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full max-w-full">
+        <div class="capability-card">
+          <span class="capability-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></span>
+          <h3 data-i18n="cap_1_title">Generación Multidocumento</h3>
+          <p data-i18n="cap_1_desc">NDAs unilaterales, acuerdos bilaterales mutuos, contratos B2B de servicios, políticas de privacidad y actas de finiquito, adaptados a normativas vigentes.</p>
+        </div>
+        <div class="capability-card">
+          <span class="capability-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
+          <h3 data-i18n="cap_2_title">Redacción Bilingüe Simultánea</h3>
+          <p data-i18n="cap_2_desc">Genera y exporta en doble columna, en paralelo, en 8 idiomas (ES, EN, PT, FR, RU, ZH, JA, HI) sin desfases de alineación.</p>
+        </div>
+        <div class="capability-card">
+          <span class="capability-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497Z"/><path d="m15 5 4 4"/></svg></span>
+          <h3 data-i18n="cap_3_title">Firma Digital y Personalización de Marca</h3>
+          <p data-i18n="cap_3_desc">Lienzo táctil para trazar tu firma manuscrita digitalizada e incorporar el membrete o logotipo de tu empresa en alta resolución.</p>
+        </div>
+        <div class="capability-card">
+          <span class="capability-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="3" height="3"/><rect x="18" y="14" width="3" height="3"/><rect x="14" y="18" width="3" height="3"/><rect x="18" y="18" width="3" height="3"/></svg></span>
+          <h3 data-i18n="cap_4_title">Sello Criptográfico de Integridad</h3>
+          <p data-i18n="cap_4_desc">Timbrado digital con hash SHA-256 en tiempo real y código QR de validación al pie de cada documento, para detectar cualquier alteración.</p>
+        </div>
+        <div class="capability-card">
+          <span class="capability-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 3.9M15.4 6.6L8.6 10.5"/></svg></span>
+          <h3 data-i18n="cap_5_title">Colaboración Segura sin Servidor</h3>
+          <p data-i18n="cap_5_desc">Comparte borradores prellenados mediante un enlace comprimido en la URL: cero almacenamiento en bases de datos externas, 100% privado.</p>
+        </div>
+        <div class="capability-card">
+          <span class="capability-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/></svg></span>
+          <h3 data-i18n="cap_6_title">Exportación Multiformato de Alta Fidelidad</h3>
+          <p data-i18n="cap_6_desc">Descarga instantánea en PDF maquetado con márgenes de seguridad, Word (.docx) editable en columnas 50/50, y copiado directo en Markdown.</p>
+        </div>
+      </div>
+    </div>
+
     <!-- ---- Panel: Benefits ---- -->
-    <div class="info-tab-panel" data-info-panel="benefits">
+    <div class="info-tab-panel hidden" data-info-panel="benefits">
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
         <div class="benefit-card">
           <span class="benefit-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13"/><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5C11 3 12 8 12 8s1-5 4.5-5a2.5 2.5 0 0 1 0 5"/></svg></span>
