@@ -3164,6 +3164,366 @@ const V2_I18N = {
 };
 Object.keys(V2_I18N).forEach(lang => Object.assign(I18N[lang], V2_I18N[lang]));
 
+// Top-3 strategic additions: the IP Assignment document type, the
+// country/jurisdiction-aware tax ID selector, and the client-side
+// document history. Same merge-after-the-fact pattern as PP_I18N/
+// V2_I18N above.
+const V3_I18N = {
+  es: {
+    role_assignor: "El Cedente",
+    role_assignee: "El Cesionario",
+    doc_title_ip_assignment: "Contrato de Cesión de Propiedad Intelectual",
+    intro_ip: "Conste por el presente documento el Contrato de Cesión de Propiedad Intelectual (en adelante, el \"Contrato\") que celebran, de una parte, {nameA}, identificado(a) con {idA} y domicilio en {addrA} (en adelante, \"{roleA}\"); y de otra parte, {nameB}, identificado(a) con {idB} y domicilio en {addrB} (en adelante, \"{roleB}\"), quienes en conjunto serán denominados \"las Partes\", conforme a las siguientes cláusulas:",
+    c1_title_ip: "Objeto de la Cesión",
+    c1_body_ip: "Mediante el presente contrato, {roleA} cede a {roleB}, de forma {duration}, todos los derechos de propiedad intelectual sobre la obra, desarrollo o creación descrita a continuación: {purpose}",
+    c2_title_ip: "Alcance de los Derechos Cedidos",
+    c2_body_ip: "La cesión comprende, sin limitación, los derechos patrimoniales de reproducción, distribución, transformación, comunicación pública y explotación comercial de la obra, en cualquier formato o medio conocido o por conocerse.",
+    c3_title_ip: "Declaración de Titularidad Original",
+    c3_body_ip: "{roleA} declara ser el autor original y titular exclusivo de los derechos objeto de esta cesión, y que la obra no infringe derechos de terceros.",
+    c4_title_ip: "Derechos Morales",
+    c4_body_ip: "En la medida permitida por la legislación aplicable, {roleA} renuncia al ejercicio de los derechos morales que pudieran resultar incompatibles con la explotación cedida, sin perjuicio del derecho de reconocimiento de autoría cuando corresponda.",
+    c5_title_ip: "Contraprestación",
+    c5_body_ip: "La cesión de derechos se realiza a cambio de la contraprestación acordada entre las partes, cuyo recibo {roleA} declara satisfactorio al momento de la firma del presente documento.",
+    c6_title_ip: "Garantías del Cedente",
+    c6_body_ip: "{roleA} garantiza que cuenta con plena capacidad y titularidad para realizar la presente cesión, y que la obra se encuentra libre de cargas, licencias previas o reclamaciones de terceros.",
+    c7_title_ip: "Asistencia Adicional",
+    c7_body_ip: "{roleA} se compromete a firmar cualquier documento adicional razonablemente necesario para formalizar, registrar o proteger los derechos cedidos ante autoridades o registros de propiedad intelectual.",
+    c8_title_ip: "Ley Aplicable y Jurisdicción",
+    c8_body_ip: "El presente contrato se rige por las leyes vigentes en {jurisdiction}. Para cualquier controversia derivada de su interpretación o cumplimiento, las partes se someten a los tribunales competentes de dicha jurisdicción.",
+    tpl_ip_title: "Cesión de Propiedad Intelectual",
+    tpl_ip_desc: "Transfiere la titularidad de una obra, desarrollo o creación.",
+    tpl_ip_short: "Prop. Intelectual",
+    party_a_legend_ip: "El Cedente",
+    party_b_legend_ip: "El Cesionario",
+    label_object_ip: "Descripción de la obra, desarrollo o creación cedida",
+    label_duration_ip: "Alcance temporal de la cesión",
+    label_country: "País de referencia (opcional)",
+    country_hint: "Ajusta automáticamente el formato de identificación fiscal y sugiere la jurisdicción según el país.",
+    country_generic: "Genérico / Otro",
+    country_mx: "México", country_es: "España", country_us: "Estados Unidos",
+    country_ar: "Argentina", country_co: "Colombia", country_cl: "Chile",
+    country_br: "Brasil", country_pe: "Perú", country_gb: "Reino Unido",
+    btn_history: "Historial de documentos",
+    history_modal_title: "Mis Documentos",
+    history_modal_desc: "Un registro local, guardado solo en este navegador, de los documentos que has generado.",
+    history_empty: "Aún no has generado ningún documento.",
+    history_clear_btn: "Borrar historial",
+    history_clear_confirm: "¿Seguro que quieres borrar tu historial de documentos? Esta acción no se puede deshacer.",
+    history_clear_done: "Historial borrado.",
+    history_signed_yes: "Firmado",
+    history_signed_no: "Sin firmar",
+  },
+  en: {
+    role_assignor: "The Assignor",
+    role_assignee: "The Assignee",
+    doc_title_ip_assignment: "Intellectual Property Assignment Agreement",
+    intro_ip: "This Intellectual Property Assignment Agreement (the \"Agreement\") is entered into by and between {nameA}, identified with {idA} and domiciled at {addrA} (hereinafter, \"{roleA}\"); and {nameB}, identified with {idB} and domiciled at {addrB} (hereinafter, \"{roleB}\"), collectively referred to as the \"Parties\", under the following terms:",
+    c1_title_ip: "Object of the Assignment",
+    c1_body_ip: "Through this agreement, {roleA} assigns to {roleB}, on a {duration} basis, all intellectual property rights over the work, development, or creation described as follows: {purpose}",
+    c2_title_ip: "Scope of Assigned Rights",
+    c2_body_ip: "The assignment includes, without limitation, the economic rights of reproduction, distribution, transformation, public communication, and commercial exploitation of the work, in any format or medium now known or later developed.",
+    c3_title_ip: "Declaration of Original Ownership",
+    c3_body_ip: "{roleA} represents that they are the original author and sole owner of the rights being assigned, and that the work does not infringe any third-party rights.",
+    c4_title_ip: "Moral Rights",
+    c4_body_ip: "To the extent permitted by applicable law, {roleA} waives the exercise of any moral rights that would be incompatible with the assigned exploitation, without prejudice to the right of attribution where applicable.",
+    c5_title_ip: "Consideration",
+    c5_body_ip: "The assignment of rights is made in exchange for the consideration agreed between the parties, receipt of which {roleA} acknowledges as satisfactory upon signing this document.",
+    c6_title_ip: "Assignor's Warranties",
+    c6_body_ip: "{roleA} warrants having full capacity and ownership to make this assignment, and that the work is free of liens, prior licenses, or third-party claims.",
+    c7_title_ip: "Further Assistance",
+    c7_body_ip: "{roleA} agrees to sign any additional documents reasonably necessary to formalize, register, or protect the assigned rights before authorities or intellectual property registries.",
+    c8_title_ip: "Governing Law and Jurisdiction",
+    c8_body_ip: "This agreement is governed by the laws in force in {jurisdiction}. For any dispute arising from its interpretation or performance, the parties submit to the competent courts of that jurisdiction.",
+    tpl_ip_title: "IP Assignment",
+    tpl_ip_desc: "Transfers ownership of a work, development, or creation.",
+    tpl_ip_short: "IP Assignment",
+    party_a_legend_ip: "The Assignor",
+    party_b_legend_ip: "The Assignee",
+    label_object_ip: "Description of the work, development, or creation being assigned",
+    label_duration_ip: "Temporal scope of the assignment",
+    label_country: "Reference country (optional)",
+    country_hint: "Automatically adjusts the tax ID format and suggests the jurisdiction based on the country.",
+    country_generic: "Generic / Other",
+    country_mx: "Mexico", country_es: "Spain", country_us: "United States",
+    country_ar: "Argentina", country_co: "Colombia", country_cl: "Chile",
+    country_br: "Brazil", country_pe: "Peru", country_gb: "United Kingdom",
+    btn_history: "Document history",
+    history_modal_title: "My Documents",
+    history_modal_desc: "A local record, saved only in this browser, of the documents you've generated.",
+    history_empty: "You haven't generated any documents yet.",
+    history_clear_btn: "Clear history",
+    history_clear_confirm: "Are you sure you want to clear your document history? This cannot be undone.",
+    history_clear_done: "History cleared.",
+    history_signed_yes: "Signed",
+    history_signed_no: "Unsigned",
+  },
+  pt: {
+    role_assignor: "O Cedente",
+    role_assignee: "O Cessionário",
+    doc_title_ip_assignment: "Contrato de Cessão de Propriedade Intelectual",
+    intro_ip: "Pelo presente instrumento, celebra-se o Contrato de Cessão de Propriedade Intelectual (doravante, o \"Contrato\") entre, de um lado, {nameA}, identificado(a) com {idA} e domicílio em {addrA} (doravante, \"{roleA}\"); e, de outro lado, {nameB}, identificado(a) com {idB} e domicílio em {addrB} (doravante, \"{roleB}\"), doravante denominados em conjunto \"as Partes\", conforme as seguintes cláusulas:",
+    c1_title_ip: "Objeto da Cessão",
+    c1_body_ip: "Por meio deste contrato, {roleA} cede a {roleB}, de forma {duration}, todos os direitos de propriedade intelectual sobre a obra, desenvolvimento ou criação descrita a seguir: {purpose}",
+    c2_title_ip: "Alcance dos Direitos Cedidos",
+    c2_body_ip: "A cessão compreende, sem limitação, os direitos patrimoniais de reprodução, distribuição, transformação, comunicação pública e exploração comercial da obra, em qualquer formato ou meio conhecido ou a ser conhecido.",
+    c3_title_ip: "Declaração de Titularidade Original",
+    c3_body_ip: "{roleA} declara ser o autor original e titular exclusivo dos direitos objeto desta cessão, e que a obra não infringe direitos de terceiros.",
+    c4_title_ip: "Direitos Morais",
+    c4_body_ip: "Na medida permitida pela legislação aplicável, {roleA} renuncia ao exercício dos direitos morais que possam ser incompatíveis com a exploração cedida, sem prejuízo do direito de reconhecimento de autoria quando aplicável.",
+    c5_title_ip: "Contraprestação",
+    c5_body_ip: "A cessão de direitos é realizada em troca da contraprestação acordada entre as partes, cujo recebimento {roleA} declara satisfatório no momento da assinatura deste documento.",
+    c6_title_ip: "Garantias do Cedente",
+    c6_body_ip: "{roleA} garante possuir plena capacidade e titularidade para realizar esta cessão, e que a obra está livre de ônus, licenças anteriores ou reivindicações de terceiros.",
+    c7_title_ip: "Assistência Adicional",
+    c7_body_ip: "{roleA} compromete-se a assinar qualquer documento adicional razoavelmente necessário para formalizar, registrar ou proteger os direitos cedidos perante autoridades ou registros de propriedade intelectual.",
+    c8_title_ip: "Lei Aplicável e Jurisdição",
+    c8_body_ip: "Este contrato rege-se pelas leis vigentes em {jurisdiction}. Para qualquer controvérsia decorrente de sua interpretação ou cumprimento, as partes submetem-se aos tribunais competentes dessa jurisdição.",
+    tpl_ip_title: "Cessão de Propriedade Intelectual",
+    tpl_ip_desc: "Transfere a titularidade de uma obra, desenvolvimento ou criação.",
+    tpl_ip_short: "Prop. Intelectual",
+    party_a_legend_ip: "O Cedente",
+    party_b_legend_ip: "O Cessionário",
+    label_object_ip: "Descrição da obra, desenvolvimento ou criação cedida",
+    label_duration_ip: "Alcance temporal da cessão",
+    label_country: "País de referência (opcional)",
+    country_hint: "Ajusta automaticamente o formato de identificação fiscal e sugere a jurisdição conforme o país.",
+    country_generic: "Genérico / Outro",
+    country_mx: "México", country_es: "Espanha", country_us: "Estados Unidos",
+    country_ar: "Argentina", country_co: "Colômbia", country_cl: "Chile",
+    country_br: "Brasil", country_pe: "Peru", country_gb: "Reino Unido",
+    btn_history: "Histórico de documentos",
+    history_modal_title: "Meus Documentos",
+    history_modal_desc: "Um registro local, salvo apenas neste navegador, dos documentos que você gerou.",
+    history_empty: "Você ainda não gerou nenhum documento.",
+    history_clear_btn: "Limpar histórico",
+    history_clear_confirm: "Tem certeza de que deseja limpar seu histórico de documentos? Esta ação não pode ser desfeita.",
+    history_clear_done: "Histórico limpo.",
+    history_signed_yes: "Assinado",
+    history_signed_no: "Não assinado",
+  },
+  fr: {
+    role_assignor: "Le Cédant",
+    role_assignee: "Le Cessionnaire",
+    doc_title_ip_assignment: "Contrat de Cession de Propriété Intellectuelle",
+    intro_ip: "Le présent Contrat de Cession de Propriété Intellectuelle (ci-après, le « Contrat ») est conclu entre, d'une part, {nameA}, identifié(e) par {idA} et domicilié(e) à {addrA} (ci-après, « {roleA} ») ; et, d'autre part, {nameB}, identifié(e) par {idB} et domicilié(e) à {addrB} (ci-après, « {roleB} »), collectivement dénommés « les Parties », selon les clauses suivantes :",
+    c1_title_ip: "Objet de la Cession",
+    c1_body_ip: "Par le présent contrat, {roleA} cède à {roleB}, de manière {duration}, tous les droits de propriété intellectuelle sur l'œuvre, le développement ou la création décrite ci-après : {purpose}",
+    c2_title_ip: "Étendue des Droits Cédés",
+    c2_body_ip: "La cession comprend, sans limitation, les droits patrimoniaux de reproduction, de distribution, de transformation, de communication au public et d'exploitation commerciale de l'œuvre, sur tout format ou support connu ou à venir.",
+    c3_title_ip: "Déclaration de Titularité Originale",
+    c3_body_ip: "{roleA} déclare être l'auteur original et le seul titulaire des droits faisant l'objet de la présente cession, et que l'œuvre ne porte pas atteinte aux droits de tiers.",
+    c4_title_ip: "Droits Moraux",
+    c4_body_ip: "Dans la mesure permise par la loi applicable, {roleA} renonce à l'exercice des droits moraux qui seraient incompatibles avec l'exploitation cédée, sans préjudice du droit à la paternité de l'œuvre lorsque applicable.",
+    c5_title_ip: "Contrepartie",
+    c5_body_ip: "La cession des droits est effectuée en contrepartie de la rémunération convenue entre les parties, dont {roleA} reconnaît la réception satisfaisante à la signature du présent document.",
+    c6_title_ip: "Garanties du Cédant",
+    c6_body_ip: "{roleA} garantit disposer de la pleine capacité et de la titularité nécessaires pour effectuer la présente cession, et que l'œuvre est libre de toute charge, licence antérieure ou réclamation de tiers.",
+    c7_title_ip: "Assistance Complémentaire",
+    c7_body_ip: "{roleA} s'engage à signer tout document supplémentaire raisonnablement nécessaire pour formaliser, enregistrer ou protéger les droits cédés auprès des autorités ou registres de propriété intellectuelle.",
+    c8_title_ip: "Droit Applicable et Juridiction",
+    c8_body_ip: "Le présent contrat est régi par les lois en vigueur à {jurisdiction}. Pour tout litige découlant de son interprétation ou de son exécution, les parties se soumettent aux tribunaux compétents de cette juridiction.",
+    tpl_ip_title: "Cession de Propriété Intellectuelle",
+    tpl_ip_desc: "Transfère la titularité d'une œuvre, d'un développement ou d'une création.",
+    tpl_ip_short: "Propr. Intel.",
+    party_a_legend_ip: "Le Cédant",
+    party_b_legend_ip: "Le Cessionnaire",
+    label_object_ip: "Description de l'œuvre, du développement ou de la création cédée",
+    label_duration_ip: "Portée temporelle de la cession",
+    label_country: "Pays de référence (facultatif)",
+    country_hint: "Ajuste automatiquement le format de l'identifiant fiscal et suggère la juridiction selon le pays.",
+    country_generic: "Générique / Autre",
+    country_mx: "Mexique", country_es: "Espagne", country_us: "États-Unis",
+    country_ar: "Argentine", country_co: "Colombie", country_cl: "Chili",
+    country_br: "Brésil", country_pe: "Pérou", country_gb: "Royaume-Uni",
+    btn_history: "Historique des documents",
+    history_modal_title: "Mes Documents",
+    history_modal_desc: "Un registre local, enregistré uniquement dans ce navigateur, des documents que vous avez générés.",
+    history_empty: "Vous n'avez encore généré aucun document.",
+    history_clear_btn: "Effacer l'historique",
+    history_clear_confirm: "Voulez-vous vraiment effacer votre historique de documents ? Cette action est irréversible.",
+    history_clear_done: "Historique effacé.",
+    history_signed_yes: "Signé",
+    history_signed_no: "Non signé",
+  },
+  ru: {
+    role_assignor: "Цедент",
+    role_assignee: "Цессионарий",
+    doc_title_ip_assignment: "Договор об уступке прав интеллектуальной собственности",
+    intro_ip: "Настоящий Договор об уступке прав интеллектуальной собственности (далее — «Договор») заключается между {nameA}, идентифицируемым(ой) как {idA}, с адресом {addrA} (далее — «{roleA}»), с одной стороны, и {nameB}, идентифицируемым(ой) как {idB}, с адресом {addrB} (далее — «{roleB}»), с другой стороны, совместно именуемыми «Стороны», на следующих условиях:",
+    c1_title_ip: "Предмет уступки",
+    c1_body_ip: "Настоящим договором {roleA} уступает {roleB}, на {duration} основе, все права интеллектуальной собственности на произведение, разработку или иное творческое достижение, описанное следующим образом: {purpose}",
+    c2_title_ip: "Объём уступаемых прав",
+    c2_body_ip: "Уступка включает, без ограничений, имущественные права на воспроизведение, распространение, переработку, доведение до всеобщего сведения и коммерческое использование произведения в любом формате или на любом носителе, известном в настоящее время или созданном в будущем.",
+    c3_title_ip: "Заявление об изначальном правообладании",
+    c3_body_ip: "{roleA} заявляет, что является первоначальным автором и единственным правообладателем уступаемых прав, и что произведение не нарушает права третьих лиц.",
+    c4_title_ip: "Личные неимущественные права",
+    c4_body_ip: "В пределах, допускаемых применимым законодательством, {roleA} отказывается от осуществления личных неимущественных прав, несовместимых с уступаемым использованием, без ущерба праву на указание авторства, если это применимо.",
+    c5_title_ip: "Вознаграждение",
+    c5_body_ip: "Уступка прав осуществляется в обмен на вознаграждение, согласованное сторонами, получение которого {roleA} признаёт удовлетворительным на момент подписания настоящего документа.",
+    c6_title_ip: "Гарантии Цедента",
+    c6_body_ip: "{roleA} гарантирует наличие полной правоспособности и правообладания для осуществления настоящей уступки, а также что произведение свободно от обременений, ранее выданных лицензий или претензий третьих лиц.",
+    c7_title_ip: "Дополнительное содействие",
+    c7_body_ip: "{roleA} обязуется подписать любые дополнительные документы, разумно необходимые для оформления, регистрации или защиты уступленных прав перед органами власти или реестрами интеллектуальной собственности.",
+    c8_title_ip: "Применимое право и юрисдикция",
+    c8_body_ip: "Настоящий договор регулируется законодательством, действующим в {jurisdiction}. Любые споры, возникающие из его толкования или исполнения, подлежат рассмотрению компетентными судами данной юрисдикции.",
+    tpl_ip_title: "Уступка прав ИС",
+    tpl_ip_desc: "Передаёт право собственности на произведение, разработку или иное творческое достижение.",
+    tpl_ip_short: "Права ИС",
+    party_a_legend_ip: "Цедент",
+    party_b_legend_ip: "Цессионарий",
+    label_object_ip: "Описание произведения, разработки или иного достижения, являющегося предметом уступки",
+    label_duration_ip: "Временной охват уступки",
+    label_country: "Страна для справки (необязательно)",
+    country_hint: "Автоматически подстраивает формат идентификационного номера и предлагает юрисдикцию в зависимости от страны.",
+    country_generic: "Общий / Другое",
+    country_mx: "Мексика", country_es: "Испания", country_us: "США",
+    country_ar: "Аргентина", country_co: "Колумбия", country_cl: "Чили",
+    country_br: "Бразилия", country_pe: "Перу", country_gb: "Великобритания",
+    btn_history: "История документов",
+    history_modal_title: "Мои документы",
+    history_modal_desc: "Локальная запись — сохранённая только в этом браузере — созданных вами документов.",
+    history_empty: "Вы ещё не создали ни одного документа.",
+    history_clear_btn: "Очистить историю",
+    history_clear_confirm: "Вы уверены, что хотите очистить историю документов? Это действие необратимо.",
+    history_clear_done: "История очищена.",
+    history_signed_yes: "Подписан",
+    history_signed_no: "Не подписан",
+  },
+  zh: {
+    role_assignor: "转让方",
+    role_assignee: "受让方",
+    doc_title_ip_assignment: "知识产权转让合同",
+    intro_ip: "本知识产权转让合同（以下简称\"本合同\"）由{nameA}（标识为{idA}，地址为{addrA}，以下简称\"{roleA}\"）与{nameB}（标识为{idB}，地址为{addrB}，以下简称\"{roleB}\"）共同签订，双方合称\"各方\"，按以下条款约定：",
+    c1_title_ip: "转让标的",
+    c1_body_ip: "根据本合同，{roleA}在{duration}的基础上，将以下描述的作品、开发成果或创作的全部知识产权转让给{roleB}：{purpose}",
+    c2_title_ip: "转让权利的范围",
+    c2_body_ip: "本次转让包括但不限于以任何现有或未来出现的格式或媒介对作品进行复制、发行、改编、公开传播和商业利用的财产性权利。",
+    c3_title_ip: "原始权属声明",
+    c3_body_ip: "{roleA}声明其为该作品的原始作者及唯一权利人，且该作品不侵犯任何第三方权利。",
+    c4_title_ip: "精神权利",
+    c4_body_ip: "在适用法律允许的范围内，{roleA}放弃行使与本次转让使用不相符的精神权利，但在适用情况下不影响署名权。",
+    c5_title_ip: "对价",
+    c5_body_ip: "权利转让系以双方约定的对价为交换，{roleA}声明已在签署本文件时收讫该对价并感到满意。",
+    c6_title_ip: "转让方的保证",
+    c6_body_ip: "{roleA}保证其拥有完全的行为能力和权利进行本次转让，且该作品不存在任何担保负担、既有许可或第三方主张。",
+    c7_title_ip: "后续协助",
+    c7_body_ip: "{roleA}同意签署为在有关部门或知识产权登记机构正式确认、登记或保护所转让权利而合理需要的任何补充文件。",
+    c8_title_ip: "适用法律与管辖",
+    c8_body_ip: "本合同受{jurisdiction}现行法律管辖。因本合同解释或履行产生的任何争议，双方同意提交该管辖区有管辖权的法院管辖。",
+    tpl_ip_title: "知识产权转让",
+    tpl_ip_desc: "转让作品、开发成果或创作的所有权。",
+    tpl_ip_short: "知识产权",
+    party_a_legend_ip: "转让方",
+    party_b_legend_ip: "受让方",
+    label_object_ip: "被转让的作品、开发成果或创作的说明",
+    label_duration_ip: "转让的时间范围",
+    label_country: "参考国家（可选）",
+    country_hint: "根据所选国家自动调整税号格式并建议管辖地区。",
+    country_generic: "通用/其他",
+    country_mx: "墨西哥", country_es: "西班牙", country_us: "美国",
+    country_ar: "阿根廷", country_co: "哥伦比亚", country_cl: "智利",
+    country_br: "巴西", country_pe: "秘鲁", country_gb: "英国",
+    btn_history: "文档历史记录",
+    history_modal_title: "我的文档",
+    history_modal_desc: "仅保存在此浏览器中的本地记录，记录您生成过的文档。",
+    history_empty: "您还没有生成过任何文档。",
+    history_clear_btn: "清除历史记录",
+    history_clear_confirm: "确定要清除文档历史记录吗？此操作无法撤销。",
+    history_clear_done: "历史记录已清除。",
+    history_signed_yes: "已签署",
+    history_signed_no: "未签署",
+  },
+  ja: {
+    role_assignor: "譲渡人",
+    role_assignee: "譲受人",
+    doc_title_ip_assignment: "知的財産権譲渡契約",
+    intro_ip: "本知的財産権譲渡契約（以下「本契約」）は、{nameA}（識別番号{idA}、住所{addrA}、以下「{roleA}」）と、{nameB}（識別番号{idB}、住所{addrB}、以下「{roleB}」）との間で締結され、両者を総称して「両当事者」といい、以下の条項に従うものとします：",
+    c1_title_ip: "譲渡の目的",
+    c1_body_ip: "本契約により、{roleA}は{roleB}に対し、{duration}の条件で、以下に記載する著作物、開発物または創作物に関するすべての知的財産権を譲渡します：{purpose}",
+    c2_title_ip: "譲渡される権利の範囲",
+    c2_body_ip: "本譲渡には、現在知られている、または将来利用可能となるあらゆる形式・媒体における複製権、頒布権、翻案権、公衆送信権および商業的利用権を含み、これに限定されません。",
+    c3_title_ip: "原始的権利保有の表明",
+    c3_body_ip: "{roleA}は、本著作物の原著作者であり、譲渡対象となる権利の唯一の権利者であること、および本著作物が第三者の権利を侵害していないことを表明します。",
+    c4_title_ip: "著作者人格権",
+    c4_body_ip: "適用法令の許す範囲において、{roleA}は、譲渡された利用と両立しない著作者人格権の行使を放棄しますが、該当する場合の氏名表示権を妨げるものではありません。",
+    c5_title_ip: "対価",
+    c5_body_ip: "本権利譲渡は当事者間で合意された対価と引き換えに行われ、{roleA}は本書署名時にその受領が満足のいくものであることを表明します。",
+    c6_title_ip: "譲渡人の保証",
+    c6_body_ip: "{roleA}は、本譲渡を行う完全な能力および権利を有していること、また本著作物には担保、既存のライセンスまたは第三者の請求が存在しないことを保証します。",
+    c7_title_ip: "追加的協力",
+    c7_body_ip: "{roleA}は、譲渡された権利を関係当局または知的財産登録機関において正式化、登録または保護するために合理的に必要な追加書類に署名することに同意します。",
+    c8_title_ip: "準拠法および管轄",
+    c8_body_ip: "本契約は{jurisdiction}で施行されている法律に準拠します。本契約の解釈または履行から生じるあらゆる紛争については、当事者は当該管轄の管轄裁判所に服することに同意します。",
+    tpl_ip_title: "知的財産権譲渡",
+    tpl_ip_desc: "著作物・開発物・創作物の所有権を譲渡します。",
+    tpl_ip_short: "知財譲渡",
+    party_a_legend_ip: "譲渡人",
+    party_b_legend_ip: "譲受人",
+    label_object_ip: "譲渡される著作物・開発物・創作物の説明",
+    label_duration_ip: "譲渡の期間的範囲",
+    label_country: "参照国（任意）",
+    country_hint: "選択した国に応じて、税務識別番号の形式を自動調整し、管轄を提案します。",
+    country_generic: "汎用・その他",
+    country_mx: "メキシコ", country_es: "スペイン", country_us: "アメリカ合衆国",
+    country_ar: "アルゼンチン", country_co: "コロンビア", country_cl: "チリ",
+    country_br: "ブラジル", country_pe: "ペルー", country_gb: "イギリス",
+    btn_history: "文書履歴",
+    history_modal_title: "マイドキュメント",
+    history_modal_desc: "このブラウザにのみ保存される、生成した文書のローカル記録です。",
+    history_empty: "まだ文書を生成していません。",
+    history_clear_btn: "履歴を削除",
+    history_clear_confirm: "文書履歴を削除してもよろしいですか？この操作は元に戻せません。",
+    history_clear_done: "履歴を削除しました。",
+    history_signed_yes: "署名済み",
+    history_signed_no: "未署名",
+  },
+  hi: {
+    role_assignor: "समनुदेशक",
+    role_assignee: "समनुदेशिती",
+    doc_title_ip_assignment: "बौद्धिक संपदा समनुदेशन अनुबंध",
+    intro_ip: "यह बौद्धिक संपदा समनुदेशन अनुबंध (इसके बाद, \"अनुबंध\") {nameA}, जिसकी पहचान {idA} है और जिसका पता {addrA} है (इसके बाद, \"{roleA}\"), तथा {nameB}, जिसकी पहचान {idB} है और जिसका पता {addrB} है (इसके बाद, \"{roleB}\"), के बीच संपन्न होता है, जिन्हें संयुक्त रूप से \"पक्षकार\" कहा जाएगा, निम्नलिखित शर्तों के अधीन:",
+    c1_title_ip: "समनुदेशन का विषय",
+    c1_body_ip: "इस अनुबंध के माध्यम से, {roleA}, {roleB} को {duration} आधार पर, नीचे वर्णित कार्य, विकास या सृजन से संबंधित सभी बौद्धिक संपदा अधिकार समनुदेशित करता है: {purpose}",
+    c2_title_ip: "समनुदेशित अधिकारों का दायरा",
+    c2_body_ip: "इस समनुदेशन में, बिना किसी सीमा के, कार्य के किसी भी ज्ञात या भविष्य में विकसित प्रारूप या माध्यम में प्रतिलिपि, वितरण, रूपांतरण, सार्वजनिक संचार और वाणिज्यिक उपयोग के आर्थिक अधिकार शामिल हैं।",
+    c3_title_ip: "मूल स्वामित्व की घोषणा",
+    c3_body_ip: "{roleA} घोषणा करता है कि वह इस कार्य का मूल लेखक और समनुदेशित अधिकारों का एकमात्र स्वामी है, और यह कि यह कार्य किसी तीसरे पक्ष के अधिकारों का उल्लंघन नहीं करता।",
+    c4_title_ip: "नैतिक अधिकार",
+    c4_body_ip: "लागू कानून द्वारा अनुमत सीमा तक, {roleA} उन नैतिक अधिकारों का प्रयोग त्यागता है जो समनुदेशित उपयोग के साथ असंगत हों, जहां लागू हो वहां लेखकत्व की मान्यता के अधिकार पर प्रतिकूल प्रभाव डाले बिना।",
+    c5_title_ip: "प्रतिफल",
+    c5_body_ip: "अधिकारों का समनुदेशन पक्षों के बीच सहमत प्रतिफल के बदले किया जाता है, जिसकी प्राप्ति {roleA} इस दस्तावेज़ पर हस्ताक्षर के समय संतोषजनक घोषित करता है।",
+    c6_title_ip: "समनुदेशक की गारंटी",
+    c6_body_ip: "{roleA} गारंटी देता है कि उसके पास यह समनुदेशन करने की पूर्ण क्षमता और स्वामित्व है, और यह कि यह कार्य किसी भार, पूर्व लाइसेंस या तीसरे पक्ष के दावों से मुक्त है।",
+    c7_title_ip: "अतिरिक्त सहायता",
+    c7_body_ip: "{roleA}, समनुदेशित अधिकारों को प्राधिकारियों या बौद्धिक संपदा रजिस्ट्रियों के समक्ष औपचारिक रूप देने, पंजीकृत करने या संरक्षित करने हेतु उचित रूप से आवश्यक किसी भी अतिरिक्त दस्तावेज़ पर हस्ताक्षर करने के लिए सहमत है।",
+    c8_title_ip: "लागू कानून और अधिकार क्षेत्र",
+    c8_body_ip: "यह अनुबंध {jurisdiction} में लागू कानूनों द्वारा शासित होता है। इसकी व्याख्या या पालन से उत्पन्न किसी भी विवाद के लिए, पक्ष उस अधिकार क्षेत्र की सक्षम अदालतों के अधीन होने के लिए सहमत हैं।",
+    tpl_ip_title: "बौद्धिक संपदा समनुदेशन",
+    tpl_ip_desc: "किसी कार्य, विकास या सृजन का स्वामित्व हस्तांतरित करता है।",
+    tpl_ip_short: "बौद्धिक संपदा",
+    party_a_legend_ip: "समनुदेशक",
+    party_b_legend_ip: "समनुदेशिती",
+    label_object_ip: "समनुदेशित कार्य, विकास या सृजन का विवरण",
+    label_duration_ip: "समनुदेशन का कालिक दायरा",
+    label_country: "संदर्भ देश (वैकल्पिक)",
+    country_hint: "चुने गए देश के अनुसार कर पहचान प्रारूप को स्वतः समायोजित करता है और अधिकार क्षेत्र सुझाता है।",
+    country_generic: "सामान्य / अन्य",
+    country_mx: "मेक्सिको", country_es: "स्पेन", country_us: "संयुक्त राज्य अमेरिका",
+    country_ar: "अर्जेंटीना", country_co: "कोलंबिया", country_cl: "चिली",
+    country_br: "ब्राज़ील", country_pe: "पेरू", country_gb: "यूनाइटेड किंगडम",
+    btn_history: "दस्तावेज़ इतिहास",
+    history_modal_title: "मेरे दस्तावेज़",
+    history_modal_desc: "केवल इस ब्राउज़र में सहेजा गया, आपके द्वारा बनाए गए दस्तावेज़ों का स्थानीय रिकॉर्ड।",
+    history_empty: "आपने अभी तक कोई दस्तावेज़ नहीं बनाया है।",
+    history_clear_btn: "इतिहास साफ़ करें",
+    history_clear_confirm: "क्या आप वाकई अपना दस्तावेज़ इतिहास साफ़ करना चाहते हैं? यह पूर्ववत नहीं किया जा सकता।",
+    history_clear_done: "इतिहास साफ़ कर दिया गया।",
+    history_signed_yes: "हस्ताक्षरित",
+    history_signed_no: "अहस्ताक्षरित",
+  },
+};
+Object.keys(V3_I18N).forEach(lang => Object.assign(I18N[lang], V3_I18N[lang]));
+
 /* ---------------------------------------------------------------------
    2) STATE
    --------------------------------------------------------------------- */
@@ -3267,6 +3627,7 @@ function applyI18n() {
   updateDurationLabel();
   updateSignatureLabels();
   updateChecklistLabels();
+  updateCountryFields();
   updateCanonicalForLang();
 }
 
@@ -3338,6 +3699,9 @@ function updatePartyLegends() {
   } else if (state.docType === 'privacy_policy') {
     legendA.textContent = t('party_a_legend_pp');
     legendB.textContent = '';
+  } else if (state.docType === 'ip_assignment') {
+    legendA.textContent = t('party_a_legend_ip');
+    legendB.textContent = t('party_b_legend_ip');
   } else {
     legendA.textContent = t('party_a_legend');
     legendB.textContent = t('party_b_legend');
@@ -3348,6 +3712,7 @@ function updateObjectLabel() {
   const label = $('#label-object');
   if (state.docType === 'b2b_services') label.textContent = t('label_object_b2b');
   else if (state.docType === 'privacy_policy') label.textContent = t('label_object_pp');
+  else if (state.docType === 'ip_assignment') label.textContent = t('label_object_ip');
   else label.textContent = t('label_object');
 }
 
@@ -3357,6 +3722,7 @@ function updateDurationLabel() {
     if (l.getAttribute('data-i18n') === 'label_duration') {
       if (state.docType === 'b2b_services') l.textContent = t('label_duration_b2b');
       else if (state.docType === 'privacy_policy') l.textContent = t('label_duration_pp');
+      else if (state.docType === 'ip_assignment') l.textContent = t('label_duration_ip');
       else l.textContent = t('label_duration');
     }
   });
@@ -3376,6 +3742,9 @@ function updateSignatureLabels() {
   } else if (state.docType === 'privacy_policy') {
     legendA = t('party_a_legend_pp');
     legendB = '';
+  } else if (state.docType === 'ip_assignment') {
+    legendA = t('party_a_legend_ip');
+    legendB = t('party_b_legend_ip');
   } else {
     legendA = t('party_a_legend');
     legendB = t('party_b_legend');
@@ -3407,6 +3776,53 @@ function updateChecklistLabels() {
   if (t1) t1.textContent = t(isPP ? 'checklist_item1_pp' : 'checklist_item1');
   if (t2) t2.textContent = t(isPP ? 'checklist_item2_pp' : 'checklist_item2');
   if (t3) t3.textContent = t(isPP ? 'checklist_item3_pp' : 'checklist_item3');
+}
+
+/* ---------------------------------------------------------------------
+   3b) JURISDICTION-AWARE TAX ID (country selector)
+   --------------------------------------------------------------------- */
+// Official tax/registration ID acronyms are proper nouns, not concepts —
+// "RFC" or "CNPJ" reads the same in any of the 8 UI languages, so these
+// stay fixed rather than needing 8x the translation. Only the selector's
+// own chrome (label, hint, generic option) is translated, via country_*
+// keys in V3_I18N.
+const COUNTRY_TAX_CONFIG = {
+  mx: { taxLabel: 'RFC', taxPlaceholder: 'Ej. XAXX010101000', jurisdictionDefault: 'Ciudad de México, México' },
+  es: { taxLabel: 'NIF / CIF', taxPlaceholder: 'Ej. B12345678', jurisdictionDefault: 'Madrid, España' },
+  us: { taxLabel: 'EIN / SSN', taxPlaceholder: 'E.g. 12-3456789', jurisdictionDefault: 'Delaware, United States' },
+  ar: { taxLabel: 'CUIT', taxPlaceholder: 'Ej. 20-12345678-9', jurisdictionDefault: 'Buenos Aires, Argentina' },
+  co: { taxLabel: 'NIT', taxPlaceholder: 'Ej. 900123456-7', jurisdictionDefault: 'Bogotá, Colombia' },
+  cl: { taxLabel: 'RUT', taxPlaceholder: 'Ej. 76.123.456-7', jurisdictionDefault: 'Santiago, Chile' },
+  br: { taxLabel: 'CNPJ / CPF', taxPlaceholder: 'Ex.: 12.345.678/0001-95', jurisdictionDefault: 'São Paulo, Brasil' },
+  pe: { taxLabel: 'RUC', taxPlaceholder: 'Ej. 20123456789', jurisdictionDefault: 'Lima, Perú' },
+  gb: { taxLabel: 'Company Number / VAT', taxPlaceholder: 'E.g. 01234567', jurisdictionDefault: 'London, United Kingdom' },
+};
+
+function effectiveTaxIdLabel() {
+  const code = ($('#country-select') || {}).value || '';
+  const cfg = COUNTRY_TAX_CONFIG[code];
+  return cfg ? cfg.taxLabel : t('label_taxid');
+}
+
+// Adapts the tax-ID field labels/placeholders for both parties (and
+// suggests — never overwrites — a jurisdiction default) whenever the
+// reference country changes, so the generated document reflects a
+// locally-recognizable ID format instead of one generic placeholder.
+function updateCountryFields() {
+  const code = ($('#country-select') || {}).value || '';
+  const cfg = COUNTRY_TAX_CONFIG[code];
+  const label = cfg ? cfg.taxLabel : t('label_taxid');
+  const placeholder = cfg ? cfg.taxPlaceholder : t('ph_taxid');
+  $all('label[data-i18n="label_taxid"]').forEach(l => { l.textContent = label; });
+  [$('#partyA_id'), $('#partyB_id')].forEach(input => {
+    if (input) input.setAttribute('placeholder', placeholder);
+  });
+  const jurisdictionInput = $('#jurisdiction');
+  if (jurisdictionInput && !jurisdictionInput.value.trim() && cfg && cfg.jurisdictionDefault) {
+    jurisdictionInput.value = cfg.jurisdictionDefault;
+  }
+  updatePreview();
+  autosave();
 }
 
 /* ---------------------------------------------------------------------
@@ -3443,7 +3859,8 @@ function getDocRef() {
     state.docCode = Math.random().toString(36).slice(2, 8).toUpperCase();
     state.docYear = new Date().getFullYear();
   }
-  const prefix = state.docType === 'b2b_services' ? 'B2B' : state.docType === 'privacy_policy' ? 'PP' : 'NDA';
+  const prefixMap = { b2b_services: 'B2B', privacy_policy: 'PP', ip_assignment: 'IP' };
+  const prefix = prefixMap[state.docType] || 'NDA';
   return `${prefix}-${state.docYear}-${state.docCode}`;
 }
 
@@ -3456,6 +3873,7 @@ const DOC_TYPE_FILE_LABEL = {
   nda_mutual: 'NDA_Mutuo',
   b2b_services: 'Contrato_B2B',
   privacy_policy: 'Politica_Privacidad',
+  ip_assignment: 'Cesion_Propiedad_Intelectual',
 };
 
 function getExportFilename(ext) {
@@ -3494,6 +3912,12 @@ function resolveTemplateParts(docType, lang = state.lang) {
     title = tt('doc_title_privacy_policy');
     intro = tt('intro_privacy');
     c1title = ''; c1body = ''; c2title = ''; c2body = '';
+  } else if (docType === 'ip_assignment') {
+    roleA = tt('role_assignor');
+    roleB = tt('role_assignee');
+    title = tt('doc_title_ip_assignment');
+    intro = tt('intro_ip');
+    c1title = ''; c1body = ''; c2title = ''; c2body = '';
   } else if (docType === 'nda_unilateral') {
     roleA = tt('role_discloser');
     roleB = tt('role_receiver');
@@ -3531,6 +3955,17 @@ function resolveClauses(docType, parts, lang = state.lang) {
   if (docType === 'privacy_policy') {
     const clauses = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map(n => ({
       title: tt(`c${n}_title_pp`), body: tt(`c${n}_body_pp`)
+    }));
+    state.customClauses.forEach(cc => {
+      if ((cc.title || '').trim() || (cc.body || '').trim()) {
+        clauses.push({ title: cc.title || '', body: cc.body || '' });
+      }
+    });
+    return clauses;
+  }
+  if (docType === 'ip_assignment') {
+    const clauses = [1, 2, 3, 4, 5, 6, 7, 8].map(n => ({
+      title: tt(`c${n}_title_ip`), body: tt(`c${n}_body_ip`)
     }));
     state.customClauses.forEach(cc => {
       if ((cc.title || '').trim() || (cc.body || '').trim()) {
@@ -3694,11 +4129,12 @@ function buildDocumentHtml() {
     ? `<img class="sign-img" src="${state.signatures.B}" alt="signature">`
     : `<div class="sign-area-empty"></div>`;
 
+  const taxIdLabel = escapeHtml(effectiveTaxIdLabel());
   const partyCard = (roleLabel, name, id, addr) => `
     <div class="party-card">
       <span class="party-card-label">${roleLabel}</span>
       <div class="party-card-name">${name}</div>
-      <div class="party-card-row"><span>${escapeHtml(t('label_taxid'))}:</span> ${id}</div>
+      <div class="party-card-row"><span>${taxIdLabel}:</span> ${id}</div>
       <div class="party-card-row"><span>${escapeHtml(t('label_address'))}:</span> ${addr}</div>
     </div>
   `;
@@ -3710,7 +4146,7 @@ function buildDocumentHtml() {
       <div class="sign-line"></div>
       <div class="sign-field"><strong>${escapeHtml(t('sign_field_name'))}:</strong> ${name}</div>
       <div class="sign-field"><strong>${escapeHtml(t('sign_field_role'))}:</strong> ${role}</div>
-      <div class="sign-field"><strong>${escapeHtml(t('sign_field_id'))}:</strong> ${id}</div>
+      <div class="sign-field"><strong>${taxIdLabel}:</strong> ${id}</div>
       <div class="sign-field"><strong>${escapeHtml(t('sign_field_date'))}:</strong> ${issueDate}</div>
     </div>
   `;
@@ -4009,6 +4445,7 @@ async function downloadPdf() {
     btn.disabled = false;
     btn.innerHTML = originalHtml;
     host.remove();
+    saveDocHistoryEntry();
     showEmailCaptureBanner();
   });
 }
@@ -4235,6 +4672,7 @@ async function downloadDocx() {
     a.click();
     a.remove();
     URL.revokeObjectURL(url);
+    saveDocHistoryEntry();
     showEmailCaptureBanner();
   } catch (err) {
     console.error(err);
@@ -4652,6 +5090,7 @@ function getSerializableFields() {
     duration: $('#duration').value,
     jurisdiction: $('#jurisdiction').value,
     'custom-filename': $('#custom-filename').value,
+    'country-select': ($('#country-select') || {}).value || '',
   };
 }
 
@@ -5075,6 +5514,10 @@ function initChecklist() {
 /* ---------------------------------------------------------------------
    13f) WATERMARK
    --------------------------------------------------------------------- */
+function initCountrySelector() {
+  $('#country-select')?.addEventListener('change', updateCountryFields);
+}
+
 function initWatermarkSelector() {
   $('#watermark-select').addEventListener('change', (e) => {
     state.watermark = e.target.value;
@@ -5459,6 +5902,107 @@ function dismissEmailCapture() {
 }
 
 /* ---------------------------------------------------------------------
+   13p) DOCUMENT HISTORY ("Mis Documentos")
+   A lightweight, local-only, append-only log of past exports — separate
+   from autosave (which tracks the CURRENT in-progress form) and from
+   save/load template (which only remembers Party A). Pure retention
+   feature: nothing here is uploaded anywhere, it's just localStorage.
+   --------------------------------------------------------------------- */
+const DOC_HISTORY_KEY = 'draftb2b_doc_history_v1';
+const DOC_HISTORY_MAX = 20;
+
+function loadDocHistory() {
+  try {
+    const raw = localStorage.getItem(DOC_HISTORY_KEY);
+    const parsed = raw ? JSON.parse(raw) : [];
+    return Array.isArray(parsed) ? parsed : [];
+  } catch (e) {
+    return [];
+  }
+}
+
+function saveDocHistoryEntry() {
+  try {
+    const history = loadDocHistory();
+    const data = getFormData();
+    history.unshift({
+      ref: getDocRef(),
+      docType: state.docType,
+      date: new Date().toISOString(),
+      nameA: (data.nameA || '').trim() || '—',
+      nameB: (data.nameB || '').trim() || '—',
+      hash: state.docHash || '',
+      signed: !!(state.signatures.A || state.signatures.B),
+    });
+    localStorage.setItem(DOC_HISTORY_KEY, JSON.stringify(history.slice(0, DOC_HISTORY_MAX)));
+  } catch (e) { /* storage full or unavailable — history is a nice-to-have, never block the export */ }
+}
+
+function docTypeDisplayLabel(docType) {
+  const keyMap = {
+    nda_unilateral: 'tpl_unilateral_title',
+    nda_mutual: 'tpl_mutual_title',
+    b2b_services: 'tpl_b2b_title',
+    privacy_policy: 'tpl_privacy_title',
+    ip_assignment: 'tpl_ip_title',
+  };
+  return t(keyMap[docType] || 'tpl_unilateral_title');
+}
+
+function renderDocHistory() {
+  const list = $('#history-list');
+  const emptyMsg = $('#history-empty-msg');
+  if (!list) return;
+  const history = loadDocHistory();
+  if (!history.length) {
+    list.innerHTML = '';
+    if (emptyMsg) emptyMsg.classList.remove('hidden');
+    return;
+  }
+  if (emptyMsg) emptyMsg.classList.add('hidden');
+  list.innerHTML = history.map(entry => {
+    let dateLabel;
+    try { dateLabel = new Date(entry.date).toLocaleDateString(state.lang); } catch (e) { dateLabel = (entry.date || '').slice(0, 10); }
+    return `
+      <div class="history-item">
+        <div class="history-item-top">
+          <strong>${escapeHtml(entry.ref || '—')}</strong>
+          <span class="history-item-type">${escapeHtml(docTypeDisplayLabel(entry.docType))}</span>
+        </div>
+        <div class="history-item-parties">${escapeHtml(entry.nameA || '—')} — ${escapeHtml(entry.nameB || '—')}</div>
+        <div class="history-item-meta">
+          <span>${escapeHtml(dateLabel)}</span>
+          <span>${entry.signed ? escapeHtml(t('history_signed_yes')) : escapeHtml(t('history_signed_no'))}</span>
+          ${entry.hash ? `<span class="history-item-hash">${escapeHtml(shortHash(entry.hash))}</span>` : ''}
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+function openHistoryModal() {
+  renderDocHistory();
+  $('#history-modal')?.classList.remove('hidden');
+}
+function closeHistoryModal() {
+  $('#history-modal')?.classList.add('hidden');
+}
+function clearDocHistory() {
+  if (!confirm(t('history_clear_confirm'))) return;
+  try { localStorage.removeItem(DOC_HISTORY_KEY); } catch (e) { /* storage unavailable */ }
+  renderDocHistory();
+  toast(t('history_clear_done'));
+}
+
+function initHistoryModal() {
+  $('#btn-history')?.addEventListener('click', openHistoryModal);
+  $('#history-modal-close')?.addEventListener('click', closeHistoryModal);
+  $('#btn-history-close')?.addEventListener('click', closeHistoryModal);
+  $('#btn-history-clear')?.addEventListener('click', clearDocHistory);
+  $('#history-modal')?.addEventListener('click', (e) => { if (e.target.id === 'history-modal') closeHistoryModal(); });
+}
+
+/* ---------------------------------------------------------------------
    13m) PREVIEW ZOOM
    --------------------------------------------------------------------- */
 let previewZoom = 1;
@@ -5563,6 +6107,8 @@ function init() {
   initPenaltyCalculator();
   initChecklist();
   initWatermarkSelector();
+  initCountrySelector();
+  initHistoryModal();
   initShareLink();
   initPrint();
   initIcsReminder();

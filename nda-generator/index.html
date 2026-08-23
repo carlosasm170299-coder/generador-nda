@@ -248,6 +248,11 @@
       <svg class="template-tab-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
       <span data-i18n="tpl_privacy_short">Privacidad</span>
     </button>
+    <button type="button" class="template-tab" data-template="ip_assignment" data-i18n-title="tpl_ip_desc" title="Transfiere la titularidad de una obra, desarrollo o creación.">
+      <span class="template-tab-active-badge" data-i18n="badge_active">Activo</span>
+      <svg class="template-tab-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M14.83 14.83a4 4 0 1 1 0-5.66"/></svg>
+      <span data-i18n="tpl_ip_short">Prop. Intelectual</span>
+    </button>
   </div>
 
   <div class="flex flex-col lg:flex-row gap-6 items-stretch lg:items-start">
@@ -293,6 +298,9 @@
             <button type="button" id="btn-share-link" class="icon-btn" data-i18n-title="btn_share_link" title="Compartir con la contraparte">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 3.9M15.4 6.6L8.6 10.5"/></svg>
             </button>
+            <button type="button" id="btn-history" class="icon-btn" data-i18n-title="btn_history" title="Historial de documentos">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/></svg>
+            </button>
             <button type="button" id="btn-autosave-info" class="icon-btn" data-i18n-title="autosave_note" title="Tus datos se guardan automáticamente en este navegador.">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
             </button>
@@ -335,6 +343,26 @@
                 </label>
                 <input type="file" id="logo-file-input" accept="image/png,image/jpeg,image/svg+xml" class="sr-only">
               </div>
+            </div>
+
+            <!-- Reference country: adapts the tax-ID field format/label
+                 (RFC, NIF/CIF, EIN/SSN...) and suggests a jurisdiction
+                 default for both parties. -->
+            <div class="mb-4">
+              <label class="field-label" data-i18n="label_country">País de referencia (opcional)</label>
+              <select id="country-select" class="field-input">
+                <option value="" data-i18n="country_generic">Genérico / Otro</option>
+                <option value="mx" data-i18n="country_mx">México</option>
+                <option value="es" data-i18n="country_es">España</option>
+                <option value="us" data-i18n="country_us">Estados Unidos</option>
+                <option value="ar" data-i18n="country_ar">Argentina</option>
+                <option value="co" data-i18n="country_co">Colombia</option>
+                <option value="cl" data-i18n="country_cl">Chile</option>
+                <option value="br" data-i18n="country_br">Brasil</option>
+                <option value="pe" data-i18n="country_pe">Perú</option>
+                <option value="gb" data-i18n="country_gb">Reino Unido</option>
+              </select>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-1" data-i18n="country_hint">Ajusta automáticamente el formato de identificación fiscal y sugiere la jurisdicción según el país.</p>
             </div>
 
             <div class="grid sm:grid-cols-2 gap-5">
@@ -991,6 +1019,29 @@
 
     <div class="modal-actions">
       <button type="button" id="btn-share-close" class="btn-ghost"><span data-i18n="btn_cancel">Cancelar</span></button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ DOCUMENT HISTORY MODAL ============ -->
+<div id="history-modal" class="modal-overlay hidden">
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="history-modal-title">
+    <div class="modal-header">
+      <h3 id="history-modal-title" data-i18n="history_modal_title">Mis Documentos</h3>
+      <button type="button" id="history-modal-close" class="modal-close" aria-label="Close">&times;</button>
+    </div>
+
+    <p class="donate-modal-desc" data-i18n="history_modal_desc">Un registro local, guardado solo en este navegador, de los documentos que has generado.</p>
+
+    <div id="history-list" class="history-list"></div>
+    <p id="history-empty-msg" class="history-empty hidden" data-i18n="history_empty">Aún no has generado ningún documento.</p>
+
+    <div class="modal-actions">
+      <button type="button" id="btn-history-clear" class="btn-ghost">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"/></svg>
+        <span data-i18n="history_clear_btn">Borrar historial</span>
+      </button>
+      <button type="button" id="btn-history-close" class="btn-primary"><span data-i18n="btn_cancel">Cerrar</span></button>
     </div>
   </div>
 </div>
