@@ -1013,6 +1013,24 @@
   </div>
 </div>
 
+<!-- ============ NEWSLETTER SIGNUP (footer) ============
+     Static, always-present counterpart to the post-download email-capture
+     banner (app.js) — same "aviso de nuevas plantillas" opt-in, reachable
+     without having to export a document first. Both submit through the
+     same wireEmailCaptureForm()/formsubmit.co path. -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 pb-8">
+  <div class="newsletter-footer-card">
+    <div class="newsletter-footer-text">
+      <strong data-i18n="email_capture_title">¿Quieres enterarte de nuevas plantillas?</strong>
+      <p data-i18n="email_capture_desc">Déjanos tu correo y te avisaremos cuando lancemos nuevas plantillas y funciones. Sin spam.</p>
+    </div>
+    <form id="newsletter-footer-form" class="newsletter-footer-form">
+      <input type="email" class="field-input newsletter-footer-input" required data-i18n-placeholder="email_capture_placeholder" placeholder="tu@correo.com">
+      <button type="submit" class="btn-primary btn-sm newsletter-footer-submit" data-i18n="email_capture_btn">Avisarme</button>
+    </form>
+  </div>
+</section>
+
 <footer class="border-t border-slate-200 dark:border-slate-800 py-8">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-slate-500 dark:text-slate-400">
     <span>© <span id="year"></span> DraftB2B. All rights reserved.</span>

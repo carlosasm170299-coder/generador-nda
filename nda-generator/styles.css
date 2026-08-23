@@ -1272,6 +1272,62 @@ body {
 }
 .dark .benefit-card p { color: rgb(148 163 184); }
 
+/* ===== Newsletter signup (footer) ===== */
+.newsletter-footer-card {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  border: 1.5px solid rgb(226 232 240);
+  background: linear-gradient(135deg, rgb(239 246 255), rgb(255 255 255));
+}
+.dark .newsletter-footer-card {
+  border-color: rgb(30 41 59);
+  background: linear-gradient(135deg, rgb(30 41 59 / 0.5), rgb(15 23 42));
+}
+.newsletter-footer-text strong {
+  display: block;
+  font-size: 1rem;
+  font-weight: 800;
+  color: rgb(15 23 42);
+  margin-bottom: 0.25rem;
+}
+.dark .newsletter-footer-text strong { color: white; }
+.newsletter-footer-text p {
+  font-size: 0.85rem;
+  color: rgb(100 116 139);
+}
+.dark .newsletter-footer-text p { color: rgb(148 163 184); }
+.newsletter-footer-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  width: 100%;
+  max-width: 100%;
+}
+.newsletter-footer-input {
+  min-width: 0;
+}
+@media (min-width: 640px) {
+  .newsletter-footer-card {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+  .newsletter-footer-form {
+    flex-direction: row;
+    flex-shrink: 0;
+    width: auto;
+    min-width: 22rem;
+  }
+  .newsletter-footer-input {
+    flex: 1;
+  }
+}
+
 /* ===== Donation button & modal ===== */
 .donate-btn-nav {
   display: inline-flex;

@@ -6314,6 +6314,57 @@ const EMAIL_CAPTURE_ENDPOINT = 'https://formsubmit.co/ajax/carlosasm170299@gmail
 const EMAIL_CAPTURE_KEY = 'draftb2b_email_capture_v1';
 const EMAIL_CAPTURE_DISMISS_KEY = 'draftb2b_email_capture_dismissed';
 
+// Shared by every email-capture entry point on the page (the post-download
+// banner below and the static footer signup form) so there is exactly one
+// place that talks to formsubmit.co. `onSuccess` runs only after a
+// confirmed 2xx response, and only there — never optimistically.
+function submitEmailCapture(email, submitBtn, onSuccess) {
+  const originalLabel = submitBtn.textContent;
+  submitBtn.disabled = true;
+  return fetch(EMAIL_CAPTURE_ENDPOINT, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify({
+      email,
+      _subject: 'Nuevo interés en DraftB2B — aviso de nuevas plantillas',
+      _captcha: 'false',
+    }),
+  })
+    .then((res) => {
+      if (!res.ok) throw new Error('formsubmit request failed');
+      try { localStorage.setItem(EMAIL_CAPTURE_KEY, JSON.stringify({ email, ts: Date.now() })); } catch (err) { /* storage unavailable */ }
+      toast(t('email_capture_thanks'));
+      if (onSuccess) onSuccess();
+    })
+    .catch(() => {
+      toast(t('email_capture_network_error'));
+    })
+    .finally(() => {
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalLabel;
+    });
+}
+
+// Wires any <form> containing an email input + submit button to
+// submitEmailCapture() — used for both the dynamic banner and the static
+// footer form, each passing its own post-success cleanup as `onSuccess`.
+function wireEmailCaptureForm(form, onSuccess) {
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const input = form.querySelector('input[type="email"]');
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const email = input.value.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      toast(t('email_capture_error'));
+      return;
+    }
+    submitEmailCapture(email, submitBtn, () => {
+      input.value = '';
+      if (onSuccess) onSuccess();
+    });
+  });
+}
+
 function buildEmailCaptureBanner() {
   const el = document.createElement('div');
   el.id = 'email-capture-banner';
@@ -6329,42 +6380,17 @@ function buildEmailCaptureBanner() {
   `;
   document.body.appendChild(el);
   el.querySelector('.email-capture-close').addEventListener('click', dismissEmailCapture);
-  el.querySelector('.email-capture-form').addEventListener('submit', (e) => {
-    e.preventDefault();
-    const input = el.querySelector('.email-capture-input');
-    const submitBtn = el.querySelector('.email-capture-submit');
-    const email = input.value.trim();
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      toast(t('email_capture_error'));
-      return;
-    }
-    const originalLabel = submitBtn.textContent;
-    submitBtn.disabled = true;
-    fetch(EMAIL_CAPTURE_ENDPOINT, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify({
-        email,
-        _subject: 'Nuevo interés en DraftB2B — aviso de nuevas plantillas',
-        _captcha: 'false',
-      }),
-    })
-      .then((res) => {
-        if (!res.ok) throw new Error('formsubmit request failed');
-        try { localStorage.setItem(EMAIL_CAPTURE_KEY, JSON.stringify({ email, ts: Date.now() })); } catch (err) { /* storage unavailable */ }
-        input.value = '';
-        toast(t('email_capture_thanks'));
-        hideEmailCaptureBanner();
-      })
-      .catch(() => {
-        toast(t('email_capture_network_error'));
-      })
-      .finally(() => {
-        submitBtn.disabled = false;
-        submitBtn.textContent = originalLabel;
-      });
-  });
+  wireEmailCaptureForm(el.querySelector('.email-capture-form'), hideEmailCaptureBanner);
   return el;
+}
+
+// Static, always-present footer signup (separate from the post-download
+// banner above, which only appears after a successful export) — the same
+// "aviso de nuevas plantillas" opt-in, reachable without downloading first.
+function initNewsletterFooterForm() {
+  const form = $('#newsletter-footer-form');
+  if (!form) return;
+  wireEmailCaptureForm(form);
 }
 
 function showEmailCaptureBanner() {
@@ -6594,6 +6620,7 @@ function init() {
   initDonationModal();
   initMobilePreview();
   initMobileActionsSheet();
+  initNewsletterFooterForm();
   initOptionalClauses();
   initPenaltyCalculator();
   initChecklist();
