@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://draftb2b.com/sitemap.xml
