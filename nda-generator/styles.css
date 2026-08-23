@@ -5,10 +5,14 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 body {
   font-feature-settings: "cv11", "ss01";
+  overflow-x: hidden;
+  width: 100%;
 }
 
 /* ===== Ad placeholders ===== */
@@ -108,6 +112,27 @@ body {
   display: flex;
   gap: 0.5rem;
 }
+/* Below 640px, 4 items squeezed into one flex row leaves each tab too
+   narrow for its icon+label (and risks the "Activo" badge overflowing
+   its own tab) — a balanced 2x2 grid gives each one real room instead. */
+@media (max-width: 639px) {
+  .template-tabs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+  .template-tab {
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.4rem;
+    padding: 0.65rem 0.5rem;
+    font-size: 0.78rem;
+  }
+  .template-tab-icon {
+    width: 1.05rem;
+    height: 1.05rem;
+  }
+}
 .template-tab {
   position: relative;
   flex: 1;
@@ -164,6 +189,10 @@ body {
   background: linear-gradient(to right, rgb(37 99 235), rgb(79 70 229));
   color: white;
   box-shadow: 0 2px 6px -1px rgb(59 130 246 / 0.5);
+  white-space: nowrap;
+  max-width: calc(100% - 0.8rem);
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .template-tab.active .template-tab-active-badge {
   display: inline-block;
@@ -377,6 +406,27 @@ body {
 }
 .lang-select-wrap .lang-select {
   padding-left: 1.75rem;
+}
+/* Compact header navbar on narrow phones: the language option text
+   ("ES · Español", "RU · Русский"...) can be longer than the available
+   header width once the logo + donate + theme buttons are also on the
+   same row — cap and truncate it instead of letting it force the whole
+   header wider than the viewport. */
+@media (max-width: 480px) {
+  .lang-select-wrap .lang-select {
+    max-width: 4.6rem;
+    padding-right: 1.2rem;
+    font-size: 0.68rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    background-position: right 0.4rem center;
+    background-size: 0.75rem;
+  }
+  .donate-btn-nav,
+  #theme-toggle {
+    flex-shrink: 0;
+  }
 }
 
 /* ===== Bilingual (dual-language) toolbar ===== */
@@ -2395,9 +2445,17 @@ body {
 .info-tab-nav {
   display: flex;
   gap: 0.25rem;
+  max-width: 100%;
   overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
   border-bottom: 1.5px solid rgb(226 232 240);
   margin-bottom: 2rem;
+}
+.info-tab-nav::-webkit-scrollbar {
+  display: none;
 }
 .dark .info-tab-nav {
   border-bottom-color: rgb(30 41 59);

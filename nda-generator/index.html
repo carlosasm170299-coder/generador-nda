@@ -227,7 +227,7 @@
        gets the whole main-content width. Each tab's longer description
        lives in its native title tooltip instead of visible text, keeping
        the bar thin per the compact-layout redesign. -->
-  <div class="template-tabs mb-4" role="tablist">
+  <div class="template-tabs mt-3 mb-4" role="tablist">
     <button type="button" class="template-tab" data-template="nda_unilateral" data-i18n-title="tpl_unilateral_desc" title="Una parte revela información, la otra la protege.">
       <span class="template-tab-active-badge" data-i18n="badge_active">Activo</span>
       <svg class="template-tab-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
@@ -250,13 +250,19 @@
     </button>
   </div>
 
-  <div class="flex flex-col lg:flex-row gap-6 items-start">
+  <div class="flex flex-col lg:flex-row gap-6 items-stretch lg:items-start">
 
    <!-- Editor + preview workspace: a 50/50 split between just these two
         columns, kept in its own flex row so the fixed-width ad sidebar
         (a sibling, not a third participant in this split) never dilutes
-        the "50% editor" balance the redesign calls for. -->
-   <div class="flex flex-col lg:flex-row gap-6 items-start flex-1 min-w-0">
+        the "50% editor" balance the redesign calls for. items-stretch
+        (not items-start) below 1024px is deliberate: in flex-col mode
+        align-items governs the CROSS axis, i.e. horizontal width here —
+        items-start would let each "row" (really a full-width mobile
+        section) shrink-to-fit its own widest descendant instead of
+        filling 100% of the viewport, which is what actually caused the
+        horizontal overflow/misalignment on narrow phones. -->
+   <div class="flex flex-col lg:flex-row gap-6 items-stretch lg:items-start flex-1 min-w-0">
 
     <!-- Core tool column: a balanced 50% share of the workspace. -->
     <div class="w-full lg:w-1/2 min-w-0">
