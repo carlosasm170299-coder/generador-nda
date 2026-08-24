@@ -1,0 +1,8 @@
+# Cloudflare Pages redirects — safety net for the most likely manual
+# typo on our compressed-slug URLs: native speakers naturally think
+# "acuerdo DE confidencialidad" / "acordo DE confidencialidade" (with
+# the preposition), while our SEO slugs drop it for brevity. Redirect
+# the likely-guessed variant to the real one instead of 404ing.
+/es/plantillas/acuerdo-de-confidencialidad /es/plantillas/acuerdo-confidencialidad 301
+/pt/modelos/acordo-de-confidencialidade /pt/modelos/acordo-confidencialidade 301
+/fr/modeles/accord-de-confidentialite /fr/modeles/accord-confidentialite 301
