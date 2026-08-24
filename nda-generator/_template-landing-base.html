@@ -1,0 +1,139 @@
+<!--
+  BASE REUTILIZABLE — Landing page de plantilla legal (SEO programático)
+  ========================================================================
+  NO es una ruta pública: no está enlazada desde ningún sitio ni incluida
+  en sitemap.xml. Sirve como referencia/plantilla de compilación: copia
+  este archivo a la carpeta de la ruta real (ej. /pt/modelos/acordo-
+  confidencialidade/index.html) y sustituye cada {{PLACEHOLDER}} por el
+  valor correspondiente de la matriz de contenido.
+
+  Variables a inyectar:
+    {{HTML_LANG}}         Código de idioma del atributo <html lang="">
+    {{PAGE_TITLE}}         <title> optimizado (título + palabra clave + marca)
+    {{META_DESCRIPTION}}   <meta name="description">
+    {{CANONICAL_URL}}      URL absoluta de esta página
+    {{HREFLANG_BLOCK}}     Bloque de 9 <link rel="alternate"> (8 idiomas + x-default)
+    {{OG_TITLE}} / {{OG_DESCRIPTION}} / {{OG_URL}}
+    {{TWITTER_TITLE}} / {{TWITTER_DESCRIPTION}}
+    {{JSONLD_WEBAPP_NAME}} / {{JSONLD_WEBAPP_URL}} / {{JSONLD_WEBAPP_DESC}}
+    {{JSONLD_FAQ_BLOCK}}   Array de preguntas/respuestas ya serializado
+    {{NAV_CTA_LABEL}}      Texto del botón superior ("Open the Generator" / "Abrir el Generador"...)
+    {{NAV_CTA_HREF}}       "/?doctype={{DOCTYPE}}&lang={{APP_LANG}}#main-tool"
+    {{BADGE_TEXT}}         Texto de la insignia superior ("100% Free · No Sign-Up...")
+    {{H1}}                 Encabezado principal
+    {{HERO_SUBTITLE}}      Subtítulo bajo el H1
+    {{HERO_CTA_LABEL}}     Texto del botón grande del hero
+    {{INTRO_PARAGRAPH}}    Párrafo introductorio nativo (60-80 palabras)
+    {{HOW_IT_WORKS_TITLE}} "How it works — 3 steps" / "Cómo funciona — 3 pasos"...
+    {{STEP_1}} / {{STEP_2}} / {{STEP_3}}
+    {{FAQ_TITLE}}          "Frequently Asked Questions" / "Preguntas Frecuentes"...
+    {{FAQ_ITEMS_HTML}}     3× bloques <details> ya renderizados
+    {{FOOTER_RIGHTS}}      "© 2026 DraftB2B. All rights reserved." / equivalente localizado
+    {{FOOTER_BACK_LABEL}}  "Back to the full generator →" / equivalente localizado
+-->
+<!DOCTYPE html>
+<html lang="{{HTML_LANG}}">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{PAGE_TITLE}}</title>
+<meta name="description" content="{{META_DESCRIPTION}}">
+
+<link rel="canonical" href="{{CANONICAL_URL}}">
+{{HREFLANG_BLOCK}}
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+<meta property="og:title" content="{{OG_TITLE}}">
+<meta property="og:description" content="{{OG_DESCRIPTION}}">
+<meta property="og:url" content="{{OG_URL}}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DraftB2B">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="{{TWITTER_TITLE}}">
+<meta name="twitter:description" content="{{TWITTER_DESCRIPTION}}">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: { extend: { colors: { brand: {
+      50:'#eff6ff',100:'#dbeafe',200:'#bfdbfe',300:'#93c5fd',400:'#60a5fa',
+      500:'#3b82f6',600:'#2563eb',700:'#1d4ed8',800:'#1e40af',900:'#1e3a8a'
+    } }, fontFamily: { sans: ['Inter','ui-sans-serif','system-ui','-apple-system','sans-serif'] } } }
+  }
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>body{font-family:'Inter',ui-sans-serif,system-ui,sans-serif}</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "{{JSONLD_WEBAPP_NAME}}",
+  "url": "{{JSONLD_WEBAPP_URL}}",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Any (runs in browser)",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "description": "{{JSONLD_WEBAPP_DESC}}",
+  "publisher": { "@type": "Organization", "name": "DraftB2B", "url": "https://draftb2b.com/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": {{JSONLD_FAQ_BLOCK}}
+}
+</script>
+</head>
+<body class="bg-white text-slate-900">
+
+<header class="border-b border-slate-200">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
+    <a href="/" class="flex items-center gap-2 font-extrabold text-lg tracking-tight">
+      <span class="h-8 w-8 rounded-lg bg-brand-600 flex items-center justify-center text-white shrink-0">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/><path d="m9 15 2 2 4-4"/></svg>
+      </span>
+      DraftB2B
+    </a>
+    <a href="{{NAV_CTA_HREF}}" class="inline-flex items-center rounded-full bg-brand-600 hover:bg-brand-700 text-white text-sm font-bold px-4 py-2 transition-colors">{{NAV_CTA_LABEL}}</a>
+  </div>
+</header>
+
+<main>
+  <section class="max-w-3xl mx-auto px-4 sm:px-6 pt-12 pb-8 text-center">
+    <span class="inline-block text-xs font-bold tracking-wide uppercase text-brand-700 bg-brand-50 px-3 py-1 rounded-full mb-4">{{BADGE_TEXT}}</span>
+    <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight leading-tight mb-4">{{H1}}</h1>
+    <p class="text-lg text-slate-600 max-w-2xl mx-auto mb-8">{{HERO_SUBTITLE}}</p>
+    <a href="{{NAV_CTA_HREF}}" class="inline-flex items-center justify-center rounded-full bg-brand-600 hover:bg-brand-700 text-white font-bold px-8 py-3.5 text-base transition-colors">{{HERO_CTA_LABEL}}</a>
+  </section>
+
+  <section class="max-w-3xl mx-auto px-4 sm:px-6 py-8 text-slate-700 leading-relaxed">
+    <p class="mb-4">{{INTRO_PARAGRAPH}}</p>
+    <h2 class="text-xl font-extrabold mt-8 mb-3">{{HOW_IT_WORKS_TITLE}}</h2>
+    <ol class="list-decimal pl-5 space-y-2 mb-4">
+      <li>{{STEP_1}}</li>
+      <li>{{STEP_2}}</li>
+      <li>{{STEP_3}}</li>
+    </ol>
+  </section>
+
+  <section class="max-w-3xl mx-auto px-4 sm:px-6 py-8">
+    <h2 class="text-xl font-extrabold mb-4">{{FAQ_TITLE}}</h2>
+    <div class="space-y-3">
+      {{FAQ_ITEMS_HTML}}
+    </div>
+  </section>
+</main>
+
+<footer class="border-t border-slate-200 mt-8">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 py-8 text-sm text-slate-500 flex flex-col sm:flex-row items-center justify-between gap-3">
+    <span>{{FOOTER_RIGHTS}}</span>
+    <a href="/" class="hover:text-brand-600">{{FOOTER_BACK_LABEL}}</a>
+  </div>
+</footer>
+
+</body>
+</html>
