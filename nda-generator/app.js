@@ -84,6 +84,11 @@ const I18N = {
     share_copy_btn: "Copiar Enlace",
     share_copied_msg: "¡Enlace copiado al portapapeles!",
     share_prefill_notice: "Hemos completado los datos de la contraparte. Por favor, completa tu información como Parte Receptora.",
+    share_success_title: "🎉 Documento generado con éxito",
+    share_success_message: "DraftB2B es 100% gratuito, privado y sin registros. Si esta herramienta te ahorró tiempo, ayúdanos a correr la voz o apoya el mantenimiento del proyecto.",
+    share_success_btn_twitter: "Compartir en X / Twitter",
+    share_success_btn_kofi: "Invitar un café (Ko-fi)",
+    share_success_btn_close: "Cerrar",
 
     // --- Penalty clause calculator ---
     penalty_calc_title: "Calculadora de Cláusula Penal",
@@ -445,6 +450,11 @@ const I18N = {
     share_copy_btn: "Copy Link",
     share_copied_msg: "Link copied to clipboard!",
     share_prefill_notice: "We've filled in the counterparty's details. Please complete your information as the Receiving Party.",
+    share_success_title: "🎉 Document generated successfully",
+    share_success_message: "DraftB2B is 100% free, private, and requires no sign-up. If this tool saved you time, help us spread the word or support the project's upkeep.",
+    share_success_btn_twitter: "Share on X / Twitter",
+    share_success_btn_kofi: "Buy me a coffee (Ko-fi)",
+    share_success_btn_close: "Close",
 
     // --- Penalty clause calculator ---
     penalty_calc_title: "Penalty Clause Calculator",
@@ -805,6 +815,11 @@ const I18N = {
     share_copy_btn: "Copiar Link",
     share_copied_msg: "Link copiado para a área de transferência!",
     share_prefill_notice: "Preenchemos os dados da contraparte. Por favor, complete suas informações como Parte Receptora.",
+    share_success_title: "🎉 Documento gerado com sucesso",
+    share_success_message: "O DraftB2B é 100% gratuito, privado e sem necessidade de cadastro. Se esta ferramenta economizou seu tempo, ajude-nos a espalhar a notícia ou apoie a manutenção do projeto.",
+    share_success_btn_twitter: "Compartilhar no X / Twitter",
+    share_success_btn_kofi: "Pague um café (Ko-fi)",
+    share_success_btn_close: "Fechar",
 
     // --- Penalty clause calculator ---
     penalty_calc_title: "Calculadora de Cláusula Penal",
@@ -1153,6 +1168,11 @@ const I18N = {
     share_copy_btn: "Copier le Lien",
     share_copied_msg: "Lien copié dans le presse-papiers !",
     share_prefill_notice: "Nous avons rempli les informations de la contrepartie. Veuillez compléter vos informations en tant que Partie Réceptrice.",
+    share_success_title: "🎉 Document généré avec succès",
+    share_success_message: "DraftB2B est 100 % gratuit, privé et sans inscription. Si cet outil vous a fait gagner du temps, aidez-nous à en parler autour de vous ou soutenez la maintenance du projet.",
+    share_success_btn_twitter: "Partager sur X / Twitter",
+    share_success_btn_kofi: "Offrez-moi un café (Ko-fi)",
+    share_success_btn_close: "Fermer",
 
     // --- Penalty clause calculator ---
     penalty_calc_title: "Calculateur de Clause Pénale",
@@ -1501,6 +1521,11 @@ const I18N = {
     share_copy_btn: "Скопировать ссылку",
     share_copied_msg: "Ссылка скопирована в буфер обмена!",
     share_prefill_notice: "Мы заполнили данные контрагента. Пожалуйста, заполните свою информацию как Принимающая сторона.",
+    share_success_title: "🎉 Документ успешно создан",
+    share_success_message: "DraftB2B на 100% бесплатен, приватен и не требует регистрации. Если этот инструмент сэкономил вам время, помогите нам рассказать о нём другим или поддержите развитие проекта.",
+    share_success_btn_twitter: "Поделиться в X / Twitter",
+    share_success_btn_kofi: "Угостить кофе (Ko-fi)",
+    share_success_btn_close: "Закрыть",
 
     // --- Penalty clause calculator ---
     penalty_calc_title: "Калькулятор штрафной неустойки",
@@ -1849,6 +1874,11 @@ const I18N = {
     share_copy_btn: "复制链接",
     share_copied_msg: "链接已复制到剪贴板！",
     share_prefill_notice: "我们已填写对方的信息。请以接收方身份填写您的信息。",
+    share_success_title: "🎉 文档生成成功",
+    share_success_message: "DraftB2B 100%免费、私密，且无需注册。如果这个工具为您节省了时间，欢迎帮助我们传播，或支持项目的维护。",
+    share_success_btn_twitter: "分享到 X / Twitter",
+    share_success_btn_kofi: "请我喝杯咖啡（Ko-fi）",
+    share_success_btn_close: "关闭",
 
     // --- Penalty clause calculator ---
     penalty_calc_title: "违约金计算器",
@@ -2197,6 +2227,11 @@ const I18N = {
     share_copy_btn: "リンクをコピー",
     share_copied_msg: "リンクをクリップボードにコピーしました！",
     share_prefill_notice: "相手方の情報を入力しました。受領当事者としてご自身の情報を入力してください。",
+    share_success_title: "🎉 文書の生成が完了しました",
+    share_success_message: "DraftB2Bは100%無料・プライベートで、登録も不要です。このツールが時間の節約に役立った場合は、口コミで広めていただくか、プロジェクトの維持にご協力ください。",
+    share_success_btn_twitter: "X（Twitter）でシェア",
+    share_success_btn_kofi: "コーヒーをおごる（Ko-fi）",
+    share_success_btn_close: "閉じる",
 
     // --- Penalty clause calculator ---
     penalty_calc_title: "違約金計算ツール",
@@ -2545,6 +2580,11 @@ const I18N = {
     share_copy_btn: "लिंक कॉपी करें",
     share_copied_msg: "लिंक क्लिपबोर्ड पर कॉपी हो गया!",
     share_prefill_notice: "हमने प्रतिपक्ष का विवरण भर दिया है। कृपया प्राप्तकर्ता पक्ष के रूप में अपनी जानकारी पूरी करें।",
+    share_success_title: "🎉 दस्तावेज़ सफलतापूर्वक जनरेट हुआ",
+    share_success_message: "DraftB2B 100% मुफ़्त, निजी और बिना पंजीकरण के है। अगर इस टूल ने आपका समय बचाया, तो कृपया इसके बारे में बताकर या प्रोजेक्ट के रखरखाव में सहयोग देकर हमारी मदद करें।",
+    share_success_btn_twitter: "X / Twitter पर साझा करें",
+    share_success_btn_kofi: "एक कॉफी पिलाएं (Ko-fi)",
+    share_success_btn_close: "बंद करें",
 
     // --- Penalty clause calculator ---
     penalty_calc_title: "दंड धारा कैलकुलेटर",
@@ -5177,13 +5217,23 @@ async function downloadPdf() {
       pdf.setTextColor(148, 163, 184);
       pdf.text(footerLeft, marginLeft, footerY);
       pdf.text(footerPageOfTemplate.replace('{current}', i).replace('{total}', totalPages), pageWidth - marginRight, footerY, { align: 'right' });
+      // Discreet product-led-growth brand line, on its own row a few mm
+      // below the confidentiality/page-number row so the two never
+      // collide — fixed English copy regardless of document language
+      // (this is a brand mark, not document content) and always Latin
+      // script, so it's unaffected by the WinAnsi standard-font limit
+      // that forces the confidentiality note to fall back to English
+      // for non-Latin languages above.
+      pdf.setFontSize(8);
+      pdf.setTextColor(156, 163, 175); // #9CA3AF
+      pdf.text('Generated with DraftB2B (draftb2b.com) — Free & Private Legal Contracts', pageWidth / 2, footerY + 5, { align: 'center' });
     }
   }).save()).finally(() => {
     btn.disabled = false;
     btn.innerHTML = originalHtml;
     host.remove();
     saveDocHistoryEntry();
-    showEmailCaptureBanner();
+    openShareSuccessModal();
   });
 }
 
@@ -5410,7 +5460,7 @@ async function downloadDocx() {
     a.remove();
     URL.revokeObjectURL(url);
     saveDocHistoryEntry();
-    showEmailCaptureBanner();
+    openShareSuccessModal();
   } catch (err) {
     console.error(err);
     toast(t('docx_error'));
@@ -6919,6 +6969,28 @@ function initLegalModals() {
 }
 
 /* ---------------------------------------------------------------------
+   13l-c) POST-DOWNLOAD "SHARE & SUPPORT" MODAL (PLG)
+   --------------------------------------------------------------------- */
+function openShareSuccessModal() { $('#share-success-modal')?.classList.remove('hidden'); }
+// The new-templates email banner used to fire in the same instant as a
+// successful export; now it fires once this modal is dismissed instead,
+// so the user is only ever asked one thing at a time post-download.
+// showEmailCaptureBanner() already no-ops if already captured/dismissed.
+function closeShareSuccessModal() {
+  $('#share-success-modal')?.classList.add('hidden');
+  showEmailCaptureBanner();
+}
+
+function initShareSuccessModal() {
+  $('#share-success-close')?.addEventListener('click', closeShareSuccessModal);
+  $('#share-success-dismiss')?.addEventListener('click', closeShareSuccessModal);
+  $('#share-success-modal')?.addEventListener('click', (e) => { if (e.target.id === 'share-success-modal') closeShareSuccessModal(); });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !$('#share-success-modal')?.classList.contains('hidden')) closeShareSuccessModal();
+  });
+}
+
+/* ---------------------------------------------------------------------
    13m) PREVIEW ZOOM
    --------------------------------------------------------------------- */
 let previewZoom = 1;
@@ -7028,6 +7100,7 @@ function init() {
   initCountrySelector();
   initHistoryModal();
   initLegalModals();
+  initShareSuccessModal();
   initShareLink();
   initPrint();
   initIcsReminder();

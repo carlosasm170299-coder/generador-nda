@@ -1787,6 +1787,57 @@ body {
 @media (max-width: 480px) {
   .modal-box.legal-modal-box { max-height: 80vh; }
 }
+/* ===== Post-download "Share & Support" modal ===== */
+.share-success-message {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: rgb(71 85 105);
+  margin-bottom: 1.25rem;
+}
+.dark .share-success-message { color: rgb(148 163 184); }
+.share-success-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: 0.75rem;
+}
+.share-success-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.7rem 1rem;
+  border-radius: 0.65rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-align: center;
+  transition: all 0.2s ease-out;
+}
+.share-success-btn svg { width: 1.05rem; height: 1.05rem; flex-shrink: 0; }
+.share-success-btn-x {
+  background: rgb(15 23 42);
+  color: white;
+  border: 1px solid rgb(15 23 42);
+}
+.share-success-btn-x:hover { background: rgb(30 41 59); transform: translateY(-1px); }
+.dark .share-success-btn-x { background: white; color: rgb(15 23 42); border-color: white; }
+.dark .share-success-btn-x:hover { background: rgb(226 232 240); }
+.share-success-btn-kofi {
+  background: rgb(254 240 138);
+  color: rgb(120 53 15);
+  border: 1.5px solid rgb(250 204 21 / 0.6);
+}
+.share-success-btn-kofi:hover { background: rgb(253 224 71); transform: translateY(-1px); }
+.dark .share-success-btn-kofi {
+  background: rgb(120 53 15 / 0.35);
+  color: rgb(254 240 138);
+  border-color: rgb(202 138 4 / 0.6);
+}
+.dark .share-success-btn-kofi:hover { background: rgb(120 53 15 / 0.55); }
+.share-success-dismiss-btn {
+  width: 100%;
+  justify-content: center;
+}
 .modal-header {
   display: flex;
   align-items: center;

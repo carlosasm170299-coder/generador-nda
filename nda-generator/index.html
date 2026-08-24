@@ -1185,6 +1185,33 @@
   </div>
 </div>
 
+<!-- ============ POST-DOWNLOAD "SHARE & SUPPORT" MODAL ============
+     Fires right after a successful PDF/Word export (see downloadPdf()/
+     downloadDocx() in app.js) — a single, non-blocking PLG moment. The
+     existing new-templates email banner is deliberately deferred until
+     this modal is dismissed, so a user is never asked two things at
+     once. -->
+<div id="share-success-modal" class="modal-overlay hidden">
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="share-success-title">
+    <div class="modal-header">
+      <h3 id="share-success-title" data-i18n="share_success_title">🎉 Documento generado con éxito</h3>
+      <button type="button" id="share-success-close" class="modal-close" aria-label="Close">&times;</button>
+    </div>
+    <p class="share-success-message" data-i18n="share_success_message">DraftB2B es 100% gratuito, privado y sin registros. Si esta herramienta te ahorró tiempo, ayúdanos a correr la voz o apoya el mantenimiento del proyecto.</p>
+    <div class="share-success-actions">
+      <a href="https://twitter.com/intent/tweet?text=Just%20generated%20a%20clean%2C%20private%20B2B%20contract%20in%20seconds%20with%20draftb2b.com%20%F0%9F%9A%80%20Zero-backend%2C%20100%25%20client-side%20and%20free." target="_blank" rel="noopener noreferrer" class="share-success-btn share-success-btn-x">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 3.9M15.4 6.6L8.6 10.5"/></svg>
+        <span data-i18n="share_success_btn_twitter">Compartir en X / Twitter</span>
+      </a>
+      <a href="https://ko-fi.com/draftb2b" target="_blank" rel="noopener noreferrer" class="share-success-btn share-success-btn-kofi">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><line x1="6" x2="6" y1="2" y2="4"/><line x1="10" x2="10" y1="2" y2="4"/><line x1="14" x2="14" y1="2" y2="4"/></svg>
+        <span data-i18n="share_success_btn_kofi">Invitar un café (Ko-fi)</span>
+      </a>
+    </div>
+    <button type="button" id="share-success-dismiss" class="btn-ghost share-success-dismiss-btn" data-i18n="share_success_btn_close">Cerrar</button>
+  </div>
+</div>
+
 <script src="app.js"></script>
 </body>
 </html>
