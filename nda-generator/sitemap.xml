@@ -130,4 +130,44 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://draftb2b.com/"/>
   </url>
 
+  <url>
+    <loc>https://draftb2b.com/templates/bilingual-nda</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://draftb2b.com/templates/bilingual-nda"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://draftb2b.com/es/plantillas/acuerdo-confidencialidad"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://draftb2b.com/"/>
+  </url>
+
+  <url>
+    <loc>https://draftb2b.com/templates/freelance-contract</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://draftb2b.com/templates/freelance-contract"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://draftb2b.com/es/plantillas/contrato-prestacion-servicios"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://draftb2b.com/"/>
+  </url>
+
+  <url>
+    <loc>https://draftb2b.com/es/plantillas/acuerdo-confidencialidad</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://draftb2b.com/es/plantillas/acuerdo-confidencialidad"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://draftb2b.com/templates/bilingual-nda"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://draftb2b.com/"/>
+  </url>
+
+  <url>
+    <loc>https://draftb2b.com/es/plantillas/contrato-prestacion-servicios</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://draftb2b.com/es/plantillas/contrato-prestacion-servicios"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://draftb2b.com/templates/freelance-contract"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://draftb2b.com/"/>
+  </url>
+
 </urlset>

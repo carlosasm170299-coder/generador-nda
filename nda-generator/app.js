@@ -4404,6 +4404,26 @@ function readLangFromUrl() {
   }
 }
 
+// Lets a static SEO landing page (see /templates/*, /es/plantillas/*)
+// deep-link straight into the right template instead of dropping the
+// visitor on the generic default — e.g. /?doctype=nda_mutual&lang=en
+// or /?doctype=b2b_services&lang=en&bilingual=1. Same shape as
+// readLangFromUrl(): only ever overrides state, applied in init()
+// before selectTemplate() runs.
+const VALID_DOC_TYPES = ['nda_unilateral', 'nda_mutual', 'b2b_services', 'privacy_policy', 'ip_assignment', 'service_settlement'];
+function readDocTypeFromUrl() {
+  const params = new URLSearchParams(location.search);
+  const urlDocType = params.get('doctype');
+  if (urlDocType && VALID_DOC_TYPES.includes(urlDocType)) {
+    state.docType = urlDocType;
+  }
+  if (params.get('bilingual') === '1') {
+    state.bilingual = true;
+    const secondary = params.get('lang2');
+    if (secondary && LANGS[secondary] && secondary !== state.lang) state.langSecondary = secondary;
+  }
+}
+
 // Keeps the address bar's ?lang= param (and therefore what a crawler or
 // a bookmark sees) in sync with a manual language switch, without a full
 // reload — same history.replaceState pattern already used to strip the
@@ -7070,6 +7090,7 @@ function init() {
   initTheme();
   loadAutosave();
   readLangFromUrl();
+  readDocTypeFromUrl();
   applyI18n();
   $('#bilingual-toggle').checked = state.bilingual;
   $('#bilingual-lang-picker').classList.toggle('hidden', !state.bilingual);
