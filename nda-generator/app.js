@@ -362,6 +362,9 @@ const I18N = {
     c8_title: "OCTAVA. DISPOSICIONES GENERALES",
     c8_title_b2b: "SÉPTIMA. DISPOSICIONES GENERALES",
     c8_body: "El presente documento constituye el acuerdo íntegro entre las Partes respecto de su objeto, dejando sin efecto cualquier entendimiento previo, verbal o escrito. Cualquier modificación deberá constar por escrito y ser firmada por ambas Partes. Si alguna cláusula fuera declarada nula o inaplicable, ello no afectará la validez de las restantes disposiciones.",
+    c_force_majeure_title: "NOVENA. FUERZA MAYOR",
+    c_force_majeure_title_b2b: "OCTAVA. FUERZA MAYOR",
+    c_force_majeure_body: "Ninguna de las Partes será responsable por el incumplimiento o retraso en el cumplimiento de sus obligaciones bajo el presente documento cuando dicho incumplimiento o retraso resulte de circunstancias razonablemente fuera de su control, incluyendo, sin limitarse a, desastres naturales, actos de autoridad gubernamental, conflictos armados, pandemias, fallos generalizados de infraestructura de telecomunicaciones o energía, u otros eventos de fuerza mayor. La Parte afectada notificará a la otra Parte tan pronto como sea razonablemente posible y hará esfuerzos razonables para mitigar los efectos de dicho evento.",
 
     sign_place_date: "En {jurisdiction}, a la fecha de firma indicada a continuación.",
     sign_label: "Firma",
@@ -729,6 +732,9 @@ const I18N = {
     c8_title: "EIGHTH. GENERAL PROVISIONS",
     c8_title_b2b: "SEVENTH. GENERAL PROVISIONS",
     c8_body: "This document constitutes the entire agreement between the Parties with respect to its subject matter, superseding any prior understanding, whether verbal or written. Any amendment must be made in writing and signed by both Parties. Should any clause be declared void or unenforceable, the remaining provisions shall remain in full force and effect.",
+    c_force_majeure_title: "NINTH. FORCE MAJEURE",
+    c_force_majeure_title_b2b: "EIGHTH. FORCE MAJEURE",
+    c_force_majeure_body: "Neither Party shall be liable for any failure or delay in performing its obligations under this document where such failure or delay results from circumstances reasonably beyond its control, including without limitation natural disasters, acts of governmental authority, armed conflict, pandemics, widespread telecommunications or power infrastructure failures, or other force majeure events. The affected Party shall notify the other Party as soon as reasonably practicable and shall make reasonable efforts to mitigate the effects of such event.",
 
     sign_place_date: "At {jurisdiction}, as of the signature date below.",
     sign_label: "Signature",
@@ -1097,6 +1103,9 @@ const I18N = {
     c8_title: "OITAVA. DISPOSIÇÕES GERAIS",
     c8_title_b2b: "SÉTIMA. DISPOSIÇÕES GERAIS",
     c8_body: "Este documento constitui o acordo integral entre as Partes quanto ao seu objeto, deixando sem efeito qualquer entendimento anterior, verbal ou escrito. Qualquer alteração deverá constar por escrito e ser assinada por ambas as Partes. Caso alguma cláusula seja declarada nula ou inaplicável, isso não afetará a validade das demais disposições.",
+    c_force_majeure_title: "NONA. FORÇA MAIOR",
+    c_force_majeure_title_b2b: "OITAVA. FORÇA MAIOR",
+    c_force_majeure_body: "Nenhuma das Partes será responsável por qualquer descumprimento ou atraso no cumprimento de suas obrigações no âmbito deste documento quando tal descumprimento ou atraso resultar de circunstâncias razoavelmente fora de seu controle, incluindo, sem limitação, desastres naturais, atos de autoridade governamental, conflitos armados, pandemias, falhas generalizadas de infraestrutura de telecomunicações ou energia, ou outros eventos de força maior. A Parte afetada notificará a outra Parte assim que razoavelmente possível e envidará esforços razoáveis para mitigar os efeitos de tal evento.",
 
     sign_place_date: "Em {jurisdiction}, na data de assinatura indicada a seguir.",
     sign_label: "Assinatura",
@@ -1452,6 +1461,9 @@ const I18N = {
     c8_title: "HUITIÈME. DISPOSITIONS GÉNÉRALES",
     c8_title_b2b: "SEPTIÈME. DISPOSITIONS GÉNÉRALES",
     c8_body: "Le présent document constitue l'accord intégral entre les Parties concernant son objet, annulant tout accord antérieur, verbal ou écrit. Toute modification devra être faite par écrit et signée par les deux Parties. Si une clause est déclarée nulle ou inapplicable, cela n'affectera pas la validité des autres dispositions.",
+    c_force_majeure_title: "NEUVIÈME. FORCE MAJEURE",
+    c_force_majeure_title_b2b: "HUITIÈME. FORCE MAJEURE",
+    c_force_majeure_body: "Aucune des Parties ne sera responsable de tout manquement ou retard dans l'exécution de ses obligations au titre du présent document lorsque ce manquement ou retard résulte de circonstances raisonnablement hors de son contrôle, y compris, sans s'y limiter, les catastrophes naturelles, les actes d'autorité gouvernementale, les conflits armés, les pandémies, les défaillances généralisées des infrastructures de télécommunications ou d'énergie, ou d'autres cas de force majeure. La Partie affectée notifiera l'autre Partie dès que raisonnablement possible et déploiera des efforts raisonnables pour atténuer les effets d'un tel événement.",
 
     sign_place_date: "À {jurisdiction}, à la date de signature indiquée ci-dessous.",
     sign_label: "Signature",
@@ -1807,6 +1819,9 @@ const I18N = {
     c8_title: "ВОСЬМОЕ. ОБЩИЕ ПОЛОЖЕНИЯ",
     c8_title_b2b: "СЕДЬМОЕ. ОБЩИЕ ПОЛОЖЕНИЯ",
     c8_body: "Настоящий документ представляет собой полное соглашение между Сторонами относительно его предмета, отменяя любые предыдущие договорённости, устные или письменные. Любые изменения должны быть оформлены в письменном виде и подписаны обеими Сторонами. Признание какого-либо пункта недействительным или неприменимым не влияет на действительность остальных положений.",
+    c_force_majeure_title: "ДЕВЯТОЕ. ФОРС-МАЖОР",
+    c_force_majeure_title_b2b: "ВОСЬМОЕ. ФОРС-МАЖОР",
+    c_force_majeure_body: "Ни одна из Сторон не несёт ответственности за неисполнение или задержку исполнения своих обязательств по настоящему документу, если такое неисполнение или задержка вызваны обстоятельствами, разумно находящимися вне её контроля, включая, помимо прочего, стихийные бедствия, действия органов государственной власти, вооружённые конфликты, пандемии, масштабные сбои телекоммуникационной или энергетической инфраструктуры или иные обстоятельства непреодолимой силы. Пострадавшая Сторона уведомит другую Сторону в разумно короткий срок и предпримет разумные усилия для смягчения последствий такого события.",
 
     sign_place_date: "В {jurisdiction}, датой подписания, указанной ниже.",
     sign_label: "Подпись",
@@ -2162,6 +2177,9 @@ const I18N = {
     c8_title: "第八条 一般规定",
     c8_title_b2b: "第七条 一般规定",
     c8_body: "本文件构成双方就本协议标的达成的完整协议，取代此前任何口头或书面的理解。任何修改均须以书面形式作出并经双方签署。若任何条款被宣告无效或不可执行，不影响其余条款的效力。",
+    c_force_majeure_title: "第九条 不可抗力",
+    c_force_majeure_title_b2b: "第八条 不可抗力",
+    c_force_majeure_body: "任何一方均不对因合理超出其控制范围的情况而未能履行或延迟履行本文件项下义务承担责任，此类情况包括但不限于自然灾害、政府机关行为、武装冲突、大流行病、大范围电信或电力基础设施故障，或其他不可抗力事件。受影响的一方应在合理可行的情况下尽快通知另一方，并尽合理努力减轻此类事件的影响。",
 
     sign_place_date: "于{jurisdiction}，签署日期如下所示。",
     sign_label: "签名",
@@ -2517,6 +2535,9 @@ const I18N = {
     c8_title: "第八条（一般条項）",
     c8_title_b2b: "第七条（一般条項）",
     c8_body: "本文書は、その目的に関して両当事者間で成立した完全な合意を構成し、口頭または書面によるこれまでの了解事項に優先する。いかなる変更も書面により行われ、両当事者による署名を要するものとする。いずれかの条項が無効または執行不能と宣言された場合であっても、他の規定の有効性には影響を及ぼさない。",
+    c_force_majeure_title: "第九条（不可抗力）",
+    c_force_majeure_title_b2b: "第八条（不可抗力）",
+    c_force_majeure_body: "いずれの当事者も、天災、政府当局の行為、武力紛争、パンデミック、広範囲にわたる通信または電力インフラの障害、その他の不可抗力事由を含むがこれらに限定されない、自己の合理的な支配を超える事情により本文書に基づく義務の履行が不能または遅延した場合、当該不履行または遅延について責任を負わないものとします。影響を受けた当事者は、合理的に可能な限り速やかに他方当事者に通知し、当該事象の影響を軽減するために合理的な努力を払うものとします。",
 
     sign_place_date: "{jurisdiction}にて、下記の署名日をもって。",
     sign_label: "署名",
@@ -2872,6 +2893,9 @@ const I18N = {
     c8_title: "अष्टम। सामान्य प्रावधान",
     c8_title_b2b: "सप्तम। सामान्य प्रावधान",
     c8_body: "यह दस्तावेज़ अपने विषय के संबंध में पक्षों के बीच संपूर्ण समझौता गठित करता है, तथा किसी भी पूर्व मौखिक अथवा लिखित समझ को निरस्त करता है। किसी भी संशोधन को लिखित रूप में किया जाना चाहिए तथा दोनों पक्षों द्वारा हस्ताक्षरित होना चाहिए। यदि कोई खंड अमान्य या अप्रवर्तनीय घोषित किया जाता है, तो इससे शेष प्रावधानों की वैधता प्रभावित नहीं होगी।",
+    c_force_majeure_title: "नवम। अप्रत्याशित घटना (फोर्स मेज्योर)",
+    c_force_majeure_title_b2b: "अष्टम। अप्रत्याशित घटना (फोर्स मेज्योर)",
+    c_force_majeure_body: "किसी भी पक्ष को इस दस्तावेज़ के तहत अपने दायित्वों को पूरा करने में विफलता या देरी के लिए उत्तरदायी नहीं माना जाएगा, यदि ऐसी विफलता या देरी उसके उचित नियंत्रण से परे परिस्थितियों के कारण होती है, जिसमें प्राकृतिक आपदाएं, सरकारी प्राधिकरण के कार्य, सशस्त्र संघर्ष, महामारी, व्यापक दूरसंचार या ऊर्जा अवसंरचना विफलताएं, या अन्य अप्रत्याशित घटनाएं शामिल हैं, परंतु इन्हीं तक सीमित नहीं हैं। प्रभावित पक्ष उचित रूप से संभव होते ही दूसरे पक्ष को सूचित करेगा और ऐसी घटना के प्रभावों को कम करने का उचित प्रयास करेगा।",
 
     sign_place_date: "{jurisdiction} में, नीचे दर्शाई गई हस्ताक्षर तिथि पर।",
     sign_label: "हस्ताक्षर",
@@ -4442,6 +4466,13 @@ function readDocTypeFromUrl() {
   const urlDocType = params.get('doctype');
   if (urlDocType && VALID_DOC_TYPES.includes(urlDocType)) {
     state.docType = urlDocType;
+    // A returning visitor's autosaved state.bilingual can otherwise
+    // survive a landing-page CTA that only passes ?doctype=&lang=,
+    // silently switching a monolingual landing page's promise into a
+    // bilingual document. Any doctype deep link is authoritative over
+    // autosave for this flag: explicit bilingual=1 turns it on, its
+    // absence turns it off.
+    state.bilingual = params.get('bilingual') === '1';
   }
   if (params.get('bilingual') === '1') {
     state.bilingual = true;
@@ -4826,6 +4857,7 @@ function resolveClauses(docType, parts, lang = state.lang) {
     clauses.push({ title: isB2b ? tt('c7_title_b2b') : tt('c7_title'), body: tt('c7_body') });
   }
   clauses.push({ title: isB2b ? tt('c8_title_b2b') : tt('c8_title'), body: tt('c8_body') });
+  clauses.push({ title: isB2b ? tt('c_force_majeure_title_b2b') : tt('c_force_majeure_title'), body: tt('c_force_majeure_body') });
   state.customClauses.forEach(cc => {
     if ((cc.title || '').trim() || (cc.body || '').trim()) {
       clauses.push({ title: cc.title || '', body: cc.body || '' });
@@ -7032,10 +7064,55 @@ function initHistoryModal() {
 /* ---------------------------------------------------------------------
    13l-b) LEGAL MODALS (Terms of Service / Privacy Policy)
    --------------------------------------------------------------------- */
-function openTermsModal() { $('#terms-modal')?.classList.remove('hidden'); }
-function closeTermsModal() { $('#terms-modal')?.classList.add('hidden'); }
-function openPrivacyModal() { $('#privacy-modal')?.classList.remove('hidden'); }
-function closePrivacyModal() { $('#privacy-modal')?.classList.add('hidden'); }
+/* ---------------------------------------------------------------------
+   13k-b) MODAL FOCUS TRAP + FOCUS RESTORATION (a11y)
+   Shared by every .modal-overlay/.modal-box dialog (terms, privacy,
+   share-success): moves focus into the dialog on open, cycles Tab/
+   Shift+Tab within it while open, and returns focus to whatever
+   triggered it on close.
+   --------------------------------------------------------------------- */
+const FOCUSABLE_SEL = 'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])';
+let modalReturnFocusEl = null;
+
+function trapModalTab(e, modalEl) {
+  if (e.key !== 'Tab') return;
+  const focusables = $all(FOCUSABLE_SEL, modalEl).filter(el => el.offsetParent !== null);
+  if (!focusables.length) return;
+  const first = focusables[0];
+  const last = focusables[focusables.length - 1];
+  if (e.shiftKey && document.activeElement === first) {
+    e.preventDefault();
+    last.focus();
+  } else if (!e.shiftKey && document.activeElement === last) {
+    e.preventDefault();
+    first.focus();
+  }
+}
+
+function openModal(modalEl) {
+  if (!modalEl) return;
+  modalReturnFocusEl = document.activeElement;
+  modalEl.classList.remove('hidden');
+  ($('.modal-close', modalEl) || $('.modal-box', modalEl))?.focus();
+  modalEl._tabHandler = (e) => trapModalTab(e, modalEl);
+  modalEl.addEventListener('keydown', modalEl._tabHandler);
+}
+
+function closeModal(modalEl) {
+  if (!modalEl) return;
+  modalEl.classList.add('hidden');
+  if (modalEl._tabHandler) {
+    modalEl.removeEventListener('keydown', modalEl._tabHandler);
+    modalEl._tabHandler = null;
+  }
+  if (modalReturnFocusEl && document.body.contains(modalReturnFocusEl)) modalReturnFocusEl.focus();
+  modalReturnFocusEl = null;
+}
+
+function openTermsModal() { openModal($('#terms-modal')); }
+function closeTermsModal() { closeModal($('#terms-modal')); }
+function openPrivacyModal() { openModal($('#privacy-modal')); }
+function closePrivacyModal() { closeModal($('#privacy-modal')); }
 
 function initLegalModals() {
   $('#btn-terms')?.addEventListener('click', openTermsModal);
@@ -7056,13 +7133,13 @@ function initLegalModals() {
 /* ---------------------------------------------------------------------
    13l-c) POST-DOWNLOAD "SHARE & SUPPORT" MODAL (PLG)
    --------------------------------------------------------------------- */
-function openShareSuccessModal() { $('#share-success-modal')?.classList.remove('hidden'); }
+function openShareSuccessModal() { openModal($('#share-success-modal')); }
 // The new-templates email banner used to fire in the same instant as a
 // successful export; now it fires once this modal is dismissed instead,
 // so the user is only ever asked one thing at a time post-download.
 // showEmailCaptureBanner() already no-ops if already captured/dismissed.
 function closeShareSuccessModal() {
-  $('#share-success-modal')?.classList.add('hidden');
+  closeModal($('#share-success-modal'));
   showEmailCaptureBanner();
 }
 
