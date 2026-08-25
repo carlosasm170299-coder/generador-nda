@@ -812,6 +812,8 @@ const I18N = {
     clause_noncompete_body: "Durante a vigência do presente Acordo e por um período de {duration} após seu término, {roleB} compromete-se a não desenvolver, operar, investir ou participar direta ou indiretamente em qualquer negócio, projeto ou atividade que concorra diretamente com o objeto descrito na Cláusula Primeira, sem o consentimento prévio e por escrito de {roleA}.",
     clause_nonsolicit_title: "NÃO ALICIAMENTO DE PESSOAL E CLIENTES",
     clause_nonsolicit_body: "Durante a vigência do presente Acordo e por um período de {duration} após seu término, {roleB} compromete-se a não solicitar, contratar ou aliciar, direta ou indiretamente, funcionários, prestadores ou clientes de {roleA} que tenham tido relação com o objeto do presente Acordo, sem o consentimento prévio e por escrito de {roleA}.",
+    clause_nonsolicit_title_mutual: "NÃO ALICIAMENTO DE PESSOAL E CLIENTES",
+    clause_nonsolicit_body_mutual: "Durante a vigência do presente Acordo e por um período de {duration} após seu término, nenhuma das Partes solicitará, contratará ou aliciará, direta ou indiretamente, funcionários, prestadores ou clientes da outra Parte que tenham tido relação com o objeto do presente Acordo, sem o consentimento prévio e por escrito dessa Parte.",
     clause_arbitration_title: "RESOLUÇÃO DE DISPUTAS - ARBITRAGEM",
     clause_arbitration_body: "Qualquer controvérsia decorrente da interpretação ou cumprimento do presente documento será resolvida de forma definitiva por meio de arbitragem comercial vinculante, com sede em {jurisdiction}, renunciando as Partes expressamente a recorrer aos tribunais ordinários, exceto para a execução da sentença arbitral proferida.",
     custom_clause_add_btn: "+ Adicionar cláusula personalizada",
@@ -1093,13 +1095,13 @@ const I18N = {
 
     c2_title_nda_uni: "SEGUNDA. OBRIGAÇÕES DA PARTE RECEPTORA",
     c2_body_nda_uni: "{roleB} obriga-se a: (i) manter a informação confidencial em sigilo estrito; (ii) não divulgá-la a terceiros sem autorização prévia e por escrito de {roleA}; (iii) não utilizá-la para fins distintos dos estabelecidos na Cláusula Primeira; e (iv) adotar medidas de segurança razoáveis para evitar sua divulgação acidental ou não autorizada.",
-    c2_title_nda_mutual: "SEGUNDA. OBRIGAÇÕES DE CONFIDENCIALIDADE",
-    c2_body_nda_mutual: "Cada Parte, na qualidade de receptora de informações, obriga-se a: (i) manter a informação confidencial recebida em sigilo estrito; (ii) não divulgá-la a terceiros sem autorização prévia e por escrito da Parte divulgadora; (iii) não utilizá-la para fins distintos dos estabelecidos na Cláusula Primeira; e (iv) adotar medidas de segurança razoáveis para evitar sua divulgação acidental ou não autorizada.",
+    c2_title_nda_mutual: "SEGUNDA. DEFINIÇÃO E OBRIGAÇÕES DE CONFIDENCIALIDADE",
+    c2_body_nda_mutual: "Para os efeitos do presente Acordo, entende-se por «Informação Confidencial» toda informação técnica, comercial, financeira, operacional ou de qualquer outra natureza que uma Parte revele à outra, seja de forma escrita, oral, visual ou eletrônica, que esteja identificada como confidencial ou que, por sua natureza ou pelas circunstâncias de sua divulgação, deva razoavelmente ser entendida como confidencial. Cada Parte, na qualidade de receptora de informações, obriga-se a: (i) manter a informação confidencial recebida em sigilo estrito; (ii) não divulgá-la a terceiros sem autorização prévia e por escrito da Parte divulgadora; (iii) não utilizá-la para fins distintos dos estabelecidos na Cláusula Primeira; e (iv) adotar medidas de segurança razoáveis para evitar sua divulgação acidental ou não autorizada.",
     c2_title_b2b: "SEGUNDA. CONFIDENCIALIDADE",
     c2_body_b2b: "As Partes obrigam-se a manter em sigilo estrito todas as informações técnicas, comerciais ou financeiras trocadas em decorrência da execução do presente Contrato, não podendo divulgá-las a terceiros sem autorização prévia e por escrito da outra Parte, salvo exigência legal ou de autoridade competente.",
 
     c3_title: "TERCEIRA. EXCLUSÕES",
-    c3_body: "As obrigações de confidencialidade não se aplicam às informações que: (a) sejam ou se tornem de domínio público sem culpa da parte receptora; (b) tenham sido licitamente conhecidas pela parte receptora antes da divulgação; (c) sejam recebidas licitamente de terceiro sem restrição de confidencialidade; ou (d) devam ser divulgadas por determinação legal, judicial ou de autoridade competente, mediante prévia notificação à outra Parte sempre que possível.",
+    c3_body: "As obrigações de confidencialidade não se aplicam às informações que: (a) sejam ou se tornem de domínio público sem culpa da parte receptora; (b) tenham sido licitamente conhecidas pela parte receptora antes da divulgação; (c) sejam recebidas licitamente de terceiro sem restrição de confidencialidade; (d) devam ser divulgadas por determinação legal, judicial ou de autoridade competente, mediante prévia notificação à outra Parte sempre que possível; ou (e) tenham sido desenvolvidas de forma independente pela parte receptora sem utilizar ou fazer referência à informação confidencial da Parte divulgadora.",
 
     c4_title_nda: "QUARTA. PRAZO E DURAÇÃO",
     c4_body_nda: "As obrigações de confidencialidade estabelecidas neste Acordo permanecerão vigentes por {duration} a partir da data de assinatura deste documento, independentemente do término de qualquer relação comercial entre as Partes.",
@@ -1118,7 +1120,7 @@ const I18N = {
 
     c7_title: "SÉTIMA. LEI APLICÁVEL E JURISDIÇÃO",
     c7_title_b2b: "SEXTA. LEI APLICÁVEL E JURISDIÇÃO",
-    c7_body: "Este documento será regido e interpretado de acordo com as leis vigentes em {jurisdiction}. Para a resolução de qualquer controvérsia decorrente de sua interpretação ou cumprimento, as Partes submetem-se aos tribunais competentes dessa jurisdição, com expressa renúncia a qualquer outro foro que possa lhes caber.",
+    c7_body: "Este documento será regido e interpretado de acordo com as leis vigentes em {jurisdiction}. Para a resolução de qualquer controvérsia decorrente de sua interpretação ou cumprimento, as Partes submetem-se aos tribunais competentes dessa jurisdição, com expressa renúncia a qualquer outro foro que possa lhes caber. Na ausência de indicação expressa da jurisdição aplicável, entender-se-á que rege a lei do domicílio de {roleA}.",
 
     c8_title: "OITAVA. DISPOSIÇÕES GERAIS",
     c8_title_b2b: "SÉTIMA. DISPOSIÇÕES GERAIS",
@@ -1126,6 +1128,8 @@ const I18N = {
     c_force_majeure_title: "NONA. FORÇA MAIOR",
     c_force_majeure_title_b2b: "OITAVA. FORÇA MAIOR",
     c_force_majeure_body: "Nenhuma das Partes será responsável por qualquer descumprimento ou atraso no cumprimento de suas obrigações no âmbito deste documento quando tal descumprimento ou atraso resultar de circunstâncias razoavelmente fora de seu controle, incluindo, sem limitação, desastres naturais, atos de autoridade governamental, conflitos armados, pandemias, falhas generalizadas de infraestrutura de telecomunicações ou energia, ou outros eventos de força maior. A Parte afetada notificará a outra Parte assim que razoavelmente possível e envidará esforços razoáveis para mitigar os efeitos de tal evento.",
+    c_remedies_title: "DÉCIMA. RECURSOS E MEDIDAS CAUTELARES",
+    c_remedies_body: "As Partes reconhecem que o descumprimento das obrigações de confidencialidade estabelecidas no presente Acordo pode causar dano irreparável à Parte divulgadora, para o qual uma compensação financeira poderia não constituir um remédio adequado. Consequentemente, a Parte divulgadora terá direito a solicitar medidas cautelares ou de cumprimento específico perante a autoridade competente, sem prejuízo de qualquer outro recurso que lhe corresponda conforme a lei aplicável.",
 
     sign_place_date: "Em {jurisdiction}, na data de assinatura indicada a seguir.",
     sign_label: "Assinatura",
@@ -1174,6 +1178,8 @@ const I18N = {
     clause_noncompete_body: "Pendant la durée du présent Accord et pendant une période de {duration} suivant sa résiliation, {roleB} s'engage à ne pas développer, exploiter, investir dans, ni participer directement ou indirectement à toute activité, projet ou entreprise concurrençant directement l'objet décrit dans la Première Clause, sans le consentement préalable et écrit de {roleA}.",
     clause_nonsolicit_title: "NON-DÉBAUCHAGE DE PERSONNEL ET DE CLIENTS",
     clause_nonsolicit_body: "Pendant la durée du présent Accord et pendant une période de {duration} suivant sa résiliation, {roleB} s'engage à ne pas solliciter, embaucher ou débaucher, directement ou indirectement, les employés, prestataires ou clients de {roleA} ayant été impliqués dans l'objet du présent Accord, sans le consentement préalable et écrit de {roleA}.",
+    clause_nonsolicit_title_mutual: "NON-DÉBAUCHAGE DE PERSONNEL ET DE CLIENTS",
+    clause_nonsolicit_body_mutual: "Pendant la durée du présent Accord et pendant une période de {duration} suivant sa résiliation, aucune des Parties ne sollicitera, n'embauchera ni ne débauchera, directement ou indirectement, les employés, prestataires ou clients de l'autre Partie ayant été impliqués dans l'objet du présent Accord, sans le consentement préalable et écrit de cette autre Partie.",
     clause_arbitration_title: "RÈGLEMENT DES DIFFÉRENDS - ARBITRAGE",
     clause_arbitration_body: "Tout différend découlant de l'interprétation ou de l'exécution du présent document sera résolu de manière définitive par voie d'arbitrage commercial contraignant, avec siège à {jurisdiction}, les Parties renonçant expressément à recourir aux tribunaux ordinaires, sauf pour l'exécution de la sentence arbitrale rendue.",
     custom_clause_add_btn: "+ Ajouter une clause personnalisée",
@@ -1455,13 +1461,13 @@ const I18N = {
 
     c2_title_nda_uni: "DEUXIÈME. OBLIGATIONS DE LA PARTIE RÉCEPTRICE",
     c2_body_nda_uni: "{roleB} s'engage à : (i) conserver l'information confidentielle en toute confidentialité ; (ii) ne pas la divulguer à des tiers sans l'autorisation préalable et écrite de {roleA} ; (iii) ne pas l'utiliser à des fins autres que celles établies à la Clause Première ; et (iv) mettre en œuvre des mesures de sécurité raisonnables pour éviter toute divulgation accidentelle ou non autorisée.",
-    c2_title_nda_mutual: "DEUXIÈME. OBLIGATIONS DE CONFIDENTIALITÉ",
-    c2_body_nda_mutual: "Chaque Partie, en sa qualité de partie réceptrice, s'engage à : (i) conserver toute information confidentielle reçue en toute confidentialité ; (ii) ne pas la divulguer à des tiers sans l'autorisation préalable et écrite de la Partie divulgatrice ; (iii) ne pas l'utiliser à des fins autres que celles établies à la Clause Première ; et (iv) mettre en œuvre des mesures de sécurité raisonnables pour éviter toute divulgation accidentelle ou non autorisée.",
+    c2_title_nda_mutual: "DEUXIÈME. DÉFINITION ET OBLIGATIONS DE CONFIDENTIALITÉ",
+    c2_body_nda_mutual: "Aux fins du présent Accord, on entend par « Information Confidentielle » toute information technique, commerciale, financière, opérationnelle ou de toute autre nature qu'une Partie divulgue à l'autre, que ce soit par écrit, oralement, visuellement ou électroniquement, qui est marquée comme confidentielle ou qui, de par sa nature ou les circonstances de sa divulgation, doit raisonnablement être comprise comme confidentielle. Chaque Partie, en sa qualité de partie réceptrice, s'engage à : (i) conserver toute information confidentielle reçue en toute confidentialité ; (ii) ne pas la divulguer à des tiers sans l'autorisation préalable et écrite de la Partie divulgatrice ; (iii) ne pas l'utiliser à des fins autres que celles établies à la Clause Première ; et (iv) mettre en œuvre des mesures de sécurité raisonnables pour éviter toute divulgation accidentelle ou non autorisée.",
     c2_title_b2b: "DEUXIÈME. CONFIDENTIALITÉ",
     c2_body_b2b: "Les Parties s'engagent à garder strictement confidentielle toute information technique, commerciale ou financière échangée dans le cadre de l'exécution du présent Contrat, et à ne pas la divulguer à des tiers sans l'autorisation préalable et écrite de l'autre Partie, sauf obligation légale ou requête d'une autorité compétente.",
 
     c3_title: "TROISIÈME. EXCLUSIONS",
-    c3_body: "Les obligations de confidentialité ne s'appliquent pas aux informations qui : (a) sont ou deviennent publiques sans faute de la partie réceptrice ; (b) étaient licitement connues de la partie réceptrice avant leur divulgation ; (c) sont licitement reçues d'un tiers sans restriction de confidentialité ; ou (d) doivent être divulguées en vertu d'une obligation légale, judiciaire ou d'une autorité compétente, moyennant notification préalable à l'autre Partie lorsque cela est possible.",
+    c3_body: "Les obligations de confidentialité ne s'appliquent pas aux informations qui : (a) sont ou deviennent publiques sans faute de la partie réceptrice ; (b) étaient licitement connues de la partie réceptrice avant leur divulgation ; (c) sont licitement reçues d'un tiers sans restriction de confidentialité ; (d) doivent être divulguées en vertu d'une obligation légale, judiciaire ou d'une autorité compétente, moyennant notification préalable à l'autre Partie lorsque cela est possible ; ou (e) ont été développées de manière indépendante par la partie réceptrice sans utiliser ni faire référence aux informations confidentielles de la Partie divulgatrice.",
 
     c4_title_nda: "QUATRIÈME. DURÉE",
     c4_body_nda: "Les obligations de confidentialité établies dans le présent Accord resteront en vigueur pendant {duration} à compter de la date de signature du présent document, indépendamment de la fin de toute relation commerciale entre les Parties.",
@@ -1480,7 +1486,7 @@ const I18N = {
 
     c7_title: "SEPTIÈME. DROIT APPLICABLE ET JURIDICTION",
     c7_title_b2b: "SIXIÈME. DROIT APPLICABLE ET JURIDICTION",
-    c7_body: "Le présent document sera régi et interprété conformément aux lois en vigueur à {jurisdiction}. Pour la résolution de tout litige découlant de son interprétation ou de son exécution, les Parties se soumettent aux tribunaux compétents de cette juridiction, renonçant expressément à tout autre for qui pourrait leur être applicable.",
+    c7_body: "Le présent document sera régi et interprété conformément aux lois en vigueur à {jurisdiction}. Pour la résolution de tout litige découlant de son interprétation ou de son exécution, les Parties se soumettent aux tribunaux compétents de cette juridiction, renonçant expressément à tout autre for qui pourrait leur être applicable. À défaut de choix exprès de la juridiction applicable, la loi du domicile de {roleA} sera réputée applicable.",
 
     c8_title: "HUITIÈME. DISPOSITIONS GÉNÉRALES",
     c8_title_b2b: "SEPTIÈME. DISPOSITIONS GÉNÉRALES",
@@ -1488,6 +1494,8 @@ const I18N = {
     c_force_majeure_title: "NEUVIÈME. FORCE MAJEURE",
     c_force_majeure_title_b2b: "HUITIÈME. FORCE MAJEURE",
     c_force_majeure_body: "Aucune des Parties ne sera responsable de tout manquement ou retard dans l'exécution de ses obligations au titre du présent document lorsque ce manquement ou retard résulte de circonstances raisonnablement hors de son contrôle, y compris, sans s'y limiter, les catastrophes naturelles, les actes d'autorité gouvernementale, les conflits armés, les pandémies, les défaillances généralisées des infrastructures de télécommunications ou d'énergie, ou d'autres cas de force majeure. La Partie affectée notifiera l'autre Partie dès que raisonnablement possible et déploiera des efforts raisonnables pour atténuer les effets d'un tel événement.",
+    c_remedies_title: "DIXIÈME. RECOURS ET MESURES CONSERVATOIRES",
+    c_remedies_body: "Les Parties reconnaissent que le manquement aux obligations de confidentialité prévues au présent Accord peut causer un préjudice irréparable à la Partie divulgatrice, pour lequel une compensation financière pourrait ne pas constituer un recours adéquat. En conséquence, la Partie divulgatrice aura le droit de solliciter des mesures conservatoires ou l'exécution en nature auprès de l'autorité compétente, sans préjudice de tout autre recours qui lui reviendrait en vertu du droit applicable.",
 
     sign_place_date: "À {jurisdiction}, à la date de signature indiquée ci-dessous.",
     sign_label: "Signature",
@@ -1536,6 +1544,8 @@ const I18N = {
     clause_noncompete_body: "В течение срока действия настоящего Соглашения и в течение {duration} после его прекращения {roleB} обязуется не развивать, не эксплуатировать, не инвестировать и не участвовать прямо или косвенно в каком-либо бизнесе, проекте или деятельности, напрямую конкурирующей с предметом, описанным в Первом пункте, без предварительного письменного согласия {roleA}.",
     clause_nonsolicit_title: "ЗАПРЕТ ПЕРЕМАНИВАНИЯ ПЕРСОНАЛА И КЛИЕНТОВ",
     clause_nonsolicit_body: "В течение срока действия настоящего Соглашения и в течение {duration} после его прекращения {roleB} обязуется не переманивать, не нанимать и не привлекать прямо или косвенно сотрудников, подрядчиков или клиентов {roleA}, имевших отношение к предмету настоящего Соглашения, без предварительного письменного согласия {roleA}.",
+    clause_nonsolicit_title_mutual: "ЗАПРЕТ ПЕРЕМАНИВАНИЯ ПЕРСОНАЛА И КЛИЕНТОВ",
+    clause_nonsolicit_body_mutual: "В течение срока действия настоящего Соглашения и в течение {duration} после его прекращения ни одна из Сторон не будет переманивать, нанимать или привлекать прямо или косвенно сотрудников, подрядчиков или клиентов другой Стороны, имевших отношение к предмету настоящего Соглашения, без предварительного письменного согласия такой другой Стороны.",
     clause_arbitration_title: "РАЗРЕШЕНИЕ СПОРОВ - АРБИТРАЖ",
     clause_arbitration_body: "Любой спор, возникающий из толкования или исполнения настоящего документа, будет окончательно разрешён путём обязательного коммерческого арбитража с местом проведения в {jurisdiction}, при этом Стороны прямо отказываются от обращения в обычные суды, за исключением случаев приведения в исполнение вынесенного арбитражного решения.",
     custom_clause_add_btn: "+ Добавить свой пункт",
@@ -1817,13 +1827,13 @@ const I18N = {
 
     c2_title_nda_uni: "ВТОРОЕ. ОБЯЗАННОСТИ ПРИНИМАЮЩЕЙ СТОРОНЫ",
     c2_body_nda_uni: "{roleB} обязуется: (i) хранить конфиденциальную информацию в строгой тайне; (ii) не раскрывать её третьим лицам без предварительного письменного согласия {roleA}; (iii) не использовать её для целей, отличных от указанных в Первом пункте; и (iv) принимать разумные меры безопасности для предотвращения случайного или несанкционированного раскрытия.",
-    c2_title_nda_mutual: "ВТОРОЕ. ОБЯЗАТЕЛЬСТВА О КОНФИДЕНЦИАЛЬНОСТИ",
-    c2_body_nda_mutual: "Каждая Сторона, выступая в роли принимающей стороны, обязуется: (i) хранить полученную конфиденциальную информацию в строгой тайне; (ii) не раскрывать её третьим лицам без предварительного письменного согласия раскрывающей Стороны; (iii) не использовать её для целей, отличных от указанных в Первом пункте; и (iv) принимать разумные меры безопасности для предотвращения случайного или несанкционированного раскрытия.",
+    c2_title_nda_mutual: "ВТОРОЕ. ОПРЕДЕЛЕНИЕ И ОБЯЗАТЕЛЬСТВА О КОНФИДЕНЦИАЛЬНОСТИ",
+    c2_body_nda_mutual: "Для целей настоящего Соглашения под «Конфиденциальной информацией» понимается любая техническая, коммерческая, финансовая, операционная или иная информация, раскрываемая одной Стороной другой, будь то в письменной, устной, визуальной или электронной форме, которая обозначена как конфиденциальная либо по своему характеру или обстоятельствам раскрытия должна разумно считаться конфиденциальной. Каждая Сторона, выступая в роли принимающей стороны, обязуется: (i) хранить полученную конфиденциальную информацию в строгой тайне; (ii) не раскрывать её третьим лицам без предварительного письменного согласия раскрывающей Стороны; (iii) не использовать её для целей, отличных от указанных в Первом пункте; и (iv) принимать разумные меры безопасности для предотвращения случайного или несанкционированного раскрытия.",
     c2_title_b2b: "ВТОРОЕ. КОНФИДЕНЦИАЛЬНОСТЬ",
     c2_body_b2b: "Стороны обязуются сохранять в строгой тайне всю техническую, коммерческую или финансовую информацию, которой они обмениваются в связи с исполнением настоящего Договора, и не раскрывать её третьим лицам без предварительного письменного согласия другой Стороны, за исключением случаев, предусмотренных законом или требованием компетентного органа.",
 
     c3_title: "ТРЕТЬЕ. ИСКЛЮЧЕНИЯ",
-    c3_body: "Обязательства о конфиденциальности не распространяются на информацию, которая: (a) является или становится общедоступной не по вине принимающей стороны; (b) была правомерно известна принимающей стороне до её раскрытия; (c) правомерно получена от третьего лица без ограничений конфиденциальности; или (d) должна быть раскрыта по требованию закона, суда или компетентного органа при условии предварительного уведомления другой Стороны, когда это возможно.",
+    c3_body: "Обязательства о конфиденциальности не распространяются на информацию, которая: (a) является или становится общедоступной не по вине принимающей стороны; (b) была правомерно известна принимающей стороне до её раскрытия; (c) правомерно получена от третьего лица без ограничений конфиденциальности; (d) должна быть раскрыта по требованию закона, суда или компетентного органа при условии предварительного уведомления другой Стороны, когда это возможно; или (e) была самостоятельно разработана принимающей стороной без использования конфиденциальной информации раскрывающей Стороны и без обращения к ней.",
 
     c4_title_nda: "ЧЕТВЁРТОЕ. СРОК ДЕЙСТВИЯ",
     c4_body_nda: "Обязательства о конфиденциальности, установленные настоящим Соглашением, остаются в силе в течение {duration} с даты подписания настоящего документа, независимо от прекращения любых деловых отношений между Сторонами.",
@@ -1842,7 +1852,7 @@ const I18N = {
 
     c7_title: "СЕДЬМОЕ. ПРИМЕНИМОЕ ПРАВО И ЮРИСДИКЦИЯ",
     c7_title_b2b: "ШЕСТОЕ. ПРИМЕНИМОЕ ПРАВО И ЮРИСДИКЦИЯ",
-    c7_body: "Настоящий документ регулируется и толкуется в соответствии с законодательством, действующим в {jurisdiction}. Для разрешения любых споров, возникающих в связи с его толкованием или исполнением, Стороны подчиняются компетентным судам данной юрисдикции, прямо отказываясь от любой иной подсудности, которая могла бы им принадлежать.",
+    c7_body: "Настоящий документ регулируется и толкуется в соответствии с законодательством, действующим в {jurisdiction}. Для разрешения любых споров, возникающих в связи с его толкованием или исполнением, Стороны подчиняются компетентным судам данной юрисдикции, прямо отказываясь от любой иной подсудности, которая могла бы им принадлежать. При отсутствии прямого указания применимой юрисдикции считается применимым право по месту нахождения {roleA}.",
 
     c8_title: "ВОСЬМОЕ. ОБЩИЕ ПОЛОЖЕНИЯ",
     c8_title_b2b: "СЕДЬМОЕ. ОБЩИЕ ПОЛОЖЕНИЯ",
@@ -1850,6 +1860,8 @@ const I18N = {
     c_force_majeure_title: "ДЕВЯТОЕ. ФОРС-МАЖОР",
     c_force_majeure_title_b2b: "ВОСЬМОЕ. ФОРС-МАЖОР",
     c_force_majeure_body: "Ни одна из Сторон не несёт ответственности за неисполнение или задержку исполнения своих обязательств по настоящему документу, если такое неисполнение или задержка вызваны обстоятельствами, разумно находящимися вне её контроля, включая, помимо прочего, стихийные бедствия, действия органов государственной власти, вооружённые конфликты, пандемии, масштабные сбои телекоммуникационной или энергетической инфраструктуры или иные обстоятельства непреодолимой силы. Пострадавшая Сторона уведомит другую Сторону в разумно короткий срок и предпримет разумные усилия для смягчения последствий такого события.",
+    c_remedies_title: "ДЕСЯТОЕ. СРЕДСТВА ПРАВОВОЙ ЗАЩИТЫ И ОБЕСПЕЧИТЕЛЬНЫЕ МЕРЫ",
+    c_remedies_body: "Стороны признают, что нарушение обязательств о конфиденциальности, установленных настоящим Соглашением, может причинить непоправимый вред раскрывающей Стороне, для которого денежная компенсация может не являться достаточным средством защиты. Соответственно, раскрывающая Сторона вправе обратиться за обеспечительными мерами или исполнением обязательства в натуре в компетентный орган, без ущерба для любых иных средств правовой защиты, доступных ей в соответствии с применимым правом.",
 
     sign_place_date: "В {jurisdiction}, датой подписания, указанной ниже.",
     sign_label: "Подпись",
@@ -1898,6 +1910,8 @@ const I18N = {
     clause_noncompete_body: "在本协议有效期内及终止后的{duration}内，未经{roleA}事先书面同意，{roleB}承诺不开发、经营、投资或以直接或间接方式参与与第一条所述事项直接竞争的任何业务、项目或活动。",
     clause_nonsolicit_title: "禁止招揽人员及客户",
     clause_nonsolicit_body: "在本协议有效期内及终止后的{duration}内，未经{roleA}事先书面同意，{roleB}承诺不直接或间接招揽、聘用与本协议事项相关的{roleA}的员工、承包商或客户。",
+    clause_nonsolicit_title_mutual: "禁止招揽人员及客户",
+    clause_nonsolicit_body_mutual: "在本协议有效期内及终止后的{duration}内，任何一方均不得未经对方事先书面同意，直接或间接招揽、聘用与本协议事项相关的对方员工、承包商或客户。",
     clause_arbitration_title: "争议解决 - 仲裁",
     clause_arbitration_body: "因本文件的解释或履行而产生的任何争议，均应通过具有约束力的商业仲裁最终解决，仲裁地为{jurisdiction}，双方明确放弃诉诸普通法院的权利，但执行所作出的仲裁裁决除外。",
     custom_clause_add_btn: "+ 添加自定义条款",
@@ -2179,13 +2193,13 @@ const I18N = {
 
     c2_title_nda_uni: "第二条 接收方义务",
     c2_body_nda_uni: "{roleB}承诺：(i) 对保密信息严格保密；(ii) 未经{roleA}事先书面同意不得向第三方披露；(iii) 不得将其用于第一条规定以外的目的；(iv) 采取合理的安全措施以防止意外或未经授权的披露。",
-    c2_title_nda_mutual: "第二条 保密义务",
-    c2_body_nda_mutual: "各方在作为接收方时承诺：(i) 对所接收的保密信息严格保密；(ii) 未经披露方事先书面同意不得向第三方披露；(iii) 不得将其用于第一条规定以外的目的；(iv) 采取合理的安全措施以防止意外或未经授权的披露。",
+    c2_title_nda_mutual: "第二条 保密信息定义与保密义务",
+    c2_body_nda_mutual: "就本协议而言，\"保密信息\"是指一方以书面、口头、视觉或电子形式向另一方披露的、标注为保密或根据其性质或披露情形应合理理解为保密的任何技术、商业、财务、运营或其他性质的信息。各方在作为接收方时承诺：(i) 对所接收的保密信息严格保密；(ii) 未经披露方事先书面同意不得向第三方披露；(iii) 不得将其用于第一条规定以外的目的；(iv) 采取合理的安全措施以防止意外或未经授权的披露。",
     c2_title_b2b: "第二条 保密义务",
     c2_body_b2b: "双方承诺对因履行本合同而交换的所有技术、商业或财务信息严格保密，未经对方事先书面同意不得向第三方披露，法律要求或主管机关要求的除外。",
 
     c3_title: "第三条 除外情形",
-    c3_body: "保密义务不适用于以下信息：(a) 非因接收方过错而属于或成为公开信息的；(b) 接收方在披露前已合法获知的；(c) 从第三方合法获得且无保密限制的；或 (d) 根据法律、司法或主管机关要求必须披露的，在可能的情况下应事先通知对方。",
+    c3_body: "保密义务不适用于以下信息：(a) 非因接收方过错而属于或成为公开信息的；(b) 接收方在披露前已合法获知的；(c) 从第三方合法获得且无保密限制的；(d) 根据法律、司法或主管机关要求必须披露的，在可能的情况下应事先通知对方；或 (e) 由接收方独立开发、且未使用或参照披露方保密信息的。",
 
     c4_title_nda: "第四条 期限",
     c4_body_nda: "本协议规定的保密义务自本文件签署之日起持续{duration}，不受双方之间任何商业关系终止的影响。",
@@ -2204,7 +2218,7 @@ const I18N = {
 
     c7_title: "第七条 适用法律与管辖权",
     c7_title_b2b: "第六条 适用法律与管辖权",
-    c7_body: "本文件受{jurisdiction}现行法律管辖并据此解释。因本文件解释或履行产生的任何争议，双方应提交该管辖区有管辖权的法院处理，并明确放弃可能适用的其他管辖权。",
+    c7_body: "本文件受{jurisdiction}现行法律管辖并据此解释。因本文件解释或履行产生的任何争议，双方应提交该管辖区有管辖权的法院处理，并明确放弃可能适用的其他管辖权。如双方未明确约定适用的管辖区域，则适用{roleA}住所地的法律。",
 
     c8_title: "第八条 一般规定",
     c8_title_b2b: "第七条 一般规定",
@@ -2212,6 +2226,8 @@ const I18N = {
     c_force_majeure_title: "第九条 不可抗力",
     c_force_majeure_title_b2b: "第八条 不可抗力",
     c_force_majeure_body: "任何一方均不对因合理超出其控制范围的情况而未能履行或延迟履行本文件项下义务承担责任，此类情况包括但不限于自然灾害、政府机关行为、武装冲突、大流行病、大范围电信或电力基础设施故障，或其他不可抗力事件。受影响的一方应在合理可行的情况下尽快通知另一方，并尽合理努力减轻此类事件的影响。",
+    c_remedies_title: "第十条 救济与禁令救济措施",
+    c_remedies_body: "双方确认，违反本协议规定的保密义务可能会给披露方造成无法弥补的损害，而金钱赔偿可能不足以构成充分的救济。因此，披露方有权向有管辖权的机关申请禁令救济或实际履行，且不影响其依据适用法律享有的任何其他救济权利。",
 
     sign_place_date: "于{jurisdiction}，签署日期如下所示。",
     sign_label: "签名",
@@ -2260,6 +2276,8 @@ const I18N = {
     clause_noncompete_body: "本契約の有効期間中及び終了後{duration}の間、{roleB}は、{roleA}の事前の書面による同意なく、第一条に記載された事項と直接競合する事業、プロジェクト、または活動を、開発、運営、投資、または直接的もしくは間接的に関与しないことに同意する。",
     clause_nonsolicit_title: "人材及び顧客の引き抜き禁止",
     clause_nonsolicit_body: "本契約の有効期間中及び終了後{duration}の間、{roleB}は、{roleA}の事前の書面による同意なく、本契約の対象事項に関与した{roleA}の従業員、業務委託先、または顧客を、直接的または間接的に勧誘、雇用、その他採用しないことに同意する。",
+    clause_nonsolicit_title_mutual: "人材及び顧客の引き抜き禁止",
+    clause_nonsolicit_body_mutual: "本契約の有効期間中及び終了後{duration}の間、いずれの当事者も、相手方の事前の書面による同意なく、本契約の対象事項に関与した相手方の従業員、業務委託先、または顧客を、直接的または間接的に勧誘、雇用、その他採用しないものとする。",
     clause_arbitration_title: "紛争解決 - 仲裁",
     clause_arbitration_body: "本文書の解釈または履行から生じるいかなる紛争も、{jurisdiction}を仲裁地とする拘束力のある商事仲裁により最終的に解決されるものとし、両当事者は下される仲裁判断の執行を除き、通常裁判所への提訴を明示的に放棄する。",
     custom_clause_add_btn: "+ カスタム条項を追加",
@@ -2541,13 +2559,13 @@ const I18N = {
 
     c2_title_nda_uni: "第二条（受領当事者の義務）",
     c2_body_nda_uni: "{roleB}は次の事項を遵守することを約束する：(i) 秘密情報を厳格に秘密として保持すること、(ii) {roleA}の事前の書面による同意なく第三者に開示しないこと、(iii) 第一条に定める目的以外に使用しないこと、(iv) 偶発的または無許可の開示を防止するため合理的な安全対策を講じること。",
-    c2_title_nda_mutual: "第二条（秘密保持義務）",
-    c2_body_nda_mutual: "各当事者は、受領当事者としての立場において、次の事項を遵守することを約束する：(i) 受領した秘密情報を厳格に秘密として保持すること、(ii) 開示当事者の事前の書面による同意なく第三者に開示しないこと、(iii) 第一条に定める目的以外に使用しないこと、(iv) 偶発的または無許可の開示を防止するため合理的な安全対策を講じること。",
+    c2_title_nda_mutual: "第二条（秘密情報の定義および秘密保持義務）",
+    c2_body_nda_mutual: "本契約の目的上、「秘密情報」とは、一方当事者が他方当事者に対して、書面、口頭、視覚的または電子的形式を問わず開示する、秘密として表示された、またはその性質もしくは開示の状況から合理的に秘密として理解されるべき、技術上、商業上、財務上、業務上その他一切の情報をいう。各当事者は、受領当事者としての立場において、次の事項を遵守することを約束する：(i) 受領した秘密情報を厳格に秘密として保持すること、(ii) 開示当事者の事前の書面による同意なく第三者に開示しないこと、(iii) 第一条に定める目的以外に使用しないこと、(iv) 偶発的または無許可の開示を防止するため合理的な安全対策を講じること。",
     c2_title_b2b: "第二条（秘密保持）",
     c2_body_b2b: "両当事者は、本契約の履行に関連して交換される技術上、商業上または財務上の情報を厳格に秘密として保持し、法令または権限ある当局の要求による場合を除き、相手方の事前の書面による同意なく第三者に開示しないことを約束する。",
 
     c3_title: "第三条（除外事項）",
-    c3_body: "秘密保持義務は、次に該当する情報には適用されない：(a) 受領当事者の責によらず公知となった、または公知である情報、(b) 開示前に受領当事者が適法に了知していた情報、(c) 秘密保持制限なく第三者から適法に取得した情報、(d) 法令、司法または権限ある当局の要求により開示が義務付けられる情報（可能な限り相手方への事前通知を条件とする）。",
+    c3_body: "秘密保持義務は、次に該当する情報には適用されない：(a) 受領当事者の責によらず公知となった、または公知である情報、(b) 開示前に受領当事者が適法に了知していた情報、(c) 秘密保持制限なく第三者から適法に取得した情報、(d) 法令、司法または権限ある当局の要求により開示が義務付けられる情報（可能な限り相手方への事前通知を条件とする）、または(e) 開示当事者の秘密情報を使用または参照することなく受領当事者が独自に開発した情報。",
 
     c4_title_nda: "第四条（存続期間）",
     c4_body_nda: "本契約に定める秘密保持義務は、本文書の署名日から{duration}にわたり効力を有するものとし、両当事者間の取引関係の終了の有無にかかわらず存続する。",
@@ -2566,7 +2584,7 @@ const I18N = {
 
     c7_title: "第七条（準拠法および管轄）",
     c7_title_b2b: "第六条（準拠法および管轄）",
-    c7_body: "本文書は、{jurisdiction}において施行されている法律に準拠し、これに従って解釈されるものとする。本文書の解釈または履行から生じるいかなる紛争についても、両当事者は当該管轄区域の権限ある裁判所に服するものとし、他に帰属し得るいかなる管轄も明示的に放棄する。",
+    c7_body: "本文書は、{jurisdiction}において施行されている法律に準拠し、これに従って解釈されるものとする。本文書の解釈または履行から生じるいかなる紛争についても、両当事者は当該管轄区域の権限ある裁判所に服するものとし、他に帰属し得るいかなる管轄も明示的に放棄する。適用される管轄について明示的な合意がない場合、{roleA}の所在地の法律が適用されるものとする。",
 
     c8_title: "第八条（一般条項）",
     c8_title_b2b: "第七条（一般条項）",
@@ -2574,6 +2592,8 @@ const I18N = {
     c_force_majeure_title: "第九条（不可抗力）",
     c_force_majeure_title_b2b: "第八条（不可抗力）",
     c_force_majeure_body: "いずれの当事者も、天災、政府当局の行為、武力紛争、パンデミック、広範囲にわたる通信または電力インフラの障害、その他の不可抗力事由を含むがこれらに限定されない、自己の合理的な支配を超える事情により本文書に基づく義務の履行が不能または遅延した場合、当該不履行または遅延について責任を負わないものとします。影響を受けた当事者は、合理的に可能な限り速やかに他方当事者に通知し、当該事象の影響を軽減するために合理的な努力を払うものとします。",
+    c_remedies_title: "第十条（救済および差止命令による救済）",
+    c_remedies_body: "両当事者は、本契約に定める秘密保持義務の違反が開示当事者に回復不能な損害をもたらす可能性があり、金銭的賠償のみでは十分な救済とならない場合があることを認識する。したがって、開示当事者は、適用法の下で認められるその他の救済を妨げることなく、権限ある機関に対して差止命令による救済または特定履行を求める権利を有するものとする。",
 
     sign_place_date: "{jurisdiction}にて、下記の署名日をもって。",
     sign_label: "署名",
@@ -2622,6 +2642,8 @@ const I18N = {
     clause_noncompete_body: "इस समझौते की अवधि के दौरान और इसकी समाप्ति के बाद {duration} तक, {roleB} बिना {roleA} की पूर्व लिखित सहमति के, प्रथम धारा में वर्णित विषय से सीधे प्रतिस्पर्धा करने वाले किसी भी व्यवसाय, परियोजना या गतिविधि को विकसित करने, संचालित करने, उसमें निवेश करने या प्रत्यक्ष या अप्रत्यक्ष रूप से भाग लेने से सहमत नहीं होने का वचन देता है।",
     clause_nonsolicit_title: "कर्मचारियों और ग्राहकों के अनुनयन पर रोक",
     clause_nonsolicit_body: "इस समझौते की अवधि के दौरान और इसकी समाप्ति के बाद {duration} तक, {roleB} बिना {roleA} की पूर्व लिखित सहमति के, इस समझौते के विषय से संबंधित {roleA} के कर्मचारियों, ठेकेदारों या ग्राहकों को प्रत्यक्ष या अप्रत्यक्ष रूप से लुभाने, नियुक्त करने या अन्यथा भर्ती करने से सहमत नहीं होने का वचन देता है।",
+    clause_nonsolicit_title_mutual: "कर्मचारियों और ग्राहकों के अनुनयन पर रोक",
+    clause_nonsolicit_body_mutual: "इस समझौते की अवधि के दौरान और इसकी समाप्ति के बाद {duration} तक, कोई भी पक्ष दूसरे पक्ष की पूर्व लिखित सहमति के बिना, इस समझौते के विषय से संबंधित दूसरे पक्ष के कर्मचारियों, ठेकेदारों या ग्राहकों को प्रत्यक्ष या अप्रत्यक्ष रूप से लुभाने, नियुक्त करने या अन्यथा भर्ती करने से सहमत नहीं होगा।",
     clause_arbitration_title: "विवाद समाधान - मध्यस्थता",
     clause_arbitration_body: "इस दस्तावेज़ की व्याख्या या पालन से उत्पन्न कोई भी विवाद {jurisdiction} में स्थित बाध्यकारी वाणिज्यिक मध्यस्थता के माध्यम से अंतिम रूप से हल किया जाएगा, जिसमें पक्षकार स्पष्ट रूप से सामान्य न्यायालयों में जाने का अधिकार त्याग देते हैं, सिवाय जारी मध्यस्थता निर्णय के प्रवर्तन के।",
     custom_clause_add_btn: "+ कस्टम धारा जोड़ें",
@@ -2903,13 +2925,13 @@ const I18N = {
 
     c2_title_nda_uni: "द्वितीय। प्राप्तकर्ता पक्ष के दायित्व",
     c2_body_nda_uni: "{roleB} निम्नलिखित हेतु बाध्य है: (i) गोपनीय जानकारी को सख़्त गोपनीयता में रखना; (ii) {roleA} की पूर्व लिखित अनुमति के बिना इसे तीसरे पक्ष को प्रकट न करना; (iii) प्रथम खंड में निर्धारित उद्देश्यों के अतिरिक्त इसका उपयोग न करना; तथा (iv) आकस्मिक या अनधिकृत प्रकटीकरण को रोकने हेतु उचित सुरक्षा उपाय अपनाना।",
-    c2_title_nda_mutual: "द्वितीय। गोपनीयता दायित्व",
-    c2_body_nda_mutual: "प्रत्येक पक्ष, प्राप्तकर्ता की भूमिका में रहते हुए, निम्नलिखित हेतु बाध्य है: (i) प्राप्त गोपनीय जानकारी को सख़्त गोपनीयता में रखना; (ii) प्रकटकर्ता पक्ष की पूर्व लिखित अनुमति के बिना इसे तीसरे पक्ष को प्रकट न करना; (iii) प्रथम खंड में निर्धारित उद्देश्यों के अतिरिक्त इसका उपयोग न करना; तथा (iv) आकस्मिक या अनधिकृत प्रकटीकरण को रोकने हेतु उचित सुरक्षा उपाय अपनाना।",
+    c2_title_nda_mutual: "द्वितीय। गोपनीय जानकारी की परिभाषा तथा गोपनीयता दायित्व",
+    c2_body_nda_mutual: "इस समझौते के प्रयोजनार्थ, «गोपनीय जानकारी» से आशय किसी भी तकनीकी, वाणिज्यिक, वित्तीय, परिचालन अथवा अन्य प्रकार की उस जानकारी से है जिसे एक पक्ष दूसरे पक्ष को लिखित, मौखिक, दृश्य अथवा इलेक्ट्रॉनिक रूप में प्रकट करता है, तथा जो गोपनीय के रूप में चिह्नित हो अथवा जिसकी प्रकृति या प्रकटीकरण की परिस्थितियों को देखते हुए उसे युक्तिसंगत रूप से गोपनीय समझा जाना चाहिए। प्रत्येक पक्ष, प्राप्तकर्ता की भूमिका में रहते हुए, निम्नलिखित हेतु बाध्य है: (i) प्राप्त गोपनीय जानकारी को सख़्त गोपनीयता में रखना; (ii) प्रकटकर्ता पक्ष की पूर्व लिखित अनुमति के बिना इसे तीसरे पक्ष को प्रकट न करना; (iii) प्रथम खंड में निर्धारित उद्देश्यों के अतिरिक्त इसका उपयोग न करना; तथा (iv) आकस्मिक या अनधिकृत प्रकटीकरण को रोकने हेतु उचित सुरक्षा उपाय अपनाना।",
     c2_title_b2b: "द्वितीय। गोपनीयता",
     c2_body_b2b: "पक्ष इस अनुबंध के निष्पादन के संबंध में विनिमय की गई समस्त तकनीकी, वाणिज्यिक या वित्तीय जानकारी को सख़्त गोपनीयता में रखने हेतु बाध्य हैं, तथा कानून या सक्षम प्राधिकरण की आवश्यकता के अतिरिक्त, दूसरे पक्ष की पूर्व लिखित अनुमति के बिना इसे तीसरे पक्ष को प्रकट नहीं करेंगे।",
 
     c3_title: "तृतीय। अपवाद",
-    c3_body: "गोपनीयता दायित्व उस जानकारी पर लागू नहीं होंगे जो: (a) प्राप्तकर्ता पक्ष की गलती के बिना सार्वजनिक हो या सार्वजनिक हो जाए; (b) प्रकटीकरण से पूर्व प्राप्तकर्ता पक्ष को वैधानिक रूप से पहले से ज्ञात हो; (c) बिना किसी गोपनीयता प्रतिबंध के किसी तीसरे पक्ष से वैधानिक रूप से प्राप्त हो; या (d) कानूनी, न्यायिक या सक्षम प्राधिकरण की आवश्यकता के अनुसार प्रकट की जानी अनिवार्य हो, जहां संभव हो वहां दूसरे पक्ष को पूर्व सूचना के अधीन।",
+    c3_body: "गोपनीयता दायित्व उस जानकारी पर लागू नहीं होंगे जो: (a) प्राप्तकर्ता पक्ष की गलती के बिना सार्वजनिक हो या सार्वजनिक हो जाए; (b) प्रकटीकरण से पूर्व प्राप्तकर्ता पक्ष को वैधानिक रूप से पहले से ज्ञात हो; (c) बिना किसी गोपनीयता प्रतिबंध के किसी तीसरे पक्ष से वैधानिक रूप से प्राप्त हो; (d) कानूनी, न्यायिक या सक्षम प्राधिकरण की आवश्यकता के अनुसार प्रकट की जानी अनिवार्य हो, जहां संभव हो वहां दूसरे पक्ष को पूर्व सूचना के अधीन; अथवा (e) प्रकटकर्ता पक्ष की गोपनीय जानकारी का उपयोग या संदर्भ किए बिना प्राप्तकर्ता पक्ष द्वारा स्वतंत्र रूप से विकसित की गई हो।",
 
     c4_title_nda: "चतुर्थ। अवधि",
     c4_body_nda: "इस समझौते में निर्धारित गोपनीयता दायित्व इस दस्तावेज़ पर हस्ताक्षर की तिथि से {duration} तक प्रभावी रहेंगे, चाहे पक्षों के बीच किसी भी व्यावसायिक संबंध की समाप्ति हो जाए।",
@@ -2928,7 +2950,7 @@ const I18N = {
 
     c7_title: "सप्तम। लागू कानून और क्षेत्राधिकार",
     c7_title_b2b: "षष्ठ। लागू कानून और क्षेत्राधिकार",
-    c7_body: "यह दस्तावेज़ {jurisdiction} में प्रवर्तित कानूनों के अनुसार शासित एवं व्याख्यायित होगा। इसकी व्याख्या अथवा अनुपालन से उत्पन्न किसी भी विवाद के समाधान हेतु, पक्ष उस क्षेत्राधिकार के सक्षम न्यायालयों के अधीन होंगे, तथा उन्हें प्राप्त किसी भी अन्य क्षेत्राधिकार का स्पष्ट रूप से परित्याग करते हैं।",
+    c7_body: "यह दस्तावेज़ {jurisdiction} में प्रवर्तित कानूनों के अनुसार शासित एवं व्याख्यायित होगा। इसकी व्याख्या अथवा अनुपालन से उत्पन्न किसी भी विवाद के समाधान हेतु, पक्ष उस क्षेत्राधिकार के सक्षम न्यायालयों के अधीन होंगे, तथा उन्हें प्राप्त किसी भी अन्य क्षेत्राधिकार का स्पष्ट रूप से परित्याग करते हैं। लागू क्षेत्राधिकार के स्पष्ट उल्लेख के अभाव में, {roleA} के अधिवास का कानून लागू माना जाएगा।",
 
     c8_title: "अष्टम। सामान्य प्रावधान",
     c8_title_b2b: "सप्तम। सामान्य प्रावधान",
@@ -2936,6 +2958,8 @@ const I18N = {
     c_force_majeure_title: "नवम। अप्रत्याशित घटना (फोर्स मेज्योर)",
     c_force_majeure_title_b2b: "अष्टम। अप्रत्याशित घटना (फोर्स मेज्योर)",
     c_force_majeure_body: "किसी भी पक्ष को इस दस्तावेज़ के तहत अपने दायित्वों को पूरा करने में विफलता या देरी के लिए उत्तरदायी नहीं माना जाएगा, यदि ऐसी विफलता या देरी उसके उचित नियंत्रण से परे परिस्थितियों के कारण होती है, जिसमें प्राकृतिक आपदाएं, सरकारी प्राधिकरण के कार्य, सशस्त्र संघर्ष, महामारी, व्यापक दूरसंचार या ऊर्जा अवसंरचना विफलताएं, या अन्य अप्रत्याशित घटनाएं शामिल हैं, परंतु इन्हीं तक सीमित नहीं हैं। प्रभावित पक्ष उचित रूप से संभव होते ही दूसरे पक्ष को सूचित करेगा और ऐसी घटना के प्रभावों को कम करने का उचित प्रयास करेगा।",
+    c_remedies_title: "दशम। उपचार तथा निषेधाज्ञा राहत",
+    c_remedies_body: "पक्ष यह स्वीकार करते हैं कि इस समझौते में निर्धारित गोपनीयता दायित्वों के उल्लंघन से प्रकटकर्ता पक्ष को अपूरणीय क्षति हो सकती है, जिसके लिए मौद्रिक क्षतिपूर्ति पर्याप्त उपचार नहीं हो सकती। तदनुसार, प्रकटकर्ता पक्ष को सक्षम प्राधिकारी के समक्ष निषेधाज्ञा राहत अथवा विशिष्ट पालन की मांग करने का अधिकार होगा, तथा यह लागू कानून के अंतर्गत उपलब्ध किसी भी अन्य उपचार पर प्रतिकूल प्रभाव डाले बिना होगा।",
 
     sign_place_date: "{jurisdiction} में, नीचे दर्शाई गई हस्ताक्षर तिथि पर।",
     sign_label: "हस्ताक्षर",
@@ -4841,24 +4865,6 @@ function resolveTemplateParts(docType, lang = state.lang) {
   return { roleA, roleB, title, intro, c1title, c1body, c2title, c2body };
 }
 
-// Legal-audit pilot clauses (Clause 10 / Remedies, mutual non-solicit
-// wording) only exist in es/en so far. In bilingual mode resolveClauses()
-// runs once per column with a different `lang` each time — if the two
-// columns disagreed on whether to include a pilot clause, one side would
-// have more rows than the other and renderClauseCell() would crash trying
-// to pair a real clause against an out-of-bounds undefined. Gating on
-// both languages in the pair (not just the one this call was made for)
-// keeps the two columns symmetric: the clause shows for an es/en pair,
-// and for any pairing involving one of the other 6 languages neither
-// column shows it yet.
-function pilotNdaMutualClausesReady(lang) {
-  const isPilotLang = (l) => l === 'es' || l === 'en';
-  if (!isPilotLang(lang)) return false;
-  if (!state.bilingual) return true;
-  const otherLang = (lang === state.lang) ? state.langSecondary : state.lang;
-  return isPilotLang(otherLang);
-}
-
 function resolveClauses(docType, parts, lang = state.lang) {
   const tt = (key) => tFor(lang, key);
   if (docType === 'privacy_policy') {
@@ -4918,13 +4924,12 @@ function resolveClauses(docType, parts, lang = state.lang) {
     clauses.push({ title: tt('clause_noncompete_title'), body: tt('clause_noncompete_body') });
   }
   if (state.optionalClauses.nonSolicit) {
-    // Mutual NDAs disclose in both directions, so the pilot bidirectional
+    // Mutual NDAs disclose in both directions, so the bidirectional
     // wording ("neither Party shall...") fits them better than the
-    // one-directional "{roleB} shall not solicit {roleA}'s..." default —
-    // but only es/en have that variant translated so far; every other
-    // language (and nda_unilateral, where one-directional is correct)
-    // keeps the original clause_nonsolicit_title/body untouched.
-    const useMutualNonSolicit = docType === 'nda_mutual' && pilotNdaMutualClausesReady(lang);
+    // one-directional "{roleB} shall not solicit {roleA}'s..." default,
+    // which nda_unilateral keeps (there, one-directional is correct).
+    // Translated in all 8 languages, so no language gating is needed.
+    const useMutualNonSolicit = docType === 'nda_mutual';
     clauses.push({
       title: useMutualNonSolicit ? tt('clause_nonsolicit_title_mutual') : tt('clause_nonsolicit_title'),
       body: useMutualNonSolicit ? tt('clause_nonsolicit_body_mutual') : tt('clause_nonsolicit_body')
@@ -4940,11 +4945,11 @@ function resolveClauses(docType, parts, lang = state.lang) {
   }
   clauses.push({ title: isB2b ? tt('c8_title_b2b') : tt('c8_title'), body: tt('c8_body') });
   clauses.push({ title: isB2b ? tt('c_force_majeure_title_b2b') : tt('c_force_majeure_title'), body: tt('c_force_majeure_body') });
-  // Legal-audit pilot: Remedies/Injunctive Relief, scoped to nda_mutual +
-  // es/en only for now (per the single-template pilot agreed with the
-  // user) — appended last, same low-risk pattern as Force Majeure, so no
-  // existing clause title/number needs to change in any language.
-  if (docType === 'nda_mutual' && pilotNdaMutualClausesReady(lang)) {
+  // Remedies/Injunctive Relief — appended last, same low-risk pattern as
+  // Force Majeure, so no existing clause title/number needs to change in
+  // any language. Translated in all 8 languages, so it applies to every
+  // nda_mutual document regardless of language or bilingual pairing.
+  if (docType === 'nda_mutual') {
     clauses.push({ title: tt('c_remedies_title'), body: tt('c_remedies_body') });
   }
   state.customClauses.forEach(cc => {
