@@ -4680,10 +4680,18 @@ function updateCountryFields() {
 /* ---------------------------------------------------------------------
    4) DOCUMENT GENERATION
    --------------------------------------------------------------------- */
+// The DOM textContent/innerHTML round-trip below only escapes &, <, > —
+// those are the only characters unsafe inside HTML text content. It does
+// NOT escape quote characters, because quotes are only dangerous inside
+// an HTML attribute value (e.g. value="${escapeHtml(x)}"), where an
+// unescaped " lets attacker-controlled text close the attribute early
+// and inject a live event-handler attribute (onfocus=, onerror=, etc).
+// escapeHtml() is used for both text-content and attribute-value
+// interpolation throughout this file, so it must cover both contexts.
 function escapeHtml(str) {
   const div = document.createElement('div');
   div.textContent = str;
-  return div.innerHTML;
+  return div.innerHTML.replace(/"/g, '&quot;').replace(/'/g, '&#39;');
 }
 
 function fieldOrPlaceholder(value, placeholderKey) {

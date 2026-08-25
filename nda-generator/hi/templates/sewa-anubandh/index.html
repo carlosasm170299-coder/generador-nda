@@ -2,6 +2,7 @@
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>मुफ़्त B2B सेवा अनुबंध जनरेटर — DraftB2B</title>
 <meta name="description" content="कुछ ही मिनटों में मुफ़्त B2B सेवा अनुबंध बनाएं। बिना पंजीकरण के, 100% ब्राउज़र में, SHA-256 मुहर के साथ।">
@@ -28,15 +29,7 @@
 <meta name="twitter:description" content="कुछ ही मिनटों में मुफ़्त B2B सेवा अनुबंध बनाएं।">
 
 <script src="https://cdn.tailwindcss.com"></script>
-<script>
-  tailwind.config = {
-    darkMode: 'class',
-    theme: { extend: { colors: { brand: {
-      50:'#eff6ff',100:'#dbeafe',200:'#bfdbfe',300:'#93c5fd',400:'#60a5fa',
-      500:'#3b82f6',600:'#2563eb',700:'#1d4ed8',800:'#1e40af',900:'#1e3a8a'
-    } }, fontFamily: { sans: ['Inter','Noto Sans Devanagari','ui-sans-serif','system-ui','-apple-system','sans-serif'] } } }
-  }
-</script>
+<script src="tw-config.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;700&display=swap" rel="stylesheet">

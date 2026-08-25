@@ -2,6 +2,7 @@
 <html lang="es" data-theme="light">
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.tailwindcss.com https://cdnjs.cloudflare.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://formsubmit.co; object-src 'none'; base-uri 'self'; form-action 'self';">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title data-i18n="meta_title">DraftB2B — Generador Gratuito de Contratos B2B y Acuerdos de Confidencialidad (NDA)</title>
 <meta name="description" data-i18n-attr="meta_description" content="DraftB2B: genera y descarga en PDF tu Acuerdo de Confidencialidad (NDA) unilateral, bilateral, Contrato de Prestación de Servicios B2B o Política de Privacidad en minutos. Gratis, sin registro.">
@@ -29,25 +30,7 @@
 
 <!-- Tailwind CSS -->
 <script src="https://cdn.tailwindcss.com"></script>
-<script>
-  tailwind.config = {
-    darkMode: 'class',
-    theme: {
-      extend: {
-        colors: {
-          brand: {
-            50: '#eff6ff', 100:'#dbeafe', 200:'#bfdbfe', 300:'#93c5fd',
-            400:'#60a5fa', 500:'#3b82f6', 600:'#2563eb', 700:'#1d4ed8',
-            800:'#1e40af', 900:'#1e3a8a'
-          }
-        },
-        fontFamily: {
-          sans: ['Inter','Noto Sans SC','Noto Sans JP','Noto Sans Devanagari','ui-sans-serif','system-ui','-apple-system','sans-serif'],
-        }
-      }
-    }
-  }
-</script>
+<script src="tw-config.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Merriweather:ital,wght@0,400;0,700;0,900;1,400&family=Noto+Sans+SC:wght@400;700&family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+Devanagari:wght@400;700&display=swap" rel="stylesheet">
