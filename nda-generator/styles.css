@@ -804,6 +804,18 @@ body {
 .doc-page .sign-field strong {
   color: #111827;
 }
+/* Wet-signature fallback (no digital signature captured): a literal
+   underscore line instead of a CSS border, since this exact markup is
+   shared conceptually with the Word export, which can't draw a CSS
+   border — text is the one thing that renders identically in both. */
+.doc-page .sign-blank-line {
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
+  color: #334155;
+  margin-bottom: 0.65rem;
+  white-space: nowrap;
+  overflow: hidden;
+}
 
 /* Privacy Policy has no counterparty: a single, full-width party/sign
    card instead of the two-column layout every other document type uses. */
@@ -1673,6 +1685,12 @@ body {
 }
 
 /* ===== Signature slots ===== */
+.sig-slots-hint {
+  font-size: 0.78rem;
+  color: rgb(100 116 139);
+  margin-top: 0.75rem;
+}
+.dark .sig-slots-hint { color: rgb(148 163 184); }
 .sig-slots {
   display: grid;
   grid-template-columns: 1fr;

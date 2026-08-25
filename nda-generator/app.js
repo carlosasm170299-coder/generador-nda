@@ -267,6 +267,7 @@ const I18N = {
     sig_tab_draw: "Dibujar",
     sig_tab_upload: "Subir imagen",
     sig_draw_hint: "Dibuja tu firma arriba con el ratón o el dedo.",
+    sig_slots_optional_hint: "Opcional: puedes dejar la firma en blanco para imprimir el documento y firmarlo a mano.",
     sig_upload_btn: "Elegir imagen (PNG/JPG)",
     sig_upload_hint: "La imagen se ajustará automáticamente al recuadro de firma.",
     sig_btn_clear: "Limpiar firma",
@@ -379,6 +380,7 @@ const I18N = {
     sign_field_role: "Cargo / Rol",
     sign_field_id: "Documento de identidad",
     sign_field_date: "Fecha",
+    sign_field_authorized: "Firma Autorizada",
     doc_verified_badge: "Documento electrónico generado y verificado",
     pdf_footer_confidential: "Documento confidencial · Uso exclusivo de las partes firmantes",
     pdf_footer_page_of: "Página {current} de {total}",
@@ -633,6 +635,7 @@ const I18N = {
     sig_tab_draw: "Draw",
     sig_tab_upload: "Upload image",
     sig_draw_hint: "Draw your signature above with your mouse or finger.",
+    sig_slots_optional_hint: "Optional: you can leave the signature blank to print the document and sign it by hand.",
     sig_upload_btn: "Choose image (PNG/JPG)",
     sig_upload_hint: "The image will be automatically fitted to the signature box.",
     sig_btn_clear: "Clear signature",
@@ -744,6 +747,7 @@ const I18N = {
     sign_field_role: "Title / Role",
     sign_field_id: "Identification document",
     sign_field_date: "Date",
+    sign_field_authorized: "Authorized Signature",
     doc_verified_badge: "Electronically generated and verified document",
     pdf_footer_confidential: "Confidential document · For exclusive use of the signing parties",
     pdf_footer_page_of: "Page {current} of {total}",
@@ -994,6 +998,7 @@ const I18N = {
     sig_tab_draw: "Desenhar",
     sig_tab_upload: "Enviar imagem",
     sig_draw_hint: "Desenhe sua assinatura acima com o mouse ou o dedo.",
+    sig_slots_optional_hint: "Opcional: você pode deixar a assinatura em branco para imprimir o documento e assiná-lo à mão.",
     sig_upload_btn: "Escolher imagem (PNG/JPG)",
     sig_upload_hint: "A imagem será ajustada automaticamente à caixa de assinatura.",
     sig_btn_clear: "Limpar assinatura",
@@ -1032,6 +1037,7 @@ const I18N = {
     sign_field_role: "Cargo / Função",
     sign_field_id: "Documento de identidade",
     sign_field_date: "Data",
+    sign_field_authorized: "Assinatura Autorizada",
     doc_verified_badge: "Documento eletrônico gerado e verificado",
     pdf_footer_confidential: "Documento confidencial · Uso exclusivo das partes signatárias",
     pdf_footer_page_of: "Página {current} de {total}",
@@ -1347,6 +1353,7 @@ const I18N = {
     sig_tab_draw: "Dessiner",
     sig_tab_upload: "Importer une image",
     sig_draw_hint: "Dessinez votre signature ci-dessus avec la souris ou le doigt.",
+    sig_slots_optional_hint: "Facultatif : vous pouvez laisser la signature vide pour imprimer le document et le signer à la main.",
     sig_upload_btn: "Choisir une image (PNG/JPG)",
     sig_upload_hint: "L'image sera automatiquement ajustée au cadre de signature.",
     sig_btn_clear: "Effacer la signature",
@@ -1385,6 +1392,7 @@ const I18N = {
     sign_field_role: "Fonction / Rôle",
     sign_field_id: "Pièce d'identité",
     sign_field_date: "Date",
+    sign_field_authorized: "Signature Autorisée",
     doc_verified_badge: "Document électronique généré et vérifié",
     pdf_footer_confidential: "Document confidentiel · Usage exclusif des parties signataires",
     pdf_footer_page_of: "Page {current} sur {total}",
@@ -1700,6 +1708,7 @@ const I18N = {
     sig_tab_draw: "Нарисовать",
     sig_tab_upload: "Загрузить изображение",
     sig_draw_hint: "Нарисуйте свою подпись выше мышью или пальцем.",
+    sig_slots_optional_hint: "Необязательно: вы можете оставить подпись пустой, чтобы распечатать документ и подписать его от руки.",
     sig_upload_btn: "Выбрать изображение (PNG/JPG)",
     sig_upload_hint: "Изображение будет автоматически подогнано под область подписи.",
     sig_btn_clear: "Очистить подпись",
@@ -1738,6 +1747,7 @@ const I18N = {
     sign_field_role: "Должность / Роль",
     sign_field_id: "Документ, удостоверяющий личность",
     sign_field_date: "Дата",
+    sign_field_authorized: "Уполномоченная подпись",
     doc_verified_badge: "Электронный документ создан и проверен",
     pdf_footer_confidential: "Конфиденциальный документ · Только для сторон, подписавших соглашение",
     pdf_footer_page_of: "Страница {current} из {total}",
@@ -2053,6 +2063,7 @@ const I18N = {
     sig_tab_draw: "手绘",
     sig_tab_upload: "上传图片",
     sig_draw_hint: "请在上方用鼠标或手指绘制您的签名。",
+    sig_slots_optional_hint: "可选：您可以将签名留空，打印文档后手写签名。",
     sig_upload_btn: "选择图片（PNG/JPG）",
     sig_upload_hint: "图片将自动调整以适应签名框。",
     sig_btn_clear: "清除签名",
@@ -2091,6 +2102,7 @@ const I18N = {
     sign_field_role: "职位 / 角色",
     sign_field_id: "身份证明文件",
     sign_field_date: "日期",
+    sign_field_authorized: "授权签名",
     doc_verified_badge: "已生成并验证的电子文档",
     pdf_footer_confidential: "保密文件 · 仅供签署各方使用",
     pdf_footer_page_of: "第 {current} 页，共 {total} 页",
@@ -2406,6 +2418,7 @@ const I18N = {
     sig_tab_draw: "手書き",
     sig_tab_upload: "画像をアップロード",
     sig_draw_hint: "上のエリアにマウスまたは指で署名を描いてください。",
+    sig_slots_optional_hint: "任意：署名を空欄のままにして、文書を印刷し手書きで署名することもできます。",
     sig_upload_btn: "画像を選択（PNG/JPG）",
     sig_upload_hint: "画像は署名欄に自動的に合わせて調整されます。",
     sig_btn_clear: "署名をクリア",
@@ -2444,6 +2457,7 @@ const I18N = {
     sign_field_role: "役職 / 役割",
     sign_field_id: "身分証明書",
     sign_field_date: "日付",
+    sign_field_authorized: "正式署名",
     doc_verified_badge: "電子生成・検証済み文書",
     pdf_footer_confidential: "秘密文書 · 署名当事者限定使用",
     pdf_footer_page_of: "{total}ページ中{current}ページ",
@@ -2759,6 +2773,7 @@ const I18N = {
     sig_tab_draw: "बनाएं",
     sig_tab_upload: "छवि अपलोड करें",
     sig_draw_hint: "ऊपर माउस या उंगली से अपना हस्ताक्षर बनाएं।",
+    sig_slots_optional_hint: "वैकल्पिक: आप हस्ताक्षर खाली छोड़ सकते हैं और दस्तावेज़ को प्रिंट करके हाथ से हस्ताक्षर कर सकते हैं।",
     sig_upload_btn: "छवि चुनें (PNG/JPG)",
     sig_upload_hint: "छवि स्वतः हस्ताक्षर बॉक्स के अनुसार समायोजित हो जाएगी।",
     sig_btn_clear: "हस्ताक्षर साफ़ करें",
@@ -2797,6 +2812,7 @@ const I18N = {
     sign_field_role: "पद / भूमिका",
     sign_field_id: "पहचान दस्तावेज़",
     sign_field_date: "तिथि",
+    sign_field_authorized: "अधिकृत हस्ताक्षर",
     doc_verified_badge: "इलेक्ट्रॉनिक रूप से उत्पन्न और सत्यापित दस्तावेज़",
     pdf_footer_confidential: "गोपनीय दस्तावेज़ · केवल हस्ताक्षरकर्ता पक्षों के उपयोग हेतु",
     pdf_footer_page_of: "पृष्ठ {current}, कुल {total} में से",
@@ -4305,24 +4321,34 @@ const TEMPLATE_KEY = 'ndagen_partyA_template_v1';
 // "Parte Receptora: Identificación fiscal" for each missing field,
 // reusing whatever party legend (Divulgante/Receptora, Prestador/Cliente,
 // ...) is currently on screen for the active document type.
+// Party name is intentionally NOT required here: a signer who plans to
+// sign a printed copy by hand often doesn't have a final legal name to
+// enter yet (e.g. an as-yet-unnamed hire, or a name they'd rather write
+// by hand alongside the wet signature) — see buildDocumentHtml()'s and
+// getDocumentModel()'s signature-block rendering, which falls back to a
+// blank underscored line instead of a placeholder when it's empty.
 const REQUIRED_FIELDS = [
-  { id: 'partyA_name', step: 1, party: 'A', fieldKey: 'validation_field_name' },
   { id: 'partyA_id', step: 1, party: 'A', fieldKey: 'validation_field_id' },
   { id: 'partyA_address', step: 1, party: 'A', fieldKey: 'validation_field_address' },
-  { id: 'partyB_name', step: 1, party: 'B', fieldKey: 'validation_field_name' },
   { id: 'partyB_id', step: 1, party: 'B', fieldKey: 'validation_field_id' },
   { id: 'partyB_address', step: 1, party: 'B', fieldKey: 'validation_field_address' },
   { id: 'purpose', step: 2, party: null, fieldKey: 'validation_field_purpose' },
   { id: 'jurisdiction', step: 3, party: null, fieldKey: 'validation_field_jurisdiction' },
 ];
 
-// Signatures aren't <input> elements (they're canvas-driven slots), so
-// they're validated separately from REQUIRED_FIELDS but described with
-// the same { party, fieldKey } shape for a consistent alert message.
-const SIGNATURE_FIELDS = [
-  { sigTarget: 'A', step: 4, party: 'A', fieldKey: 'validation_field_signature', isSignature: true },
-  { sigTarget: 'B', step: 4, party: 'B', fieldKey: 'validation_field_signature', isSignature: true },
-];
+// Digital signatures are optional by design — a document may instead be
+// printed and signed by hand ("wet signature"). Kept as an empty array
+// (rather than deleted outright) so activeSignatureFields() below stays
+// a stable extension point if a future doc type ever needs to require one.
+const SIGNATURE_FIELDS = [];
+
+// Plain-text blanks for the wet-signature fallback block, shared by both
+// the PDF (buildDocumentHtml) and Word (getDocumentModel/downloadDocx)
+// renderers — literal underscore text (not a CSS border or a Word
+// paragraph border) is the one styling approach that renders identically
+// in both export formats with zero extra per-format code.
+const SIGN_BLANK_LINE = '____________________________________';
+const SIGN_BLANK_FIELD = '__________';
 
 const $ = (sel, ctx = document) => ctx.querySelector(sel);
 const $all = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
@@ -4925,6 +4951,8 @@ function buildDocumentHtml() {
   const sigBHtml = state.signatures.B
     ? `<img class="sign-img" src="${state.signatures.B}" alt="signature">`
     : `<div class="sign-area-empty"></div>`;
+  const nameAEmpty = !(data.nameA || '').trim();
+  const nameBEmpty = !(data.nameB || '').trim();
 
   const taxIdLabel = escapeHtml(effectiveTaxIdLabel());
   const partyCard = (roleLabel, name, id, addr) => `
@@ -4936,7 +4964,11 @@ function buildDocumentHtml() {
     </div>
   `;
 
-  const signCard = (roleLabel, sigHtml, name, role, id) => `
+  // A digital signature (drawn/uploaded) is optional — the document may
+  // instead be printed and signed by hand. Without one, render a clean
+  // wet-signature block (blank line + labeled blanks) instead of an
+  // empty image slot paired with a placeholder name.
+  const signCard = (roleLabel, sigHtml, hasSig, name, nameEmpty, role, id) => hasSig ? `
     <div class="sign-card">
       <span class="sign-card-label">${roleLabel}</span>
       <div class="sign-area">${sigHtml}</div>
@@ -4945,6 +4977,14 @@ function buildDocumentHtml() {
       <div class="sign-field"><strong>${escapeHtml(t('sign_field_role'))}:</strong> ${role}</div>
       <div class="sign-field"><strong>${taxIdLabel}:</strong> ${id}</div>
       <div class="sign-field"><strong>${escapeHtml(t('sign_field_date'))}:</strong> ${issueDate}</div>
+    </div>
+  ` : `
+    <div class="sign-card sign-card-wet">
+      <span class="sign-card-label">${roleLabel}</span>
+      <div class="sign-blank-line">${SIGN_BLANK_LINE}</div>
+      <div class="sign-field"><strong>${escapeHtml(t('sign_field_authorized'))}:</strong> ${SIGN_BLANK_FIELD}</div>
+      <div class="sign-field"><strong>${escapeHtml(t('sign_field_name'))}:</strong> ${nameEmpty ? SIGN_BLANK_FIELD : name}</div>
+      <div class="sign-field"><strong>${escapeHtml(t('sign_field_date'))}:</strong> ${SIGN_BLANK_FIELD}</div>
     </div>
   `;
 
@@ -4972,8 +5012,8 @@ function buildDocumentHtml() {
     ${bodyHtml}
 
     <div class="sign-block${singleParty ? ' single' : ''}">
-      ${signCard(`<strong>${roleA}</strong>`, sigAHtml, nameA, `<strong>${roleA}</strong>`, idA)}
-      ${singleParty ? '' : signCard(`<strong>${roleB}</strong>`, sigBHtml, nameB, `<strong>${roleB}</strong>`, idB)}
+      ${signCard(`<strong>${roleA}</strong>`, sigAHtml, !!state.signatures.A, nameA, nameAEmpty, `<strong>${roleA}</strong>`, idA)}
+      ${singleParty ? '' : signCard(`<strong>${roleB}</strong>`, sigBHtml, !!state.signatures.B, nameB, nameBEmpty, `<strong>${roleB}</strong>`, idB)}
     </div>
 
     <div class="doc-verified-badge">
@@ -5041,8 +5081,13 @@ function getDocumentModel(lang = state.lang) {
     clauses: clauses.map(c => ({ title: c.title, bodyRuns: toRuns(c.body) })),
     signPlaceRuns: toRuns(tt(docType === 'privacy_policy' ? 'sign_place_date_pp' : 'sign_place_date')),
     nameA, nameB,
+    nameAEmpty: !(data.nameA || '').trim(),
+    nameBEmpty: !(data.nameB || '').trim(),
     roleA: parts.roleA, roleB: parts.roleB,
     signNameLabel: tt('sign_name_label'),
+    signAuthorizedLabel: tt('sign_field_authorized'),
+    signNameFieldLabel: tt('sign_field_name'),
+    signDateFieldLabel: tt('sign_field_date'),
     logo: state.logo,
     sigA: state.signatures.A,
     sigB: state.signatures.B,
@@ -5396,26 +5441,46 @@ async function downloadDocx() {
       }));
     }
 
-    function signatureCell(name, role, sigDataUrl, widthPct) {
+    // A digital signature (drawn/uploaded) is optional — the document may
+    // instead be printed and signed by hand. Without one, render a clean
+    // wet-signature block (blank line + labeled blanks) instead of an
+    // empty image slot paired with a placeholder name.
+    function signatureCell(name, nameEmpty, role, sigDataUrl, widthPct) {
       const cellChildren = [];
       if (sigDataUrl) {
         cellChildren.push(new Paragraph({
           alignment: AlignmentType.CENTER,
           children: [new ImageRun({ type: 'png', data: dataUrlToUint8Array(sigDataUrl), transformation: { width: 130, height: 55 } })],
         }));
+        cellChildren.push(new Paragraph({
+          alignment: AlignmentType.CENTER,
+          border: { top: { style: BorderStyle.SINGLE, size: 6, color: '333333' } },
+          spacing: { before: 100 },
+          children: [new TextRun({ text: name, bold: true, size: 18 })],
+        }));
+        cellChildren.push(new Paragraph({
+          alignment: AlignmentType.CENTER,
+          children: [new TextRun({ text: `${model.signNameLabel}: ${role}`, size: 16 })],
+        }));
       } else {
-        cellChildren.push(new Paragraph({ text: ' ', spacing: { before: 300 } }));
+        cellChildren.push(new Paragraph({
+          alignment: AlignmentType.CENTER,
+          spacing: { before: 300, after: 100 },
+          children: [new TextRun({ text: SIGN_BLANK_LINE, size: 18 })],
+        }));
+        cellChildren.push(new Paragraph({
+          alignment: AlignmentType.CENTER,
+          children: [new TextRun({ text: `${model.signAuthorizedLabel}: ${SIGN_BLANK_FIELD}`, size: 16 })],
+        }));
+        cellChildren.push(new Paragraph({
+          alignment: AlignmentType.CENTER,
+          children: [new TextRun({ text: `${model.signNameFieldLabel}: ${nameEmpty ? SIGN_BLANK_FIELD : name}`, size: 16 })],
+        }));
+        cellChildren.push(new Paragraph({
+          alignment: AlignmentType.CENTER,
+          children: [new TextRun({ text: `${model.signDateFieldLabel}: ${SIGN_BLANK_FIELD}`, size: 16 })],
+        }));
       }
-      cellChildren.push(new Paragraph({
-        alignment: AlignmentType.CENTER,
-        border: { top: { style: BorderStyle.SINGLE, size: 6, color: '333333' } },
-        spacing: { before: 100 },
-        children: [new TextRun({ text: name, bold: true, size: 18 })],
-      }));
-      cellChildren.push(new Paragraph({
-        alignment: AlignmentType.CENTER,
-        children: [new TextRun({ text: `${model.signNameLabel}: ${role}`, size: 16 })],
-      }));
       return new TableCell({
         width: { size: widthPct, type: WidthType.PERCENTAGE },
         borders: {
@@ -5432,8 +5497,8 @@ async function downloadDocx() {
     // the two-party table used by every other document type.
     const isSingleSignatory = state.docType === 'privacy_policy';
     const signatureRowChildren = isSingleSignatory
-      ? [signatureCell(model.nameA, model.roleA, model.sigA, 100)]
-      : [signatureCell(model.nameA, model.roleA, model.sigA, 50), signatureCell(model.nameB, model.roleB, model.sigB, 50)];
+      ? [signatureCell(model.nameA, model.nameAEmpty, model.roleA, model.sigA, 100)]
+      : [signatureCell(model.nameA, model.nameAEmpty, model.roleA, model.sigA, 50), signatureCell(model.nameB, model.nameBEmpty, model.roleB, model.sigB, 50)];
 
     children.push(new Table({
       width: { size: 100, type: WidthType.PERCENTAGE },
