@@ -344,6 +344,8 @@ const I18N = {
 
     c4_title_nda: "CUARTA. PLAZO Y DURACIÓN",
     c4_body_nda: "Las obligaciones de confidencialidad establecidas en el presente Acuerdo permanecerán vigentes durante {duration} contado(s) a partir de la fecha de firma del presente documento, con independencia de la terminación de cualquier relación comercial entre las Partes.",
+    c_ip_title_b2b: "TERCERA. PROPIEDAD INTELECTUAL Y TITULARIDAD DE ENTREGABLES",
+    c_ip_body_b2b: "Una vez efectuado el pago íntegro correspondiente, {roleA} cede a {roleB} la titularidad de los entregables específicamente encargados y desarrollados en el marco del presente Contrato. {roleA} conserva la titularidad exclusiva de sus herramientas, metodologías, plantillas, know-how y demás propiedad intelectual preexistente o de aplicación general, incluso cuando estos se utilicen en la prestación de los servicios, y podrá seguir utilizándolos libremente en otros proyectos.",
     c4_title_b2b: "CUARTA. VIGENCIA Y CONFIDENCIALIDAD",
     c4_body_b2b: "El presente Contrato tendrá una vigencia de {duration} a partir de su firma. Las obligaciones de confidencialidad pactadas en la Cláusula Segunda permanecerán vigentes durante dicho período y con posterioridad a la terminación del Contrato por cualquier causa.",
 
@@ -714,6 +716,8 @@ const I18N = {
 
     c4_title_nda: "FOURTH. TERM AND DURATION",
     c4_body_nda: "The confidentiality obligations set forth in this Agreement shall remain in effect for {duration} from the date of signature, regardless of the termination of any business relationship between the Parties.",
+    c_ip_title_b2b: "THIRD. INTELLECTUAL PROPERTY AND OWNERSHIP OF DELIVERABLES",
+    c_ip_body_b2b: "Upon full payment of the corresponding fees, {roleA} assigns to {roleB} ownership of the deliverables specifically commissioned and developed under this Contract. {roleA} retains exclusive ownership of its pre-existing or general-purpose tools, methodologies, templates, know-how, and other intellectual property, even where these are used in performing the services, and may continue to use them freely in other projects.",
     c4_title_b2b: "FOURTH. TERM AND CONFIDENTIALITY",
     c4_body_b2b: "This Agreement shall remain in effect for {duration} from its date of signature. The confidentiality obligations set forth in Clause Second shall survive for that period and after termination of the Agreement for any reason.",
 
@@ -1085,6 +1089,8 @@ const I18N = {
 
     c4_title_nda: "QUARTA. PRAZO E DURAÇÃO",
     c4_body_nda: "As obrigações de confidencialidade estabelecidas neste Acordo permanecerão vigentes por {duration} a partir da data de assinatura deste documento, independentemente do término de qualquer relação comercial entre as Partes.",
+    c_ip_title_b2b: "TERCEIRA. PROPRIEDADE INTELECTUAL E TITULARIDADE DOS ENTREGÁVEIS",
+    c_ip_body_b2b: "Uma vez efetuado o pagamento integral correspondente, {roleA} cede a {roleB} a titularidade dos entregáveis especificamente encomendados e desenvolvidos no âmbito deste Contrato. {roleA} conserva a titularidade exclusiva de suas ferramentas, metodologias, modelos, know-how e demais propriedade intelectual preexistente ou de aplicação geral, mesmo quando utilizados na prestação dos serviços, podendo continuar a utilizá-los livremente em outros projetos.",
     c4_title_b2b: "QUARTA. VIGÊNCIA E CONFIDENCIALIDADE",
     c4_body_b2b: "O presente Contrato terá vigência de {duration} a partir de sua assinatura. As obrigações de confidencialidade estabelecidas na Cláusula Segunda permanecerão vigentes durante esse período e após o término do Contrato por qualquer motivo.",
 
@@ -1443,6 +1449,8 @@ const I18N = {
 
     c4_title_nda: "QUATRIÈME. DURÉE",
     c4_body_nda: "Les obligations de confidentialité établies dans le présent Accord resteront en vigueur pendant {duration} à compter de la date de signature du présent document, indépendamment de la fin de toute relation commerciale entre les Parties.",
+    c_ip_title_b2b: "TROISIÈME. PROPRIÉTÉ INTELLECTUELLE ET TITULARITÉ DES LIVRABLES",
+    c_ip_body_b2b: "Une fois le paiement intégral correspondant effectué, {roleA} cède à {roleB} la titularité des livrables spécifiquement commandés et développés dans le cadre du présent Contrat. {roleA} conserve la titularité exclusive de ses outils, méthodologies, modèles, savoir-faire et autre propriété intellectuelle préexistante ou d'application générale, même lorsqu'ils sont utilisés dans la prestation des services, et pourra continuer à les utiliser librement dans d'autres projets.",
     c4_title_b2b: "QUATRIÈME. DURÉE ET CONFIDENTIALITÉ",
     c4_body_b2b: "Le présent Contrat aura une durée de {duration} à compter de sa signature. Les obligations de confidentialité établies à la Clause Deuxième resteront en vigueur pendant cette période et après la fin du Contrat, quelle qu'en soit la cause.",
 
@@ -1801,6 +1809,8 @@ const I18N = {
 
     c4_title_nda: "ЧЕТВЁРТОЕ. СРОК ДЕЙСТВИЯ",
     c4_body_nda: "Обязательства о конфиденциальности, установленные настоящим Соглашением, остаются в силе в течение {duration} с даты подписания настоящего документа, независимо от прекращения любых деловых отношений между Сторонами.",
+    c_ip_title_b2b: "ТРЕТЬЕ. ИНТЕЛЛЕКТУАЛЬНАЯ СОБСТВЕННОСТЬ И ПРАВА НА РЕЗУЛЬТАТЫ РАБОТ",
+    c_ip_body_b2b: "После осуществления полной оплаты соответствующего вознаграждения {roleA} передаёт {roleB} права на результаты работ, специально заказанные и разработанные в рамках настоящего Договора. {roleA} сохраняет исключительные права на свои ранее существовавшие или предназначенные для общего использования инструменты, методологии, шаблоны, ноу-хау и иную интеллектуальную собственность, даже если они используются при оказании услуг, и вправе свободно использовать их в других проектах.",
     c4_title_b2b: "ЧЕТВЁРТОЕ. СРОК ДЕЙСТВИЯ И КОНФИДЕНЦИАЛЬНОСТЬ",
     c4_body_b2b: "Настоящий Договор действует в течение {duration} с момента его подписания. Обязательства о конфиденциальности, установленные во Втором пункте, остаются в силе в течение этого периода и после прекращения Договора по любой причине.",
 
@@ -2159,6 +2169,8 @@ const I18N = {
 
     c4_title_nda: "第四条 期限",
     c4_body_nda: "本协议规定的保密义务自本文件签署之日起持续{duration}，不受双方之间任何商业关系终止的影响。",
+    c_ip_title_b2b: "第三条 知识产权与交付成果归属",
+    c_ip_body_b2b: "在支付相应款项全部到位后，{roleA}将本合同项下专门委托开发的交付成果的所有权转让给{roleB}。{roleA}保留其预先存在的或通用性的工具、方法、模板、专有技术及其他知识产权的独家所有权，即使这些内容在提供服务过程中被使用，{roleA}仍可在其他项目中自由继续使用。",
     c4_title_b2b: "第四条 有效期与保密义务",
     c4_body_b2b: "本合同自签署之日起有效期为{duration}。第二条规定的保密义务在此期间以及合同因任何原因终止后仍继续有效。",
 
@@ -2517,6 +2529,8 @@ const I18N = {
 
     c4_title_nda: "第四条（存続期間）",
     c4_body_nda: "本契約に定める秘密保持義務は、本文書の署名日から{duration}にわたり効力を有するものとし、両当事者間の取引関係の終了の有無にかかわらず存続する。",
+    c_ip_title_b2b: "第三条（知的財産権および成果物の帰属）",
+    c_ip_body_b2b: "対応する対価の全額が支払われた後、{roleA}は本契約に基づき特別に委託され開発された成果物の所有権を{roleB}に譲渡するものとします。{roleA}は、既存の、または汎用的なツール、方法論、テンプレート、ノウハウその他の知的財産について、それらがサービス提供に使用される場合であっても、独占的な権利を保持し、他のプロジェクトにおいて自由に継続して使用することができるものとします。",
     c4_title_b2b: "第四条（有効期間および秘密保持）",
     c4_body_b2b: "本契約は、署名日から{duration}にわたり有効とする。第二条に定める秘密保持義務は、当該期間中およびいかなる理由による本契約の終了後も存続する。",
 
@@ -2875,6 +2889,8 @@ const I18N = {
 
     c4_title_nda: "चतुर्थ। अवधि",
     c4_body_nda: "इस समझौते में निर्धारित गोपनीयता दायित्व इस दस्तावेज़ पर हस्ताक्षर की तिथि से {duration} तक प्रभावी रहेंगे, चाहे पक्षों के बीच किसी भी व्यावसायिक संबंध की समाप्ति हो जाए।",
+    c_ip_title_b2b: "तृतीय। बौद्धिक संपदा और डिलिवरेबल्स की स्वामित्व",
+    c_ip_body_b2b: "संबंधित भुगतान पूर्ण रूप से किए जाने के पश्चात, {roleA} इस अनुबंध के तहत विशेष रूप से अनुरोधित और विकसित डिलिवरेबल्स का स्वामित्व {roleB} को हस्तांतरित करेगा। {roleA} अपने पूर्व-विद्यमान या सामान्य प्रयोजन के उपकरणों, कार्यप्रणालियों, टेम्पलेट्स, तकनीकी ज्ञान (नो-हाउ) और अन्य बौद्धिक संपदा का विशेष स्वामित्व बनाए रखेगा, भले ही इनका उपयोग सेवाओं के प्रावधान में किया जाए, और अन्य परियोजनाओं में इनका स्वतंत्र रूप से उपयोग जारी रख सकेगा।",
     c4_title_b2b: "चतुर्थ। वैधता और गोपनीयता",
     c4_body_b2b: "इस अनुबंध की वैधता इसके हस्ताक्षर से {duration} तक रहेगी। द्वितीय खंड में निर्धारित गोपनीयता दायित्व इस अवधि के दौरान तथा अनुबंध की किसी भी कारण से समाप्ति के पश्चात भी प्रभावी रहेंगे।",
 
@@ -4833,6 +4849,12 @@ function resolveClauses(docType, parts, lang = state.lang) {
   clauses.push({ title: parts.c1title, body: parts.c1body });
   clauses.push({ title: parts.c2title, body: parts.c2body });
   if (!isB2b) clauses.push({ title: tt('c3_title'), body: tt('c3_body') });
+  // IP/deliverables ownership only makes sense for a services engagement
+  // that actually produces deliverables — NDAs have no such concept.
+  // Slots into b2b's pre-existing "TERCERA" gap (its own ordinal words
+  // were already numbered CUARTA..OCTAVA as if a third clause existed),
+  // so no other b2b clause title needs renumbering.
+  if (isB2b) clauses.push({ title: tt('c_ip_title_b2b'), body: tt('c_ip_body_b2b') });
   clauses.push({
     title: isB2b ? tt('c4_title_b2b') : tt('c4_title_nda'),
     body: isB2b ? tt('c4_body_b2b') : tt('c4_body_nda')
