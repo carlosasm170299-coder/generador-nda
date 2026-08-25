@@ -46,6 +46,20 @@ body {
   min-height: 100px;
   width: 100%;
 }
+/* No ad network is wired up yet — showing 5 empty dashed "Publicidad"
+   boxes across the page (top banner, 2 native blocks, sidebar) reads as
+   an unfinished product rather than a reserved slot, especially next to
+   the "100% gratis, sin registro" trust message. Hidden until a real ad
+   integration replaces the placeholder markup below. Also hides the two
+   wrapper elements (.ad-banner-row, .ad-sidebar-wrap) that exist only to
+   hold a placeholder — hiding just .ad-placeholder would otherwise leave
+   an empty tinted/bordered strip at the top and a reserved 300px blank
+   column on desktop. */
+.ad-placeholder,
+.ad-banner-row,
+.ad-sidebar-wrap {
+  display: none !important;
+}
 
 /* Party A's fieldset expands to fill the row when Party B is hidden
    (Privacy Policy has no counterparty). */
@@ -415,9 +429,16 @@ body {
    header wider than the viewport. */
 @media (max-width: 480px) {
   .lang-select-wrap .lang-select {
-    max-width: 4.6rem;
+    /* 4.6rem used to truncate even the 2-letter code down to a single
+       "E…", leaving no way to tell which language was active without
+       opening the picker. 5.8rem is the smallest width that keeps the
+       "XX ·" code prefix fully legible for every supported language
+       (verified against the longest labels, "RU · Русский" / "PT ·
+       Português") while still leaving zero horizontal overflow at
+       320-375px, since the donate and theme buttons are icon-only here. */
+    max-width: 5.8rem;
     padding-right: 1.2rem;
-    font-size: 0.68rem;
+    font-size: 0.72rem;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
