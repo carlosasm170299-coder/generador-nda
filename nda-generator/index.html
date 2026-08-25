@@ -36,7 +36,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta property="og:image:height" content="768">
 <meta property="og:image:type" content="image/png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="DraftB2B — Generador Gratuito de Contratos B2B y NDA">
+<meta name="twitter:title" content="DraftB2B — Generador Gratis de Contratos B2B y NDA">
 <meta name="twitter:description" content="Crea acuerdos de confidencialidad, contratos B2B y políticas de privacidad profesionales en segundos. Gratis y sin registro.">
 <meta name="twitter:image" content="https://draftb2b.com/og-image.png">
 <meta name="theme-color" content="#0f172a">
@@ -49,11 +49,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Merriweather:ital,wght@0,400;0,700;0,900;1,400&family=Noto+Sans+SC:wght@400;700&family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+Devanagari:wght@400;700&display=swap" rel="stylesheet">
 
 <!-- PDF engine -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 <!-- Word (.docx) export engine -->
-<script src="https://unpkg.com/docx@8.2.3/build/index.umd.js"></script>
+<script defer src="https://unpkg.com/docx@8.2.3/build/index.umd.js"></script>
 <!-- QR code generator (integrity seal) -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
 <link rel="stylesheet" href="styles.css">
 
@@ -337,6 +337,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </div>
 
         <form id="nda-form" class="px-5 sm:px-6 pb-6 space-y-6">
+          <h2 class="sr-only" data-i18n="wizard_section_heading">Generar tu Documento</h2>
 
           <!-- STEP 1: Parties -->
           <div class="form-step" data-step="1">

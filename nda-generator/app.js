@@ -109,6 +109,7 @@ const I18N = {
     checklist_item3: "Existe acuerdo mutuo sobre la jurisdicción aplicable",
     checklist_hint: "Marca las 3 casillas para habilitar la descarga.",
 
+    wizard_section_heading: "Generar tu Documento",
     step1_label: "Partes",
     step2_label: "Objeto",
     step3_label: "Duración",
@@ -483,6 +484,7 @@ const I18N = {
     checklist_item3: "There is mutual agreement on the applicable jurisdiction",
     checklist_hint: "Check all 3 boxes to enable downloading.",
 
+    wizard_section_heading: "Generate Your Document",
     step1_label: "Parties",
     step2_label: "Purpose",
     step3_label: "Duration",
@@ -856,6 +858,7 @@ const I18N = {
     checklist_item3: "Há acordo mútuo sobre a jurisdição aplicável",
     checklist_hint: "Marque as 3 caixas para habilitar o download.",
 
+    wizard_section_heading: "Gerar seu Documento",
     step1_label: "Partes",
     step2_label: "Objeto",
     step3_label: "Duração",
@@ -1217,6 +1220,7 @@ const I18N = {
     checklist_item3: "Il existe un accord mutuel sur la juridiction applicable",
     checklist_hint: "Cochez les 3 cases pour activer le téléchargement.",
 
+    wizard_section_heading: "Générer votre Document",
     step1_label: "Parties",
     step2_label: "Objet",
     step3_label: "Durée",
@@ -1578,6 +1582,7 @@ const I18N = {
     checklist_item3: "Существует взаимное согласие относительно применимой юрисдикции",
     checklist_hint: "Отметьте все 3 пункта, чтобы разрешить скачивание.",
 
+    wizard_section_heading: "Создайте свой документ",
     step1_label: "Стороны",
     step2_label: "Предмет",
     step3_label: "Срок",
@@ -1939,6 +1944,7 @@ const I18N = {
     checklist_item3: "双方就适用管辖权达成一致",
     checklist_hint: "勾选全部3项以启用下载。",
 
+    wizard_section_heading: "生成您的文件",
     step1_label: "各方信息",
     step2_label: "目的",
     step3_label: "期限",
@@ -2300,6 +2306,7 @@ const I18N = {
     checklist_item3: "適用管轄について相互に合意しています",
     checklist_hint: "3つのボックスすべてにチェックを入れるとダウンロードが有効になります。",
 
+    wizard_section_heading: "書類を作成",
     step1_label: "当事者",
     step2_label: "目的",
     step3_label: "期間",
@@ -2661,6 +2668,7 @@ const I18N = {
     checklist_item3: "लागू क्षेत्राधिकार पर आपसी सहमति है",
     checklist_hint: "डाउनलोड सक्षम करने के लिए सभी 3 बॉक्स चेक करें।",
 
+    wizard_section_heading: "अपना दस्तावेज़ बनाएं",
     step1_label: "पक्ष",
     step2_label: "उद्देश्य",
     step3_label: "अवधि",
@@ -6314,6 +6322,27 @@ function initMobilePreview() {
   });
 }
 
+// The FAB is position:fixed at the bottom of the viewport, which puts
+// it directly on top of the footer's own links (templates, terms,
+// donate) once the user scrolls that far — nothing tells it to get out
+// of the way. Hide it for as long as any part of the footer is on
+// screen, using the same #btn-preview-fab element initMobilePreview()
+// already wires up (this only ever toggles .hidden; it never touches
+// the label/icon state that function owns).
+function initFabFooterObserver() {
+  const fab = $('#btn-preview-fab');
+  const footer = $('footer');
+  if (!fab || !footer || typeof IntersectionObserver === 'undefined') return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      fab.classList.toggle('hidden', entry.isIntersecting);
+    });
+  }, { threshold: 0 });
+
+  observer.observe(footer);
+}
+
 /* ---------------------------------------------------------------------
    13a) MOBILE ACTIONS BOTTOM SHEET
    --------------------------------------------------------------------- */
@@ -7292,6 +7321,7 @@ function init() {
   initGuideAccordion();
   initDonationModal();
   initMobilePreview();
+  initFabFooterObserver();
   initMobileActionsSheet();
   initNewsletterFooterForm();
   initOptionalClauses();
