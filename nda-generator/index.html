@@ -281,8 +281,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         horizontal overflow/misalignment on narrow phones. -->
    <div class="flex flex-col lg:flex-row gap-6 items-stretch lg:items-start flex-1 min-w-0">
 
-    <!-- Core tool column: a balanced 50% share of the workspace. -->
-    <div class="w-full lg:w-1/2 min-w-0">
+    <!-- Core tool column: a balanced 50% share of the workspace.
+         id="editor-column" gives @media print a stable, single-purpose
+         hook to hide the entire form/wizard side while keeping
+         #preview-card's contents printable — see styles.css. -->
+    <div id="editor-column" class="w-full lg:w-1/2 min-w-0">
 
       <!-- Step wizard card -->
       <div class="glass-card">

@@ -2562,31 +2562,105 @@ body {
    entirely (header, ads, forms, modals, the email-capture banner...).
    ===================================================================== */
 @media print {
+  /* Reset the page root first: without this, a constrained/overflow:
+     hidden html or body (left over from the app's own scroll handling)
+     can silently cap how much of a multi-page document ever reaches
+     the printer, independently of anything below. */
+  html, body {
+    overflow: visible !important;
+    height: auto !important;
+    max-height: none !important;
+    position: static !important;
+    background: #fff !important;
+    color: #000 !important;
+  }
+
+  /* Hard-remove (not just hide) every top-level section that isn't the
+     tool itself. This used to rely solely on `visibility: hidden` below,
+     which still reserves its full layout height on the page — with the
+     header, hero copy, the info-tabs section (capabilities/guide/FAQ/
+     glossary) and the footer all being tall, that reserved-but-invisible
+     space is exactly what was producing extra blank pages. `display:
+     none` removes the height entirely instead of just painting over it. */
+  body > *:not(main) {
+    display: none !important;
+  }
+  /* Inside <main id="main-tool">, only #preview-card should survive:
+     the doc-type tab bar and the entire editor/wizard column go too. */
+  .template-tabs,
+  #editor-column {
+    display: none !important;
+  }
+  /* Belt-and-suspenders: these are appended straight to <body> at
+     runtime (so `body > *:not(main)` already catches them), but keep
+     them explicit in case that ever changes. */
+  .email-capture-banner,
+  .validation-alert,
+  #ndagen-toast {
+    display: none !important;
+  }
+
+  /* What's left inside #preview-card still needs the old visibility
+     approach, since #pdf-content's internal layout (clause-header flex
+     rows, the bilingual <table>) depends on display:flex/table staying
+     intact — a blanket display:none/revert here would break that, so
+     only paint visibility is toggled for this part of the tree. */
   body * {
     visibility: hidden;
   }
   #pdf-content, #pdf-content * {
     visibility: visible;
   }
+
+  /* Every ancestor between #preview-card and #pdf-content must stop
+     clipping/constraining it — #preview-card is a positioned (sticky)
+     ancestor and .glass-card clips overflow, both of which silently cut
+     the document off mid-page once #pdf-content is pulled out of flow
+     below. Critically, on mobile/tablet (<1024px) the preview starts
+     *collapsed*: initMobilePreview()'s collapsePreview() sets inline
+     max-height:0/opacity:0/overflow:hidden on #preview-scroll. Without
+     forcing opacity back to 1 here, printing straight from a phone (or
+     from desktop after toggling the preview closed) produces a fully
+     blank page even though #pdf-content itself is otherwise correctly
+     positioned and sized — opacity is multiplicative down the tree, so
+     an inline opacity:0 on this ancestor blanks every descendant
+     regardless of #pdf-content's own opacity. */
+  #preview-card,
+  #preview-card .glass-card,
+  #preview-scroll {
+    overflow: visible !important;
+    height: auto !important;
+    max-height: none !important;
+    position: static !important;
+    opacity: 1 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
   #pdf-content {
     position: absolute;
     top: 0;
     left: 0;
     width: 100% !important;
     margin: 0 !important;
+    color: #000 !important;
+    background: #fff !important;
   }
-  #preview-scroll {
-    max-height: none !important;
-    overflow: visible !important;
-    padding: 0 !important;
+
+  /* Keep a clause (or a bilingual row) from splitting across a page
+     break mid-paragraph. */
+  .clause-block,
+  .bilingual-table tr,
+  .party-card,
+  .sign-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
   }
-  .email-capture-banner,
-  .validation-alert,
-  #ndagen-toast {
-    display: none !important;
-  }
+
   @page {
-    margin: 15mm;
+    margin: 15mm 20mm;
   }
 }
 
