@@ -19,8 +19,8 @@ const LANGS = {
 
 const I18N = {
   es: {
-    meta_title: "DraftB2B — Generador Gratuito de Contratos B2B y Acuerdos de Confidencialidad (NDA)",
-    meta_description: "DraftB2B: genera y descarga en PDF tu Acuerdo de Confidencialidad (NDA) unilateral, bilateral, Contrato de Prestación de Servicios B2B o Política de Privacidad en minutos. Gratis, sin registro.",
+    meta_title: "DraftB2B — Generador Gratis de Contratos B2B y NDA",
+    meta_description: "Genera y descarga en PDF tu NDA, Contrato B2B o Política de Privacidad en minutos. 100% gratis, sin registro.",
     brand_name: "DraftB2B",
     nav_tool: "Generador",
     nav_guide: "Guía Legal",
@@ -202,6 +202,7 @@ const I18N = {
     footer_rights: "Todos los derechos reservados.",
     footer_note: "Herramienta gratuita · No sustituye asesoría legal profesional.",
     footer_feedback_link: "Reportar un error / Sugerir plantilla",
+    footer_templates_heading: "Plantillas por caso de uso",
     footer_terms_link: "Términos de Servicio",
     footer_privacy_link: "Política de Privacidad",
     terms_modal_content: `<p>Última actualización: 22 de agosto de 2026.</p>
@@ -575,6 +576,7 @@ const I18N = {
     footer_rights: "All rights reserved.",
     footer_note: "Free tool · Does not replace professional legal advice.",
     footer_feedback_link: "Report an issue / Suggest template",
+    footer_templates_heading: "Templates by use case",
     footer_terms_link: "Terms of Service",
     footer_privacy_link: "Privacy Policy",
     terms_modal_content: `<p>Last updated: August 22, 2026.</p>
@@ -765,7 +767,7 @@ const I18N = {
 
   pt: {
     meta_title: "DraftB2B — Gerador Gratuito de Contratos B2B e NDA",
-    meta_description: "DraftB2B: gere e baixe seu Acordo de Confidencialidade (NDA), Contrato de Prestação de Serviços B2B ou Política de Privacidade em PDF em minutos. Grátis, sem cadastro.",
+    meta_description: "Gere e baixe seu NDA, Contrato de Prestação de Serviços B2B ou Política de Privacidade em PDF em minutos. Grátis, sem cadastro.",
     brand_name: "DraftB2B",
     nav_tool: "Gerador",
     nav_guide: "Guia Legal",
@@ -947,6 +949,7 @@ const I18N = {
     footer_rights: "Todos os direitos reservados.",
     footer_note: "Ferramenta gratuita · Não substitui aconselhamento jurídico profissional.",
     footer_feedback_link: "Reportar um erro / Sugerir modelo",
+    footer_templates_heading: "Modelos por caso de uso",
     footer_terms_link: "Termos de Serviço",
     footer_privacy_link: "Política de Privacidade",
     terms_modal_content: `<p>Última atualização: 22 de agosto de 2026.</p>
@@ -1124,8 +1127,8 @@ const I18N = {
   },
 
   fr: {
-    meta_title: "DraftB2B — Générateur Gratuit de Contrats B2B et d'Accords de Confidentialité (NDA)",
-    meta_description: "DraftB2B : générez et téléchargez votre Accord de Confidentialité (NDA), Contrat de Prestation de Services B2B ou Politique de Confidentialité au format PDF en quelques minutes. Gratuit, sans inscription.",
+    meta_title: "DraftB2B — Générateur Gratuit de Contrats B2B et NDA",
+    meta_description: "Générez et téléchargez votre NDA, contrat B2B ou politique de confidentialité en PDF en quelques minutes. Gratuit, sans inscription.",
     brand_name: "DraftB2B",
     nav_tool: "Générateur",
     nav_guide: "Guide Juridique",
@@ -1307,6 +1310,7 @@ const I18N = {
     footer_rights: "Tous droits réservés.",
     footer_note: "Outil gratuit · Ne remplace pas un conseil juridique professionnel.",
     footer_feedback_link: "Signaler un problème / Suggérer un modèle",
+    footer_templates_heading: "Modèles par cas d'usage",
     footer_terms_link: "Conditions d'Utilisation",
     footer_privacy_link: "Politique de Confidentialité",
     terms_modal_content: `<p>Dernière mise à jour : 22 août 2026.</p>
@@ -1485,7 +1489,7 @@ const I18N = {
 
   ru: {
     meta_title: "DraftB2B — Бесплатный генератор B2B-договоров и NDA",
-    meta_description: "DraftB2B: создайте и скачайте соглашение о неразглашении (NDA), договор оказания услуг B2B или политику конфиденциальности в формате PDF за несколько минут. Бесплатно, без регистрации.",
+    meta_description: "Создайте и скачайте NDA, договор B2B или политику конфиденциальности в PDF за несколько минут. Бесплатно, без регистрации.",
     brand_name: "DraftB2B",
     nav_tool: "Генератор",
     nav_guide: "Юридический гид",
@@ -1667,6 +1671,7 @@ const I18N = {
     footer_rights: "Все права защищены.",
     footer_note: "Бесплатный инструмент · Не заменяет профессиональную юридическую консультацию.",
     footer_feedback_link: "Сообщить об ошибке / Предложить шаблон",
+    footer_templates_heading: "Шаблоны по сценариям использования",
     footer_terms_link: "Условия использования",
     footer_privacy_link: "Политика конфиденциальности",
     terms_modal_content: `<p>Последнее обновление: 22 августа 2026 г.</p>
@@ -2027,6 +2032,7 @@ const I18N = {
     footer_rights: "版权所有。",
     footer_note: "免费工具 · 不能替代专业法律咨询。",
     footer_feedback_link: "报告问题 / 建议模板",
+    footer_templates_heading: "按使用场景分类的模板",
     footer_terms_link: "服务条款",
     footer_privacy_link: "隐私政策",
     terms_modal_content: `<p>最后更新：2026年8月22日。</p>
@@ -2387,6 +2393,7 @@ const I18N = {
     footer_rights: "全著作権所有。",
     footer_note: "無料ツール · 専門家による法律相談の代わりにはなりません。",
     footer_feedback_link: "問題を報告 / テンプレートを提案",
+    footer_templates_heading: "用途別テンプレート",
     footer_terms_link: "利用規約",
     footer_privacy_link: "プライバシーポリシー",
     terms_modal_content: `<p>最終更新日：2026年8月22日。</p>
@@ -2747,6 +2754,7 @@ const I18N = {
     footer_rights: "सर्वाधिकार सुरक्षित।",
     footer_note: "मुफ़्त उपकरण · यह पेशेवर कानूनी सलाह का विकल्प नहीं है।",
     footer_feedback_link: "समस्या रिपोर्ट करें / टेम्पलेट सुझाएं",
+    footer_templates_heading: "उपयोग के अनुसार टेम्पलेट",
     footer_terms_link: "सेवा की शर्तें",
     footer_privacy_link: "गोपनीयता नीति",
     terms_modal_content: `<p>अंतिम अद्यतन: 22 अगस्त, 2026।</p>
