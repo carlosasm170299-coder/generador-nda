@@ -209,6 +209,8 @@ const I18N = {
     footer_templates_heading: "Plantillas por caso de uso",
     footer_terms_link: "Términos de Servicio",
     footer_privacy_link: "Política de Privacidad",
+    footer_about_link: "Acerca de",
+    footer_contact_link: "Contacto",
     terms_modal_content: `<p>Última actualización: 22 de agosto de 2026.</p>
       <h3>1. Naturaleza del servicio</h3>
       <p>DraftB2B es una herramienta gratuita de generación de documentos que ayuda a redactar acuerdos de confidencialidad (NDA), contratos de prestación de servicios B2B, políticas de privacidad, cesiones de propiedad intelectual y actas de finiquito de servicios a partir de plantillas estandarizadas. Su único propósito es informativo y de asistencia en la redacción comercial.</p>
@@ -245,14 +247,18 @@ const I18N = {
       <p><strong>FormSubmit</strong> — si decides voluntariamente dejar tu correo electrónico en el formulario de aviso de nuevas plantillas, esa dirección se envía a formsubmit.co, un servicio externo que la reenvía por correo a nuestra bandeja de entrada. No almacenamos esa dirección en ningún servidor propio; el envío está sujeto a la política de privacidad de FormSubmit.</p>
       <p><strong>Ko-fi</strong> — el botón "Apoya este Proyecto" te lleva a ko-fi.com, un sitio externo independiente. No compartimos automáticamente ningún dato tuyo con Ko-fi; cualquier información que proporciones allí queda sujeta a su propia política de privacidad.</p>
       <p><strong>Librerías cargadas por CDN</strong> — utilizamos bibliotecas públicas de terceros (Tailwind CSS, html2pdf.js, docx.js, qrcodejs) servidas desde redes de distribución de contenido para generar la interfaz, el PDF, el Word y el código QR. Se ejecutan localmente en tu navegador y no transmiten el contenido de tu documento a ningún servidor externo.</p>
+      <p><strong>Google Tag Manager y Google Analytics</strong> — utilizamos Google Tag Manager para gestionar la carga de scripts de medición, incluido Google Analytics, que recopila datos estadísticos sobre el uso del sitio (páginas visitadas, duración de la visita, tipo de dispositivo, ubicación aproximada) mediante cookies propias y de terceros. Estos datos se procesan de forma agregada y están sujetos a la política de privacidad de Google.</p>
+      <p><strong>Cloudflare Web Analytics</strong> — utilizamos el servicio de analítica web de Cloudflare, que mide el rendimiento y el tráfico del sitio mediante un script cargado desde static.cloudflareinsights.com, sujeto a la política de privacidad de Cloudflare.</p>
       <h3>5. Cookies y publicidad</h3>
-      <p>DraftB2B no utiliza cookies de seguimiento propias ni herramientas de analítica de terceros. El sitio reserva espacios visuales para publicidad; si en el futuro se activan anuncios de proveedores externos (por ejemplo, Google AdSense), estos podrían utilizar cookies conforme a sus propias políticas —actualizaremos esta sección si eso ocurre.</p>
+      <p>DraftB2B utiliza cookies y tecnologías similares para las finalidades descritas en la Sección 4: medir el uso del sitio (Google Analytics, Cloudflare Web Analytics) y, cuando corresponda, mostrar publicidad de terceros a través de Google AdSense.</p>
+      <p><strong>Cookies publicitarias de Google (AdSense / DoubleClick)</strong> — este sitio puede mostrar anuncios de Google AdSense. Google, como proveedor externo, utiliza cookies publicitarias —incluida la cookie DART— para mostrar anuncios basados en tus visitas anteriores a este sitio y a otros sitios de internet. Puedes inhabilitar el uso de la cookie DART para publicidad basada en intereses visitando la <a href="https://adssettings.google.com/" target="_blank" rel="noopener noreferrer">Configuración de anuncios de Google</a>, o inhabilitar las cookies de otros proveedores de publicidad de terceros en <a href="https://optout.aboutads.info/" target="_blank" rel="noopener noreferrer">aboutads.info</a>.</p>
+      <p>Puedes configurar tu navegador para rechazar todas las cookies o para avisarte cuando se envíe una; algunas partes del sitio podrían no funcionar correctamente si las desactivas.</p>
       <h3>6. Tus derechos sobre tu información</h3>
       <p>Como no almacenamos tus datos en ningún servidor externo, no existe una base de datos nuestra desde la cual solicitar acceso, rectificación o eliminación. Toda tu información vive únicamente en tu propio dispositivo: para eliminarla, basta con borrar los datos de navegación de este sitio en tu navegador.</p>
       <h3>7. Cambios a esta política</h3>
       <p>Podemos actualizar esta política ocasionalmente. La fecha de la versión vigente se indica al inicio de este documento.</p>
       <h3>8. Contacto</h3>
-      <p>Si tienes preguntas sobre esta política, puedes escribirnos a través del formulario de reporte de errores y sugerencias enlazado en el pie de página.</p>`,
+      <p>Si tienes preguntas sobre esta política, puedes escribirnos a través del enlace de Contacto en el pie de página.</p>`,
     copy_success: "¡Texto copiado al portapapeles!",
     copy_error: "No se pudo copiar el texto.",
     clear_confirm: "¿Seguro que deseas limpiar todo el formulario?",
@@ -588,6 +594,8 @@ const I18N = {
     footer_templates_heading: "Templates by use case",
     footer_terms_link: "Terms of Service",
     footer_privacy_link: "Privacy Policy",
+    footer_about_link: "About",
+    footer_contact_link: "Contact",
     terms_modal_content: `<p>Last updated: August 22, 2026.</p>
       <h3>1. Nature of the service</h3>
       <p>DraftB2B is a free document-generation tool that helps draft non-disclosure agreements (NDAs), B2B services contracts, privacy policies, intellectual property assignments, and service settlement acts from standardized templates. Its sole purpose is informational and to assist with commercial drafting.</p>
@@ -624,14 +632,18 @@ const I18N = {
       <p><strong>FormSubmit</strong> — if you voluntarily leave your email address in the new-templates notification form, that address is sent to formsubmit.co, an external service that relays it to our inbox by email. We don't store that address on any server of our own; the submission is subject to FormSubmit's own privacy policy.</p>
       <p><strong>Ko-fi</strong> — the "Support this Project" button takes you to ko-fi.com, an independent external site. We don't automatically share any of your data with Ko-fi; anything you provide there is subject to its own privacy policy.</p>
       <p><strong>CDN-loaded libraries</strong> — we use public third-party libraries (Tailwind CSS, html2pdf.js, docx.js, qrcodejs) served from content delivery networks to build the interface, the PDF, the Word file, and the QR code. They run locally in your browser and do not transmit your document's content to any external server.</p>
+      <p><strong>Google Tag Manager and Google Analytics</strong> — we use Google Tag Manager to manage the loading of measurement scripts, including Google Analytics, which collects statistical data about site usage (pages visited, visit duration, device type, approximate location) via first- and third-party cookies. This data is processed in aggregate and is subject to Google's privacy policy.</p>
+      <p><strong>Cloudflare Web Analytics</strong> — we use Cloudflare's web analytics service, which measures site performance and traffic via a script loaded from static.cloudflareinsights.com, subject to Cloudflare's privacy policy.</p>
       <h3>5. Cookies and advertising</h3>
-      <p>DraftB2B does not use tracking cookies of its own or third-party analytics tools. The site reserves visual space for advertising; if third-party ads (for example, Google AdSense) are enabled in the future, they may use cookies under their own policies —we will update this section if that happens.</p>
+      <p>DraftB2B uses cookies and similar technologies for the purposes described in Section 4: measuring site usage (Google Analytics, Cloudflare Web Analytics) and, where applicable, displaying third-party advertising through Google AdSense.</p>
+      <p><strong>Google advertising cookies (AdSense / DoubleClick)</strong> — this site may display Google AdSense ads. Google, as a third-party vendor, uses advertising cookies — including the DART cookie — to serve ads based on your prior visits to this site and other sites on the internet. You may opt out of the DART cookie for interest-based advertising by visiting <a href="https://adssettings.google.com/" target="_blank" rel="noopener noreferrer">Google Ads Settings</a>, or opt out of other third-party vendors' cookies at <a href="https://optout.aboutads.info/" target="_blank" rel="noopener noreferrer">aboutads.info</a>.</p>
+      <p>You can configure your browser to refuse all cookies or to alert you when a cookie is being sent; some parts of the site may not function properly if you disable them.</p>
       <h3>6. Your rights over your information</h3>
       <p>Because we don't store your data on any external server, there is no database of ours to request access to, correct, or delete. All of your information lives only on your own device: to remove it, simply clear this site's browsing data in your browser.</p>
       <h3>7. Changes to this policy</h3>
       <p>We may update this policy occasionally. The date of the current version is shown at the top of this document.</p>
       <h3>8. Contact</h3>
-      <p>If you have questions about this policy, you can reach us through the bug-report / suggestion form linked in the footer.</p>`,
+      <p>If you have questions about this policy, you can reach us through the Contact link in the footer.</p>`,
     copy_success: "Text copied to clipboard!",
     copy_error: "Could not copy the text.",
     clear_confirm: "Are you sure you want to clear the entire form?",
@@ -965,6 +977,8 @@ const I18N = {
     footer_templates_heading: "Vorlagen nach Anwendungsfall",
     footer_terms_link: "Nutzungsbedingungen",
     footer_privacy_link: "Datenschutzerklärung",
+    footer_about_link: "Über uns",
+    footer_contact_link: "Kontakt",
     terms_modal_content: `<p>Zuletzt aktualisiert: 22. August 2026.</p>
       <h3>1. Art der Dienstleistung</h3>
       <p>DraftB2B ist ein kostenloses Dokumentenerstellungstool, das bei der Erstellung von Geheimhaltungsvereinbarungen (NDAs), B2B-Dienstleistungsverträgen, Datenschutzerklärungen, Übertragungen geistigen Eigentums und Abschlussvereinbarungen auf Grundlage standardisierter Vorlagen hilft. Es dient ausschließlich zu Informationszwecken und zur Unterstützung bei der kaufmännischen Vertragsgestaltung.</p>
@@ -1001,14 +1015,18 @@ const I18N = {
       <p><strong>FormSubmit</strong> — wenn Sie freiwillig Ihre E-Mail-Adresse im Benachrichtigungsformular für neue Vorlagen hinterlassen, wird diese Adresse an formsubmit.co gesendet, einen externen Dienst, der sie per E-Mail an unser Postfach weiterleitet. Wir speichern diese Adresse nicht auf einem eigenen Server; die Übermittlung unterliegt der eigenen Datenschutzerklärung von FormSubmit.</p>
       <p><strong>Ko-fi</strong> — die Schaltfläche „Dieses Projekt unterstützen\" führt Sie zu ko-fi.com, einer unabhängigen externen Website. Wir geben keine Ihrer Daten automatisch an Ko-fi weiter; alles, was Sie dort angeben, unterliegt deren eigener Datenschutzerklärung.</p>
       <p><strong>Über CDN geladene Bibliotheken</strong> — wir verwenden öffentliche Bibliotheken Dritter (Tailwind CSS, html2pdf.js, docx.js, qrcodejs), die über Content-Delivery-Netzwerke bereitgestellt werden, um die Benutzeroberfläche, das PDF, die Word-Datei und den QR-Code zu erstellen. Sie laufen lokal in Ihrem Browser und übertragen den Inhalt Ihres Dokuments nicht an einen externen Server.</p>
+      <p><strong>Google Tag Manager und Google Analytics</strong> — wir verwenden Google Tag Manager, um das Laden von Mess-Skripten zu verwalten, einschließlich Google Analytics, das über eigene und Drittanbieter-Cookies statistische Daten zur Nutzung der Website erhebt (besuchte Seiten, Besuchsdauer, Gerätetyp, ungefährer Standort). Diese Daten werden aggregiert verarbeitet und unterliegen der Datenschutzerklärung von Google.</p>
+      <p><strong>Cloudflare Web Analytics</strong> — wir verwenden den Webanalysedienst von Cloudflare, der die Leistung und den Traffic der Website über ein von static.cloudflareinsights.com geladenes Skript misst und der Datenschutzerklärung von Cloudflare unterliegt.</p>
       <h3>5. Cookies und Werbung</h3>
-      <p>DraftB2B verwendet keine eigenen Tracking-Cookies oder Analysetools Dritter. Die Website reserviert visuellen Raum für Werbung; sollten künftig Werbeanzeigen Dritter (z. B. Google AdSense) aktiviert werden, können diese im Rahmen ihrer eigenen Richtlinien Cookies verwenden — wir werden diesen Abschnitt in diesem Fall aktualisieren.</p>
+      <p>DraftB2B verwendet Cookies und ähnliche Technologien für die in Abschnitt 4 beschriebenen Zwecke: die Messung der Websitenutzung (Google Analytics, Cloudflare Web Analytics) sowie gegebenenfalls die Anzeige von Werbung Dritter über Google AdSense.</p>
+      <p><strong>Werbe-Cookies von Google (AdSense / DoubleClick)</strong> — diese Website kann Anzeigen von Google AdSense einblenden. Google verwendet als Drittanbieter Werbe-Cookies — einschließlich des DART-Cookies —, um Anzeigen auf Grundlage Ihrer früheren Besuche auf dieser und anderen Websites im Internet zu schalten. Sie können die Verwendung des DART-Cookies für interessenbezogene Werbung deaktivieren, indem Sie die <a href="https://adssettings.google.com/" target="_blank" rel="noopener noreferrer">Google-Anzeigeneinstellungen</a> aufrufen, oder Cookies anderer Drittanbieter-Werbenetzwerke unter <a href="https://optout.aboutads.info/" target="_blank" rel="noopener noreferrer">aboutads.info</a> deaktivieren.</p>
+      <p>Sie können Ihren Browser so einstellen, dass er alle Cookies ablehnt oder Sie beim Senden eines Cookies benachrichtigt; einige Teile der Website funktionieren möglicherweise nicht ordnungsgemäß, wenn Sie diese deaktivieren.</p>
       <h3>6. Ihre Rechte an Ihren Informationen</h3>
       <p>Da wir Ihre Daten auf keinem externen Server speichern, gibt es keine Datenbank von uns, bei der Sie Zugang, Berichtigung oder Löschung beantragen könnten. Alle Ihre Informationen befinden sich ausschließlich auf Ihrem eigenen Gerät: Um sie zu entfernen, löschen Sie einfach die Browserdaten dieser Website in Ihrem Browser.</p>
       <h3>7. Änderungen dieser Richtlinie</h3>
       <p>Wir können diese Richtlinie gelegentlich aktualisieren. Das Datum der aktuellen Version wird oben in diesem Dokument angezeigt.</p>
       <h3>8. Kontakt</h3>
-      <p>Bei Fragen zu dieser Richtlinie können Sie uns über das im Footer verlinkte Formular für Fehlermeldungen / Vorschläge erreichen.</p>`,
+      <p>Bei Fragen zu dieser Richtlinie können Sie uns über den Kontakt-Link im Footer erreichen.</p>`,
     copy_success: "Text in die Zwischenablage kopiert!",
     copy_error: "Der Text konnte nicht kopiert werden.",
     clear_confirm: "Möchten Sie das gesamte Formular wirklich leeren?",
@@ -1343,6 +1361,8 @@ const I18N = {
     footer_templates_heading: "Modelos por caso de uso",
     footer_terms_link: "Termos de Serviço",
     footer_privacy_link: "Política de Privacidade",
+    footer_about_link: "Sobre nós",
+    footer_contact_link: "Contato",
     terms_modal_content: `<p>Última atualização: 22 de agosto de 2026.</p>
       <h3>1. Natureza do serviço</h3>
       <p>O DraftB2B é uma ferramenta gratuita de geração de documentos que ajuda a redigir acordos de confidencialidade (NDA), contratos de prestação de serviços B2B, políticas de privacidade, cessões de propriedade intelectual e termos de quitação de serviços a partir de modelos padronizados. Sua única finalidade é informativa e de apoio à redação comercial.</p>
@@ -1379,14 +1399,18 @@ const I18N = {
       <p><strong>FormSubmit</strong> — se você decidir voluntariamente deixar seu e-mail no formulário de aviso de novos modelos, esse endereço é enviado ao formsubmit.co, um serviço externo que o encaminha por e-mail à nossa caixa de entrada. Não armazenamos esse endereço em nenhum servidor próprio; o envio está sujeito à política de privacidade do FormSubmit.</p>
       <p><strong>Ko-fi</strong> — o botão "Apoie este Projeto" leva você ao ko-fi.com, um site externo independente. Não compartilhamos automaticamente nenhum dado seu com o Ko-fi; qualquer informação que você forneça lá fica sujeita à política de privacidade própria dele.</p>
       <p><strong>Bibliotecas carregadas via CDN</strong> — utilizamos bibliotecas públicas de terceiros (Tailwind CSS, html2pdf.js, docx.js, qrcodejs) servidas por redes de distribuição de conteúdo para gerar a interface, o PDF, o Word e o código QR. Elas são executadas localmente no seu navegador e não transmitem o conteúdo do seu documento a nenhum servidor externo.</p>
+      <p><strong>Google Tag Manager e Google Analytics</strong> — utilizamos o Google Tag Manager para gerenciar o carregamento de scripts de medição, incluindo o Google Analytics, que coleta dados estatísticos sobre o uso do site (páginas visitadas, duração da visita, tipo de dispositivo, localização aproximada) por meio de cookies próprios e de terceiros. Esses dados são processados de forma agregada e estão sujeitos à política de privacidade do Google.</p>
+      <p><strong>Cloudflare Web Analytics</strong> — utilizamos o serviço de análise web da Cloudflare, que mede o desempenho e o tráfego do site por meio de um script carregado a partir de static.cloudflareinsights.com, sujeito à política de privacidade da Cloudflare.</p>
       <h3>5. Cookies e publicidade</h3>
-      <p>O DraftB2B não utiliza cookies de rastreamento próprios nem ferramentas de análise de terceiros. O site reserva espaços visuais para publicidade; se anúncios de fornecedores externos (por exemplo, Google AdSense) forem ativados no futuro, eles poderão utilizar cookies de acordo com suas próprias políticas —atualizaremos esta seção caso isso ocorra.</p>
+      <p>O DraftB2B utiliza cookies e tecnologias semelhantes para as finalidades descritas na Seção 4: medir o uso do site (Google Analytics, Cloudflare Web Analytics) e, quando aplicável, exibir publicidade de terceiros por meio do Google AdSense.</p>
+      <p><strong>Cookies publicitários do Google (AdSense / DoubleClick)</strong> — este site pode exibir anúncios do Google AdSense. O Google, como fornecedor externo, utiliza cookies publicitários — incluindo o cookie DART — para exibir anúncios com base em suas visitas anteriores a este site e a outros sites na internet. Você pode desativar o uso do cookie DART para publicidade baseada em interesses acessando as <a href="https://adssettings.google.com/" target="_blank" rel="noopener noreferrer">Configurações de anúncios do Google</a>, ou desativar os cookies de outros fornecedores de publicidade de terceiros em <a href="https://optout.aboutads.info/" target="_blank" rel="noopener noreferrer">aboutads.info</a>.</p>
+      <p>Você pode configurar seu navegador para recusar todos os cookies ou para avisá-lo quando um cookie for enviado; algumas partes do site podem não funcionar corretamente se você os desativar.</p>
       <h3>6. Seus direitos sobre suas informações</h3>
       <p>Como não armazenamos seus dados em nenhum servidor externo, não existe um banco de dados nosso do qual solicitar acesso, retificação ou exclusão. Todas as suas informações vivem apenas no seu próprio dispositivo: para removê-las, basta apagar os dados de navegação deste site no seu navegador.</p>
       <h3>7. Alterações a esta política</h3>
       <p>Podemos atualizar esta política ocasionalmente. A data da versão vigente é indicada no início deste documento.</p>
       <h3>8. Contato</h3>
-      <p>Se você tiver dúvidas sobre esta política, pode nos contatar através do formulário de relato de erros e sugestões vinculado no rodapé.</p>`,
+      <p>Se você tiver dúvidas sobre esta política, pode nos contatar através do link de Contato no rodapé.</p>`,
     copy_success: "Texto copiado para a área de transferência!",
     copy_error: "Não foi possível copiar o texto.",
     clear_confirm: "Tem certeza de que deseja limpar todo o formulário?",
@@ -1709,6 +1733,8 @@ const I18N = {
     footer_templates_heading: "Modèles par cas d'usage",
     footer_terms_link: "Conditions d'Utilisation",
     footer_privacy_link: "Politique de Confidentialité",
+    footer_about_link: "À propos",
+    footer_contact_link: "Contact",
     terms_modal_content: `<p>Dernière mise à jour : 22 août 2026.</p>
       <h3>1. Nature du service</h3>
       <p>DraftB2B est un outil gratuit de génération de documents qui aide à rédiger des accords de confidentialité (NDA), des contrats de prestation de services B2B, des politiques de confidentialité, des cessions de propriété intellectuelle et des procès-verbaux de solde de tout compte à partir de modèles standardisés. Son seul but est informatif et d'assistance à la rédaction commerciale.</p>
@@ -1745,14 +1771,18 @@ const I18N = {
       <p><strong>FormSubmit</strong> — si vous choisissez volontairement de laisser votre adresse e-mail dans le formulaire d'alerte sur les nouveaux modèles, cette adresse est envoyée à formsubmit.co, un service externe qui la relaie par e-mail vers notre boîte de réception. Nous ne stockons pas cette adresse sur un quelconque serveur qui nous appartienne ; l'envoi est soumis à la politique de confidentialité propre de FormSubmit.</p>
       <p><strong>Ko-fi</strong> — le bouton « Soutenez ce Projet » vous redirige vers ko-fi.com, un site externe indépendant. Nous ne partageons automatiquement aucune de vos données avec Ko-fi ; toute information que vous y fournissez est soumise à sa propre politique de confidentialité.</p>
       <p><strong>Bibliothèques chargées via CDN</strong> — nous utilisons des bibliothèques tierces publiques (Tailwind CSS, html2pdf.js, docx.js, qrcodejs) servies depuis des réseaux de diffusion de contenu pour générer l'interface, le PDF, le fichier Word et le code QR. Elles s'exécutent localement dans votre navigateur et ne transmettent le contenu de votre document à aucun serveur externe.</p>
+      <p><strong>Google Tag Manager et Google Analytics</strong> — nous utilisons Google Tag Manager pour gérer le chargement des scripts de mesure, y compris Google Analytics, qui collecte des données statistiques sur l'utilisation du site (pages consultées, durée de la visite, type d'appareil, localisation approximative) via des cookies propriétaires et tiers. Ces données sont traitées de manière agrégée et sont soumises à la politique de confidentialité de Google.</p>
+      <p><strong>Cloudflare Web Analytics</strong> — nous utilisons le service d'analyse web de Cloudflare, qui mesure les performances et le trafic du site via un script chargé depuis static.cloudflareinsights.com, soumis à la politique de confidentialité de Cloudflare.</p>
       <h3>5. Cookies et publicité</h3>
-      <p>DraftB2B n'utilise pas de cookies de suivi propres ni d'outils d'analyse tiers. Le site réserve des espaces visuels pour la publicité ; si des publicités de fournisseurs tiers (par exemple, Google AdSense) sont activées à l'avenir, elles pourraient utiliser des cookies conformément à leurs propres politiques —nous mettrons à jour cette section si cela se produit.</p>
+      <p>DraftB2B utilise des cookies et des technologies similaires aux fins décrites à la Section 4 : mesurer l'utilisation du site (Google Analytics, Cloudflare Web Analytics) et, le cas échéant, afficher de la publicité tierce via Google AdSense.</p>
+      <p><strong>Cookies publicitaires de Google (AdSense / DoubleClick)</strong> — ce site peut afficher des annonces Google AdSense. Google, en tant que fournisseur tiers, utilise des cookies publicitaires — dont le cookie DART — pour diffuser des annonces basées sur vos visites précédentes sur ce site et sur d'autres sites internet. Vous pouvez désactiver l'utilisation du cookie DART pour la publicité basée sur les centres d'intérêt en consultant les <a href="https://adssettings.google.com/" target="_blank" rel="noopener noreferrer">Paramètres des annonces Google</a>, ou désactiver les cookies d'autres fournisseurs publicitaires tiers sur <a href="https://optout.aboutads.info/" target="_blank" rel="noopener noreferrer">aboutads.info</a>.</p>
+      <p>Vous pouvez configurer votre navigateur pour refuser tous les cookies ou pour vous avertir lorsqu'un cookie est envoyé ; certaines parties du site pourraient ne pas fonctionner correctement si vous les désactivez.</p>
       <h3>6. Vos droits sur vos informations</h3>
       <p>Comme nous ne stockons pas vos données sur un serveur externe, il n'existe aucune base de données de notre part auprès de laquelle demander un accès, une rectification ou une suppression. Toutes vos informations résident uniquement sur votre propre appareil : pour les supprimer, il suffit d'effacer les données de navigation de ce site dans votre navigateur.</p>
       <h3>7. Modifications de cette politique</h3>
       <p>Nous pouvons mettre à jour cette politique occasionnellement. La date de la version en vigueur est indiquée en haut de ce document.</p>
       <h3>8. Contact</h3>
-      <p>Si vous avez des questions concernant cette politique, vous pouvez nous contacter via le formulaire de signalement de bugs et de suggestions accessible dans le pied de page.</p>`,
+      <p>Si vous avez des questions concernant cette politique, vous pouvez nous contacter via le lien Contact accessible dans le pied de page.</p>`,
     copy_success: "Texte copié dans le presse-papiers !",
     copy_error: "Impossible de copier le texte.",
     clear_confirm: "Voulez-vous vraiment effacer tout le formulaire ?",
@@ -2075,6 +2105,8 @@ const I18N = {
     footer_templates_heading: "Шаблоны по сценариям использования",
     footer_terms_link: "Условия использования",
     footer_privacy_link: "Политика конфиденциальности",
+    footer_about_link: "О нас",
+    footer_contact_link: "Контакты",
     terms_modal_content: `<p>Последнее обновление: 22 августа 2026 г.</p>
       <h3>1. Характер сервиса</h3>
       <p>DraftB2B — это бесплатный инструмент для создания документов, который помогает составлять соглашения о неразглашении (NDA), B2B-договоры об оказании услуг, политики конфиденциальности, договоры об уступке прав интеллектуальной собственности и акты взаиморасчётов по услугам на основе стандартизированных шаблонов. Его единственная цель — информационная поддержка и помощь в составлении коммерческих документов.</p>
@@ -2111,14 +2143,18 @@ const I18N = {
       <p><strong>FormSubmit</strong> — если вы добровольно решите оставить свой адрес электронной почты в форме уведомления о новых шаблонах, этот адрес отправляется в formsubmit.co, внешний сервис, который пересылает его по электронной почте в наш почтовый ящик. Мы не храним этот адрес ни на одном собственном сервере; отправка подчиняется собственной политике конфиденциальности FormSubmit.</p>
       <p><strong>Ko-fi</strong> — кнопка «Поддержать проект» переносит вас на ko-fi.com, независимый внешний сайт. Мы автоматически не передаём никакие ваши данные Ko-fi; любая информация, которую вы предоставляете там, подчиняется его собственной политике конфиденциальности.</p>
       <p><strong>Библиотеки, загружаемые через CDN</strong> — мы используем публичные сторонние библиотеки (Tailwind CSS, html2pdf.js, docx.js, qrcodejs), обслуживаемые сетями доставки контента, для создания интерфейса, PDF, Word и QR-кода. Они выполняются локально в вашем браузере и не передают содержимое вашего документа ни на какой внешний сервер.</p>
+      <p><strong>Google Tag Manager и Google Analytics</strong> — мы используем Google Tag Manager для управления загрузкой скриптов измерения, включая Google Analytics, который собирает статистические данные об использовании сайта (посещённые страницы, продолжительность визита, тип устройства, приблизительное местоположение) с помощью собственных и сторонних файлов cookie. Эти данные обрабатываются в агрегированном виде и подпадают под действие политики конфиденциальности Google.</p>
+      <p><strong>Cloudflare Web Analytics</strong> — мы используем сервис веб-аналитики Cloudflare, который измеряет производительность и трафик сайта с помощью скрипта, загружаемого с static.cloudflareinsights.com, и подпадает под действие политики конфиденциальности Cloudflare.</p>
       <h3>5. Файлы cookie и реклама</h3>
-      <p>DraftB2B не использует собственные отслеживающие файлы cookie или сторонние инструменты аналитики. Сайт резервирует визуальное пространство для рекламы; если в будущем будет включена реклама сторонних поставщиков (например, Google AdSense), они могут использовать файлы cookie в соответствии со своими собственными политиками —мы обновим этот раздел, если это произойдёт.</p>
+      <p>DraftB2B использует файлы cookie и аналогичные технологии для целей, описанных в Разделе 4: измерения использования сайта (Google Analytics, Cloudflare Web Analytics) и, когда это применимо, показа рекламы третьих сторон через Google AdSense.</p>
+      <p><strong>Рекламные файлы cookie Google (AdSense / DoubleClick)</strong> — этот сайт может показывать рекламу Google AdSense. Google, как сторонний поставщик, использует рекламные файлы cookie — включая файл cookie DART — для показа рекламы на основе ваших предыдущих посещений этого и других сайтов в интернете. Вы можете отключить использование файла cookie DART для рекламы на основе интересов, посетив <a href="https://adssettings.google.com/" target="_blank" rel="noopener noreferrer">Настройки рекламы Google</a>, или отключить файлы cookie других сторонних рекламных поставщиков на сайте <a href="https://optout.aboutads.info/" target="_blank" rel="noopener noreferrer">aboutads.info</a>.</p>
+      <p>Вы можете настроить браузер так, чтобы он отклонял все файлы cookie или предупреждал вас при отправке файла cookie; некоторые части сайта могут работать некорректно, если вы их отключите.</p>
       <h3>6. Ваши права в отношении вашей информации</h3>
       <p>Поскольку мы не храним ваши данные на каком-либо внешнем сервере, не существует нашей базы данных, к которой можно было бы обратиться с запросом на доступ, исправление или удаление. Вся ваша информация хранится только на вашем собственном устройстве: чтобы удалить её, достаточно очистить данные просмотра этого сайта в вашем браузере.</p>
       <h3>7. Изменения настоящей политики</h3>
       <p>Мы можем время от времени обновлять эту политику. Дата действующей версии указана в начале этого документа.</p>
       <h3>8. Контакты</h3>
-      <p>Если у вас есть вопросы об этой политике, вы можете связаться с нами через форму сообщения об ошибках и предложений, ссылка на которую находится в нижнем колонтитуле.</p>`,
+      <p>Если у вас есть вопросы об этой политике, вы можете связаться с нами через ссылку «Контакты» в нижнем колонтитуле.</p>`,
     copy_success: "Текст скопирован в буфер обмена!",
     copy_error: "Не удалось скопировать текст.",
     clear_confirm: "Вы уверены, что хотите очистить всю форму?",
@@ -2441,6 +2477,8 @@ const I18N = {
     footer_templates_heading: "按使用场景分类的模板",
     footer_terms_link: "服务条款",
     footer_privacy_link: "隐私政策",
+    footer_about_link: "关于我们",
+    footer_contact_link: "联系方式",
     terms_modal_content: `<p>最后更新：2026年8月22日。</p>
       <h3>1. 服务的性质</h3>
       <p>DraftB2B 是一款免费的文档生成工具，可帮助您根据标准化模板起草保密协议（NDA）、B2B 服务合同、隐私政策、知识产权转让合同以及服务结算书。其唯一目的是提供信息并协助商业文书起草。</p>
@@ -2477,14 +2515,18 @@ const I18N = {
       <p><strong>FormSubmit</strong> — 如果您自愿在新模板通知表单中留下您的电子邮件地址，该地址会发送到 formsubmit.co（一项外部服务），由其通过电子邮件转发到我们的收件箱。我们不会将该地址存储在我们自己的任何服务器上；提交行为受 FormSubmit 自身隐私政策的约束。</p>
       <p><strong>Ko-fi</strong> — "支持这个项目"按钮会将您带到 ko-fi.com，一个独立的外部网站。我们不会自动与 Ko-fi 分享您的任何数据；您在该网站提供的任何信息均受其自身隐私政策约束。</p>
       <p><strong>通过 CDN 加载的库</strong> — 我们使用公开的第三方库（Tailwind CSS、html2pdf.js、docx.js、qrcodejs），这些库由内容分发网络提供，用于生成界面、PDF、Word 文件和二维码。它们在您的浏览器本地运行，不会将您文档的内容传输到任何外部服务器。</p>
+      <p><strong>Google Tag Manager 和 Google Analytics</strong> — 我们使用 Google Tag Manager 管理测量脚本的加载，其中包括 Google Analytics，它通过自有及第三方 Cookie 收集有关网站使用情况的统计数据（访问页面、访问时长、设备类型、大致位置）。这些数据以汇总形式处理，并受 Google 隐私政策的约束。</p>
+      <p><strong>Cloudflare Web Analytics</strong> — 我们使用 Cloudflare 的网络分析服务，通过从 static.cloudflareinsights.com 加载的脚本衡量网站性能和流量，该服务受 Cloudflare 隐私政策约束。</p>
       <h3>5. Cookie 与广告</h3>
-      <p>DraftB2B 不使用自有的跟踪 Cookie，也不使用第三方分析工具。本网站为广告预留了视觉空间；如果未来启用了第三方广告（例如 Google AdSense），它们可能会根据自身政策使用 Cookie——如果发生这种情况，我们将更新本节内容。</p>
+      <p>DraftB2B 将 Cookie 及类似技术用于第 4 节所述目的：衡量网站使用情况（Google Analytics、Cloudflare Web Analytics），并在适用时通过 Google AdSense 展示第三方广告。</p>
+      <p><strong>Google 广告 Cookie（AdSense / DoubleClick）</strong> — 本网站可能展示 Google AdSense 广告。作为第三方供应商，Google 会使用广告 Cookie——包括 DART Cookie——根据您之前对本网站及互联网上其他网站的访问情况投放广告。您可以访问 <a href="https://adssettings.google.com/" target="_blank" rel="noopener noreferrer">Google 广告设置</a> 停用基于兴趣的广告所使用的 DART Cookie，或访问 <a href="https://optout.aboutads.info/" target="_blank" rel="noopener noreferrer">aboutads.info</a> 停用其他第三方广告供应商的 Cookie。</p>
+      <p>您可以将浏览器设置为拒绝所有 Cookie，或在发送 Cookie 时向您发出提示；但禁用后，网站的部分功能可能无法正常运作。</p>
       <h3>6. 您对自己信息的权利</h3>
       <p>由于我们不在任何外部服务器上存储您的数据，因此不存在可供您申请访问、更正或删除的我方数据库。您的所有信息仅存在于您自己的设备上：要删除这些信息，只需在浏览器中清除本网站的浏览数据即可。</p>
       <h3>7. 本政策的变更</h3>
       <p>我们可能会不定期更新本政策。文档开头标明了现行版本的日期。</p>
       <h3>8. 联系方式</h3>
-      <p>如果您对本政策有任何疑问，可以通过页脚中链接的错误报告/建议表单与我们联系。</p>`,
+      <p>如果您对本政策有任何疑问，可以通过页脚中的"联系方式"链接与我们联系。</p>`,
     copy_success: "文本已复制到剪贴板！",
     copy_error: "无法复制文本。",
     clear_confirm: "确定要清空整个表单吗？",
@@ -2807,6 +2849,8 @@ const I18N = {
     footer_templates_heading: "用途別テンプレート",
     footer_terms_link: "利用規約",
     footer_privacy_link: "プライバシーポリシー",
+    footer_about_link: "サイトについて",
+    footer_contact_link: "お問い合わせ",
     terms_modal_content: `<p>最終更新日：2026年8月22日。</p>
       <h3>1. サービスの性質</h3>
       <p>DraftB2Bは、標準化されたテンプレートをもとに秘密保持契約（NDA）、B2Bサービス契約、プライバシーポリシー、知的財産権譲渡契約、サービス精算書の作成を支援する無料の文書生成ツールです。その唯一の目的は、情報提供および商用文書作成の補助です。</p>
@@ -2843,14 +2887,18 @@ const I18N = {
       <p><strong>FormSubmit</strong> — 新テンプレート通知フォームに任意でメールアドレスを入力された場合、そのアドレスは外部サービスであるformsubmit.coに送信され、当社の受信箱にメールで転送されます。当社独自のサーバーにそのアドレスを保存することはなく、送信はFormSubmit独自のプライバシーポリシーに従います。</p>
       <p><strong>Ko-fi</strong> — 「このプロジェクトを支援する」ボタンをクリックすると、独立した外部サイトであるko-fi.comに移動します。当社がお客様のデータを自動的にKo-fiと共有することはなく、そこで提供する情報はKo-fi独自のプライバシーポリシーに従います。</p>
       <p><strong>CDN経由で読み込まれるライブラリ</strong> — 当社は、インターフェース、PDF、Word、QRコードを生成するために、コンテンツ配信ネットワークから提供される公開の第三者ライブラリ（Tailwind CSS、html2pdf.js、docx.js、qrcodejs）を使用しています。これらはお客様のブラウザ内でローカルに実行され、文書の内容を外部サーバーに送信することはありません。</p>
-      <h3>5. Cookieと広告</h3>
-      <p>DraftB2Bは独自の追跡Cookieや第三者の分析ツールを使用していません。当サイトは広告用の表示スペースを確保していますが、将来的に第三者広告（例：Google AdSense）が有効化された場合、それらは各社独自のポリシーに基づいてCookieを使用する可能性があります。その場合は本セクションを更新します。</p>
+      <p><strong>Google タグマネージャーおよび Google アナリティクス</strong> — 当社は、測定用スクリプトの読み込みを管理するために Google タグマネージャーを使用しており、その中には Google アナリティクスが含まれます。Google アナリティクスは、自社および第三者の Cookie を通じて、サイトの利用状況（閲覧ページ、滞在時間、デバイスの種類、おおよその位置情報）に関する統計データを収集します。これらのデータは集計された形で処理され、Google のプライバシーポリシーの対象となります。</p>
+      <p><strong>Cloudflare Web Analytics</strong> — 当社は、static.cloudflareinsights.com から読み込まれるスクリプトを介してサイトのパフォーマンスとトラフィックを測定する Cloudflare のウェブ解析サービスを使用しており、Cloudflare のプライバシーポリシーの対象となります。</p>
+      <h3>5. Cookie と広告</h3>
+      <p>DraftB2Bは、第4項に記載された目的——サイトの利用状況の測定（Google アナリティクス、Cloudflare Web Analytics）、および該当する場合には Google AdSense を通じた第三者広告の表示——のために Cookie および類似の技術を使用します。</p>
+      <p><strong>Google の広告用 Cookie（AdSense / DoubleClick）</strong> — 当サイトは Google AdSense の広告を表示する場合があります。第三者ベンダーである Google は、DART Cookie を含む広告用 Cookie を使用して、お客様が当サイトおよびインターネット上の他のサイトを過去に訪問した履歴に基づいて広告を配信します。興味関心に基づく広告のための DART Cookie を無効にするには <a href="https://adssettings.google.com/" target="_blank" rel="noopener noreferrer">Google 広告設定</a> を、その他の第三者広告ベンダーの Cookie を無効にするには <a href="https://optout.aboutads.info/" target="_blank" rel="noopener noreferrer">aboutads.info</a> をご覧ください。</p>
+      <p>ブラウザの設定で、すべての Cookie を拒否したり、Cookie が送信される際に通知を受け取るように設定することができますが、その場合サイトの一部機能が正常に動作しない可能性があります。</p>
       <h3>6. お客様の情報に関する権利</h3>
       <p>当社は外部サーバーにお客様のデータを保存していないため、アクセス、訂正、削除を要求できる当社のデータベースは存在しません。お客様の情報はすべてお客様自身のデバイスにのみ存在します。削除するには、ブラウザでこのサイトの閲覧データを消去するだけで済みます。</p>
       <h3>7. 本ポリシーの変更</h3>
       <p>当社は本ポリシーを随時更新する場合があります。現行バージョンの日付は本文書の冒頭に記載されています。</p>
       <h3>8. お問い合わせ</h3>
-      <p>本ポリシーに関するご質問がございましたら、フッターにリンクされているバグ報告・提案フォームからご連絡ください。</p>`,
+      <p>本ポリシーに関するご質問がございましたら、フッターの「お問い合わせ」リンクからご連絡ください。</p>`,
     copy_success: "テキストをクリップボードにコピーしました！",
     copy_error: "テキストをコピーできませんでした。",
     clear_confirm: "フォーム全体をクリアしてもよろしいですか？",
@@ -3173,6 +3221,8 @@ const I18N = {
     footer_templates_heading: "उपयोग के अनुसार टेम्पलेट",
     footer_terms_link: "सेवा की शर्तें",
     footer_privacy_link: "गोपनीयता नीति",
+    footer_about_link: "हमारे बारे में",
+    footer_contact_link: "संपर्क करें",
     terms_modal_content: `<p>अंतिम अद्यतन: 22 अगस्त, 2026।</p>
       <h3>1. सेवा की प्रकृति</h3>
       <p>DraftB2B एक निःशुल्क दस्तावेज़-निर्माण उपकरण है जो मानकीकृत टेम्पलेट्स के आधार पर गोपनीयता समझौते (NDA), B2B सेवा अनुबंध, गोपनीयता नीतियां, बौद्धिक संपदा समनुदेशन और सेवा निपटान विलेख तैयार करने में मदद करता है। इसका एकमात्र उद्देश्य सूचनात्मक है और वाणिज्यिक प्रारूपण में सहायता करना है।</p>
@@ -3209,14 +3259,18 @@ const I18N = {
       <p><strong>FormSubmit</strong> — यदि आप स्वेच्छा से नए टेम्पलेट सूचना फ़ॉर्म में अपना ईमेल पता छोड़ने का निर्णय लेते हैं, तो वह पता formsubmit.co को भेजा जाता है, जो एक बाहरी सेवा है और इसे ईमेल के माध्यम से हमारे इनबॉक्स में अग्रेषित करती है। हम उस पते को अपने किसी भी सर्वर पर संग्रहीत नहीं करते; यह सबमिशन FormSubmit की अपनी गोपनीयता नीति के अधीन है।</p>
       <p><strong>Ko-fi</strong> — "इस परियोजना का समर्थन करें" बटन आपको ko-fi.com पर ले जाता है, जो एक स्वतंत्र बाहरी साइट है। हम स्वचालित रूप से आपका कोई भी डेटा Ko-fi के साथ साझा नहीं करते; वहां आपके द्वारा प्रदान की गई कोई भी जानकारी उसकी अपनी गोपनीयता नीति के अधीन है।</p>
       <p><strong>CDN के माध्यम से लोड की गई लाइब्रेरीज़</strong> — हम इंटरफ़ेस, PDF, Word और QR कोड जनरेट करने के लिए कंटेंट डिलीवरी नेटवर्क से सर्व की जाने वाली सार्वजनिक तृतीय-पक्ष लाइब्रेरीज़ (Tailwind CSS, html2pdf.js, docx.js, qrcodejs) का उपयोग करते हैं। ये आपके ब्राउज़र में स्थानीय रूप से चलती हैं और आपके दस्तावेज़ की सामग्री को किसी भी बाहरी सर्वर पर प्रसारित नहीं करतीं।</p>
+      <p><strong>Google टैग मैनेजर और Google Analytics</strong> — हम मापन स्क्रिप्ट्स को लोड करने हेतु Google टैग मैनेजर का उपयोग करते हैं, जिसमें Google Analytics भी शामिल है, जो प्रथम-पक्ष और तृतीय-पक्ष कुकीज़ के माध्यम से साइट उपयोग (देखे गए पृष्ठ, विज़िट अवधि, डिवाइस प्रकार, अनुमानित स्थान) से संबंधित सांख्यिकीय डेटा एकत्र करता है। यह डेटा समग्र रूप में संसाधित किया जाता है और Google की गोपनीयता नीति के अधीन है।</p>
+      <p><strong>Cloudflare Web Analytics</strong> — हम Cloudflare की वेब एनालिटिक्स सेवा का उपयोग करते हैं, जो static.cloudflareinsights.com से लोड की गई स्क्रिप्ट के माध्यम से साइट के प्रदर्शन और ट्रैफ़िक को मापती है, जो Cloudflare की गोपनीयता नीति के अधीन है।</p>
       <h3>5. कुकीज़ और विज्ञापन</h3>
-      <p>DraftB2B अपनी कोई ट्रैकिंग कुकीज़ या तृतीय-पक्ष एनालिटिक्स टूल का उपयोग नहीं करता। साइट विज्ञापन के लिए दृश्य स्थान आरक्षित रखती है; यदि भविष्य में तृतीय-पक्ष विज्ञापन (उदाहरण के लिए, Google AdSense) सक्षम किए जाते हैं, तो वे अपनी स्वयं की नीतियों के अनुसार कुकीज़ का उपयोग कर सकते हैं —यदि ऐसा होता है तो हम इस अनुभाग को अपडेट करेंगे।</p>
+      <p>DraftB2B, धारा 4 में वर्णित उद्देश्यों के लिए कुकीज़ और समान तकनीकों का उपयोग करता है: साइट उपयोग को मापना (Google Analytics, Cloudflare Web Analytics), और जहां लागू हो, Google AdSense के माध्यम से तृतीय-पक्ष विज्ञापन प्रदर्शित करना।</p>
+      <p><strong>Google की विज्ञापन कुकीज़ (AdSense / DoubleClick)</strong> — यह साइट Google AdSense के विज्ञापन प्रदर्शित कर सकती है। एक तृतीय-पक्ष विक्रेता के रूप में, Google इस साइट और इंटरनेट पर अन्य साइटों पर आपकी पिछली विज़िट्स के आधार पर विज्ञापन दिखाने के लिए DART कुकी सहित विज्ञापन कुकीज़ का उपयोग करता है। आप रुचि-आधारित विज्ञापन हेतु DART कुकी को <a href="https://adssettings.google.com/" target="_blank" rel="noopener noreferrer">Google विज्ञापन सेटिंग्स</a> पर जाकर अक्षम कर सकते हैं, या अन्य तृतीय-पक्ष विज्ञापन विक्रेताओं की कुकीज़ को <a href="https://optout.aboutads.info/" target="_blank" rel="noopener noreferrer">aboutads.info</a> पर अक्षम कर सकते हैं।</p>
+      <p>आप अपने ब्राउज़र को सभी कुकीज़ अस्वीकार करने या कुकी भेजे जाने पर आपको सूचित करने के लिए कॉन्फ़िगर कर सकते हैं; इन्हें अक्षम करने पर साइट के कुछ हिस्से ठीक से काम नहीं कर सकते।</p>
       <h3>6. आपकी जानकारी पर आपके अधिकार</h3>
       <p>चूंकि हम आपका डेटा किसी बाहरी सर्वर पर संग्रहीत नहीं करते, इसलिए हमारा कोई डेटाबेस नहीं है जिससे पहुंच, सुधार या हटाने का अनुरोध किया जा सके। आपकी सारी जानकारी केवल आपके अपने डिवाइस पर मौजूद रहती है: इसे हटाने के लिए, बस अपने ब्राउज़र में इस साइट का ब्राउज़िंग डेटा साफ़ करें।</p>
       <h3>7. इस नीति में परिवर्तन</h3>
       <p>हम इस नीति को समय-समय पर अपडेट कर सकते हैं। वर्तमान संस्करण की तिथि इस दस्तावेज़ के शीर्ष पर दर्शाई गई है।</p>
       <h3>8. संपर्क करें</h3>
-      <p>यदि आपके पास इस नीति के बारे में कोई प्रश्न हैं, तो आप फ़ुटर में लिंक किए गए बग-रिपोर्ट / सुझाव फ़ॉर्म के माध्यम से हमसे संपर्क कर सकते हैं।</p>`,
+      <p>यदि आपके पास इस नीति के बारे में कोई प्रश्न हैं, तो आप फ़ुटर में दिए गए "संपर्क करें" लिंक के माध्यम से हमसे संपर्क कर सकते हैं।</p>`,
     copy_success: "टेक्स्ट क्लिपबोर्ड पर कॉपी हो गया!",
     copy_error: "टेक्स्ट कॉपी नहीं किया जा सका।",
     clear_confirm: "क्या आप वाकई पूरा फ़ॉर्म साफ़ करना चाहते हैं?",

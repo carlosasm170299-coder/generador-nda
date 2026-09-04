@@ -461,4 +461,25 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://draftb2b.com/templates/freelance-contract"/>
   </url>
 
+  <url>
+    <loc>https://draftb2b.com/privacy</loc>
+    <lastmod>2026-08-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://draftb2b.com/terms</loc>
+    <lastmod>2026-08-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://draftb2b.com/about</loc>
+    <lastmod>2026-08-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
 </urlset>
